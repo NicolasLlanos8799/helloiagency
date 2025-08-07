@@ -1,0 +1,172 @@
+
+/* styles.css */
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #111;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar .logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.navbar nav ul {
+  display: flex;
+  gap: 25px;
+}
+
+.btn-primary {
+  background-color: #b4f03d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text {
+  flex: 1 1 50%;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  flex: 1 1 40%;
+  max-width: 600px;
+}
+
+.hero-images img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Sections (analytics + channels) */
+.analytics, .channels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 60px 40px;
+  gap: 40px;
+}
+
+.image-block {
+  flex: 1 1 50%;
+}
+
+.image-block img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.text-block {
+  flex: 1 1 45%;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.text-block h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.text-block p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.btn-outline {
+  border: 1px solid #222;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Contact */
+.contact {
+  padding: 60px 40px;
+  background-color: #f9f9f9;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Footer */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer .social-icons span {
+  font-size: 1.4rem;
+  margin: 0 8px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+}
