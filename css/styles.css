@@ -1,0 +1,463 @@
+/* styles.css */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #111;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar .logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.navbar nav ul {
+  display: flex;
+  gap: 25px;
+}
+
+.btn-primary {
+  background-color: #b4f03d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 60px 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text {
+  flex: 1 1 45%;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.hero-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  flex: 1 1 45%;
+}
+
+.hero-images img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Stack Scroll Effect (ACTUALIZADO) --- */
+.feature-split {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px;
+}
+
+.split-block.with-stack {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.split-image {
+  flex: 1 1 50%;
+}
+
+.split-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.sticky-image {
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+
+.split-text {
+  flex: 1 1 50%;
+  position: relative;
+}
+
+.stack-container {
+  position: relative;
+  width: 100%;
+}
+
+.stack-card {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  pointer-events: none;
+  transition: all 0.6s ease;
+}
+
+.stack-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Solapamiento de tarjetas de abajo hacia arriba */
+.stack-card:not(:first-child) {
+  margin-top: -120px;
+}
+
+.stack-card .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.stack-card h2 {
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.stack-card p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.stack-card p.label {
+  font-weight: bold;
+  color: #888;
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.stack-card .btn-outline {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid #111;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .split-block.with-stack {
+    flex-direction: column;
+  }
+
+  .sticky-image {
+    position: relative;
+    top: auto;
+  }
+
+  .stack-card {
+    position: relative;
+    top: auto;
+    margin-top: 40px !important;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .stack-card:not(:first-child) {
+    margin-top: 40px !important;
+  }
+}
+
+/* Contact */
+.contact {
+  padding: 80px 40px;
+  background-color: #fff;
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-info {
+  flex: 1 1 45%;
+}
+
+.contact-info .label {
+  color: #999;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.contact-info h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.contact-info .subtitle {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.contact-item .icon {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.contact-image {
+  flex: 1 1 45%;
+}
+
+.contact-image img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Footer */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 30px 40px;
+  text-align: center;
+}
+
+.footer-icons span {
+  font-size: 1.4rem;
+  margin: 0 8px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Contenedor horizontal */
+.split-block.style-v2 {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  flex-wrap: wrap;
+}
+
+.split-block.style-v2 .split-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  width: 600px;
+}
+
+/* Tarjeta de texto a la derecha */
+.split-block.style-v2 .card {
+  flex: 1;
+  max-width: 500px;
+  padding: 60px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card .label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card .big-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.card .subtitle {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.card .btn-outline.big {
+  margin-top: auto;
+  width: fit-content;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid #111;
+  border-radius: 10px;
+}
+
+/* Responsive para mobile */
+@media (max-width: 768px) {
+  .split-block.style-v2 {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .split-block.style-v2 .card {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .card .btn-outline.big {
+    margin: 0 auto;
+  }
+
+  .split-block {
+    flex-direction: column;
+  }
+
+  .split-text {
+    gap: 16px;
+     flex: 1 1 50%;
+  position: relative;
+  min-height: 1800px; /* ⚠️ Temporal para forzar scroll */
+  }
+
+  .split-text .text-block {
+    padding: 20px;
+  }
+}
+
+/* --- Stack Scroll Effect --- */
+.feature-stack-section {
+  position: relative;
+  background: #fff;
+  padding: 200px 0;
+}
+
+.stack-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* espacio entre tarjetas */
+}
+
+.stack-card {
+  position: sticky;
+  top: 100px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+
+  /* 👇 Nueva parte */
+  opacity: 0;
+  transform: scale(0.96);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.stack-card.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+
+.stack-card:not(:first-child) {
+  margin-top: -120px; /* se superponen con leve offset */
+}
+
+.stack-card h2 {
+  font-size: 2rem;
+  margin: 0 0 10px;
+}
+
+.stack-card p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.stack-card .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.stack-card .btn-outline {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stack-card {
+    padding: 40px 20px;
+    top: 60px;
+  }
+
+  .stack-card:not(:first-child) {
+    margin-top: -100px;
+  }
+}
