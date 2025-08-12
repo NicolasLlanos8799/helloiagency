@@ -12,9 +12,10 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 
-<body>
+  <body>
   <header class="navbar">
     <div class="logo">⭐ iAgency</div>
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
     <nav>
       <ul>
         <li><a href="#">Work</a></li>
@@ -135,6 +136,12 @@
     AOS.init({
       duration: 800,
       once: true
+    });
+
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.navbar nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
     });
   </script>
 </body>
