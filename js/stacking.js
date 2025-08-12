@@ -16,5 +16,14 @@
     });
   }
 
-  window.addEventListener('scroll', revealCardsOnScroll);
-  window.addEventListener('load', revealCardsOnScroll);
+window.addEventListener('scroll', revealCardsOnScroll);
+window.addEventListener('load', revealCardsOnScroll);
+
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.navbar nav');
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+}
