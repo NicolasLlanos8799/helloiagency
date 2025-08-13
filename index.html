@@ -256,6 +256,31 @@
       });
     });
 
+    // Cerrar al salir con el puntero del área del dropdown
+    document.querySelectorAll('.dropdown').forEach(drop => {
+      const menu = drop.querySelector('.dropdown-menu, .dropdown-simple');
+
+      drop.addEventListener('mouseleave', (e) => {
+        const to = e.relatedTarget;
+        if (!drop.contains(to)) {
+          drop.classList.remove('open', 'no-hover');
+          const toggle = drop.querySelector('.dropdown-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (menu) {
+        menu.addEventListener('mouseleave', (e) => {
+          const to = e.relatedTarget;
+          if (!drop.contains(to)) {
+            drop.classList.remove('open', 'no-hover');
+            const toggle = drop.querySelector('.dropdown-toggle');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+
     // Cerrar al hacer click fuera
     document.addEventListener('click', (e) => {
       const inside = e.target.closest('.dropdown');

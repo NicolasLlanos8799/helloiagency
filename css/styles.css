@@ -625,9 +625,13 @@ nav ul li a:hover {
 
 /* Abrir por hover en desktop y por clase .open en JS */
 .dropdown:hover > .dropdown-menu,
-.dropdown:hover > .dropdown-simple { display: block; }
+.dropdown:hover > .dropdown-simple,
+.dropdown > .dropdown-menu:hover,
+.dropdown > .dropdown-simple:hover { display: block; }
 .dropdown.no-hover:hover > .dropdown-menu,
-.dropdown.no-hover:hover > .dropdown-simple { display: none; }
+.dropdown.no-hover:hover > .dropdown-simple,
+.dropdown.no-hover > .dropdown-menu:hover,
+.dropdown.no-hover > .dropdown-simple:hover { display: none; }
 .dropdown.open > .dropdown-menu,
 .dropdown.open > .dropdown-simple { display: block; }
 .dropdown.open > .dropdown-toggle .arrow { transform: rotate(180deg); }
