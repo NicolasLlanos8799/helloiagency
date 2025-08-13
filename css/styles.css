@@ -27,6 +27,14 @@ ul {
   border-bottom: 1px solid #eee;
 }
 
+/* Allow dropdowns to escape the header on desktop */
+.navbar,
+.navbar nav,
+.navbar nav ul,
+.main-nav {
+  overflow: visible;
+}
+
 .navbar .logo {
   font-weight: 800;
   font-size: 1.3rem;
@@ -618,7 +626,7 @@ nav ul li a:hover {
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
   min-width: 920px;   /* tamaño grande como referencia */
   max-width: 1120px;  /* opcional */
-  z-index: 50;
+  z-index: 1000; /* ensure mega menu sits above header */
 }
 
 /* Abrir por hover en desktop y por clase .open en JS */
@@ -676,6 +684,14 @@ nav ul li a:hover {
 
 /* --- Responsive (móvil) --- */
 @media (max-width: 900px) {
+  /* On mobile the navbar should clip its content */
+  .navbar,
+  .navbar nav,
+  .main-nav,
+  .main-nav ul {
+    overflow: hidden;
+  }
+
   .dropdown-menu {
     position: static;   /* se integra al flujo del menú móvil */
     display: none;      /* por defecto cerrado */
