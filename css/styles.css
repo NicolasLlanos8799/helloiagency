@@ -567,7 +567,10 @@ nav ul li a:hover {
 }
 .main-nav li { position: relative; }
 
-.nav-link {
+
+/* estilos compartidos para enlaces del nav y toggles del dropdown */
+.nav-link,
+.dropdown-toggle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -575,40 +578,50 @@ nav ul li a:hover {
   border-radius: 10px;
   text-decoration: none;
   color: #111;
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: background-color .2s ease;
 }
-.nav-link:hover { background: #f3f3f3; }
+.nav-link:hover,
+.dropdown-toggle:hover { background: #f3f3f3; }
 
 .arrow { font-size: .75em; transition: transform .2s ease; }
 
 /* --- Mega dropdown (desktop) --- */
-/* Centra el panel bajo el botón y evita overflow laterales */
+/* 1. Ancho grande pero seguro */
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: min(100vw - 24px, 960px);
+  transform: translate(-50%, 8px);
+  width: clamp(720px, 88vw, 1200px);
+  max-width: calc(100vw - 24px);
   margin-inline: 12px;
   background: #fff;
-  border-radius: 16px;
-  padding: 28px;
-  display: none;
+  border-radius: 14px;
+  padding: 32px;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease; /* 9. Animación */
   z-index: 50;
 }
 
-/* Abrir por hover en desktop y por clase .open en JS */
-.dropdown:hover > .dropdown-menu { display: block; }
-.dropdown.no-hover:hover > .dropdown-menu { display: none; }
-.dropdown.open > .dropdown-menu { display: block; }
+/* 7. Interacción: hover en desktop, clase .open en JS */
+.dropdown.open > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
 .dropdown.open > .dropdown-toggle .arrow { transform: rotate(180deg); }
 
 /* Contenido interno */
 .dropdown-content {
   display: grid;
-  grid-template-columns: 1fr 360px; /* izquierda lista, derecha tarjeta */
+  grid-template-columns: 2fr 1fr;
   gap: 40px;
 }
 
@@ -617,6 +630,12 @@ nav ul li a:hover {
   font-size: 12px;
   letter-spacing: .12em;
   margin: 0 0 14px 0;
+}
+
+.menu-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .menu-item {
@@ -635,46 +654,55 @@ nav ul li a:hover {
 
 .icon { font-size: 20px; line-height: 1; }
 
-/* Tarjeta derecha negra */
-.cta-card {
+/* Panel derecho oscuro */
+.menu-cta {
   background: #0a0a0a;
   color: #fff;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 14px;
+  padding: 32px;
   display: grid;
   align-content: start;
-  gap: 10px;
+  gap: 12px;
 }
-.cta-card h3 { margin: 0; }
-.cta-card p  { margin: 0 0 8px 0; color: #cfcfcf; }
-.cta-card .cta-link {
+.menu-cta h3 { margin: 0; }
+.menu-cta p  { margin: 0 0 8px 0; color: #cfcfcf; }
+.menu-cta .cta-link {
   display: inline-flex; align-items: center; gap: 8px;
   color: #fff; text-decoration: none; font-weight: 600;
 }
 
 /* --- Responsive (móvil) --- */
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .dropdown-menu {
-    position: static;   /* se integra al flujo del menú móvil */
-    display: none;      /* por defecto cerrado */
-    min-width: auto;
+    position: static; /* se integra al flujo del menú móvil */
+    width: min(100vw - 16px, 720px);
     max-width: none;
-    width: 100%;
-    margin-top: 8px;
-    padding: 16px;
+    margin: 8px auto 0;
+    padding: 20px;
+    border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0,0,0,.06);
-    border-radius: 12px;
-    margin-inline: 0;
     transform: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
-  .dropdown.open > .dropdown-menu { display: block; }
+  .dropdown.open > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 
-  .dropdown-content { display: block; } /* apilado */
-  .cta-card { margin-top: 16px; }
+  .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .menu-cta { margin-top: 8px; }
 
-  .nav-link { padding: 12px 14px; } /* área táctil */
+  .nav-link,
+  .dropdown-toggle { padding: 12px 14px; } /* área táctil */
   /* Ocultar dropdown si el nav está colapsado */
-.navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
+  .navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
 }
 
 @media (max-width: 480px) {

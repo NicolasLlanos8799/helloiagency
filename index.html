@@ -20,17 +20,18 @@
       <ul>
         <!-- Dropdown Work -->
         <li class="dropdown">
-          <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <!-- 5. Accesibilidad: aria-haspopup y aria-expanded -->
+          <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             Work <span class="arrow" aria-hidden="true">▼</span>
-          </a>
+          </button>
 
           <!-- Mega menu -->
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
-              <div class="col left">
+              <div class="menu-col">
                 <p class="menu-label">ASSISTANTS</p>
 
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" role="menuitem">
                   <span class="icon">📄</span>
                   <span>
                     <strong>WhatsApp Bot</strong>
@@ -38,7 +39,7 @@
                   </span>
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" role="menuitem">
                   <span class="icon">📄</span>
                   <span>
                     <strong>CRM Auto-Filler</strong>
@@ -46,7 +47,7 @@
                   </span>
                 </a>
 
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" role="menuitem">
                   <span class="icon">📄</span>
                   <span>
                     <strong>Hotel Multichannel</strong>
@@ -55,7 +56,7 @@
                 </a>
               </div>
 
-              <div class="col right cta-card">
+              <div class="menu-cta">
                 <h3>See AI in action</h3>
                 <p>View real automation projects</p>
                 <a href="#" class="cta-link">View work →</a>
@@ -70,24 +71,24 @@
 
         <!-- Dropdown Support -->
         <li class="dropdown">
-          <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             Support <span class="arrow" aria-hidden="true">▼</span>
-          </a>
+          </button>
 
           <div class="dropdown-menu" role="menu">
             <div class="dropdown-content">
-              <div class="col left">
+              <div class="menu-col">
                 <p class="menu-label">SUPPORT</p>
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" role="menuitem">
                   <span class="icon">💬</span>
                   <span><strong>Chat</strong><small>Live help</small></span>
                 </a>
-                <a href="#" class="menu-item">
+                <a href="#" class="menu-item" role="menuitem">
                   <span class="icon">📚</span>
                   <span><strong>Docs</strong><small>Guides & API</small></span>
                 </a>
               </div>
-              <div class="col right cta-card">
+              <div class="menu-cta">
                 <h3>Need help?</h3>
                 <p>We’re here 24/7</p>
                 <a href="#" class="cta-link">Open ticket →</a>
@@ -245,60 +246,96 @@
     // Ajusta la posición del mega dropdown para evitar overflow
     function adjustDropdownPosition(menu) {
       if (!menu) return;
-      if (window.matchMedia('(max-width: 900px)').matches) {
+      if (window.matchMedia('(max-width: 1023px)').matches) {
         menu.style.transform = '';
         return;
       }
-      // Reset al centrado base
-      menu.style.transform = 'translateX(-50%)';
+      menu.style.transform = 'translate(-50%, 0)';
       const rect = menu.getBoundingClientRect();
       const leftOverflow  = 12 - rect.left;
       const rightOverflow = rect.right - (window.innerWidth - 12);
       if (leftOverflow > 0) {
-        menu.style.transform = `translateX(calc(-50% + ${leftOverflow}px))`;
+        menu.style.transform = `translate(calc(-50% + ${leftOverflow}px), 0)`;
       } else if (rightOverflow > 0) {
-        menu.style.transform = `translateX(calc(-50% - ${rightOverflow}px))`;
+        menu.style.transform = `translate(calc(-50% - ${rightOverflow}px), 0)`;
       }
     }
 
-    // Dropdowns: abrir/cerrar por click (móvil y desktop accesible)
-    const dropdownToggles = document.querySelectorAll('.dropdown > .dropdown-toggle');
+    const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdownToggles.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const li = btn.closest('.dropdown');
-        const wasOpen = li.classList.contains('open');
+    function closeDropdown(drop) {
+      drop.classList.remove('open');
+      const t = drop.querySelector('.dropdown-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    }
 
-        // Permite reabrir por click incluso si aún tiene la clase de protección
-        li.classList.remove('no-hover');
+    dropdowns.forEach(drop => {
+      const toggle = drop.querySelector('.dropdown-toggle');
+      const menu   = drop.querySelector('.dropdown-menu');
+      const items  = menu.querySelectorAll('.menu-item');
 
-        // Cierra todos los dropdowns abiertos
+      function openDropdown(focusFirst = false) {
         document.querySelectorAll('.dropdown.open').forEach(d => {
-          d.classList.remove('open', 'no-hover');
-          const toggle = d.querySelector('.dropdown-toggle');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+          if (d !== drop) closeDropdown(d);
         });
+        drop.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        adjustDropdownPosition(menu);
+        if (focusFirst) items[0]?.focus();
+      }
 
-        if (!wasOpen) {
-          // Abrir
-          li.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-          adjustDropdownPosition(li.querySelector('.dropdown-menu'));
-        } else {
-          // Cerrar y prevenir reapertura inmediata por hover
-          btn.setAttribute('aria-expanded', 'false');
-          li.classList.remove('open');
-          li.classList.add('no-hover');
-          li.addEventListener('mouseleave', () => li.classList.remove('no-hover'), { once: true });
+      // 7. Interacción: click para abrir/cerrar
+      toggle.addEventListener('click', e => {
+        e.preventDefault();
+        drop.classList.contains('open') ? closeDropdown(drop) : openDropdown();
+      });
+
+      // Hover en desktop
+      drop.addEventListener('mouseenter', () => {
+        if (window.matchMedia('(hover:hover)').matches) openDropdown();
+      });
+      drop.addEventListener('mouseleave', () => {
+        if (window.matchMedia('(hover:hover)').matches) closeDropdown(drop);
+      });
+
+      // Accesibilidad teclado
+      toggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          drop.classList.contains('open') ? closeDropdown(drop) : openDropdown(true);
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (!drop.classList.contains('open')) openDropdown(true);
+          else items[0]?.focus();
         }
+      });
+
+      menu.addEventListener('keydown', e => {
+        const idx = Array.from(items).indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = items[(idx + 1) % items.length];
+          next.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = items[(idx - 1 + items.length) % items.length];
+          prev.focus();
+        } else if (e.key === 'Escape') {
+          closeDropdown(drop);
+          toggle.focus();
+        }
+      });
+
+      menu.addEventListener('focusout', e => {
+        if (!drop.contains(e.relatedTarget)) closeDropdown(drop);
       });
     });
 
-    // Ajustar al abrir por hover
-    document.querySelectorAll('.dropdown').forEach(li => {
-      const menu = li.querySelector('.dropdown-menu');
-      li.addEventListener('mouseenter', () => adjustDropdownPosition(menu));
+    // Cierre al hacer click fuera
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown.open').forEach(closeDropdown);
+      }
     });
 
     // Recalcular en cambio de tamaño
@@ -306,26 +343,10 @@
       document.querySelectorAll('.dropdown.open > .dropdown-menu').forEach(adjustDropdownPosition);
     });
 
-    // Cerrar al hacer click fuera
-    document.addEventListener('click', (e) => {
-      const inside = e.target.closest('.dropdown');
-      if (!inside) {
-        document.querySelectorAll('.dropdown.open').forEach(d => {
-          d.classList.remove('open', 'no-hover');
-          const toggle = d.querySelector('.dropdown-toggle');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-
-    // Cerrar con ESC
-    document.addEventListener('keydown', (e) => {
+    // Cerrar con ESC desde cualquier lugar
+    document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        document.querySelectorAll('.dropdown.open').forEach(d => {
-          d.classList.remove('open', 'no-hover');
-          const toggle = d.querySelector('.dropdown-toggle');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
+        document.querySelectorAll('.dropdown.open').forEach(closeDropdown);
       }
     });
   </script>
