@@ -692,7 +692,6 @@ nav ul li a:hover {
   .cta-card { margin-top: 16px; }
 
   .nav-link { padding: 12px 14px; } /* área táctil */
+  /* Ocultar dropdown si el nav está colapsado */
+  .navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
 }
-
-/* Ocultar dropdown si el nav está colapsado */
-.navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
