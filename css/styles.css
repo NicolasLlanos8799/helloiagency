@@ -624,9 +624,14 @@ nav ul li a:hover {
   padding: 28px;
   display: none;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  min-width: 920px;   /* tamaño grande como referencia */
-  max-width: 1120px;  /* opcional */
+  width: min(1120px, calc(100vw - 40px));
   z-index: 1000; /* ensure mega menu sits above header */
+}
+
+/* Align the last dropdown (Support) to the right so it stays onscreen */
+.main-nav ul > li.dropdown:last-child > .dropdown-menu {
+  right: 0;
+  left: auto;
 }
 
 /* Abrir por hover en desktop y por clase .open en JS */
