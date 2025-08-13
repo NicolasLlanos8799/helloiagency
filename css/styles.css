@@ -623,15 +623,7 @@ nav ul li a:hover {
 }
 .dropdown-simple li a:hover { background-color: #f5f5f5; }
 
-/* Abrir por hover en desktop y por clase .open en JS */
-.dropdown:hover > .dropdown-menu,
-.dropdown:hover > .dropdown-simple,
-.dropdown > .dropdown-menu:hover,
-.dropdown > .dropdown-simple:hover { display: block; }
-.dropdown.no-hover:hover > .dropdown-menu,
-.dropdown.no-hover:hover > .dropdown-simple,
-.dropdown.no-hover > .dropdown-menu:hover,
-.dropdown.no-hover > .dropdown-simple:hover { display: none; }
+/* Mostrar menú únicamente cuando el dropdown esté abierto */
 .dropdown.open > .dropdown-menu,
 .dropdown.open > .dropdown-simple { display: block; }
 .dropdown.open > .dropdown-toggle .arrow { transform: rotate(180deg); }
