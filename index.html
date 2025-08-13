@@ -247,24 +247,21 @@
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         const li = btn.closest('.dropdown');
-        const isOpen = li.classList.contains('open');
+        const wasOpen = li.classList.contains('open');
 
-        // Cierra otros
+        // Cierra todos los dropdowns abiertos
         document.querySelectorAll('.dropdown.open').forEach(d => {
-          if (d !== li) {
-            d.classList.remove('open', 'no-hover');
-            const toggle = d.querySelector('.dropdown-toggle');
-            if (toggle) toggle.setAttribute('aria-expanded', 'false');
-          }
+          d.classList.remove('open', 'no-hover');
+          const toggle = d.querySelector('.dropdown-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
         });
 
-        // Abre/cierra actual
-        if (!isOpen) {
+        // Si estaba cerrado, ábrelo
+        if (!wasOpen) {
           li.classList.add('open');
           btn.setAttribute('aria-expanded', 'true');
         } else {
-          li.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
+          // Si estaba abierto, evita que se vuelva a abrir por hover inmediato
           li.classList.add('no-hover');
           li.addEventListener('mouseleave', () => li.classList.remove('no-hover'), { once: true });
         }
