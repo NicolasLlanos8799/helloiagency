@@ -249,6 +249,9 @@
         const li = btn.closest('.dropdown');
         const wasOpen = li.classList.contains('open');
 
+        // Permite reabrir por click incluso si aún tiene la clase de protección
+        li.classList.remove('no-hover');
+
         // Cierra todos los dropdowns abiertos
         document.querySelectorAll('.dropdown.open').forEach(d => {
           d.classList.remove('open', 'no-hover');
@@ -256,12 +259,14 @@
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
         });
 
-        // Si estaba cerrado, ábrelo
         if (!wasOpen) {
+          // Abrir
           li.classList.add('open');
           btn.setAttribute('aria-expanded', 'true');
         } else {
-          // Si estaba abierto, evita que se vuelva a abrir por hover inmediato
+          // Cerrar y prevenir reapertura inmediata por hover
+          btn.setAttribute('aria-expanded', 'false');
+          li.classList.remove('open');
           li.classList.add('no-hover');
           li.addEventListener('mouseleave', () => li.classList.remove('no-hover'), { once: true });
         }
