@@ -66,7 +66,7 @@ ul {
 }
 
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 10px;
 }
 
@@ -531,4 +531,17 @@ ul {
   .hero-images {
     grid-template-columns: 1fr;
   }
+}
+
+nav ul li a {
+  display: inline-block; /* necesario para que el padding y el border-radius funcionen */
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+  color: inherit; /* conserva el color original del texto */
+}
+
+nav ul li a:hover {
+  background-color: #f3f3f3; /* gris claro */
 }
