@@ -558,31 +558,6 @@ nav ul li a:hover {
   position: relative;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border-radius: 16px;
-  padding: 30px; /* más espacio interno */
-  display: none;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-  min-width: 900px; /* ancho mínimo mayor */
-  max-width: 1100px; /* opcional */
-  z-index: 10;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px; /* más separación entre columnas */
-}
-
-/* --- NAV base & hover pills --- */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -607,17 +582,20 @@ nav ul li a:hover {
 .arrow { font-size: .75em; transition: transform .2s ease; }
 
 /* --- Mega dropdown (desktop) --- */
+/* Centra el panel bajo el botón y evita overflow laterales */
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 12px);
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: min(100vw - 24px, 960px);
+  margin-inline: 12px;
   background: #fff;
   border-radius: 16px;
   padding: 28px;
   display: none;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  min-width: 920px;   /* tamaño grande como referencia */
-  max-width: 1120px;  /* opcional */
   z-index: 50;
 }
 
@@ -686,6 +664,8 @@ nav ul li a:hover {
     padding: 16px;
     box-shadow: 0 6px 20px rgba(0,0,0,.06);
     border-radius: 12px;
+    margin-inline: 0;
+    transform: none;
   }
   .dropdown.open > .dropdown-menu { display: block; }
 

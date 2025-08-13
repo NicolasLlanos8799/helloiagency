@@ -242,6 +242,25 @@
       });
     }
 
+    // Ajusta la posición del mega dropdown para evitar overflow
+    function adjustDropdownPosition(menu) {
+      if (!menu) return;
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        menu.style.transform = '';
+        return;
+      }
+      // Reset al centrado base
+      menu.style.transform = 'translateX(-50%)';
+      const rect = menu.getBoundingClientRect();
+      const leftOverflow  = 12 - rect.left;
+      const rightOverflow = rect.right - (window.innerWidth - 12);
+      if (leftOverflow > 0) {
+        menu.style.transform = `translateX(calc(-50% + ${leftOverflow}px))`;
+      } else if (rightOverflow > 0) {
+        menu.style.transform = `translateX(calc(-50% - ${rightOverflow}px))`;
+      }
+    }
+
     // Dropdowns: abrir/cerrar por click (móvil y desktop accesible)
     const dropdownToggles = document.querySelectorAll('.dropdown > .dropdown-toggle');
 
@@ -265,6 +284,7 @@
           // Abrir
           li.classList.add('open');
           btn.setAttribute('aria-expanded', 'true');
+          adjustDropdownPosition(li.querySelector('.dropdown-menu'));
         } else {
           // Cerrar y prevenir reapertura inmediata por hover
           btn.setAttribute('aria-expanded', 'false');
@@ -273,6 +293,17 @@
           li.addEventListener('mouseleave', () => li.classList.remove('no-hover'), { once: true });
         }
       });
+    });
+
+    // Ajustar al abrir por hover
+    document.querySelectorAll('.dropdown').forEach(li => {
+      const menu = li.querySelector('.dropdown-menu');
+      li.addEventListener('mouseenter', () => adjustDropdownPosition(menu));
+    });
+
+    // Recalcular en cambio de tamaño
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.dropdown.open > .dropdown-menu').forEach(adjustDropdownPosition);
     });
 
     // Cerrar al hacer click fuera
