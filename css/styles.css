@@ -40,9 +40,14 @@ ul {
   font-size: 1.3rem;
 }
 
-.navbar nav ul {
+.main-nav > ul {
   display: flex;
   gap: 25px;
+}
+
+/* Base dropdown container */
+.dropdown {
+  position: relative;
 }
 
 .btn-primary {
