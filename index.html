@@ -15,8 +15,8 @@
 <body>
   <header class="navbar">
     <div class="logo">⭐ iAgency</div>
-    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-    <nav class="main-nav" aria-label="Primary">
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">☰</button>
+    <nav id="primary-navigation" class="main-nav" aria-label="Primary">
       <ul>
         <!-- Dropdown Work -->
         <li class="dropdown">
@@ -234,8 +234,10 @@
     // Toggle del menú principal existente
     const menuBtn = document.querySelector('.menu-toggle');
     const navbar  = document.querySelector('.navbar');
-    if (menuBtn) {
+    if (menuBtn && navbar) {
       menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', (!expanded).toString());
         navbar.classList.toggle('is-open');
       });
     }

@@ -488,7 +488,7 @@ ul {
     display: none;
   }
 
-  .navbar nav.open {
+  .navbar.is-open nav {
     display: block;
   }
 
@@ -694,5 +694,11 @@ nav ul li a:hover {
 
   .nav-link { padding: 12px 14px; } /* área táctil */
   /* Ocultar dropdown si el nav está colapsado */
-  .navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
+.navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-images {
+    grid-template-columns: 1fr;
+  }
 }
