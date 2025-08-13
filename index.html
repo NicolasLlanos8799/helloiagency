@@ -16,32 +16,85 @@
   <header class="navbar">
     <div class="logo">⭐ iAgency</div>
     <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-    <nav>
+    <nav class="main-nav" aria-label="Primary">
       <ul>
-         <li class="dropdown">
-      <a href="#">
-        Work
-        <span class="arrow">&#9662;</span> <!-- flecha ▼ -->
-      </a>
-      <div class="dropdown-menu">
-        <div class="dropdown-content">
-          <div class="left">
-            <h4>ASSISTANTS</h4>
-            <p>WhatsApp Bot<br><small>Retail chat automation for sales</small></p>
-            <p>CRM Auto-Filler<br><small>AI-powered data entry</small></p>
-            <p>Hotel Multichannel<br><small>Unified guest messaging</small></p>
+        <!-- Dropdown Work -->
+        <li class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Work <span class="arrow" aria-hidden="true">▼</span>
+          </a>
+
+          <!-- Mega menu -->
+          <div class="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <div class="col left">
+                <p class="menu-label">ASSISTANTS</p>
+
+                <a href="#" class="menu-item">
+                  <span class="icon">📄</span>
+                  <span>
+                    <strong>WhatsApp Bot</strong>
+                    <small>Retail chat automation for sales</small>
+                  </span>
+                </a>
+
+                <a href="#" class="menu-item">
+                  <span class="icon">📄</span>
+                  <span>
+                    <strong>CRM Auto-Filler</strong>
+                    <small>AI-powered data entry</small>
+                  </span>
+                </a>
+
+                <a href="#" class="menu-item">
+                  <span class="icon">📄</span>
+                  <span>
+                    <strong>Hotel Multichannel</strong>
+                    <small>Unified guest messaging</small>
+                  </span>
+                </a>
+              </div>
+
+              <div class="col right cta-card">
+                <h3>See AI in action</h3>
+                <p>View real automation projects</p>
+                <a href="#" class="cta-link">View work →</a>
+              </div>
+            </div>
           </div>
-          <div class="right">
-            <h3>See AI in action</h3>
-            <p>View real automation projects</p>
-            <a href="#">View work →</a>
+        </li>
+
+        <!-- Resto de links -->
+        <li><a class="nav-link" href="#">About</a></li>
+        <li><a class="nav-link" href="#">Contact</a></li>
+
+        <!-- Dropdown Support -->
+        <li class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Support <span class="arrow" aria-hidden="true">▼</span>
+          </a>
+
+          <div class="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <div class="col left">
+                <p class="menu-label">SUPPORT</p>
+                <a href="#" class="menu-item">
+                  <span class="icon">💬</span>
+                  <span><strong>Chat</strong><small>Live help</small></span>
+                </a>
+                <a href="#" class="menu-item">
+                  <span class="icon">📚</span>
+                  <span><strong>Docs</strong><small>Guides & API</small></span>
+                </a>
+              </div>
+              <div class="col right cta-card">
+                <h3>Need help?</h3>
+                <p>We’re here 24/7</p>
+                <a href="#" class="cta-link">Open ticket →</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Support</a></li>
+        </li>
       </ul>
     </nav>
     <a href="#" class="btn-primary">Get started</a>
@@ -175,6 +228,62 @@
     AOS.init({
       duration: 800,
       once: true
+    });
+  </script>
+  <script>
+    // Toggle del menú principal existente
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navbar  = document.querySelector('.navbar');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        navbar.classList.toggle('is-open');
+      });
+    }
+
+    // Dropdowns: abrir/cerrar por click (móvil y desktop accesible)
+    const dropdownToggles = document.querySelectorAll('.dropdown > .dropdown-toggle');
+
+    dropdownToggles.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const li = btn.closest('.dropdown');
+        const isOpen = li.classList.contains('open');
+
+        // Cierra otros
+        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+
+        // Abre/cierra actual
+        if (!isOpen) {
+          li.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          li.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // Cerrar al hacer click fuera
+    document.addEventListener('click', (e) => {
+      const inside = e.target.closest('.dropdown');
+      if (!inside) {
+        document.querySelectorAll('.dropdown.open').forEach(d => {
+          d.classList.remove('open');
+          const toggle = d.querySelector('.dropdown-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.dropdown.open').forEach(d => {
+          d.classList.remove('open');
+          const toggle = d.querySelector('.dropdown-toggle');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
   </script>
 </body>
