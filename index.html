@@ -73,27 +73,10 @@
           <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             Support <span class="arrow" aria-hidden="true">▼</span>
           </a>
-
-          <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <div class="col left">
-                <p class="menu-label">SUPPORT</p>
-                <a href="#" class="menu-item">
-                  <span class="icon">💬</span>
-                  <span><strong>Chat</strong><small>Live help</small></span>
-                </a>
-                <a href="#" class="menu-item">
-                  <span class="icon">📚</span>
-                  <span><strong>Docs</strong><small>Guides & API</small></span>
-                </a>
-              </div>
-              <div class="col right cta-card">
-                <h3>Need help?</h3>
-                <p>We’re here 24/7</p>
-                <a href="#" class="cta-link">Open ticket →</a>
-              </div>
-            </div>
-          </div>
+          <ul class="dropdown-simple">
+            <li><a href="/help-center">Help Center</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
         </li>
       </ul>
     </nav>
@@ -241,7 +224,7 @@
     }
 
     // Dropdowns: abrir/cerrar por click (móvil y desktop accesible)
-    const dropdownToggles = document.querySelectorAll('.dropdown > .dropdown-toggle');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
     dropdownToggles.forEach(btn => {
       btn.addEventListener('click', (e) => {
