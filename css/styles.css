@@ -545,3 +545,39 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #f3f3f3; /* gris claro */
 }
+
+
+/* Flecha junto al texto */
+.arrow {
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 16px;
+  padding: 30px; /* más espacio interno */
+  display: none;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  min-width: 900px; /* ancho mínimo mayor */
+  max-width: 1100px; /* opcional */
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px; /* más separación entre columnas */
+}
