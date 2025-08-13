@@ -623,6 +623,7 @@ nav ul li a:hover {
 
 /* Abrir por hover en desktop y por clase .open en JS */
 .dropdown:hover > .dropdown-menu { display: block; }
+.dropdown.no-hover:hover > .dropdown-menu { display: none; }
 .dropdown.open > .dropdown-menu { display: block; }
 .dropdown.open > .dropdown-toggle .arrow { transform: rotate(180deg); }
 
