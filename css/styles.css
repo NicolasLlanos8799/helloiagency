@@ -696,3 +696,32 @@ nav ul li a:hover {
   /* Ocultar dropdown si el nav está colapsado */
   .navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
 }
+
+
+/* --- Dropdown menu override (centered, responsive) --- */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(720px, 88vw, 1100px);
+  max-width: calc(100vw - 24px);
+  padding: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.12);
+  z-index: 50;
+}
+
+/* Show on hover (desktop) */
+@media (hover:hover) and (pointer:fine) {
+  .dropdown:hover > .dropdown-menu { display: block; }
+}
+
+/* Base hidden state; JS toggles visibility on mobile */
+.dropdown-menu { display: none; }
+.dropdown.open > .dropdown-menu { display: block; }
+
+/* Focus outline for accessibility */
+:focus-visible { outline: 2px solid rgba(59,130,246,.8); outline-offset: 3px; }
+
