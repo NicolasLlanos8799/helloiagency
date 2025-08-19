@@ -7,7 +7,7 @@
 .stack-card{
   position: sticky;
   top: clamp(56px, 12vh, 120px);
-  min-height: clamp(420px, 62vh, 560px);
+  min-height: 120px;
   display: grid;
   align-items: center;
   isolation: isolate;
@@ -15,7 +15,7 @@
 }
 
 .stack-card > .card-inner{
-  max-width: 58ch;
+  max-width: 73ch;
   margin-inline: auto;
   transition: transform .35s ease, opacity .35s ease;
 }
