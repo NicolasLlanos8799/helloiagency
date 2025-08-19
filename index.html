@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iAgency – Smarter Assistants</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/stack-fix.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
@@ -242,80 +241,7 @@
   </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="js/stack-fix.js"></script>
     <script src="js/stacking.js" defer></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true
-    });
-  </script>
-  <script>
-    // Toggle del menú principal existente
-    const menuBtn = document.querySelector('.menu-toggle');
-    const navbar  = document.querySelector('.navbar');
-    if (menuBtn) {
-      menuBtn.addEventListener('click', () => {
-        navbar.classList.toggle('is-open');
-      });
-    }
-
-    // Dropdowns: abrir/cerrar por click (móvil y desktop accesible)
-    const dropdownToggles = document.querySelectorAll('.dropdown > .dropdown-toggle');
-
-    dropdownToggles.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const li = btn.closest('.dropdown');
-        const wasOpen = li.classList.contains('open');
-
-        // Permite reabrir por click incluso si aún tiene la clase de protección
-        li.classList.remove('no-hover');
-
-        // Cierra todos los dropdowns abiertos
-        document.querySelectorAll('.dropdown.open').forEach(d => {
-          d.classList.remove('open', 'no-hover');
-          const toggle = d.querySelector('.dropdown-toggle');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
-
-        if (!wasOpen) {
-          // Abrir
-          li.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        } else {
-          // Cerrar y prevenir reapertura inmediata por hover
-          btn.setAttribute('aria-expanded', 'false');
-          li.classList.remove('open');
-          li.classList.add('no-hover');
-          li.addEventListener('mouseleave', () => li.classList.remove('no-hover'), { once: true });
-        }
-      });
-    });
-
-    // Cerrar al hacer click fuera
-    document.addEventListener('click', (e) => {
-      const inside = e.target.closest('.dropdown');
-      if (!inside) {
-        document.querySelectorAll('.dropdown.open').forEach(d => {
-          d.classList.remove('open', 'no-hover');
-          const toggle = d.querySelector('.dropdown-toggle');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-
-    // Cerrar con ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.dropdown.open').forEach(d => {
-          d.classList.remove('open', 'no-hover');
-          const toggle = d.querySelector('.dropdown-toggle');
-          if (toggle) toggle.setAttribute('aria-expanded', 'false');
-        });
-      }
-    });
-  </script>
 </body>
 
 </html>

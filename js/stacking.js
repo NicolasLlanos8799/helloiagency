@@ -18,32 +18,36 @@
 
 window.addEventListener('scroll', revealCardsOnScroll);
 window.addEventListener('load', revealCardsOnScroll);
-
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.navbar nav');
-
-if (menuToggle && nav) {
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-}
-
-
 // --- Enhancements: AOS init, click-outside to close, ESC, ARIA, close nav on link click ---
 (function(){
   const onLoad = () => {
+    // Equalize stack-card heights
+    const heightCards = Array.from(document.querySelectorAll('.stack-card'));
+    if (heightCards.length) {
+      const tallest = Math.max(...heightCards.map(c => (c.querySelector('.card-inner')?.offsetHeight || c.offsetHeight)));
+      heightCards.forEach(c => c.style.minHeight = Math.max(c.offsetHeight, tallest) + 'px');
+    }
+
     if (window.AOS && typeof AOS.init === 'function') {
       AOS.init({ duration: 800, once: true });
     }
 
-    // Mobile nav toggle close on link click
+    // Mobile nav toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+    if (menuToggle && navbar) {
+      menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('is-open');
+      });
+    }
+
+    // Close nav on link click
     const nav = document.querySelector('.main-nav');
-    if (nav) {
+    if (nav && navbar) {
       nav.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
-          const wrapper = document.querySelector('.navbar nav, .main-nav');
-          if (wrapper && wrapper.classList.contains('open')) {
-            wrapper.classList.remove('open');
+          if (navbar.classList.contains('is-open')) {
+            navbar.classList.remove('is-open');
           }
         });
       });
