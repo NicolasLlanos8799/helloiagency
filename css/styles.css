@@ -395,85 +395,8 @@ ul {
   }
 }
 
-/* --- Stack Scroll Effect --- */
-.feature-stack-section {
-  position: relative;
-  background: #fff;
-  padding: 200px 0;
-}
-
-.stack-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 120px; /* espacio entre tarjetas */
-}
-
-.stack-card {
-  position: sticky;
-  top: 100px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e0e0e0;
-  transform: scale(1);
-  z-index: 0;
-  pointer-events: auto;
-  transition: transform 0.4s ease;
-}
-
-
-.stack-card:not(:first-child) {
-  margin-top: -120px;
-}
-
-.stack-card.active {
-  transform: scale(1.02);
-}
-
-.stack-card.visible {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.stack-card h2 {
-  font-size: 2rem;
-  margin: 0 0 10px;
-}
-
-.stack-card p {
-  font-size: 1.05rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.stack-card .label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  color: #888;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.stack-card .btn-outline {
-  margin-top: 20px;
-  display: inline-block;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-  .stack-card {
-    padding: 40px 20px;
-    top: 60px;
-  }
-
-  .stack-card:not(:first-child) {
-    margin-top: -100px;
-  }
 
   .navbar {
     flex-wrap: wrap;
@@ -533,54 +456,16 @@ ul {
   }
 }
 
-nav ul li a {
-  display: inline-block; /* necesario para que el padding y el border-radius funcionen */
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-  text-decoration: none;
-  color: inherit; /* conserva el color original del texto */
-}
-
-nav ul li a:hover {
-  background-color: #f3f3f3; /* gris claro */
-}
 
 
-/* Flecha junto al texto */
-.arrow {
-  font-size: 0.7em;
-  margin-left: 5px;
-}
+
 
 /* Dropdown */
 .dropdown {
   position: relative;
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  border-radius: 16px;
-  padding: 30px; /* más espacio interno */
-  display: none;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-  min-width: 900px; /* ancho mínimo mayor */
-  max-width: 1100px; /* opcional */
-  z-index: 10;
-}
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px; /* más separación entre columnas */
-}
 
 /* --- NAV base & hover pills --- */
 .main-nav ul {
@@ -604,25 +489,32 @@ nav ul li a:hover {
 }
 .nav-link:hover { background: #f3f3f3; }
 
-.arrow { font-size: .75em; transition: transform .2s ease; }
+.arrow {
+  font-size: 0.75em;
+  margin-left: 5px;
+  transition: transform 0.2s ease;
+}
 
 /* --- Mega dropdown (desktop) --- */
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 12px);
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(720px, 88vw, 1100px);
+  max-width: calc(100vw - 24px);
+  padding: 32px;
   background: #fff;
-  border-radius: 16px;
-  padding: 28px;
-  display: none;
+  border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  min-width: 920px;   /* tamaño grande como referencia */
-  max-width: 1120px;  /* opcional */
   z-index: 50;
+  display: none;
 }
 
 /* Abrir por hover en desktop y por clase .open en JS */
-.dropdown:hover > .dropdown-menu { display: block; }
+@media (hover:hover) and (pointer:fine) {
+  .dropdown:hover > .dropdown-menu { display: block; }
+}
 .dropdown.no-hover:hover > .dropdown-menu { display: none; }
 .dropdown.open > .dropdown-menu { display: block; }
 .dropdown.open > .dropdown-toggle .arrow { transform: rotate(180deg); }
@@ -697,30 +589,6 @@ nav ul li a:hover {
   .navbar:not(.is-open) .main-nav .dropdown-menu { display: none; }
 }
 
-
-/* --- Dropdown menu override (centered, responsive) --- */
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(720px, 88vw, 1100px);
-  max-width: calc(100vw - 24px);
-  padding: 32px;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  z-index: 50;
-}
-
-/* Show on hover (desktop) */
-@media (hover:hover) and (pointer:fine) {
-  .dropdown:hover > .dropdown-menu { display: block; }
-}
-
-/* Base hidden state; JS toggles visibility on mobile */
-.dropdown-menu { display: none; }
-.dropdown.open > .dropdown-menu { display: block; }
 
 /* Focus outline for accessibility */
 :focus-visible { outline: 2px solid rgba(59,130,246,.8); outline-offset: 3px; }
