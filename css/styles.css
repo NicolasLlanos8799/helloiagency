@@ -725,3 +725,44 @@ nav ul li a:hover {
 /* Focus outline for accessibility */
 :focus-visible { outline: 2px solid rgba(59,130,246,.8); outline-offset: 3px; }
 
+/* === Scroll stacking fix (merged from stack-fix.css) === */
+.split-text .stack-container{
+  display: grid;
+  gap: clamp(16px, 3vh, 28px);
+}
+
+.stack-card{
+  position: sticky;
+  top: clamp(56px, 12vh, 120px);
+  min-height: 120px;
+  display: grid;
+  align-items: center;
+  isolation: isolate;
+  will-change: transform;
+}
+
+.stack-card > .card-inner{
+  max-width: 73ch;
+  margin-inline: auto;
+  transition: transform .35s ease, opacity .35s ease;
+}
+
+.stack-card.is-active > .card-inner{
+  transform: scale(1.02) translateY(-2px);
+  opacity: 1;
+}
+
+/* Avoid transforms on sticky ancestors */
+.split-block:not(.allow-transform){
+  transform: none !important;
+  perspective: none !important;
+  filter: none !important;
+}
+
+/* Prevent title wrapping jumps */
+.stack-card h2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
