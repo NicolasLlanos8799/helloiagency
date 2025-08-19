@@ -1,0 +1,41 @@
+/* === Scroll stacking fix === */
+.split-text .stack-container{
+  display: grid;
+  gap: clamp(16px, 3vh, 28px);
+}
+
+.stack-card{
+  position: sticky;
+  top: clamp(56px, 12vh, 120px);
+  min-height: 120px;
+  display: grid;
+  align-items: center;
+  isolation: isolate;
+  will-change: transform;
+}
+
+.stack-card > .card-inner{
+  max-width: 73ch;
+  margin-inline: auto;
+  transition: transform .35s ease, opacity .35s ease;
+}
+
+.stack-card.is-active > .card-inner{
+  transform: scale(1.02) translateY(-2px);
+  opacity: 1;
+}
+
+/* Evitar transforms en ancestros del sticky */
+.split-block:not(.allow-transform){
+  transform: none !important;
+  perspective: none !important;
+  filter: none !important;
+}
+
+/* Evitar saltos por wrapping de títulos */
+.stack-card h2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
