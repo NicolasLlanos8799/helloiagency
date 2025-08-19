@@ -140,26 +140,26 @@
 
     <!-- Textos apilables -->
     <div class="split-text">
-      <div class="stack-container">
-        <div class="stack-card">
+      <div class="stack-container stack-overlap">
+        <div class="stack-card" data-reveal="fade-up" data-reveal-delay="0ms">
           <p class="label">MULTICHANNEL REACH</p>
           <h2>Support customers on every channel</h2>
           <p>Be everywhere your customers are. From WhatsApp to Instagram, offer fast, consistent AI-powered support — 24/7.</p>
         </div>
 
-        <div class="stack-card">
+        <div class="stack-card" data-reveal="fade-up" data-reveal-delay="100ms">
           <p class="label">AI-POWERED AUTOMATION</p>
           <h2>Automate work. Accelerate growth.</h2>
           <p>Let AI handle the busywork. Empower your team to focus on innovation and real results.</p>
         </div>
 
-        <div class="stack-card">
+        <div class="stack-card" data-reveal="fade-up" data-reveal-delay="200ms">
           <p class="label">SMART WORKFLOWS</p>
           <h2>Integrate seamlessly</h2>
           <p>Connect your tools and services to build custom workflows that save time and reduce errors.</p>
         </div>
 
-        <div class="stack-card">
+        <div class="stack-card" data-reveal="fade-up" data-reveal-delay="300ms">
           <p class="label">24/7 SUPPORT</p>
           <h2>Always-on assistance</h2>
           <p>Your AI assistant never sleeps. Deliver reliable support across all your channels, any time of day.</p>
@@ -306,6 +306,40 @@
       }
     });
   </script>
+  <!-- Scroll Reveal + Overlap (injected by Codex) -->
+  <script>
+  (function () {
+    const cards = Array.from(document.querySelectorAll('.stack-overlap .stack-card[data-reveal]'));
+    if (!cards.length) return;
+
+    // z-index ascendente: la card que entra queda por encima (efecto solapado)
+    cards.forEach((el, i) => { el.style.zIndex = String(100 + i); });
+
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          const delay = el.getAttribute('data-reveal-delay');
+          if (delay) el.style.transitionDelay = delay;
+          el.classList.add('is-visible');
+          observer.unobserve(el); // animar solo una vez
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    cards.forEach(el => io.observe(el));
+  })();
+  </script>
+  <!-- End Scroll Reveal + Overlap -->
 </body>
 
 </html>
