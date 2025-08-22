@@ -67,6 +67,7 @@ window.addEventListener('load', revealCardsOnScroll);
     const SEL_DD = '.dropdown';
     const SEL_TOGGLE = '.dropdown-toggle';
     const SEL_MENU = '.dropdown-menu';
+    const SEL_PANEL = '.dropdown-panel';
 
     function makePortal(menuEl, dd) {
       // wrapper que vivirá en <body>
@@ -113,8 +114,11 @@ window.addEventListener('load', revealCardsOnScroll);
     }
 
     function openDD(dd) {
-      // cierra otros
-      document.querySelectorAll(SEL_DD + '.open').forEach((o) => o !== dd && closeDD(o));
+      // cierra otros, incluyendo los simples
+      document.querySelectorAll(SEL_DD + '.open').forEach((o) => {
+        if (o === dd) return;
+        o.classList.contains('dd-simple') ? closeSimple(o) : closeDD(o);
+      });
 
       const toggle = dd.querySelector(SEL_TOGGLE);
       let menu = dd.querySelector(SEL_MENU);
@@ -156,42 +160,115 @@ window.addEventListener('load', revealCardsOnScroll);
       dd.__reposition = null;
     }
 
+    // === Simple dropdown (Support) ===
+    function openSimple(dd) {
+      document.querySelectorAll(SEL_DD + '.open').forEach((o) => {
+        if (o === dd) return;
+        o.classList.contains('dd-simple') ? closeSimple(o) : closeDD(o);
+      });
+
+      const toggle = dd.querySelector(SEL_TOGGLE);
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      dd.classList.add('open');
+
+      // listeners
+      dd.__docClick = (e) => {
+        if (!dd.contains(e.target)) closeSimple(dd);
+      };
+      document.addEventListener('click', dd.__docClick);
+
+      dd.__esc = (e) => {
+        if (e.key === 'Escape') {
+          closeSimple(dd);
+          toggle.focus();
+        }
+      };
+      document.addEventListener('keydown', dd.__esc);
+
+      dd.__scroll = () => closeSimple(dd);
+      window.addEventListener('scroll', dd.__scroll, { once: true });
+    }
+
+    function closeSimple(dd) {
+      if (!dd.classList.contains('open')) return;
+      const toggle = dd.querySelector(SEL_TOGGLE);
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      dd.classList.remove('open');
+
+      document.removeEventListener('click', dd.__docClick);
+      document.removeEventListener('keydown', dd.__esc);
+      window.removeEventListener('scroll', dd.__scroll);
+      dd.__docClick = dd.__esc = dd.__scroll = null;
+    }
+
     // Delegación de eventos para cada dropdown
     document.querySelectorAll(SEL_DD).forEach((dd) => {
       const toggle = dd.querySelector(SEL_TOGGLE);
       if (!toggle) return;
 
-      // Abrir/cerrar por click en el toggle
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        dd.classList.contains('open') ? closeDD(dd) : openDD(dd);
-      });
+      if (dd.classList.contains('dd-simple')) {
+        const panel = dd.querySelector(SEL_PANEL);
+        const items = panel ? Array.from(panel.querySelectorAll('a')) : [];
 
-      // Click fuera (considera portal en <body>)
-      document.addEventListener('click', (e) => {
-        if (!dd.classList.contains('open')) return;
-        const portal = dd.__portal;
-        const clickInsideToggle = dd.contains(e.target);
-        const clickInsidePortal = portal && portal.contains(e.target);
-        if (!clickInsideToggle && !clickInsidePortal) closeDD(dd);
-      });
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          dd.classList.contains('open') ? closeSimple(dd) : openSimple(dd);
+        });
 
-      // Teclado: ESC cierra y devuelve foco
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && dd.classList.contains('open')) {
-          closeDD(dd);
-          toggle.focus();
-        }
-      });
+        // keyboard: open & focus first item
+        toggle.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (!dd.classList.contains('open')) openSimple(dd);
+            items[0]?.focus();
+          }
+        });
 
-      // Cambio de breakpoint: recolocar si está abierto
-      const mql = window.matchMedia('(max-width: 768px)');
-      mql.addEventListener?.('change', () => {
-        if (dd.classList.contains('open') && dd.__portal) {
-          // en móvil no necesitamos recalcular coords; en desktop sí
-          positionPortal(dd.__portal, toggle);
-        }
-      });
+        panel?.addEventListener('keydown', (e) => {
+          if (!['ArrowDown', 'ArrowUp'].includes(e.key)) return;
+          e.preventDefault();
+          const current = items.indexOf(document.activeElement);
+          let next = current;
+          if (e.key === 'ArrowDown') next = (current + 1) % items.length;
+          else if (e.key === 'ArrowUp') next = (current - 1 + items.length) % items.length;
+          items[next]?.focus();
+        });
+
+        // close when selecting a link
+        items.forEach((a) => a.addEventListener('click', () => closeSimple(dd)));
+      } else {
+        // Abrir/cerrar por click en el toggle
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          dd.classList.contains('open') ? closeDD(dd) : openDD(dd);
+        });
+
+        // Click fuera (considera portal en <body>)
+        document.addEventListener('click', (e) => {
+          if (!dd.classList.contains('open')) return;
+          const portal = dd.__portal;
+          const clickInsideToggle = dd.contains(e.target);
+          const clickInsidePortal = portal && portal.contains(e.target);
+          if (!clickInsideToggle && !clickInsidePortal) closeDD(dd);
+        });
+
+        // Teclado: ESC cierra y devuelve foco
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && dd.classList.contains('open')) {
+            closeDD(dd);
+            toggle.focus();
+          }
+        });
+
+        // Cambio de breakpoint: recolocar si está abierto
+        const mql = window.matchMedia('(max-width: 768px)');
+        mql.addEventListener?.('change', () => {
+          if (dd.classList.contains('open') && dd.__portal) {
+            // en móvil no necesitamos recalcular coords; en desktop sí
+            positionPortal(dd.__portal, toggle);
+          }
+        });
+      }
     });
   };
 
