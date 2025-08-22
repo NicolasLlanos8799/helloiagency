@@ -53,42 +53,53 @@ window.addEventListener('load', revealCardsOnScroll);
       });
     }
 
-    // Dropdown behavior
-    document.querySelectorAll('.dropdown').forEach(dd => {
-      const toggle = dd.querySelector('.dropdown-toggle');
-      const menu = dd.querySelector('.dropdown-menu');
-      if (!toggle || !menu) return;
+    /* === Responsive dropdown fix === */ // Responsive audit
+    const SEL_DD = '.dropdown';
+    const SEL_TOGGLE = '.dropdown-toggle';
+    const SEL_MENU = '.dropdown-menu';
 
-      const open = () => {
-        dd.classList.add('open');
-        toggle.setAttribute('aria-expanded', 'true');
-      };
-      const close = () => {
-        dd.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      };
+    function closeDD(dd){
+      dd.classList.remove('open');
+      const t = dd.querySelector(SEL_TOGGLE);
+      if (t) t.setAttribute('aria-expanded','false');
+      document.body.classList.remove('menu-open');
+    }
+    function openDD(dd){
+      document.querySelectorAll(SEL_DD + '.open').forEach(o => o!==dd && closeDD(o));
+      dd.classList.add('open');
+      const t = dd.querySelector(SEL_TOGGLE);
+      if (t) t.setAttribute('aria-expanded','true');
+      document.body.classList.add('menu-open');
+    }
 
-      toggle.addEventListener('click', (e) => {
+    document.querySelectorAll(SEL_DD).forEach(dd=>{
+      const toggle = dd.querySelector(SEL_TOGGLE);
+      const menu = dd.querySelector(SEL_MENU);
+      if(!toggle || !menu) return;
+
+      toggle.addEventListener('click', e=>{
         e.preventDefault();
-        dd.classList.toggle('open');
-        const isOpen = dd.classList.contains('open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
+        dd.classList.contains('open') ? closeDD(dd) : openDD(dd);
       });
 
-      // Click outside
-      document.addEventListener('click', (e) => {
-        if (!dd.contains(e.target)) {
-          close();
-        }
+      // click fuera
+      document.addEventListener('click', e=>{
+        if(!dd.contains(e.target)) closeDD(dd);
       });
 
-      // ESC to close
-      dd.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          close();
-          toggle.focus();
-        }
+      // teclado
+      dd.addEventListener('keydown', e=>{
+        if(e.key === 'Escape'){ closeDD(dd); toggle.focus(); }
       });
+
+      // evitar burbuja interna
+      menu.addEventListener('click', e=> e.stopPropagation());
+    });
+
+    // cerrar al cambiar de breakpoint
+    let mql = window.matchMedia('(max-width: 768px)');
+    mql.addEventListener?.('change', ()=> {
+      document.querySelectorAll(SEL_DD + '.open').forEach(closeDD);
     });
   };
 
