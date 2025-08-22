@@ -866,6 +866,69 @@ body { font-size: var(--fs-body); }
   body.menu-open { overflow: hidden; }
 }
 
+/* === Responsive enhancements === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .main-nav {
+    display: none;
+    width: 100%;
+  }
+  .navbar.is-open .main-nav {
+    display: block;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .navbar.is-open .btn-primary {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .hero-text,
+  .hero-images {
+    flex: 1 1 100%;
+  }
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  .feature-split .split-block.with-stack {
+    flex-direction: column;
+  }
+  .split-image,
+  .split-text {
+    flex: 1 1 100%;
+  }
+  .contact-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 15px;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .hero-images {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =========================================================
    Grillas/cards e imágenes
 ========================================================= */

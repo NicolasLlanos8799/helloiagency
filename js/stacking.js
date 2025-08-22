@@ -39,19 +39,19 @@ window.addEventListener('load', revealCardsOnScroll);
     // Mobile nav toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
-    if (menuToggle && navbar) {
-      menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('is-open');
-      });
-    }
-
-    // Close nav on link click
     const nav = document.querySelector('.main-nav');
-    if (nav && navbar) {
+    if (menuToggle && navbar && nav) {
+      menuToggle.addEventListener('click', () => {
+        const open = navbar.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', open);
+      });
+
+      // Close nav on link click
       nav.querySelectorAll('a').forEach((a) => {
         a.addEventListener('click', () => {
           if (navbar.classList.contains('is-open')) {
             navbar.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
           }
         });
       });
