@@ -742,7 +742,7 @@ nav ul li a:hover {
 }
 
 .stack-card > .card-inner{
-  max-width: 69ch;
+  max-width: 66ch;
   margin-inline: auto;
   transition: transform .35s ease, opacity .35s ease;
 }
