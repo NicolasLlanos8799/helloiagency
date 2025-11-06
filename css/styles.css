@@ -3,8 +3,8 @@ body {
   font-family: 'Helvetica Neue', sans-serif;
   margin: 0;
   padding: 0;
-  color: #111;
-  background-color: #fff;
+  color: #fcfcfc;
+  background-color: #000;
 }
 
 a {
@@ -23,7 +23,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: #fff;
+  background: #000;
   border-bottom: 1px solid #eee;
 }
 
@@ -38,9 +38,10 @@ ul {
 }
 
 .btn-primary {
-  background-color: #b4f03d;
+  background-color: #000000;
   padding: 10px 20px;
   border-radius: 8px;
+  border: 2px solid #ffffff;
   font-weight: 600;
 }
 
@@ -71,7 +72,7 @@ ul {
 }
 
 .hero-text p {
-  color: #666;
+  color: #f7f5f5;
   font-size: 1.2rem;
 }
 
@@ -152,7 +153,7 @@ ul {
 .stack-card .label {
   font-size: 0.8rem;
   text-transform: uppercase;
-  color: #888;
+  color: #f2e2e2;
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -164,14 +165,14 @@ ul {
 
 .stack-card p {
   font-size: 1.05rem;
-  color: #444;
+  color: #fefdfd;
   line-height: 1.6;
   margin-bottom: 20px;
 }
 
 .stack-card p.label {
   font-weight: bold;
-  color: #888;
+  color: #fffefe;
   letter-spacing: 1px;
   font-size: 14px;
   text-transform: uppercase;
@@ -216,7 +217,7 @@ ul {
 /* Contact */
 .contact {
   padding: 80px 40px;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .contact-content {
@@ -232,7 +233,7 @@ ul {
 }
 
 .contact-info .label {
-  color: #999;
+  color: #f5f3f3;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -246,7 +247,7 @@ ul {
 
 .contact-info .subtitle {
   font-size: 1.1rem;
-  color: #444;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 
@@ -318,7 +319,7 @@ ul {
   border-radius: 12px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
-  background-color: #fff;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -326,7 +327,7 @@ ul {
 
 .card .label {
   font-size: 0.8rem;
-  color: #888;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -340,7 +341,7 @@ ul {
 
 .card .subtitle {
   font-size: 1.1rem;
-  color: #333;
+  color: #ffffff;
   line-height: 1.6;
 }
 
@@ -398,7 +399,7 @@ ul {
 /* --- Stack Scroll Effect --- */
 .feature-stack-section {
   position: relative;
-  background: #fff;
+  background: #000;
   padding: 200px 0;
 }
 
@@ -415,7 +416,7 @@ ul {
   margin: 0 auto;
   padding: 60px 40px;
   border-radius: 20px;
-  background: #fff;
+  background: #000;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid #e0e0e0;
   transform: scale(1);
@@ -446,7 +447,7 @@ ul {
 
 .stack-card p {
   font-size: 1.05rem;
-  color: #444;
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -543,7 +544,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #f3f3f3; /* gris claro */
+  background-color: #ffffff; /* gris claro */
 }
 
 
@@ -562,7 +563,7 @@ nav ul li a:hover {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: #ffffff;
   border-radius: 16px;
   padding: 30px; /* más espacio interno */
   display: none;
@@ -599,10 +600,10 @@ nav ul li a:hover {
   padding: 8px 14px;
   border-radius: 10px;
   text-decoration: none;
-  color: #111;
+  color: #ffffff;
   transition: background-color .2s ease;
 }
-.nav-link:hover { background: #f3f3f3; }
+.nav-link:hover { background: #000;; }
 
 .arrow { font-size: .75em; transition: transform .2s ease; }
 
@@ -611,7 +612,7 @@ nav ul li a:hover {
   position: absolute;
   top: calc(100% + 12px);
   left: 0;
-  background: #fff;
+  background: #000;
   border-radius: 16px;
   padding: 28px;
   display: none;
@@ -635,7 +636,7 @@ nav ul li a:hover {
 }
 
 .menu-label {
-  color: #7a7a7a;
+  color: #ffffff;
   font-size: 12px;
   letter-spacing: .12em;
   margin: 0 0 14px 0;
@@ -649,23 +650,29 @@ nav ul li a:hover {
   padding: 12px 10px;
   border-radius: 12px;
   text-decoration: none;
-  color: #111;
+  color: #ffffff;
   transition: background .15s ease;
 }
-.menu-item small { display: block; color: #7a7a7a; margin-top: 2px; font-size: 12px; }
-.menu-item:hover { background: #f7f7f7; }
+.menu-item small { display: block; color: #b9b9b9; margin-top: 2px; font-size: 12px; }
+.menu-item:hover {
+  border: 1px solid #ffffff;
+  background: #000; /* mantiene el fondo negro */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
 
 .icon { font-size: 20px; line-height: 1; }
 
 /* Tarjeta derecha negra */
 .cta-card {
-  background: #0a0a0a;
+  background: #000000;
   color: #fff;
   border-radius: 16px;
   padding: 28px;
   display: grid;
   align-content: start;
   gap: 10px;
+  border: 0.2px solid #ffffff; /* 👈 borde blanco */
 }
 .cta-card h3 { margin: 0; }
 .cta-card p  { margin: 0 0 8px 0; color: #cfcfcf; }
@@ -707,7 +714,7 @@ nav ul li a:hover {
   width: clamp(720px, 88vw, 1100px);
   max-width: calc(100vw - 24px);
   padding: 32px;
-  background: #fff;
+  background: #000;
   border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
   z-index: 50;
@@ -820,7 +827,7 @@ body { font-size: var(--fs-body); }
   width: clamp(720px, 88vw, 1200px);
   max-width: calc(100vw - 24px);
   margin-inline: 12px;
-  background: #fff;
+  background: #000;
   border-radius: var(--radius);
   padding: 32px;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
@@ -874,6 +881,7 @@ body { font-size: var(--fs-body); }
   }
   .menu-toggle {
     display: block;
+    color: #eee;
   }
   .main-nav {
     display: none;
@@ -974,7 +982,7 @@ button, .btn, .nav-link { min-height: 40px; }
 
 /* estilos del contenedor del menú, puedes conservar tus estilos anteriores */
 .dropdown-portal {
-  background: #fff;
+  background: #000;
   border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,.12);
   padding: 32px;
@@ -1013,7 +1021,7 @@ button, .btn, .nav-link { min-height: 40px; }
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: #fff;
+  background: #000;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,.08);
   padding: 8px 0;
@@ -1029,14 +1037,14 @@ button, .btn, .nav-link { min-height: 40px; }
 .dd-simple .dropdown-item {
   display: block;
   padding: 8px 16px;
-  color: #111;
+  color: #ffffff;
   text-decoration: none;
   line-height: 1.4;
 }
 
 .dd-simple .dropdown-item:hover,
 .dd-simple .dropdown-item:focus {
-  background: #f3f3f3;
+  background: #000;;
   outline: none;
 }
 
