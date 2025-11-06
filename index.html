@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Ensure responsive viewport scales correctly on modern devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>iAgency – Smarter Assistants</title>
     <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -24,10 +25,11 @@
 
 <body>
   <header class="navbar">
-    <div class="logo"> iAgency</div>
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">☰</button>
-    <nav id="primary-navigation" class="main-nav" aria-label="Primary">
-      <ul>
+    <div class="container navbar-inner"><!-- Wrap header content for consistent horizontal rhythm -->
+      <div class="logo"> iAgency</div>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">☰</button>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+        <ul>
         <!-- Dropdown Work -->
         <li class="dropdown">
           <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
@@ -89,32 +91,39 @@
             <a href="#" class="dropdown-item" role="menuitem">Contact Us</a>
           </div>
         </li>
-      </ul>
-    </nav>
-    <a href="#" class="btn-primary">Get started</a>
+        </ul>
+      </nav>
+      <a href="#" class="button">Get started</a><!-- Align CTA with shared button styling -->
+    </div>
   </header>
 
   <section class="hero">
-    <div class="hero-text" data-aos="fade-up">
-      <h1>Smarter Assistants.<br>Faster Growth.</h1>
-      <p>Unlock AI automation tailored for real business impact.</p>
-    </div>
-    <div class="hero-images" data-aos="fade-up" data-aos-delay="100">
-      <img src="src/tabletdashboard.avif"
-        alt="tablet dashboard" loading="lazy" decoding="async">
-      <img src="src/techoffice.avif"
-        alt="tech office" loading="lazy" decoding="async">
-      <img src="src/office.avif"
-        alt="team AI dashboard" loading="lazy" decoding="async">
-      <img
-        src="src/team.avif"
-        alt="business meeting" loading="lazy" decoding="async">
+    <div class="container hero-layout"><!-- Container keeps hero visuals fluid on narrow screens -->
+      <div class="hero-text" data-aos="fade-up">
+        <h1>Smarter Assistants.<br>Faster Growth.</h1>
+        <p>Unlock AI automation tailored for real business impact.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="button">Book a call</a>
+          <a href="#about" class="button secondary">See capabilities</a>
+        </div>
+      </div>
+      <div class="hero-images" data-aos="fade-up" data-aos-delay="100">
+        <img src="src/tabletdashboard.avif"
+          alt="tablet dashboard" loading="lazy" decoding="async">
+        <img src="src/techoffice.avif"
+          alt="tech office" loading="lazy" decoding="async">
+        <img src="src/office.avif"
+          alt="team AI dashboard" loading="lazy" decoding="async">
+        <img
+          src="src/team.avif"
+          alt="business meeting" loading="lazy" decoding="async">
+      </div>
     </div>
   </section>
 
  <section id="about" class="feature-split"><!-- Responsive audit -->
-  <div class="split-block with-stack">
-    
+  <div class="container split-block with-stack"><!-- Container maintains split layout within viewport -->
+
     <!-- Imagen fija a la izquierda -->
     <div class="split-image sticky-image">
       <img
@@ -166,7 +175,7 @@
 
 
   <section id="contact" class="contact">
-    <div class="contact-content">
+    <div class="container contact-content"><!-- Container aligns contact grid with other sections -->
       <div class="contact-info" data-aos="fade-up">
         <p class="label">CONTACT</p>
         <h2>Let’s build your assistant</h2>
@@ -209,18 +218,20 @@
   </section>
 
   <footer class="footer" data-aos="fade-up">
-    <div class="footer-icons">
-      <span>📘</span>
-      <span>📷</span>
-      <span>𝕏</span>
-      <span>💼</span>
-      <span>▶️</span>
-    </div>
-    <p>© 2025 iAgency. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Cookies</a>
+    <div class="container footer-layout"><!-- Container keeps footer content within safe width -->
+      <div class="footer-icons">
+        <span>📘</span>
+        <span>📷</span>
+        <span>𝕏</span>
+        <span>💼</span>
+        <span>▶️</span>
+      </div>
+      <p>© 2025 iAgency. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
     </div>
   </footer>
 
