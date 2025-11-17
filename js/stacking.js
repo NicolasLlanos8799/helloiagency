@@ -55,6 +55,75 @@ window.addEventListener('load', revealCardsOnScroll);
           }
         });
       });
+
+      const setScrolledState = () => {
+        const scrolled = window.scrollY > 12;
+        navbar.classList.toggle('scrolled', scrolled);
+      };
+
+      setScrolledState();
+      window.addEventListener('scroll', setScrolledState, { passive: true });
+    }
+
+    // Circuit background
+    const hero = document.querySelector('.hero');
+    const canvas = document.getElementById('circuit-bg');
+    const ctx = canvas?.getContext('2d');
+    let width = 0;
+    let height = 0;
+    const circuits = [];
+
+    function resizeCanvas() {
+      if (!canvas || !ctx) return;
+      const heroRect = hero?.getBoundingClientRect();
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = heroRect ? heroRect.height : window.innerHeight * 0.8;
+    }
+
+    function spawnCircuit() {
+      circuits.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        length: 40 + Math.random() * 160,
+        angle: Math.random() * Math.PI * 2,
+        alpha: 0.8,
+        speed: 0.5 + Math.random() * 1.5,
+        decay: 0.002 + Math.random() * 0.004,
+      });
+      if (circuits.length > 60) circuits.shift();
+    }
+
+    function drawCircuits() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      ctx.lineWidth = 1.2;
+      ctx.lineCap = 'round';
+
+      circuits.forEach((c) => {
+        ctx.strokeStyle = `rgba(255,255,255,${c.alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(c.x, c.y);
+        ctx.lineTo(c.x + Math.cos(c.angle) * c.length, c.y + Math.sin(c.angle) * c.length);
+        ctx.stroke();
+
+        c.x += Math.cos(c.angle) * c.speed;
+        c.y += Math.sin(c.angle) * c.speed;
+        c.alpha -= c.decay;
+      });
+
+      for (let i = circuits.length - 1; i >= 0; i--) {
+        if (circuits[i].alpha <= 0) circuits.splice(i, 1);
+      }
+
+      if (Math.random() > 0.7) spawnCircuit();
+      requestAnimationFrame(drawCircuits);
+    }
+
+    if (canvas && ctx) {
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      for (let i = 0; i < 12; i++) spawnCircuit();
+      requestAnimationFrame(drawCircuits);
     }
 
     /* =========================================================
@@ -275,5 +344,3 @@ window.addEventListener('load', revealCardsOnScroll);
   if (document.readyState === 'complete') onLoad();
   else window.addEventListener('load', onLoad);
 })();
-
-
