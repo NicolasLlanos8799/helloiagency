@@ -55,6 +55,14 @@ window.addEventListener('load', revealCardsOnScroll);
           }
         });
       });
+
+      const setScrolledState = () => {
+        const scrolled = window.scrollY > 12;
+        navbar.classList.toggle('scrolled', scrolled);
+      };
+
+      setScrolledState();
+      window.addEventListener('scroll', setScrolledState, { passive: true });
     }
 
     /* =========================================================
@@ -275,5 +283,3 @@ window.addEventListener('load', revealCardsOnScroll);
   if (document.readyState === 'complete') onLoad();
   else window.addEventListener('load', onLoad);
 })();
-
-
