@@ -84,29 +84,10 @@ ul {
 
 /* Ajustes del texto centrado */
 .hero-text h1 {
-  font-size: 3.8rem;
-  line-height: 1.1;
-  margin-bottom: 22px;
-}
-
-.hero-text h1 {
   font-size: 3.4rem;
   line-height: 1.05;
   margin-bottom: 22px;
 }
-
-.hero-text p {
-  color: #e6e6e6;
-  font-size: 1.3rem;
-  line-height: 1.55;
-  margin-bottom: 18px;
-}
-
-.hero-text .hero-subtext {
-  color: #a8a8a8;
-  font-size: 0.95rem;
-}
-
 
 .hero-text p {
   color: #e6e6e6;
