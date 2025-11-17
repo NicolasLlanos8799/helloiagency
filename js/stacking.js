@@ -1,36 +1,6 @@
-/* ===== Stack cards reveal on scroll ===== */
-const cards = document.querySelectorAll('.stack-card');
-
-function revealCardsOnScroll() {
-  let visibleCount = 0;
-
-  cards.forEach((card) => {
-    const rect = card.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    if (rect.top < windowHeight - 100) {
-      card.classList.add('visible');
-      card.style.zIndex = visibleCount + 1; // el último visible queda arriba
-      visibleCount++;
-    }
-  });
-}
-
-window.addEventListener('scroll', revealCardsOnScroll);
-window.addEventListener('load', revealCardsOnScroll);
-
 /* ===== App boot / enhancements ===== */
 (function () {
   const onLoad = () => {
-    // Equalize stack-card heights
-    const heightCards = Array.from(document.querySelectorAll('.stack-card'));
-    if (heightCards.length) {
-      const tallest = Math.max(
-        ...heightCards.map((c) => (c.querySelector('.card-inner')?.offsetHeight || c.offsetHeight))
-      );
-      heightCards.forEach((c) => (c.style.minHeight = Math.max(c.offsetHeight, tallest) + 'px'));
-    }
-
     // AOS
     if (window.AOS && typeof AOS.init === 'function') {
       AOS.init({ duration: 800, once: true });
