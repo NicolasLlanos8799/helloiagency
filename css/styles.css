@@ -52,29 +52,96 @@ ul {
   font-size: 1.5rem;
   cursor: pointer;
 }
-
 /* Hero */
 .hero {
+  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  padding: 60px 40px;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;      /* Centrado vertical más limpio */
+  justify-content: center;     /* Centra verticalmente */
+  align-items: center;         /* Centra horizontalmente */
+  text-align: center;          /* Centra el texto */
+  padding: 120px 40px;         /* Más aire arriba/abajo */
+  min-height: 80vh;            /* Hero grande y centrado */
+  background: #000;
+  overflow: hidden;
 }
 
+/* Canvas de circuitos */
+#circuit-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Hero text */
 .hero-text {
-  flex: 1 1 45%;
+  position: relative;
+  z-index: 1;         /* Encima del canvas */
+  max-width: 750px;   /* Ancho elegante */
+}
+
+/* Ajustes del texto centrado */
+.hero-text h1 {
+  font-size: 3.8rem;
+  line-height: 1.1;
+  margin-bottom: 22px;
 }
 
 .hero-text h1 {
-  font-size: 4rem;
-  margin-bottom: 10px;
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin-bottom: 22px;
 }
 
 .hero-text p {
-  color: #f7f5f5;
-  font-size: 1.2rem;
+  color: #e6e6e6;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  margin-bottom: 18px;
 }
+
+.hero-text .hero-subtext {
+  color: #a8a8a8;
+  font-size: 0.95rem;
+}
+
+
+.hero-text p {
+  color: #e6e6e6;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.hero-text .hero-subtext {
+  color: #a8a8a8;
+  font-size: 1rem;
+}
+
+/* Animación del título */
+.floating-title {
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.6rem;
+  }
+}
+
 
 .hero-images {
   display: grid;

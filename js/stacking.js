@@ -275,3 +275,5 @@ window.addEventListener('load', revealCardsOnScroll);
   if (document.readyState === 'complete') onLoad();
   else window.addEventListener('load', onLoad);
 })();
+
+
