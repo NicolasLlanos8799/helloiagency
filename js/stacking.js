@@ -44,6 +44,7 @@ window.addEventListener('load', revealCardsOnScroll);
       menuToggle.addEventListener('click', () => {
         const open = navbar.classList.toggle('is-open');
         menuToggle.setAttribute('aria-expanded', open);
+        document.body.classList.toggle('nav-open', open); // FIX: Bloquear scroll al abrir
       });
 
       // Close nav on link click
@@ -52,8 +53,19 @@ window.addEventListener('load', revealCardsOnScroll);
           if (navbar.classList.contains('is-open')) {
             navbar.classList.remove('is-open');
             menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('nav-open');
           }
         });
+      });
+
+      // FIX: Cerrar con Escape y mantener estado accesible
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navbar.classList.contains('is-open')) {
+          navbar.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
+          menuToggle.focus();
+        }
       });
 
       const setScrolledState = () => {

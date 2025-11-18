@@ -30,6 +30,11 @@ body {
   overflow-x: clip;
 }
 
+/* FIX: Bloquear scroll cuando el menú móvil está abierto */
+body.nav-open {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -541,8 +546,16 @@ body.menu-open {
   }
 
   .main-nav {
-    width: 100%;
+    /* FIX: Menú móvil en overlay estable y sin empujar el layout */
+    position: fixed;
+    inset: calc(var(--nav-height) - 8px) 0 0;
     display: none;
+    padding: 16px 18px 32px;
+    background: rgba(0, 0, 0, 0.98);
+    border-top: 1px solid var(--border-subtle);
+    backdrop-filter: blur(4px);
+    overflow-y: auto;
+    z-index: 2900;
   }
 
   .navbar.is-open .main-nav {
@@ -551,9 +564,18 @@ body.menu-open {
 
   .main-nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 0 0;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 14px;
   }
 
   .btn-primary {
@@ -567,6 +589,15 @@ body.menu-open {
     transform: none;
     max-width: none;
     margin-top: 8px;
+    padding: 18px 14px;
+    box-shadow: none;
+    background: #0b0b0b;
+    z-index: 2950;
+  }
+
+  .navbar.is-open .dropdown-portal {
+    /* FIX: Asegurar que el mega menú viva dentro del overlay en móvil */
+    position: relative;
   }
 
   .dropdown-content {
