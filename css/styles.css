@@ -715,3 +715,24 @@ body.menu-open {
     transition: none !important;
   }
 }
+
+
+/* ===== Quiénes Somos (Debajo del Hero) ===== */
+.about-ia {
+  width: 100%;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-ia__inner {
+  max-width: 700px;
+  text-align: center;
+}
+
+.about-ia__inner p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #FFFFFF; /* blanco elegante */
+  margin: 0;
+}
