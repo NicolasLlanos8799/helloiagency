@@ -1,231 +1,220 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iAgency – Smarter Assistants</title>
-    <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>iAgency – Asistentes Inteligentes</title>
+  <link rel="stylesheet" href="css/styles+v2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<meta name="description" content="AI assistants for lead capture, support and ops automation.">
-<link rel="canonical" href="https://helloiagency.com/">
-<meta property="og:title" content="iAgency – Smarter Assistants">
-<meta property="og:description" content="AI assistants for lead capture, support and ops automation.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="description" content="Asistentes de IA para captación, soporte y automatización operativa.">
+  <link rel="canonical" href="https://helloiagency.com/">
+  <meta property="og:title" content="iAgency – Asistentes Inteligentes">
+  <meta property="og:description" content="Asistentes de IA para captación, soporte y automatización operativa.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
 </head>
 
 <body>
   <header class="navbar">
-    <div class="logo">⭐ iAgency</div>
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">☰</button>
-    <nav id="primary-navigation" class="main-nav" aria-label="Primary">
+    <div class="logo"> iAgency</div>
+    <button class="menu-toggle" aria-label="Alternar navegación" aria-controls="primary-navigation"
+      aria-expanded="false">☰</button>
+    <nav id="primary-navigation" class="main-nav" aria-label="Navegación principal">
       <ul>
-        <!-- Dropdown Work -->
-        <li class="dropdown">
-          <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            Work <span class="arrow" aria-hidden="true">▼</span>
-          </a>
-
-          <!-- Mega menu -->
-          <div class="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-              <div class="col left">
-                <p class="menu-label">ASSISTANTS</p>
-
-                <a href="#" class="menu-item">
-                  <span class="icon">📄</span>
-                  <span>
-                    <strong>WhatsApp Bot</strong>
-                    <small>Retail chat automation for sales</small>
-                  </span>
-                </a>
-
-                <a href="#" class="menu-item">
-                  <span class="icon">📄</span>
-                  <span>
-                    <strong>CRM Auto-Filler</strong>
-                    <small>AI-powered data entry</small>
-                  </span>
-                </a>
-
-                <a href="#" class="menu-item">
-                  <span class="icon">📄</span>
-                  <span>
-                    <strong>Hotel Multichannel</strong>
-                    <small>Unified guest messaging</small>
-                  </span>
-                </a>
-              </div>
-
-              <div class="col right cta-card">
-                <h3>See AI in action</h3>
-                <p>View real automation projects</p>
-                <a href="#" class="cta-link">View work →</a>
-              </div>
-            </div>
-          </div>
-        </li>
+        <!-- Trabajo ahora es un enlace directo sin submenu -->
+        <li><a class="nav-link" href="#">Proyectos</a></li>
 
         <!-- Resto de links -->
-        <li><a class="nav-link" href="#about">About</a></li><!-- Responsive audit -->
-        <li><a class="nav-link" href="#">Contact</a></li>
+        <li><a class="nav-link" href="#about">Sobre nosotros</a></li><!-- Responsive audit -->
+        <li><a class="nav-link" href="#contact">Contacto</a></li>
 
-        <!-- Dropdown Support -->
-        <li class="dropdown dd-simple no-hover">
-          <a href="#" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="support-menu" role="button">
-            Support <span class="arrow" aria-hidden="true">▼</span>
-          </a>
-
-          <div class="dropdown-panel" role="menu" id="support-menu">
-            <a href="#" class="dropdown-item" role="menuitem">Help Center</a>
-            <a href="#" class="dropdown-item" role="menuitem">Contact Us</a>
-          </div>
-        </li>
       </ul>
     </nav>
-    <a href="#" class="btn-primary">Get started</a>
   </header>
 
-  <section class="hero">
+  <section class="hero hero-circuits">
+    <canvas id="circuit-bg" aria-hidden="true"></canvas>
+
     <div class="hero-text" data-aos="fade-up">
-      <h1>Smarter Assistants.<br>Faster Growth.</h1>
-      <p>Unlock AI automation tailored for real business impact.</p>
-    </div>
-    <div class="hero-images" data-aos="fade-up" data-aos-delay="100">
-      <img src="src/tabletdashboard.avif"
-        alt="tablet dashboard" loading="lazy" decoding="async">
-      <img src="src/techoffice.avif"
-        alt="tech office" loading="lazy" decoding="async">
-      <img src="src/office.avif"
-        alt="team AI dashboard" loading="lazy" decoding="async">
-      <img
-        src="src/team.avif"
-        alt="business meeting" loading="lazy" decoding="async">
+      <h1 class="hero-title">Automatiza el trabajo.<br>Acelera el crecimiento.</h1>
+      <h2 class="hero-subtitle">
+        Asistentes de IA que escalan tu negocio automáticamente.
+      </h2>
+      <p class="hero-microcopy">
+        Diseñados para impacto empresarial real.
+      </p>
     </div>
   </section>
 
- <section id="about" class="feature-split"><!-- Responsive audit -->
-  <div class="split-block with-stack">
-    
-    <!-- Imagen fija a la izquierda -->
-    <div class="split-image sticky-image">
-      <img
-        src="src/office2.avif"
-        alt="Modern workspace" loading="lazy" decoding="async">
+  <section id="about" class="about-ia">
+    <div class="about-ia__inner">
+      <p>
+        Somos iAgency, una agencia y estudio independiente de automatización inteligente.
+        Creamos asistentes de IA que ahorran tiempo, reducen tareas repetitivas y aceleran el crecimiento.
+        Nuestro enfoque es simple: menos trabajo manual, más foco en lo importante.
+
+      </p>
     </div>
+  </section>
 
-    <!-- Textos apilables -->
-    <div class="split-text">
-      <div class="stack-container">
-           <div class="stack-card">
-          <div class="card-inner">
-            <p class="label">AI-POWERED AUTOMATION</p>
-            <h2>Automate work. Accelerate growth.</h2>
-            <p>Let AI handle the busywork. Empower your team to focus on innovation and real results.</p>
-          </div>
-        </div>
 
-        <div class="stack-card">
-          <div class="card-inner">
-            <p class="label">INSTANT INTEGRATION</p>
-            <h2>Plug into your workflow fast</h2>
-            <p>Seamless setup. Instant results.‍Integrate with your CRM, chat, and tools — in minutes, not days</p>
-          </div>
-        </div>
 
-        <div class="stack-card">
-          <div class="card-inner">
-            <p class="label">MULTICHANNEL REACH</p>
-            <h2>Support customers on every channel</h2>
-            <p>Be everywhere your customers are.‍From WhatsApp to Instagram, offer fast, consistent AI-powered support — 24/7.</p>
-          </div>
-        </div>
+  <section class="feature-split"><!-- Responsive audit -->
+    <div class="split-block with-stack">
 
-        <div class="stack-card">
-          <div class="card-inner">
-            <p class="label">LIVE ANALYTICS</p>
-            <h2>Monitor. Refine. Improve.</h2>
-            <p>Track assistant performance in real time. Use insights to optimize and drive results.</p>
+      <!-- Imagen fija a la izquierda -->
+      <div class="split-image sticky-image">
+        <img src="src/render.png" alt="Espacio de trabajo moderno" loading="lazy" decoding="async">
+      </div>
+
+      <!-- Textos apilables -->
+      <div class="split-text">
+        <div class="stack-container">
+
+          <!-- Bloque 1 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">AUTOMATIZACIÓN CON IA</p>
+              <h2>Automatización inteligente</h2>
+              <p>La IA se encarga de las tareas repetitivas: responde, clasifica y ejecuta procesos. Vos enfocás tu
+                tiempo en estrategia, clientes y crecimiento.</p>
+            </div>
           </div>
+
+          <!-- Bloque 2 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">INTEGRACIÓN INSTANTÁNEA</p>
+              <h2>Integración sin fricción</h2>
+              <p>Conectá tu CRM, WhatsApp, Instagram, email y herramientas internas en minutos. Sin desarrollos eternos
+                ni configuraciones complejas.</p>
+            </div>
+          </div>
+
+          <!-- Bloque 3 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">ALCANCE MULTICANAL</p>
+              <h2>IA en todos tus canales</h2>
+              <p>
+                Una sola IA operando en WhatsApp, Instagram, web chat y email.
+                Mantiene una experiencia coherente en cada punto de contacto.
+                Atiende, responde y gestiona sin pausas las 24 horas del día.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 4 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">ANALÍTICA EN VIVO</p>
+              <h2>Optimización continua</h2>
+              <p>
+                Medí en tiempo real qué procesos están funcionando mejor.
+                Detectá oportunidades para ajustar mensajes, embudos o automatizaciones.
+                La IA aprende del comportamiento y optimiza su rendimiento de forma constante.
+              </p>
+            </div>
+          </div>
+
+
         </div>
       </div>
-    </div>
 
+
+
+    </div>
+  </section>
+
+
+
+  <section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <header class="contact-header">
+      <p class="contact-kicker">CONTACTO</p>
+      <h2>Construyamos tu asistente</h2>
+    </header>
+
+    <form 
+      class="contact-form"
+      action="https://formspree.io/f/XXXXXXXX" 
+      method="POST"
+    >
+      <!-- fila 1 -->
+      <div class="contact-grid">
+        <div class="form-field">
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+
+      <!-- fila 2 -->
+      <div class="contact-grid">
+        <div class="form-field">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" />
+        </div>
+
+        <div class="form-field">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" />
+        </div>
+      </div>
+
+      <!-- texto libre -->
+      <div class="form-field">
+        <label for="mensaje">Cuéntanos sobre lo que quieres automatizar</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      </div>
+
+      <div class="contact-actions">
+        <button type="button" class="contact-btn-secondary">
+          Cancelar
+        </button>
+        <button type="submit" class="contact-btn-primary">
+          Enviar
+        </button>
+      </div>
+
+      <p class="contact-hint">
+        Al enviar este formulario, nos autorizas a contactarte por email o teléfono.
+      </p>
+    </form>
   </div>
 </section>
 
 
-
-
-  <section class="contact">
-    <div class="contact-content">
-      <div class="contact-info" data-aos="fade-up">
-        <p class="label">CONTACT</p>
-        <h2>Let’s build your assistant</h2>
-        <p class="subtitle">Reach out to start your AI project.</p>
-
-        <div class="contact-item">
-          <span class="icon">✉️</span>
-          <div>
-            <strong>Email</strong><br>
-            <span>We reply within one business day.</span><br>
-            <a href="mailto:hello@helloiagency.com">hello@helloiagency.com</a>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="icon">💬</span>
-          <div>
-            <strong>Phone</strong><br>
-            <span>Mon–Fri, 8:00–17:00 CET</span><br>
-            +1 (555) 000–0000
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <span class="icon">🛒</span>
-          <div>
-            <strong>Social</strong><br>
-            <span>Find us on your favorite platform.</span><br>
-            LinkedIn · Instagram · WhatsApp
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-image" data-aos="fade-up" data-aos-delay="200">
-        <img
-          src="src/office3.avif"
-          alt="contact setup" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </section>
-
   <footer class="footer" data-aos="fade-up">
     <div class="footer-icons">
-      <span>📘</span>
+      <!-- <span>📘</span>
       <span>📷</span>
       <span>𝕏</span>
       <span>💼</span>
-      <span>▶️</span>
+      <span>▶️</span> -->
     </div>
-    <p>© 2025 iAgency. All rights reserved.</p>
+    <p>© 2025 iAgency. Todos los derechos reservados.</p>
     <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Cookies</a>
+      <!-- <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Cookies</a> -->
     </div>
   </footer>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="js/stacking.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="js/stacking.js" defer></script>
 </body>
 
 </html>
