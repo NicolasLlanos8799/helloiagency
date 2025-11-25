@@ -21,275 +21,275 @@ window.addEventListener('load', revealCardsOnScroll);
 
 /* ===== App boot / enhancements ===== */
 (function () {
-  const onLoad = () => {
-    // Equalize stack-card heights
-    const heightCards = Array.from(document.querySelectorAll('.stack-card'));
-    if (heightCards.length) {
-      const tallest = Math.max(
-        ...heightCards.map((c) => (c.querySelector('.card-inner')?.offsetHeight || c.offsetHeight))
-      );
-      heightCards.forEach((c) => (c.style.minHeight = Math.max(c.offsetHeight, tallest) + 'px'));
-    }
+  const selectors = {
+    dropdown: '.dropdown',
+    toggle: '.dropdown-toggle',
+    menu: '.dropdown-menu',
+    panel: '.dropdown-panel',
+  };
 
-    // AOS
+  const mediaQueries = {
+    mobile: '(max-width: 768px)',
+  };
+
+  const isMobile = () => window.matchMedia(mediaQueries.mobile).matches;
+
+  const equalizeStackCards = () => {
+    const stackCards = Array.from(document.querySelectorAll('.stack-card'));
+    if (!stackCards.length) return;
+
+    const tallest = Math.max(
+      ...stackCards.map((card) => card.querySelector('.card-inner')?.offsetHeight || card.offsetHeight)
+    );
+
+    stackCards.forEach((card) => {
+      const minHeight = Math.max(card.offsetHeight, tallest) + 'px';
+      card.style.minHeight = minHeight;
+    });
+  };
+
+  const initAOS = () => {
     if (window.AOS && typeof AOS.init === 'function') {
       AOS.init({ duration: 800, once: true });
     }
+  };
 
-    // Mobile nav toggle
+  const initMobileNav = () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
     const nav = document.querySelector('.main-nav');
-    if (menuToggle && navbar && nav) {
-      menuToggle.addEventListener('click', () => {
-        const open = navbar.classList.toggle('is-open');
-        menuToggle.setAttribute('aria-expanded', open);
-        document.body.classList.toggle('nav-open', open); // FIX: Bloquear scroll al abrir
-      });
 
-      // Close nav on link click
-      nav.querySelectorAll('a').forEach((a) => {
-        a.addEventListener('click', () => {
-          if (navbar.classList.contains('is-open')) {
-            navbar.classList.remove('is-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('nav-open');
-          }
-        });
-      });
+    if (!(menuToggle && navbar && nav)) return;
 
-      // FIX: Cerrar con Escape y mantener estado accesible
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navbar.classList.contains('is-open')) {
-          navbar.classList.remove('is-open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('nav-open');
-          menuToggle.focus();
-        }
-      });
+    const closeNav = () => {
+      navbar.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+    };
 
-      const setScrolledState = () => {
-        const scrolled = window.scrollY > 12;
-        navbar.classList.toggle('scrolled', scrolled);
-      };
+    const toggleNav = () => {
+      const open = navbar.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('nav-open', open); // FIX: Bloquear scroll al abrir
+    };
 
-      setScrolledState();
-      window.addEventListener('scroll', setScrolledState, { passive: true });
-    }
+    menuToggle.addEventListener('click', toggleNav);
 
-    /* =========================================================
-       DROPDOWN: Portal fix (no clipping, 100% responsive)
-       - Saca .dropdown-menu al <body> al abrir
-       - Posiciona bajo el toggle (desktop) o como panel fijo (móvil)
-       - Cierra con click fuera, ESC y al cambiar de breakpoint
-    ========================================================== */
-    const IS_MOBILE = () => window.matchMedia('(max-width: 768px)').matches;
-    const SEL_DD = '.dropdown';
-    const SEL_TOGGLE = '.dropdown-toggle';
-    const SEL_MENU = '.dropdown-menu';
-    const SEL_PANEL = '.dropdown-panel';
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeNav));
 
-    function makePortal(menuEl, dd) {
-      // wrapper que vivirá en <body>
-      const portal = document.createElement('div');
-      portal.className = 'dropdown-portal';
-
-      // placeholders para restaurar
-      dd.__placeholder = document.createComment('dropdown-placeholder');
-      menuEl.parentNode.insertBefore(dd.__placeholder, menuEl);
-
-      // mover contenido al portal
-      while (menuEl.firstChild) portal.appendChild(menuEl.firstChild);
-      // quitar contenedor original .dropdown-menu del DOM
-      menuEl.remove();
-
-      // guardar refs
-      dd.__portal = portal;
-      document.body.appendChild(portal);
-      return portal;
-    }
-
-    function positionPortal(portal, toggleEl) {
-      if (IS_MOBILE()) {
-        // móvil: el CSS se encarga (fixed full‑width bajo el nav)
-        return;
-      }
-      const r = toggleEl.getBoundingClientRect();
-      const vw = window.innerWidth;
-
-      // ancho deseado (clamp 720px..1200px con 88vw como target)
-      const desired = Math.min(1200, Math.max(720, Math.round(vw * 0.88)));
-      const margin = 12;
-
-      // centrar respecto al toggle, con límites del viewport
-      const leftCentered = r.left + r.width / 2 - desired / 2;
-      const x = Math.min(vw - desired - margin, Math.max(margin, leftCentered));
-      const y = Math.round(r.bottom + 12); // 12px de separación vertical
-
-      portal.style.position = 'absolute';
-      portal.style.width = desired + 'px';
-      portal.style.left = x + 'px';
-      portal.style.top = y + 'px';
-      portal.style.transform = 'translateY(0)';
-    }
-
-    function openDD(dd) {
-      // cierra otros, incluyendo los simples
-      document.querySelectorAll(SEL_DD + '.open').forEach((o) => {
-        if (o === dd) return;
-        o.classList.contains('dd-simple') ? closeSimple(o) : closeDD(o);
-      });
-
-      const toggle = dd.querySelector(SEL_TOGGLE);
-      let menu = dd.querySelector(SEL_MENU);
-
-      // crea portal si aún no existe (primera vez)
-      const portal = dd.__portal || makePortal(menu, dd);
-
-      // accesibilidad y flags
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('menu-open');
-      dd.classList.add('open');
-
-      // posicionar y mostrar
-      positionPortal(portal, toggle);
-      portal.classList.add('open');
-
-      // listeners para recálculo
-      dd.__reposition = () => positionPortal(portal, toggle);
-      window.addEventListener('resize', dd.__reposition);
-      window.addEventListener('scroll', dd.__reposition, true);
-
-      // evitar cierre por click dentro del portal
-      portal.addEventListener('click', (e) => e.stopPropagation(), { once: false });
-    }
-
-    function closeDD(dd) {
-      if (!dd.classList.contains('open')) return;
-      const toggle = dd.querySelector(SEL_TOGGLE);
-      const portal = dd.__portal;
-
-      if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('menu-open');
-
-      if (portal) portal.classList.remove('open');
-      dd.classList.remove('open');
-
-      window.removeEventListener('resize', dd.__reposition);
-      window.removeEventListener('scroll', dd.__reposition, true);
-      dd.__reposition = null;
-    }
-
-    // === Simple dropdown (Support) ===
-    function openSimple(dd) {
-      document.querySelectorAll(SEL_DD + '.open').forEach((o) => {
-        if (o === dd) return;
-        o.classList.contains('dd-simple') ? closeSimple(o) : closeDD(o);
-      });
-
-      const toggle = dd.querySelector(SEL_TOGGLE);
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-      dd.classList.add('open');
-
-      // listeners
-      dd.__docClick = (e) => {
-        if (!dd.contains(e.target)) closeSimple(dd);
-      };
-      document.addEventListener('click', dd.__docClick);
-
-      dd.__esc = (e) => {
-        if (e.key === 'Escape') {
-          closeSimple(dd);
-          toggle.focus();
-        }
-      };
-      document.addEventListener('keydown', dd.__esc);
-
-      dd.__scroll = () => closeSimple(dd);
-      window.addEventListener('scroll', dd.__scroll, { once: true });
-    }
-
-    function closeSimple(dd) {
-      if (!dd.classList.contains('open')) return;
-      const toggle = dd.querySelector(SEL_TOGGLE);
-      if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      dd.classList.remove('open');
-
-      document.removeEventListener('click', dd.__docClick);
-      document.removeEventListener('keydown', dd.__esc);
-      window.removeEventListener('scroll', dd.__scroll);
-      dd.__docClick = dd.__esc = dd.__scroll = null;
-    }
-
-    // Delegación de eventos para cada dropdown
-    document.querySelectorAll(SEL_DD).forEach((dd) => {
-      const toggle = dd.querySelector(SEL_TOGGLE);
-      if (!toggle) return;
-
-      if (dd.classList.contains('dd-simple')) {
-        const panel = dd.querySelector(SEL_PANEL);
-        const items = panel ? Array.from(panel.querySelectorAll('a')) : [];
-
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          dd.classList.contains('open') ? closeSimple(dd) : openSimple(dd);
-        });
-
-        // keyboard: open & focus first item
-        toggle.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            if (!dd.classList.contains('open')) openSimple(dd);
-            items[0]?.focus();
-          }
-        });
-
-        panel?.addEventListener('keydown', (e) => {
-          if (!['ArrowDown', 'ArrowUp'].includes(e.key)) return;
-          e.preventDefault();
-          const current = items.indexOf(document.activeElement);
-          let next = current;
-          if (e.key === 'ArrowDown') next = (current + 1) % items.length;
-          else if (e.key === 'ArrowUp') next = (current - 1 + items.length) % items.length;
-          items[next]?.focus();
-        });
-
-        // close when selecting a link
-        items.forEach((a) => a.addEventListener('click', () => closeSimple(dd)));
-      } else {
-        // Abrir/cerrar por click en el toggle
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          dd.classList.contains('open') ? closeDD(dd) : openDD(dd);
-        });
-
-        // Click fuera (considera portal en <body>)
-        document.addEventListener('click', (e) => {
-          if (!dd.classList.contains('open')) return;
-          const portal = dd.__portal;
-          const clickInsideToggle = dd.contains(e.target);
-          const clickInsidePortal = portal && portal.contains(e.target);
-          if (!clickInsideToggle && !clickInsidePortal) closeDD(dd);
-        });
-
-        // Teclado: ESC cierra y devuelve foco
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && dd.classList.contains('open')) {
-            closeDD(dd);
-            toggle.focus();
-          }
-        });
-
-        // Cambio de breakpoint: recolocar si está abierto
-        const mql = window.matchMedia('(max-width: 768px)');
-        mql.addEventListener?.('change', () => {
-          if (dd.classList.contains('open') && dd.__portal) {
-            // en móvil no necesitamos recalcular coords; en desktop sí
-            positionPortal(dd.__portal, toggle);
-          }
-        });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navbar.classList.contains('is-open')) {
+        closeNav();
+        menuToggle.focus();
       }
     });
+
+    const setScrolledState = () => {
+      const scrolled = window.scrollY > 12;
+      navbar.classList.toggle('scrolled', scrolled);
+    };
+
+    setScrolledState();
+    window.addEventListener('scroll', setScrolledState, { passive: true });
+  };
+
+  /* =========================================================
+     DROPDOWN: Portal fix (no clipping, 100% responsive)
+     - Saca .dropdown-menu al <body> al abrir
+     - Posiciona bajo el toggle (desktop) o como panel fijo (móvil)
+     - Cierra con click fuera, ESC y al cambiar de breakpoint
+  ========================================================== */
+  const makePortal = (menuElement, dropdown) => {
+    const portal = document.createElement('div');
+    portal.className = 'dropdown-portal';
+
+    dropdown.__placeholder = document.createComment('dropdown-placeholder');
+    menuElement.parentNode.insertBefore(dropdown.__placeholder, menuElement);
+
+    while (menuElement.firstChild) portal.appendChild(menuElement.firstChild);
+    menuElement.remove();
+
+    dropdown.__portal = portal;
+    document.body.appendChild(portal);
+    return portal;
+  };
+
+  const positionPortal = (portal, toggleEl) => {
+    if (isMobile()) return; // móvil: el CSS se encarga
+
+    const rect = toggleEl.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const desiredWidth = Math.min(1200, Math.max(720, Math.round(viewportWidth * 0.88)));
+    const margin = 12;
+
+    const leftCentered = rect.left + rect.width / 2 - desiredWidth / 2;
+    const left = Math.min(viewportWidth - desiredWidth - margin, Math.max(margin, leftCentered));
+    const top = Math.round(rect.bottom + 12);
+
+    Object.assign(portal.style, {
+      position: 'absolute',
+      width: desiredWidth + 'px',
+      left: left + 'px',
+      top: top + 'px',
+      transform: 'translateY(0)',
+    });
+  };
+
+  const openDropdown = (dropdown) => {
+    document.querySelectorAll(selectors.dropdown + '.open').forEach((openDropdownEl) => {
+      if (openDropdownEl === dropdown) return;
+      openDropdownEl.classList.contains('dd-simple') ? closeSimpleDropdown(openDropdownEl) : closeDropdown(openDropdownEl);
+    });
+
+    const toggle = dropdown.querySelector(selectors.toggle);
+    const menu = dropdown.querySelector(selectors.menu);
+    const portal = dropdown.__portal || makePortal(menu, dropdown);
+
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    dropdown.classList.add('open');
+
+    positionPortal(portal, toggle);
+    portal.classList.add('open');
+
+    dropdown.__reposition = () => positionPortal(portal, toggle);
+    window.addEventListener('resize', dropdown.__reposition);
+    window.addEventListener('scroll', dropdown.__reposition, true);
+
+    portal.addEventListener('click', (event) => event.stopPropagation(), { once: false });
+  };
+
+  const closeDropdown = (dropdown) => {
+    if (!dropdown.classList.contains('open')) return;
+
+    const toggle = dropdown.querySelector(selectors.toggle);
+    const portal = dropdown.__portal;
+
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+
+    portal?.classList.remove('open');
+    dropdown.classList.remove('open');
+
+    window.removeEventListener('resize', dropdown.__reposition);
+    window.removeEventListener('scroll', dropdown.__reposition, true);
+    dropdown.__reposition = null;
+  };
+
+  // === Simple dropdown (Support) ===
+  const openSimpleDropdown = (dropdown) => {
+    document.querySelectorAll(selectors.dropdown + '.open').forEach((openDropdownEl) => {
+      if (openDropdownEl === dropdown) return;
+      openDropdownEl.classList.contains('dd-simple')
+        ? closeSimpleDropdown(openDropdownEl)
+        : closeDropdown(openDropdownEl);
+    });
+
+    const toggle = dropdown.querySelector(selectors.toggle);
+    toggle?.setAttribute('aria-expanded', 'true');
+    dropdown.classList.add('open');
+
+    dropdown.__docClick = (event) => {
+      if (!dropdown.contains(event.target)) closeSimpleDropdown(dropdown);
+    };
+    document.addEventListener('click', dropdown.__docClick);
+
+    dropdown.__esc = (event) => {
+      if (event.key === 'Escape') {
+        closeSimpleDropdown(dropdown);
+        toggle?.focus();
+      }
+    };
+    document.addEventListener('keydown', dropdown.__esc);
+
+    dropdown.__scroll = () => closeSimpleDropdown(dropdown);
+    window.addEventListener('scroll', dropdown.__scroll, { once: true });
+  };
+
+  const closeSimpleDropdown = (dropdown) => {
+    if (!dropdown.classList.contains('open')) return;
+
+    const toggle = dropdown.querySelector(selectors.toggle);
+    toggle?.setAttribute('aria-expanded', 'false');
+    dropdown.classList.remove('open');
+
+    document.removeEventListener('click', dropdown.__docClick);
+    document.removeEventListener('keydown', dropdown.__esc);
+    window.removeEventListener('scroll', dropdown.__scroll);
+    dropdown.__docClick = dropdown.__esc = dropdown.__scroll = null;
+  };
+
+  const wireDropdown = (dropdown) => {
+    const toggle = dropdown.querySelector(selectors.toggle);
+    if (!toggle) return;
+
+    if (dropdown.classList.contains('dd-simple')) {
+      const panel = dropdown.querySelector(selectors.panel);
+      const items = panel ? Array.from(panel.querySelectorAll('a')) : [];
+
+      toggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        dropdown.classList.contains('open') ? closeSimpleDropdown(dropdown) : openSimpleDropdown(dropdown);
+      });
+
+      toggle.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          if (!dropdown.classList.contains('open')) openSimpleDropdown(dropdown);
+          items[0]?.focus();
+        }
+      });
+
+      panel?.addEventListener('keydown', (event) => {
+        if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+        event.preventDefault();
+
+        const currentIndex = items.indexOf(document.activeElement);
+        let nextIndex = currentIndex;
+
+        if (event.key === 'ArrowDown') nextIndex = (currentIndex + 1) % items.length;
+        if (event.key === 'ArrowUp') nextIndex = (currentIndex - 1 + items.length) % items.length;
+
+        items[nextIndex]?.focus();
+      });
+
+      items.forEach((item) => item.addEventListener('click', () => closeSimpleDropdown(dropdown)));
+      return;
+    }
+
+    toggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      dropdown.classList.contains('open') ? closeDropdown(dropdown) : openDropdown(dropdown);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!dropdown.classList.contains('open')) return;
+      const portal = dropdown.__portal;
+      const clickInsideToggle = dropdown.contains(event.target);
+      const clickInsidePortal = portal && portal.contains(event.target);
+      if (!clickInsideToggle && !clickInsidePortal) closeDropdown(dropdown);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && dropdown.classList.contains('open')) {
+        closeDropdown(dropdown);
+        toggle.focus();
+      }
+    });
+
+    const mobileMedia = window.matchMedia(mediaQueries.mobile);
+    mobileMedia.addEventListener?.('change', () => {
+      if (dropdown.classList.contains('open') && dropdown.__portal) {
+        positionPortal(dropdown.__portal, toggle);
+      }
+    });
+  };
+
+  const onLoad = () => {
+    equalizeStackCards();
+    initAOS();
+    initMobileNav();
+    document.querySelectorAll(selectors.dropdown).forEach(wireDropdown);
   };
 
   if (document.readyState === 'complete') onLoad();
