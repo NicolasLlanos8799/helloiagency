@@ -152,69 +152,76 @@
 
 
 
-  <section id="contact" class="contact-section">
-    <div class="contact-inner">
-      <header class="contact-header">
-        <p class="contact-kicker">CONTACTO</p>
-        <h2>Construyamos tu asistente</h2>
-      </header>
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <header class="contact-header">
+      <p class="contact-kicker">CONTACTO</p>
+      <h2>Construyamos tu asistente</h2>
+    </header>
 
-      <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrbgpegn" method="POST">
+    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrbgpegn" method="POST">
 
-        <!-- fila 1 -->
-        <div class="contact-grid">
-          <div class="form-field">
-            <label for="nombre">Nombre y apellido</label>
-            <input type="text" id="nombre" name="nombre" required />
-          </div>
-
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-        </div>
-
-        <!-- fila 2 -->
-        <div class="contact-grid">
-          <div class="form-field">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" />
-          </div>
-
-          <div class="form-field">
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" />
-          </div>
-        </div>
-
-        <!-- texto libre -->
+      <!-- fila 1 -->
+      <div class="contact-grid">
         <div class="form-field">
-          <label for="mensaje">Cuéntanos sobre lo que quieres automatizar</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre" required />
         </div>
 
-        <!-- Mensajes de estado -->
-        <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite">
-          Gracias, recibimos tu mensaje. Te contactaremos pronto 🙌
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+      </div>
+
+      <!-- fila 2 -->
+      <div class="contact-grid">
+        <div class="form-field">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" />
         </div>
 
-        <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
-          Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.
+        <div class="form-field">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" />
         </div>
+      </div>
 
-        <div class="contact-actions">
-          <button type="button" class="contact-btn-secondary">Cancelar</button>
-          <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Enviar</button>
-        </div>
+      <!-- texto libre -->
+      <div class="form-field">
+        <label for="mensaje">Cuéntanos sobre lo que quieres automatizar</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+      </div>
 
-        <p class="contact-hint">
-          Al enviar este formulario, nos autorizas a contactarte por email o teléfono.
-        </p>
+      <!-- Mensajes de estado (corregidos con hidden) -->
+      <div class="contact-message contact-message--success"
+           id="contactSuccess"
+           aria-live="polite"
+           hidden>
+        Gracias, recibimos tu mensaje. Te contactaremos pronto 🙌
+      </div>
 
-      </form>
+      <div class="contact-message contact-message--error"
+           id="contactError"
+           aria-live="polite"
+           hidden>
+        Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.
+      </div>
 
-    </div>
-  </section>
+      <div class="contact-actions">
+        <button type="button" class="contact-btn-secondary">Cancelar</button>
+        <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Enviar</button>
+      </div>
+
+      <p class="contact-hint">
+        Al enviar este formulario, nos autorizas a contactarte por email o teléfono.
+      </p>
+
+    </form>
+
+  </div>
+</section>
+
 
 
   <footer class="footer" data-aos="fade-up">
