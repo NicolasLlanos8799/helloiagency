@@ -150,99 +150,228 @@
     </div>
   </section>
 
-
-
-<section id="contact" class="contact-section">
-  <div class="contact-inner">
-    <header class="contact-header">
-      <p class="contact-kicker">CONTACTO</p>
-      <h2>Construyamos tu asistente</h2>
-    </header>
-
-    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrbgpegn" method="POST">
-
-      <!-- fila 1 -->
-      <div class="contact-grid">
-        <div class="form-field">
-          <label for="nombre">Nombre y apellido</label>
-          <input type="text" id="nombre" name="nombre" required />
-        </div>
-
-        <div class="form-field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-      </div>
-
-      <!-- fila 2 -->
-      <div class="contact-grid">
-        <div class="form-field">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" />
-        </div>
-
-        <div class="form-field">
-          <label for="empresa">Empresa</label>
-          <input type="text" id="empresa" name="empresa" />
-        </div>
-      </div>
-
-      <!-- texto libre -->
-      <div class="form-field">
-        <label for="mensaje">Cuéntanos sobre lo que quieres automatizar</label>
-        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-      </div>
-
-      <!-- Mensajes de estado (corregidos con hidden) -->
-      <div class="contact-message contact-message--success"
-           id="contactSuccess"
-           aria-live="polite"
-           hidden>
-        Gracias, recibimos tu mensaje. Te contactaremos pronto 🙌
-      </div>
-
-      <div class="contact-message contact-message--error"
-           id="contactError"
-           aria-live="polite"
-           hidden>
-        Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.
-      </div>
-
-      <div class="contact-actions">
-        <button type="button" class="contact-btn-secondary">Cancelar</button>
-        <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Enviar</button>
-      </div>
-
-      <p class="contact-hint">
-        Al enviar este formulario, nos autorizas a contactarte por email o teléfono.
-      </p>
-
-    </form>
-
-  </div>
-</section>
-
-
-
-  <footer class="footer" data-aos="fade-up">
-    <div class="footer-icons">
-      <!-- <span>📘</span>
-      <span>📷</span>
-      <span>𝕏</span>
-      <span>💼</span>
-      <span>▶️</span> -->
+  <section id="products" class="products">
+    <div class="products__header" data-aos="fade-up">
+      <p class="label">NUESTROS PRODUCTOS</p>
+      <h2>Probá nuestros módulos listos para usar</h2>
+      <p class="products__subtitle">Automatizá preguntas, pedidos, turnos y reservas con experiencias conversacionales en vivo.</p>
     </div>
-    <p>© 2025 iAgency. Todos los derechos reservados.</p>
-    <div class="footer-links">
-      <!-- <a href="#">Privacidad</a>
-      <a href="#">Términos</a>
-      <a href="#">Cookies</a> -->
-    </div>
-  </footer>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-  <script src="js/stacking.js" defer></script>
-  <script src="js/script.js"></script>
+    <div class="products__grid">
+      <article class="product-card" data-module="faq" data-aos="fade-up">
+        <div class="product-card__content">
+          <h3>Asistente FAQ</h3>
+          <p class="product-card__description">Responde preguntas frecuentes de forma consistente y sin esperar a un humano.</p>
+          <ul class="product-card__bullets">
+            <li>Disponible 24/7 con respuestas coherentes</li>
+            <li>Reduce mensajes repetidos y libera a tu equipo</li>
+            <li>Entrenable con tus políticas y tono de marca</li>
+            <li>Escala sin sumar costos operativos</li>
+          </ul>
+          <button class="product-demo-toggle" aria-expanded="false" aria-controls="demo-faq">Probar demo</button>
+        </div>
+        <div class="product-demo" id="demo-faq" hidden>
+          <div class="chat-quick-actions" aria-label="Preguntas rápidas">
+            <button type="button" class="chat-chip">¿Qué es iAgency?</button>
+            <button type="button" class="chat-chip">¿Qué incluye el módulo FAQ?</button>
+            <button type="button" class="chat-chip">¿Cuánto cuesta?</button>
+            <button type="button" class="chat-chip">¿Cómo se instala?</button>
+          </div>
+          <div class="ia-chat-window" role="region" aria-live="polite">
+            <div class="ia-chat-messages"></div>
+            <div class="ia-chat-typing" hidden>Escribiendo…</div>
+          </div>
+          <form class="ia-chat-input" novalidate>
+            <input type="text" name="message" placeholder="Escribí tu pregunta" autocomplete="off" required />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="product-card" data-module="pedidos" data-aos="fade-up">
+        <div class="product-card__content">
+          <h3>Módulo Pedidos</h3>
+          <p class="product-card__description">Toma pedidos, confirma detalles y mantiene actualizaciones automáticas.</p>
+          <ul class="product-card__bullets">
+            <li>Recibe pedidos y confirma disponibilidad</li>
+            <li>Calcula totales y tiempos estimados</li>
+            <li>Actualiza estado y deriva a humano si hace falta</li>
+            <li>Reduce errores en la toma manual</li>
+          </ul>
+          <button class="product-demo-toggle" aria-expanded="false" aria-controls="demo-pedidos">Probar demo</button>
+        </div>
+        <div class="product-demo" id="demo-pedidos" hidden>
+          <div class="chat-quick-actions" aria-label="Preguntas rápidas">
+            <button type="button" class="chat-chip">Quiero hacer un pedido</button>
+            <button type="button" class="chat-chip">¿Cómo funciona la confirmación?</button>
+            <button type="button" class="chat-chip">¿Puedo cancelar?</button>
+            <button type="button" class="chat-chip">¿Qué datos pedís?</button>
+          </div>
+          <div class="ia-chat-window" role="region" aria-live="polite">
+            <div class="ia-chat-messages"></div>
+            <div class="ia-chat-typing" hidden>Escribiendo…</div>
+          </div>
+          <form class="ia-chat-input" novalidate>
+            <input type="text" name="message" placeholder="Dejá tu consulta o pedido" autocomplete="off" required />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="product-card" data-module="turnos" data-aos="fade-up">
+        <div class="product-card__content">
+          <h3>Módulo Turnos</h3>
+          <p class="product-card__description">Agenda turnos, valida disponibilidad y confirma sin depender de agenda manual.</p>
+          <ul class="product-card__bullets">
+            <li>Valida horarios y confirma en segundos</li>
+            <li>Reprograma y avisa cambios automáticamente</li>
+            <li>Envía recordatorios para reducir ausencias</li>
+            <li>Compatible con flujos multicanal</li>
+          </ul>
+          <button class="product-demo-toggle" aria-expanded="false" aria-controls="demo-turnos">Probar demo</button>
+        </div>
+        <div class="product-demo" id="demo-turnos" hidden>
+          <div class="chat-quick-actions" aria-label="Preguntas rápidas">
+            <button type="button" class="chat-chip">Quiero reservar un turno</button>
+            <button type="button" class="chat-chip">¿Qué horarios hay?</button>
+            <button type="button" class="chat-chip">Quiero reprogramar</button>
+            <button type="button" class="chat-chip">¿Cómo confirmo?</button>
+          </div>
+          <div class="ia-chat-window" role="region" aria-live="polite">
+            <div class="ia-chat-messages"></div>
+            <div class="ia-chat-typing" hidden>Escribiendo…</div>
+          </div>
+          <form class="ia-chat-input" novalidate>
+            <input type="text" name="message" placeholder="Contanos qué turno necesitás" autocomplete="off" required />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="product-card" data-module="reservas" data-aos="fade-up">
+        <div class="product-card__content">
+          <h3>Módulo Reservas</h3>
+          <p class="product-card__description">Gestiona reservas para servicios, mesas o clases sin sumar fricción.</p>
+          <ul class="product-card__bullets">
+            <li>Recopila datos clave para reservar al instante</li>
+            <li>Confirma disponibilidad y envía comprobantes</li>
+            <li>Permite cancelar o modificar sin llamar</li>
+            <li>Reduce no-shows con notificaciones</li>
+          </ul>
+          <button class="product-demo-toggle" aria-expanded="false" aria-controls="demo-reservas">Probar demo</button>
+        </div>
+        <div class="product-demo" id="demo-reservas" hidden>
+          <div class="chat-quick-actions" aria-label="Preguntas rápidas">
+            <button type="button" class="chat-chip">Quiero hacer una reserva</button>
+            <button type="button" class="chat-chip">¿Qué datos necesitás?</button>
+            <button type="button" class="chat-chip">¿Puedo cancelar?</button>
+            <button type="button" class="chat-chip">¿Cómo recibo confirmación?</button>
+          </div>
+          <div class="ia-chat-window" role="region" aria-live="polite">
+            <div class="ia-chat-messages"></div>
+            <div class="ia-chat-typing" hidden>Escribiendo…</div>
+          </div>
+          <form class="ia-chat-input" novalidate>
+            <input type="text" name="message" placeholder="Chateá con el módulo de reservas" autocomplete="off" required />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="contact-inner">
+      <header class="contact-header">
+        <p class="contact-kicker">CONTACTO</p>
+        <h2>Construyamos tu asistente</h2>
+      </header>
+
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrbgpegn" method="POST">
+
+        <!-- fila 1 -->
+        <div class="contact-grid">
+          <div class="form-field">
+            <label for="nombre">Nombre y apellido</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
+
+        <!-- fila 2 -->
+        <div class="contact-grid">
+          <div class="form-field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" />
+          </div>
+
+          <div class="form-field">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" />
+          </div>
+        </div>
+
+        <!-- texto libre -->
+        <div class="form-field">
+          <label for="mensaje">Cuéntanos sobre lo que quieres automatizar</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+
+        <!-- Mensajes de estado (corregidos con hidden) -->
+        <div class="contact-message contact-message--success"
+             id="contactSuccess"
+             aria-live="polite"
+             hidden>
+          Gracias, recibimos tu mensaje. Te contactaremos pronto 🙌
+        </div>
+
+        <div class="contact-message contact-message--error"
+             id="contactError"
+             aria-live="polite"
+             hidden>
+          Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.
+        </div>
+
+        <div class="contact-actions">
+          <button type="button" class="contact-btn-secondary">Cancelar</button>
+          <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Enviar</button>
+        </div>
+
+        <p class="contact-hint">
+          Al enviar este formulario, nos autorizas a contactarte por email o teléfono.
+        </p>
+
+      </form>
+
+    </div>
+  </section>
+
+
+
+    <footer class="footer" data-aos="fade-up">
+      <div class="footer-icons">
+        <!-- <span>📘</span>
+        <span>📷</span>
+        <span>𝕏</span>
+        <span>💼</span>
+        <span>▶️</span> -->
+      </div>
+      <p>© 2025 iAgency. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <!-- <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a> -->
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="js/stacking.js" defer></script>
+    <script src="js/ia-products-demos.js" defer></script>
+    <script src="js/script.js"></script>
 
 </body>
 
