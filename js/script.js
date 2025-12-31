@@ -1,4 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* =========================================
+     Prefill Contact Form
+     ========================================= */
+  const prefillBtns = document.querySelectorAll(".js-prefill-btn");
+  const messageInput = document.getElementById("mensaje");
+  const nameInput = document.getElementById("nombre");
+
+  if (prefillBtns.length > 0 && messageInput) {
+    prefillBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        // Obtenemos el texto del data-attribute
+        const text = btn.getAttribute("data-prefill");
+        if (text) {
+          // Llenamos el textarea
+          messageInput.value = text;
+
+          // Opcional: Hacer foco en el campo nombre para mejor UX
+          // Esperamos un poquito para que el scroll termine o se inicie
+          setTimeout(() => {
+            if (nameInput) nameInput.focus();
+          }, 100);
+        }
+      });
+    });
+  }
   const form = document.getElementById("contactForm");
   if (!form) return;
 
