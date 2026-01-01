@@ -426,9 +426,33 @@ body.menu-open {
 }
 
 .stack-card.visible {
+  opacity: 1.4;
+  /* Inactive/Background state */
+  transform: translateY(0) scale(0.96);
+  pointer-events: none;
+}
+
+/* Active card pops out */
+.stack-card.is-active {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
+}
+
+/* Mobile: Disable stack effects */
+@media (max-width: 900px) {
+
+  .stack-card,
+  .stack-card.visible,
+  .stack-card.is-active {
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Ensure visibility */
+  }
 }
 
 .card-inner {
@@ -1496,4 +1520,26 @@ body.menu-open {
     padding-top: 30px !important;
     padding-bottom: 60px;
   }
+}
+
+
+
+/* Canvas Micro-movement */
+@keyframes floatCanvas {
+  0% {
+    transform: translateY(0) scale(1.0);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  100% {
+    transform: translateY(0) scale(1.0);
+  }
+}
+
+#circuit-bg {
+  animation: floatCanvas 12s ease-in-out infinite;
+  opacity: 0.8;
 }

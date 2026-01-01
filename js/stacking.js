@@ -2,16 +2,31 @@
 const cards = document.querySelectorAll('.stack-card');
 
 function revealCardsOnScroll() {
-  let visibleCount = 0;
+  const windowHeight = window.innerHeight;
+  let hasActive = false;
 
-  cards.forEach((card) => {
+  // Iterate backwards to find the "topmost" visible card acting as the active one
+  // or use forward loop but keep track.
+  // Better strategy: The last card that has crossed the threshold is the "current" one.
+
+  let lastVisibleIndex = -1;
+
+  cards.forEach((card, index) => {
     const rect = card.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
+    // Activation threshold: when card top reaches lower part of screen
     if (rect.top < windowHeight - 100) {
       card.classList.add('visible');
-      card.style.zIndex = visibleCount + 1; // el último visible queda arriba
-      visibleCount++;
+      card.style.zIndex = index + 1;
+      lastVisibleIndex = index;
+    }
+  });
+
+  // Apply active state only to the last visible card (the one on top of the stack)
+  cards.forEach((card, index) => {
+    if (index === lastVisibleIndex) {
+      card.classList.add('is-active');
+    } else {
+      card.classList.remove('is-active');
     }
   });
 }
