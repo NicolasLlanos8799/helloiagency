@@ -10,7 +10,10 @@
   --text-soft: #a8a8a8;
   --bg-main: #000;
   --card-bg: #0b0b0b;
-  --border-subtle: #111;
+  --border-subtle: #1c1c1c;
+  /* Slightly lighter for better visibility */
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -106,13 +109,17 @@ section {
   padding: 8px 12px;
   border-radius: 10px;
   color: var(--text-primary);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus-visible {
   background: rgba(255, 255, 255, 0.06);
   outline: none;
+}
+
+.nav-link:active {
+  transform: scale(0.96);
 }
 
 .arrow {
@@ -127,6 +134,11 @@ section {
   border: 2px solid #ffffff;
   font-weight: 700;
   color: #fff;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
 }
 
 .menu-toggle {
@@ -953,7 +965,7 @@ body.menu-open {
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #ffffff;
-  box-shadow: 0 0 0 1px #ffffff10;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
   background: #050505;
 }
 
@@ -1141,9 +1153,13 @@ body.menu-open {
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(255, 255, 255, 0.15);
   background: #141414;
+}
+
+.product-card:active {
+  transform: translateY(-6px);
 }
 
 .product-card__header {
