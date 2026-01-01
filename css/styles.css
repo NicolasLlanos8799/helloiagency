@@ -1106,6 +1106,47 @@ body.menu-open {
   margin: 0 auto 60px;
 }
 
+.statement-lead {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.statement-support {
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  color: #a1a1aa;
+  line-height: 1.6;
+  font-weight: 500;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* FIX: Hero -> About Spacing & Responsive Adjustments */
+.hero {
+  min-height: auto !important;
+  /* Allow content to dictate height */
+  padding-bottom: 60px !important;
+  /* Reduce bottom gap */
+}
+
+.about-ia {
+  padding-top: 60px !important;
+  /* Bring content closer to hero */
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 40px !important;
+  }
+
+  .about-ia {
+    padding-top: 40px !important;
+  }
+}
+
 .section-title {
   font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 800;
@@ -1386,5 +1427,73 @@ body.menu-open {
     /* Force visibility */
     opacity: 1;
     visibility: visible;
+  }
+}
+
+/* FIX: Statement Section Styling */
+.about-ia {
+  /* Using specific padding to align with "Reduced Gap" request while keeping statement look */
+  padding: 60px 20px 100px;
+  position: relative;
+  background: var(--bg-main);
+  text-align: center;
+}
+
+.about-ia__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.about-ia__inner::before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #333;
+  margin: 0 auto 40px;
+  border-radius: 2px;
+}
+
+.statement-lead {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.statement-support {
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  color: #a1a1aa;
+  line-height: 1.6;
+  font-weight: 500;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* FIX: Hero -> About Spacing & Responsive Adjustments */
+/* Overrides to strictly enforce the "Closer" requirement */
+.hero {
+  min-height: auto !important;
+  padding-bottom: 40px !important;
+  /* Tightened from 60px */
+}
+
+.about-ia {
+  padding-top: 40px !important;
+  /* Tightened from 60px */
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 30px !important;
+    /* Even tighter on mobile */
+  }
+
+  .about-ia {
+    padding-top: 30px !important;
+    padding-bottom: 60px;
   }
 }
