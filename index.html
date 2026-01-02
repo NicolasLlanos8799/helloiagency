@@ -9,6 +9,7 @@
   <title>iAgency – Asistentes Digitales</title>
 
   <!-- STYLES -->
+  <link rel="stylesheet" href="/css/styles.css?v=2">
   <link rel="stylesheet" href="css/styles.css?v=2">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon"
@@ -56,7 +57,7 @@
     </nav>
   </header>
 
-  <section class="hero hero-circuits">
+  <section id="about" class="hero hero-circuits">
     <canvas id="circuit-bg" aria-hidden="true"></canvas>
 
     <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
@@ -67,85 +68,13 @@
     </div>
   </section>
 
-  <section id="about" class="about-ia">
+  <section class="about-ia">
     <div class="about-ia__inner" data-aos="fade-up" data-aos-offset="50" data-aos-delay="200">
       <p>
         Somos iAgency, una agencia y estudio independiente de automatización inteligente. Creamos asistentes digitales
         que ahorran tiempo, reducen tareas repetitivas y hacen que tu negocio funcione más simple. Nuestro objetivo es
         automatizar tareas repetitivas y hacer que tu flujo de trabajo sea más simple y eficiente.
       </p>
-    </div>
-  </section>
-
-
-
-  <section class="feature-split"><!-- Responsive audit -->
-    <div class="split-block with-stack">
-
-      <!-- Imagen fija a la izquierda -->
-      <div class="split-image sticky-image">
-        <img src="src/render.png" alt="Espacio de trabajo moderno" loading="lazy" decoding="async">
-      </div>
-
-      <!-- Textos apilables -->
-      <div class="split-text">
-        <div class="stack-container">
-
-          <!-- Bloque 1 -->
-          <div class="stack-card">
-            <div class="card-inner">
-              <p class="label">TAREAS QUE SE HACEN SOLAS</p>
-              <h2>Tu asistente que trabaja por vos</h2>
-              <p>
-                Automatizamos las tareas que hacés todos los días: responder consultas, tomar reservas,
-                enviar recordatorios y organizar información. Tu negocio sigue funcionando incluso cuando vos no estás.
-              </p>
-            </div>
-          </div>
-
-          <!-- Bloque 2 -->
-          <div class="stack-card">
-            <div class="card-inner">
-              <p class="label">FUNCIONA CON LO QUE USÁS HOY</p>
-              <h2>Conectado a tus plataformas modernas</h2>
-              <p>
-                El asistente se integra con las herramientas que ya usás —WhatsApp, Instagram, tu web,
-                Google y CRMs modernos— para que todo fluya automáticamente sin cambios en tu forma de trabajar.
-              </p>
-            </div>
-          </div>
-
-          <!-- Bloque 3 -->
-          <div class="stack-card">
-            <div class="card-inner">
-              <p class="label">LISTO PARA EL FUTURO</p>
-              <h2>Te ayudamos a modernizar lo que haga falta</h2>
-              <p>
-                Si tu sistema actual no permite automatizar, te guiamos para migrar a soluciones más modernas.
-                Así podés aprovechar la IA, reducir trabajo manual y hacer crecer tu negocio con menos esfuerzo.
-              </p>
-            </div>
-          </div>
-
-          <!-- Bloque 4 -->
-          <div class="stack-card">
-            <div class="card-inner">
-              <p class="label">IDEAS QUE SE VUELVEN FLUJOS</p>
-              <h2>Decinos qué repetís y lo convertimos en automático</h2>
-              <p>
-                Muchos negocios hacen tareas a mano sin saber que pueden automatizarlas.
-                Si hay algo que te lleva tiempo todos los días —por simple o específico que sea— lo analizamos,
-                encontramos la lógica y lo transformamos en un proceso que se hace solo.
-              </p>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-
-
     </div>
   </section>
 
@@ -265,6 +194,85 @@
         </div>
 
       </div>
+
+      <div class="products-footer">
+        <a href="#SolucionAMedida" class="product-custom-link">
+          ¿Necesitás algo distinto?
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-split"><!-- Responsive audit -->
+    <div class="split-block with-stack">
+
+      <!-- Imagen fija a la izquierda -->
+      <div class="split-image sticky-image">
+        <img src="src/render.png" alt="Espacio de trabajo moderno" loading="lazy" decoding="async">
+      </div>
+
+      <!-- Textos apilables -->
+      <div class="split-text">
+        <div class="stack-container">
+
+          <!-- Bloque 1 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">TAREAS QUE SE HACEN SOLAS</p>
+              <h2>Tu asistente que trabaja por vos</h2>
+              <p>
+                Automatizamos las tareas que hacés todos los días: responder consultas, tomar reservas,
+                enviar recordatorios y organizar información. Tu negocio sigue funcionando incluso cuando vos no estás.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 2 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">FUNCIONA CON LO QUE USÁS HOY</p>
+              <h2>Conectado a tus plataformas modernas</h2>
+              <p>
+                El asistente se integra con las herramientas que ya usás —WhatsApp, Instagram, tu web,
+                Google y CRMs modernos— para que todo fluya automáticamente sin cambios en tu forma de trabajar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 3 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">LISTO PARA EL FUTURO</p>
+              <h2>Te ayudamos a modernizar lo que haga falta</h2>
+              <p>
+                Si tu sistema actual no permite automatizar, te guiamos para migrar a soluciones más modernas.
+                Así podés aprovechar la IA, reducir trabajo manual y hacer crecer tu negocio con menos esfuerzo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bloque 4 -->
+          <div class="stack-card">
+            <div class="card-inner">
+              <p class="label">IDEAS QUE SE VUELVEN FLUJOS</p>
+              <h2>Decinos qué repetís y lo convertimos en automático</h2>
+              <p>
+                Muchos negocios hacen tareas a mano sin saber que pueden automatizarlas.
+                Si hay algo que te lleva tiempo todos los días —por simple o específico que sea— lo analizamos,
+                encontramos la lógica y lo transformamos en un proceso que se hace solo.
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
     </div>
   </section>
 
@@ -387,7 +395,7 @@
       <span>💼</span>
       <span>▶️</span> -->
     </div>
-    <p>© 2025 iAgency. Todos los derechos reservados.</p>
+    <p>© 2026 iAgency. Todos los derechos reservados.- NL Developments </p>
     <div class="footer-links">
       <!-- <a href="#">Privacidad</a>
       <a href="#">Términos</a>

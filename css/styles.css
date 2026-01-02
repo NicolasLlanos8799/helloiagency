@@ -1543,3 +1543,41 @@ body.menu-open {
   animation: floatCanvas 12s ease-in-out infinite;
   opacity: 0.8;
 }
+
+/* Custom Solution Link in Products Section */
+.products-footer {
+  text-align: center;
+  margin-top: 48px;
+  padding-bottom: 24px;
+}
+
+.product-custom-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #a1a1aa;
+  position: relative;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.product-custom-link svg {
+  transform: rotate(90deg);
+  /* Arrow pointing down */
+  transition: transform 0.3s ease;
+  width: 20px;
+  height: 20px;
+}
+
+.product-custom-link:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.product-custom-link:hover svg {
+  transform: rotate(90deg) translateX(4px);
+  /* Subtle nudge */
+}
