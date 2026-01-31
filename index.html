@@ -435,22 +435,6 @@
   <script src="js/stacking.js" defer></script>
   <script src="js/script.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-ga-assistant]').forEach(function (el) {
-        el.addEventListener('click', function () {
-          const assistant = el.getAttribute('data-ga-assistant');
-
-          gtag('event', 'click_probar_asistente', {
-            assistant_type: assistant,
-            location: 'products_section',
-            transport_type: 'beacon'
-          });
-        });
-      });
-    });
-  </script>
-
 </body>
 
 </html>

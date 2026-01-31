@@ -1,4 +1,56 @@
+/**
+ * ============================================================================
+ * GA4 ENTERPRISE TRACKING HELPERS
+ * ============================================================================
+ */
+function trackEvent(eventName, params = {}) {
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, params);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  /* =========================================
+     Enterprise Tracking: Scroll 75%
+     ========================================= */
+  let scroll75Sent = false;
+  window.addEventListener('scroll', () => {
+    if (scroll75Sent) return;
+    const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+    if (scrollPercent >= 0.75) {
+      scroll75Sent = true;
+      trackEvent('scroll_75');
+    }
+  }, { passive: true });
+
+  /* =========================================
+     Enterprise Tracking: CTA Clicks
+     ========================================= */
+  // Delegación para capturar clicks en botones de acción
+  document.addEventListener('click', (e) => {
+    const cta = e.target.closest('.btn, .nav-link, .product-custom-link');
+    if (!cta) return;
+
+    let location = 'section';
+    if (cta.closest('.navbar')) location = 'hero'; // Consideramos Nav/Hero como parte del inicio
+    if (cta.closest('.footer') || cta.id === 'contactSubmitBtn') location = 'footer';
+    if (cta.closest('.hero')) location = 'hero';
+
+    trackEvent('cta_click', {
+      cta_location: location
+    });
+
+    // Tracking específico para tipos de asistentes (reutilizando lógica previa)
+    const assistantType = cta.getAttribute('data-ga-assistant');
+    if (assistantType) {
+      trackEvent('click_probar_asistente', {
+        assistant_type: assistantType,
+        location: 'products_section',
+        transport_type: 'beacon'
+      });
+    }
+  });
+
   /* =========================================
      Prefill Contact Form
      ========================================= */
@@ -9,14 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (prefillBtns.length > 0 && messageInput) {
     prefillBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        // Obtenemos el texto del data-attribute
         const text = btn.getAttribute("data-prefill");
         if (text) {
-          // Llenamos el textarea
           messageInput.value = text;
-
-          // Opcional: Hacer foco en el campo nombre para mejor UX
-          // Esperamos un poquito para que el scroll termine o se inicie
           setTimeout(() => {
             if (nameInput) nameInput.focus();
           }, 100);
@@ -24,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
   const form = document.getElementById("contactForm");
   if (!form) return;
 
@@ -35,11 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // limpiar mensajes previos
     if (successMsg) successMsg.classList.remove("is-visible");
     if (errorMsg) errorMsg.classList.remove("is-visible");
 
-    // estado "enviando"
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.classList.add("is-loading");
@@ -58,6 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         form.reset();
         if (successMsg) successMsg.classList.add("is-visible");
+
+        // Enterprise Tracking: Lead Conversion
+        trackEvent('lead_form_submit', {
+          form_id: 'contactForm',
+          product: 'helloiagency'
+        });
+
       } else {
         if (errorMsg) errorMsg.classList.add("is-visible");
       }
