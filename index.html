@@ -12,10 +12,15 @@
   <link rel="stylesheet" href="/css/styles.css?v=3">
   <link rel="stylesheet" href="css/styles.css?v=3">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="src/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="src/favicon.svg?v=2">
-  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Favicon (Google-first) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.ico">
+
+  <link rel="manifest" href="/site.webmanifest">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
 
   <!-- PRECONNECT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +43,19 @@
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W33VWQRXSN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-W33VWQRXSN');
+  </script>
+
+
 </head>
+
 
 
 <body>
@@ -123,7 +140,8 @@
 
           <div class="product-card__footer">
             <a href="https://asistente-faq.helloiagency.com/#demo" class="btn btn-primary js-prefill-btn"
-              target="_blank" rel="noopener noreferrer" title="Ver Demo de Asistente de IA para Consultas">
+              target="_blank" rel="noopener noreferrer" title="Ver Demo de Asistente de IA para Consultas"
+              data-ga-assistant="asistente_consultas">
               Ver demo en vivo
             </a>
           </div>
@@ -159,7 +177,7 @@
 
           <div class="product-card__footer">
             <a href="demos/chat_demo_hamburgueseria.html" class="btn btn-primary js-prefill-btn" target="_blank"
-              rel="noopener noreferrer" title="Ver Demo de Gestor de Pedidos con IA">
+              rel="noopener noreferrer" title="Ver Demo de Gestor de Pedidos con IA" data-ga-assistant="gestor_pedidos">
               Ver demo en vivo
             </a>
           </div>
@@ -195,7 +213,7 @@
 
           <div class="product-card__footer">
             <a href="#contact" class="btn btn-primary js-prefill-btn"
-              data-prefill="Hola, me interesa ver una demo del Gestor de Turnos.">
+              data-prefill="Hola, me interesa ver una demo del Gestor de Turnos." data-ga-assistant="gestor_turnos">
               Solicitar demo en vivo
             </a>
           </div>
@@ -416,6 +434,22 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
   <script src="js/stacking.js" defer></script>
   <script src="js/script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-ga-assistant]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          const assistant = el.getAttribute('data-ga-assistant');
+
+          gtag('event', 'click_probar_asistente', {
+            assistant_type: assistant,
+            location: 'products_section',
+            transport_type: 'beacon'
+          });
+        });
+      });
+    });
+  </script>
 
 </body>
 
