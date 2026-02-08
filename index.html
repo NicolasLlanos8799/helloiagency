@@ -16,6 +16,7 @@
   <!-- Favicon (Google-first) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <link rel="manifest" href="/site.webmanifest">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -29,6 +30,8 @@
   <meta name="description"
     content="Implementamos asistentes de IA y automatizaciones inteligentes para que tu negocio funcione 24/7 de forma eficiente y sin tareas repetitivas.">
   <meta name="robots" content="index, follow">
+  <meta name="author" content="iAgency">
+  <meta name="publisher" content="iAgency">
   <link rel="canonical" href="https://helloiagency.com/">
 
   <!-- OPEN GRAPH -->
@@ -65,11 +68,12 @@
     <nav id="primary-navigation" class="main-nav" aria-label="Navegación principal">
       <ul>
         <!-- Trabajo ahora es un enlace directo sin submenu -->
-        <li><a class="nav-link" href="#Asistentes">Asistentes</a></li>
+        <li><a class="nav-link" href="#Asistentes" title="Ver nuestros Asistentes Digitales">Asistentes</a></li>
 
         <!-- Resto de links -->
-        <li><a class="nav-link" href="#about">Sobre nosotros</a></li><!-- Responsive audit -->
-        <li><a class="nav-link" href="#contact">Contacto</a></li>
+        <li><a class="nav-link" href="#about" title="Conocer más sobre iAgency">Sobre nosotros</a></li>
+        <!-- Responsive audit -->
+        <li><a class="nav-link" href="#contact" title="Contactar a iAgency">Contacto</a></li>
 
       </ul>
     </nav>
@@ -212,7 +216,7 @@
           </div>
 
           <div class="product-card__footer">
-            <a href="#contact" class="btn btn-primary js-prefill-btn"
+            <a href="#contact" class="btn btn-primary js-prefill-btn" title="Solicitar demo del Gestor de Turnos"
               data-prefill="Hola, me interesa ver una demo del Gestor de Turnos." data-ga-assistant="gestor_turnos">
               Solicitar demo en vivo
             </a>
@@ -222,7 +226,8 @@
       </div>
 
       <div class="products-footer">
-        <a href="#SolucionAMedida" class="product-custom-link">
+        <a href="#SolucionAMedida" class="product-custom-link"
+          title="Solicitar una solución de automatización a medida">
           ¿Necesitás algo distinto?
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
@@ -239,7 +244,7 @@
       <!-- Imagen fija a la izquierda -->
       <div class="split-image sticky-image">
         <img src="src/render.png" alt="Interfaz de asistente inteligente y automatización de procesos para negocios"
-          loading="lazy" decoding="async">
+          title="Asistentes Digitales y Automatización de Negocios" loading="lazy" decoding="async">
       </div>
 
       <!-- Textos apilables -->
@@ -336,7 +341,7 @@
         </ul>
 
         <div class="custom-solution-cta" data-aos="fade-up" data-aos-delay="200">
-          <a href="#contact" class="btn btn-primary js-prefill-btn"
+          <a href="#contact" class="btn btn-primary js-prefill-btn" title="Contactar para construir tu automatización"
             data-prefill="Hola, quiero analizar una automatización a medida para mi negocio.">
             Construyamos tu automatización
           </a>
