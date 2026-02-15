@@ -11,6 +11,8 @@
   <!-- STYLES -->
   <link rel="stylesheet" href="css/styles.css?v=3">
   <link rel="stylesheet" href="/css/styles.css?v=3">
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
@@ -139,7 +141,6 @@
         <div class="product-card" data-aos="fade-up" data-aos-delay="100">
           <div class="product-card__header">
             <h3 class="card-title">Asistente de Conversación Automatizada</h3>
-            <span class="card-tag">RECOMENDADO PARA EMPEZAR</span>
             <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE ATENCIÓN</span>
           </div>
 
@@ -153,7 +154,7 @@
                 <span class="price-setup">Setup 150 USD</span>
                 <span class="price-month">+ 50 USD/mes</span>
               </div>
-              <div class="price-badge">1er mes gratis</div>
+              <div class="price-badge">7 días de prueba gratuita</div>
             </div>
             <p class="card-desc">
               Lo configuramos con la información, condiciones y lógica de tu negocio para responder de forma coherente,
@@ -204,7 +205,7 @@ Recibo aproximadamente _____ mensajes por día.">
                 <span class="price-setup">Setup 200 USD</span>
                 <span class="price-month">+ 50 USD/mes</span>
               </div>
-              <div class="price-badge">1er mes gratis</div>
+              <div class="price-badge">7 días de prueba gratuita</div>
             </div>
             <p class="card-desc">
               Un asistente que guía al cliente paso a paso durante el pedido, solicita todos los datos necesarios,
@@ -371,71 +372,63 @@ Recibo aproximadamente _____ pedidos por día.">
   </section>
 
 
-  <section id="contact" class="contact-section">
-    <div class="contact-inner">
-      <header class="contact-header">
-        <p class="contact-kicker">CONTACTO</p>
-        <h2>Agendemos una reunión (15 min)</h2>
-      </header>
+  <section id="contact" class="contact-section-premium">
+    <div class="contact-container">
+      <div class="contact-grid-layout">
 
-      <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrbgpegn" method="POST">
+        <!-- Columna Izquierda: Copy + Formulario -->
+        <div class="contact-left">
+          <p class="contact-kicker">REUNIÓN POR GOOGLE MEET · 15 MIN</p>
+          <h2 class="contact-title">Agendemos una llamada</h2>
+          <p class="contact-subtitle">
+            Analizamos tu negocio y te recomendamos el asistente ideal para automatizar consultas o ventas.
+          </p>
 
-        <!-- fila 1 -->
-        <div class="contact-grid">
-          <div class="form-field">
-            <label for="nombre">Nombre y apellido</label>
-            <input type="text" id="nombre" name="nombre" required />
+          <ul class="contact-benefits">
+            <li>Recomendación personalizada según tu rubro</li>
+            <li>Estimación de implementación (24–72h)</li>
+            <li>Próximos pasos claros y simples</li>
+          </ul>
+
+          <p class="contact-micro">
+            Horario adaptado automáticamente a tu zona (Argentina / LATAM).
+          </p>
+
+          <!-- Formulario alternativo visualmente separado -->
+          <div class="contact-alt-wrapper">
+            <div class="contact-alt-divider"></div>
+            <p class="contact-alt-title">¿Preferís que te contactemos primero?</p>
+            <form action="https://formspree.io/f/xrbgpegn" method="POST" class="contact-form-compact" id="contactForm">
+              <div class="form-row">
+                <input type="text" name="nombre" placeholder="Tu nombre" required />
+                <input type="text" name="contacto" placeholder="Email o WhatsApp" required />
+              </div>
+              <textarea name="mensaje" rows="2" placeholder="¿Qué querés automatizar?" required></textarea>
+              <button type="submit" class="btn-submit-compact" id="contactSubmitBtn">Enviar mensaje</button>
+
+              <!-- Mensajes de estado -->
+              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite" hidden>
+                Gracias, pronto te contactaremos 🙌
+              </div>
+              <div class="contact-message contact-message--error" id="contactError" aria-live="polite" hidden>
+                Hubo un error. Por favor intentá de nuevo.
+              </div>
+            </form>
           </div>
+        </div>
 
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+        <!-- Columna Derecha: Calendly -->
+        <div class="contact-right">
+          <div class="calendly-card-premium">
+            <div class="calendly-inline-widget"
+              data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1">
+            </div>
           </div>
         </div>
 
-        <!-- fila 2 -->
-        <div class="contact-grid">
-          <div class="form-field">
-            <label for="telefono">WhatsApp (opcional)</label>
-            <input type="tel" id="telefono" name="telefono" />
-          </div>
-
-          <div class="form-field">
-            <label for="empresa">Empresa</label>
-            <input type="text" id="empresa" name="empresa" />
-          </div>
-        </div>
-
-        <!-- texto libre -->
-        <div class="form-field">
-          <label for="mensaje">Cuéntanos qué te gustaría automatizar y cómo funciona hoy tu proceso</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-        </div>
-
-        <!-- Mensajes de estado (corregidos con hidden) -->
-        <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite" hidden>
-          Gracias, recibimos tu mensaje. Te contactaremos pronto 🙌
-        </div>
-
-        <div class="contact-message contact-message--error" id="contactError" aria-live="polite" hidden>
-          Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.
-        </div>
-
-        <div class="contact-actions">
-          <button type="reset" class="contact-btn-secondary">Limpiar</button>
-          <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Agendar reunión</button>
-        </div>
-
-        <p class="contact-hint">
-          Al enviar este formulario, nos autorizas a contactarte por email o teléfono.
-        </p>
-
-      </form>
-
+      </div>
     </div>
   </section>
-
-
 
 
   <footer class="footer" data-aos="fade-up">
@@ -457,6 +450,8 @@ Recibo aproximadamente _____ pedidos por día.">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
   <script src="js/stacking.js" defer></script>
   <script src="js/script.js"></script>
+  <!-- Calendly -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body>
 
