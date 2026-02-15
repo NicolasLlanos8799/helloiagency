@@ -9,8 +9,9 @@
   <title>iAgency – Asistentes Digitales para Automatizar Negocios</title>
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="/css/styles.css?v=3">
   <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="/css/styles.css?v=3">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Favicon (Google-first) -->
@@ -74,7 +75,13 @@
         <li><a class="nav-link" href="#about" title="Conocer más sobre iAgency">Sobre nosotros</a></li>
         <!-- Responsive audit -->
         <li><a class="nav-link" href="#contact" title="Contactar a iAgency">Contacto</a></li>
+        <li>
+          <a class="nav-link nav-cta js-prefill-btn" href="#contact"
+            data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué asistente me conviene.">
+            Agendar reunión
 
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -83,19 +90,33 @@
     <canvas id="circuit-bg" aria-hidden="true"></canvas>
 
     <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
-      <h1 class="hero-title">Automatiza el trabajo. <br>Acelera el crecimiento con asistentes digitales</h1>
+      <h1 class="hero-title">Automatizá consultas y ventas por chat con asistentes digitales 24/7.</h1>
       <p class="hero-subtitle">
-        Atienden clientes, gestionan tareas y mantienen tu negocio en movimiento 24/7.
+        Implementación rápida en WhatsApp, Instagram y Messenger. Elegís un asistente, lo adaptamos a tu negocio y queda
+        funcionando en días.
       </p>
+      <div class="hero-actions">
+        <a href="#Asistentes" class="btn btn-primary">Ver asistentes</a>
+        <a href="#contact" class="btn btn-secondary js-prefill-btn"
+          data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué asistente me conviene.">
+          Agendar reunión
+        </a>
+      </div>
+      <div class="hero-badges" aria-label="Beneficios clave">
+        <span class="badge">Implementación rápida</span>
+        <span class="badge">Desde 150 USD + 50/mes</span>
+        <span class="badge">Funciona 24/7</span>
+        <span class="badge">WhatsApp · Instagram · Messenger</span>
+      </div>
     </div>
   </section>
 
   <section class="about-ia">
     <div class="about-ia__inner" data-aos="fade-up" data-aos-offset="50" data-aos-delay="200">
       <p>
-        Somos iAgency, una agencia y estudio independiente de automatización inteligente. Creamos asistentes digitales
-        que ahorran tiempo, reducen tareas repetitivas y hacen que tu negocio funcione más simple. Nuestro objetivo es
-        automatizar tareas repetitivas y hacer que tu flujo de trabajo sea más simple y eficiente.
+        Somos iAgency, un estudio independiente de automatización. Implementamos asistentes digitales listos y también
+        soluciones a medida. Primero diagnosticamos tu flujo, luego adaptamos el asistente y lo dejamos funcionando para
+        ahorrar tiempo, reducir tareas repetitivas y atender mejor a tus clientes.
       </p>
     </div>
   </section>
@@ -107,8 +128,8 @@
         <h2 class="section-title">Asistentes Inteligentes para tu Negocio</h2>
         <p class="section-subtitle">
           Implementaciones listas para usar, adaptadas a los principales canales de comunicación digital
-          (como WhatsApp, Instagram, Facebook y Telegram).
-          Trabajan por vos, 24/7. Elegí un módulo y empezá a automatizar hoy.
+          (como WhatsApp, Instagram y Facebook/Messenger).
+          Trabajan por vos, 24/7. Mirá la demo y agendá una reunión para implementarlo.
         </p>
       </div>
 
@@ -117,26 +138,35 @@
         <!-- Card 1 -->
         <div class="product-card" data-aos="fade-up" data-aos-delay="100">
           <div class="product-card__header">
-            <h3 class="card-title">Asistente de Consultas</h3>
+            <h3 class="card-title">Asistente de Conversación Automatizada</h3>
+            <span class="card-tag">RECOMENDADO PARA EMPEZAR</span>
             <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE ATENCIÓN</span>
           </div>
 
           <div class="product-card__body">
             <p class="card-impact">
-              Un agente que decide qué responder según el contexto de tu negocio.
+              Automatiza la atención de consultas aplicando las reglas reales de tu negocio.
             </p>
+
+            <div class="card-pricing">
+              <div class="price-line">
+                <span class="price-setup">Setup 150 USD</span>
+                <span class="price-month">+ 50 USD/mes</span>
+              </div>
+              <div class="price-badge">1er mes gratis</div>
+            </div>
             <p class="card-desc">
-              Un asistente conversacional construido a partir de la información y reglas de tu negocio.
-              Interpreta lo que el cliente necesita y responde de forma coherente, natural y consistente,
-              manteniendo el contexto de la conversación.
+              Lo configuramos con la información, condiciones y lógica de tu negocio para responder de forma coherente,
+              natural y consistente. Interpreta la intención del cliente, aplica precios, envíos y condiciones,
+              y mantiene el contexto durante toda la conversación.
             </p>
             <ul class="product-features">
-              <li>Interpreta la intención del cliente, no solo palabras clave</li>
-              <li>Responde según datos reales, reglas y lógica de tu negocio</li>
-              <li>Mantiene el contexto y puede escalar a otras acciones</li>
+              <li>Responde consultas aplicando precios, envíos y reglas reales de tu negocio</li>
+              <li>Interpreta intención y mantiene el contexto de la conversación</li>
+              <li>Puede escalar a una persona cuando sea necesario</li>
               <li>
-                <strong>Ideal para:</strong> negocios y profesionales que reciben muchas consultas y
-                necesitan respuestas claras sin perder coherencia
+                <strong>Ideal para:</strong> negocios que reciben muchas consultas diarias y quieren automatizar la
+                atención sin perder control
               </li>
             </ul>
           </div>
@@ -147,33 +177,47 @@
               data-ga-assistant="asistente_consultas">
               Ver demo en vivo
             </a>
+            <a href="#contact" class="btn btn-secondary js-prefill-btn" data-prefill="Hola, quiero empezar con el Asistente de Conversación Automatizada.
+Mi rubro es: _____.
+Recibo aproximadamente _____ mensajes por día.">
+              Agendar implementación
+            </a>
+
+            <!-- Microcopy removed -->
           </div>
         </div>
 
         <!-- Card 2 -->
         <div class="product-card" data-aos="fade-up" data-aos-delay="200">
           <div class="product-card__header">
-            <h3 class="card-title">Gestor de Pedidos</h3>
+            <h3 class="card-title">Asistente de Pedidos Automatizados</h3>
             <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE VENTAS</span>
           </div>
 
           <div class="product-card__body">
             <p class="card-impact">
-              Un agente que recopila y organiza pedidos dentro de una conversación.
+              Automatiza el proceso de pedido por chat, desde la solicitud hasta el envío del comprobante.
             </p>
+
+            <div class="card-pricing">
+              <div class="price-line">
+                <span class="price-setup">Setup 200 USD</span>
+                <span class="price-month">+ 50 USD/mes</span>
+              </div>
+              <div class="price-badge">1er mes gratis</div>
+            </div>
             <p class="card-desc">
-              Un asistente diseñado para tomar pedidos de cualquier rubro.
-              Guía al cliente, solicita todos los datos necesarios y los almacena de forma estructurada
-              para que cada pedido pueda gestionarse correctamente.
+              Un asistente que guía al cliente paso a paso durante el pedido, solicita todos los datos necesarios,
+              envía la información de pago y organiza automáticamente cada pedido para que tu equipo solo intervenga
+              al momento de validar el comprobante.
             </p>
             <ul class="product-features">
               <li>Solicita y valida los datos necesarios según el tipo de pedido</li>
-              <li>Funciona con distintos rubros y tipos de negocio</li>
-              <li>Registra y ordena automáticamente toda la información del pedido</li>
-              <li>Permite consultar o cancelar pedidos ya creados</li>
+              <li>Envía automáticamente los datos de pago (CBU / alias) y solicita comprobante</li>
+              <li>Organiza cada pedido de forma estructurada y lista para revisar</li>
               <li>
-                <strong>Ideal para:</strong> negocios que toman pedidos por chat y necesitan orden,
-                control y trazabilidad
+                <strong>Ideal para:</strong> negocios que toman pedidos por chat y quieren automatizar el proceso sin
+                perder control del pago
               </li>
             </ul>
           </div>
@@ -184,42 +228,13 @@
               data-ga-assistant="gestor_pedidos">
               Ver demo en vivo
             </a>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="product-card__header">
-            <h3 class="card-title">Gestor de Turnos</h3>
-            <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE AGENDA</span>
-          </div>
-
-          <div class="product-card__body">
-            <p class="card-impact">
-              Un agente que gestiona la agenda de tu negocio de forma automática.
-            </p>
-            <p class="card-desc">
-              Un asistente diseñado para coordinar turnos dentro de una conversación.
-              Guía al cliente para elegir día y horario, valida disponibilidad en tiempo real
-              y registra cada reserva en una agenda centralizada.
-            </p>
-            <ul class="product-features">
-              <li>Detecta el día y horario solicitado por el cliente</li>
-              <li>Valida disponibilidad y ofrece alternativas si no hay lugar</li>
-              <li>Registra y gestiona todos los turnos en un calendario</li>
-              <li>Envía confirmaciones y permite vincular el turno al calendario del cliente</li>
-              <li>
-                <strong>Ideal para:</strong> negocios y profesionales que gestionan turnos
-                a través de canales digitales
-              </li>
-            </ul>
-          </div>
-
-          <div class="product-card__footer">
-            <a href="#contact" class="btn btn-primary js-prefill-btn" title="Solicitar demo del Gestor de Turnos"
-              data-prefill="Hola, me interesa ver una demo del Gestor de Turnos." data-ga-assistant="gestor_turnos">
-              Solicitar demo en vivo
+            <a href="#contact" class="btn btn-secondary js-prefill-btn" data-prefill="Hola, quiero empezar con el Asistente de Pedidos Automatizados.
+Mi rubro es: _____.
+Recibo aproximadamente _____ pedidos por día.">
+              Agendar implementación
             </a>
+
+            <!-- Microcopy removed -->
           </div>
         </div>
 
@@ -238,7 +253,7 @@
   </section>
 
 
-  <section class="feature-split"><!-- Responsive audit -->
+  <section class="feature-split">
     <div class="split-block with-stack">
 
       <!-- Imagen fija a la izquierda -->
@@ -254,11 +269,13 @@
           <!-- Bloque 1 -->
           <div class="stack-card">
             <div class="card-inner">
-              <p class="label">TAREAS QUE SE HACEN SOLAS</p>
-              <h3 class="stack-title">Tu asistente que trabaja por vos</h3>
+              <p class="label">IMPLEMENTACIÓN RÁPIDA</p>
+              <h3 class="stack-title">Listo en 24–72 horas</h3>
               <p>
-                Automatizamos las tareas que hacés todos los días: responder consultas, tomar reservas,
-                enviar recordatorios y organizar información. Tu negocio sigue funcionando incluso cuando vos no estás.
+                Configuramos el asistente con tu información (Preguntas y respuestas frecuentes, horarios, precios,
+                servicios) y lo dejamos
+                funcionando
+                para responder consultas sin que tengas que estar pendiente.
               </p>
             </div>
           </div>
@@ -266,11 +283,11 @@
           <!-- Bloque 2 -->
           <div class="stack-card">
             <div class="card-inner">
-              <p class="label">FUNCIONA CON LO QUE USÁS HOY</p>
-              <h3 class="stack-title">Conectado a tus plataformas modernas</h3>
+              <p class="label">EN TUS CANALES</p>
+              <h3 class="stack-title">WhatsApp, Instagram y Messenger</h3>
               <p>
-                El asistente se integra con las herramientas que ya usás —WhatsApp, Instagram, tu web,
-                Google y CRMs modernos— para que todo fluya automáticamente sin cambios en tu forma de trabajar.
+                El asistente responde automáticamente, mantiene el contexto y deriva a una persona cuando haga falta,
+                para que no pierdas mensajes ni oportunidades.
               </p>
             </div>
           </div>
@@ -278,33 +295,34 @@
           <!-- Bloque 3 -->
           <div class="stack-card">
             <div class="card-inner">
-              <p class="label">LISTO PARA EL FUTURO</p>
-              <h3 class="stack-title">Te ayudamos a modernizar lo que haga falta</h3>
+              <p class="label">SOPORTE Y MEJORAS</p>
+              <h3 class="stack-title">Mantenimiento mensual simple</h3>
               <p>
-                Si tu sistema actual no permite automatizar, te guiamos para migrar a soluciones más modernas.
-                Así podés aprovechar la IA, reducir trabajo manual y hacer crecer tu negocio con menos esfuerzo.
+                Incluye monitoreo, ajustes menores y mejoras continuas para que el asistente responda cada vez mejor con
+                el tiempo.
               </p>
+
+              <!-- CTA dentro de la sección -->
+              <div class="hero-actions" style="margin-top:16px;">
+                <a href="#contact" class="btn btn-primary js-prefill-btn"
+                  data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué asistente me conviene.">
+                  Agendar reunión (15 min)
+                </a>
+                <a href="#Asistentes" class="btn btn-secondary">
+                  Ver asistentes
+                </a>
+              </div>
+
+              <div class="hero-badges" style="margin-top:12px;">
+                <span class="badge">Desde 150 USD + 50/mes</span>
+                <span class="badge">Funciona 24/7</span>
+              </div>
+
             </div>
           </div>
-
-          <!-- Bloque 4 -->
-          <div class="stack-card">
-            <div class="card-inner">
-              <p class="label">IDEAS QUE SE VUELVEN FLUJOS</p>
-              <h3 class="stack-title">Decinos qué repetís y lo convertimos en automático</h3>
-              <p>
-                Muchos negocios hacen tareas a mano sin saber que pueden automatizarlas.
-                Si hay algo que te lleva tiempo todos los días —por simple o específico que sea— lo analizamos,
-                encontramos la lógica y lo transformamos en un proceso que se hace solo.
-              </p>
-            </div>
-          </div>
-
 
         </div>
       </div>
-
-
 
     </div>
   </section>
@@ -312,38 +330,38 @@
   <section id="SolucionAMedida" class="custom-solution-section" data-aos="fade-in">
     <div class="container">
 
-      <div class="custom-solution-content">
-        <h2 class="section-title">¿Necesitás algo distinto?</h2>
+      <div class="custom-solution-content" data-aos="fade-up">
+
+        <h2 class="section-title">¿Tu caso requiere algo más específico?</h2>
 
         <p class="section-subtitle">
-          No todos los negocios funcionan igual.
-          Si ninguna de estas soluciones se adapta exactamente a lo que buscás,
-          podemos crear una automatización pensada específicamente para vos.
+          Si nuestros asistentes listos no cubren exactamente tu flujo de trabajo,
+          podemos diseñar una automatización a medida enfocada en integraciones y procesos más complejos.
         </p>
 
         <div class="custom-solution-text">
           <p>
-            En iAgency diseñamos automatizaciones y asistentes inteligentes
-            basados en <strong>tus procesos reales, tus reglas y tus objetivos</strong>.
+            Diseñamos automatizaciones personalizadas cuando necesitás integrar
+            <strong>WhatsApp, Instagram o tu web con Google Sheets, CRM u otros sistemas internos</strong>.
           </p>
 
           <p>
-            Analizamos cómo trabaja tu negocio y construimos una solución que se integre
-            a tu forma de operar, sin obligarte a cambiarla.
+            Analizamos tu proceso actual y definimos una solución concreta para optimizarlo,
+            manteniendo el control humano cuando sea necesario.
           </p>
         </div>
 
         <ul class="custom-solution-features">
-          <li>Automatizaciones diseñadas según tus necesidades específicas</li>
-          <li>Adaptadas a tu rubro, procesos y forma de trabajar</li>
-          <li>Escalables: empezás simple y podés crecer con el tiempo</li>
-          <li>Integrables con las herramientas que ya usás</li>
+          <li>Integraciones con Google Sheets y CRMs</li>
+          <li>Automatización de flujos internos y seguimiento</li>
+          <li>Procesos personalizados según tu operación</li>
+          <li>Proyecto definido y estimado en una reunión inicial</li>
         </ul>
 
-        <div class="custom-solution-cta" data-aos="fade-up" data-aos-delay="200">
-          <a href="#contact" class="btn btn-primary js-prefill-btn" title="Contactar para construir tu automatización"
-            data-prefill="Hola, quiero analizar una automatización a medida para mi negocio.">
-            Construyamos tu automatización
+        <div class="custom-solution-cta">
+          <a href="#contact" class="btn btn-primary js-prefill-btn"
+            data-prefill="Hola, quiero hablar sobre una automatización personalizada para mi negocio.">
+            Ver cómo automatizar mi negocio
           </a>
         </div>
 
@@ -357,7 +375,7 @@
     <div class="contact-inner">
       <header class="contact-header">
         <p class="contact-kicker">CONTACTO</p>
-        <h2>Construyamos tu asistente</h2>
+        <h2>Agendemos una reunión (15 min)</h2>
       </header>
 
       <form id="contactForm" class="contact-form" action="https://formspree.io/f/xrbgpegn" method="POST">
@@ -378,7 +396,7 @@
         <!-- fila 2 -->
         <div class="contact-grid">
           <div class="form-field">
-            <label for="telefono">Teléfono</label>
+            <label for="telefono">WhatsApp (opcional)</label>
             <input type="tel" id="telefono" name="telefono" />
           </div>
 
@@ -404,8 +422,8 @@
         </div>
 
         <div class="contact-actions">
-          <button type="button" class="contact-btn-secondary">Cancelar</button>
-          <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Construyamos tu asistente</button>
+          <button type="reset" class="contact-btn-secondary">Limpiar</button>
+          <button type="submit" class="contact-btn-primary" id="contactSubmitBtn">Agendar reunión</button>
         </div>
 
         <p class="contact-hint">

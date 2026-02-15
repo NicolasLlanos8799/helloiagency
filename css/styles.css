@@ -614,7 +614,7 @@ body.menu-open {
     padding: 12px 14px;
   }
 
-  .btn-primary {
+  .navbar .btn-primary {
     display: none;
   }
 
@@ -1187,8 +1187,10 @@ body.menu-open {
 /* Grid Layout */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 @media (max-width: 900px) {
@@ -1652,4 +1654,169 @@ body.menu-open {
 
 .legal-container strong {
   color: #fff;
+}
+
+/* =============================
+   Conversion Optimization
+============================= */
+
+/* Hero actions + badges */
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  padding: 12px 18px;
+  transition: all .2s ease;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.hero-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.badge {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+@media (max-width: 600px) {
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-badges {
+    justify-content: center;
+  }
+}
+
+/* Navbar CTA */
+.nav-cta {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* Card recommended tag */
+.card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  color: #000;
+  background: #fff;
+  font-weight: 800;
+}
+
+/* Double buttons in footer */
+.product-card__footer .btn+.btn {
+  margin-top: 10px;
+}
+
+.card-pricing {
+  margin: 18px 0 8px;
+  text-align: center;
+}
+
+.price-line {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.price-month {
+  color: #d4d4d8;
+  font-weight: 500;
+}
+
+.price-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ===== Card Alignment System ===== */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header consistente */
+.product-card__header {
+  min-height: 110px;
+}
+
+/* Impact line consistente */
+.card-impact {
+  min-height: 72px;
+}
+
+/* Pricing bloque consistente */
+.card-pricing {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Descripción consistente */
+.card-desc {
+  min-height: 110px;
+}
+
+/* Igualar cantidad visible de bullets */
+.product-features {
+  min-height: 150px;
+}
+
+/* Footer siempre abajo */
+.product-card__footer {
+  margin-top: auto;
 }
