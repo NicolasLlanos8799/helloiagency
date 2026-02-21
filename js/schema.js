@@ -57,13 +57,6 @@ const schemaData = {
                     "@type": "AdministrativeArea",
                     "name": "Latinoamérica"
                 }
-            ],
-            "offers": [
-                {
-                    "@type": "Offer",
-                    "priceCurrency": "USD",
-                    "description": "Implementaciones desde 150 USD + mantenimiento mensual"
-                }
             ]
         },
         {
