@@ -64,9 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const text = btn.getAttribute("data-prefill");
         if (text) {
           messageInput.value = text;
-          setTimeout(() => {
-            if (nameInput) nameInput.focus();
-          }, 100);
         }
       });
     });

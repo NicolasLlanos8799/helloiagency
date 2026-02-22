@@ -57,8 +57,9 @@ svg {
   height: auto;
 }
 
-section {
-  scroll-margin-top: var(--nav-height);
+section,
+[id] {
+  scroll-margin-top: calc(var(--nav-height) + 20px);
 }
 
 /* =============================
@@ -104,9 +105,11 @@ section {
 
 .nav-link {
   display: inline-flex;
+  min-height: 44px;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 10px;
   color: var(--text-primary);
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -1673,6 +1676,7 @@ body.menu-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
   gap: 8px;
   border-radius: 12px;
   font-weight: 700;
@@ -2006,6 +2010,7 @@ body.menu-open {
 /* Formulario Alternativo */
 .contact-alt-wrapper {
   margin-top: 20px;
+  padding-bottom: 2rem;
 }
 
 .contact-alt-divider {
