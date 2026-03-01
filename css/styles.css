@@ -483,18 +483,37 @@ section {
    Process Timeline
 ========================================= */
 .timeline {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+/* Connecting line behind items */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: var(--glass-border);
+  z-index: 0;
+  transform: translateY(-50%);
 }
 
 .timeline-item {
   display: flex;
-  align-items: flex-start;
-  gap: 32px;
-  padding: 32px 40px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 32px 24px;
+  position: relative;
+  z-index: 1;
+  /* Keep above the line */
 }
 
 .step-num {
@@ -574,6 +593,14 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    display: none;
   }
 
   .timeline-item {
