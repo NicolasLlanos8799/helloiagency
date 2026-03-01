@@ -682,9 +682,19 @@
         const toggle = document.querySelector(".menu-toggle");
         const nav = document.getElementById("primary-navigation");
 
+        const navLinks = document.querySelectorAll(".main-nav a");
+
         toggle.addEventListener("click", () => {
           nav.classList.toggle("open");
           document.body.classList.toggle("no-scroll");
+        });
+
+        // Close menu when clicking a link
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            nav.classList.remove("open");
+            document.body.classList.remove("no-scroll");
+          });
         });
 
         // Init AOS Animations
