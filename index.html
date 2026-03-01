@@ -15,12 +15,11 @@
   <title>Agencia de Automatización e IA para Negocios | iAgency</title>
 
   <!-- STYLES -->
-  <link rel="stylesheet" href="css/styles.css?v=3">
-  <link rel="stylesheet" href="/css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles-new.css?v=4">
   <!-- Calendly -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Favicon (Google-first) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -28,7 +27,6 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <link rel="manifest" href="/site.webmanifest">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
 
   <!-- SEO -->
@@ -65,171 +63,135 @@
   </script>
 
   <script src="js/schema.js" defer></script>
-
-
 </head>
-
-
 
 <body>
   <header class="navbar">
-    <div class="logo"> iAgency</div>
+    <div class="logo">iAgency</div>
     <button class="menu-toggle" aria-label="Alternar navegación" aria-controls="primary-navigation"
       aria-expanded="false">☰</button>
     <nav id="primary-navigation" class="main-nav" aria-label="Navegación principal">
       <ul>
-        <!-- Trabajo ahora es un enlace directo sin submenu -->
         <li><a class="nav-link" href="#Asistentes" title="Ver nuestros Asistentes Digitales">Asistentes</a></li>
-
-        <!-- Resto de links -->
-        <li><a class="nav-link" href="#about" title="Conocer más sobre iAgency">Sobre nosotros</a></li>
-        <!-- Responsive audit -->
+        <li><a class="nav-link" href="#about" title="Conocer más sobre iAgency">Nosotros</a></li>
         <li><a class="nav-link" href="#contact" title="Contactar a iAgency">Contacto</a></li>
         <li>
           <a class="nav-link nav-cta js-prefill-btn" href="#contact"
             data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué asistente me conviene.">
-            Agendar reunión
-
+            Agendar llamada
           </a>
         </li>
       </ul>
     </nav>
   </header>
 
-  <section id="about" class="hero hero-circuits">
+  <section id="about" class="hero">
     <canvas id="circuit-bg" aria-hidden="true"></canvas>
 
-    <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
-      <h1 class="hero-title">Automatizá consultas y ventas por chat con asistentes digitales 24/7.</h1>
+    <div class="hero-text">
+      <h1 class="hero-title">Automatización que funciona mientras vos descansás</h1>
       <p class="hero-subtitle">
-        Implementación rápida en WhatsApp, Instagram y Messenger. Elegís un asistente, lo adaptamos a tu negocio y queda
-        funcionando en días.
+        Asistentes inteligentes que responden consultas, califican clientes y procesan pedidos en WhatsApp e Instagram. Implementación en 24–72h.
       </p>
       <div class="hero-actions">
-        <a href="#Asistentes" class="btn btn-primary">Ver asistentes</a>
+        <a href="#Asistentes" class="btn btn-primary">Ver asistentes disponibles</a>
         <a href="#contact" class="btn btn-secondary js-prefill-btn"
           data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué asistente me conviene.">
-          Agendar reunión
+          Agendar llamada
         </a>
       </div>
       <div class="hero-badges" aria-label="Beneficios clave">
-        <span class="badge">Implementación rápida</span>
-        <span class="badge">Funciona 24/7</span>
-        <span class="badge">WhatsApp · Instagram · Messenger</span>
+        <span class="badge">24–72h implementación</span>
+        <span class="badge">Respuesta inmediata 24/7</span>
+        <span class="badge">WhatsApp / Instagram</span>
       </div>
     </div>
   </section>
 
   <section class="about-ia">
-    <div class="about-ia__inner" data-aos="fade-up" data-aos-offset="50" data-aos-delay="200">
+    <div class="about-ia__inner">
       <p>
-        Somos iAgency, un estudio independiente de automatización. Implementamos asistentes digitales listos y también
-        soluciones a medida. Primero diagnosticamos tu flujo, luego adaptamos el asistente y lo dejamos funcionando para
-        ahorrar tiempo, reducir tareas repetitivas y atender mejor a tus clientes.
+        Somos un estudio de automatización que implementa asistentes digitales para negocios. Diagnosticamos tu operación, configuramos el asistente con tu información y lo dejamos funcionando para que ahorres tiempo y atiendas mejor.
       </p>
     </div>
   </section>
 
 
-  <section class="products-section">
+  <section class="products-section" id="Asistentes">
     <div class="container">
-      <div class="products-header" data-aos="fade-up">
-        <h2 class="section-title">Asistentes Inteligentes para tu Negocio</h2>
-        <p id="Asistentes" class="section-subtitle">
-          Implementaciones listas para usar, adaptadas a los principales canales de comunicación digital
-          (como WhatsApp, Instagram y Facebook/Messenger).
-          Trabajan por vos, 24/7. Mirá la demo y agendá una reunión para implementarlo.
+      <div class="products-header">
+        <h2 class="section-title">Dos asistentes, dos objetivos claros</h2>
+        <p class="section-subtitle">
+          Elegí el que se adapta a tu operación. Ambos se implementan en WhatsApp, Instagram y Messenger. Funcionan 24/7 y escalán a humanos cuando es necesario.
         </p>
       </div>
 
       <div class="products-grid">
 
-        <!-- Card 1 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-card">
           <div class="product-card__header">
-            <h3 class="card-title">Asistente de Conversación Automatizada</h3>
-            <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE ATENCIÓN</span>
+            <span class="card-brand">ATENCIÓN AUTOMATIZADA</span>
+            <h3 class="card-title">Asistente de Consultas</h3>
           </div>
 
           <div class="product-card__body">
             <p class="card-impact">
-              Automatiza la atención de consultas aplicando las reglas reales de tu negocio.
+              Responde consultas complejas aplicando la lógica real de tu negocio
             </p>
-
 
             <p class="card-desc">
-              Lo configuramos con la información, condiciones y lógica de tu negocio para responder de forma coherente,
-              natural y consistente. Interpreta la intención del cliente, aplica precios, envíos y condiciones,
-              y mantiene el contexto durante toda la conversación.
+              Configurado con precios, condiciones, horarios y políticas de tu operación. Interpreta intención, mantiene contexto conversacional y deriva a humanos cuando detecta situaciones fuera de alcance.
             </p>
             <ul class="product-features">
-              <li>Responde consultas aplicando precios, envíos y reglas reales de tu negocio</li>
-              <li>Interpreta intención y mantiene el contexto de la conversación</li>
-              <li>Puede escalar a una persona cuando sea necesario</li>
-              <li>
-                <strong>Ideal para:</strong> negocios que reciben muchas consultas diarias y quieren automatizar la
-                atención sin perder control
-              </li>
+              <li>Aplica reglas de negocio (precios, envíos, stock, políticas)</li>
+              <li>Mantiene contexto durante toda la conversación</li>
+              <li>Detecta y escala casos complejos automáticamente</li>
+              <li><strong>Ideal para:</strong> negocios con alto volumen de consultas repetitivas que necesitan respuestas precisas y consistentes</li>
             </ul>
           </div>
 
           <div class="product-card__footer">
-            <a href="https://sofi.helloiagency.com/" class="btn btn-primary js-prefill-btn" target="_blank"
-              rel="noopener noreferrer" title="Ver Demo de Asistente de IA para Consultas"
+            <a href="https://sofi.helloiagency.com/" class="btn btn-primary" target="_blank"
+              rel="noopener noreferrer" title="Ver Demo de Asistente de Consultas"
               data-ga-assistant="asistente_consultas">
               Ver demo en vivo
             </a>
-            <a href="#contact" class="btn btn-secondary js-prefill-btn" data-prefill="Hola, quiero empezar con el Asistente de Conversación Automatizada.
-Mi rubro es: _____.
-Recibo aproximadamente _____ mensajes por día.">
+            <a href="#contact" class="btn btn-secondary js-prefill-btn" data-prefill="Hola, quiero implementar el Asistente de Consultas. Mi rubro es: _____. Recibo aproximadamente _____ mensajes por día.">
               Agendar implementación
             </a>
-
-            <!-- Microcopy removed -->
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-card">
           <div class="product-card__header">
-            <h3 class="card-title">Asistente de Pedidos Automatizados</h3>
-            <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE VENTAS</span>
+            <span class="card-brand">AUTOMATIZACIÓN DE VENTAS</span>
+            <h3 class="card-title">Asistente de Pedidos</h3>
           </div>
 
           <div class="product-card__body">
             <p class="card-impact">
-              Automatiza el proceso de pedido por chat, desde la solicitud hasta el envío del comprobante.
+              Guía paso a paso desde el pedido hasta la confirmación de pago
             </p>
-
 
             <p class="card-desc">
-              Un asistente que guía al cliente paso a paso durante el pedido, solicita todos los datos necesarios,
-              envía la información de pago y organiza automáticamente cada pedido para que tu equipo solo intervenga
-              al momento de validar el comprobante.
+              Solicita datos, valida información, envía detalles de pago y registra comprobantes. Tu equipo solo revisa y confirma. Reduce errores y tiempos de procesamiento.
             </p>
             <ul class="product-features">
-              <li>Solicita y valida los datos necesarios según el tipo de pedido</li>
-              <li>Envía automáticamente los datos de pago (CBU / alias) y solicita comprobante</li>
-              <li>Organiza cada pedido de forma estructurada y lista para revisar</li>
-              <li>
-                <strong>Ideal para:</strong> negocios que toman pedidos por chat y quieren automatizar el proceso sin
-                perder control del pago
-              </li>
+              <li>Valida datos del cliente antes de procesar</li>
+              <li>Envía automáticamente CBU/alias y solicita comprobante</li>
+              <li>Organiza pedidos de forma estructurada para revisión rápida</li>
+              <li><strong>Ideal para:</strong> negocios que procesan pedidos por chat y necesitan un flujo ordenado sin perder control del pago</li>
             </ul>
           </div>
 
           <div class="product-card__footer">
-            <a href="https://asistente-ventas.helloiagency.com/" class="btn btn-primary js-prefill-btn" target="_blank"
-              rel="noopener noreferrer" title="Ver Demo de Gestor de Pedidos con IA" data-ga-assistant="gestor_pedidos">
+            <a href="https://asistente-ventas.helloiagency.com/" class="btn btn-primary" target="_blank"
+              rel="noopener noreferrer" title="Ver Demo de Asistente de Pedidos" data-ga-assistant="gestor_pedidos">
               Ver demo en vivo
             </a>
-            <a href="#contact" class="btn btn-secondary js-prefill-btn" data-prefill="Hola, quiero empezar con el Asistente de Pedidos Automatizados.
-Mi rubro es: _____.
-Recibo aproximadamente _____ pedidos por día.">
+            <a href="#contact" class="btn btn-secondary js-prefill-btn" data-prefill="Hola, quiero implementar el Asistente de Pedidos. Mi rubro es: _____. Proceso aproximadamente _____ pedidos por día.">
               Agendar implementación
             </a>
-
-            <!-- Microcopy removed -->
           </div>
         </div>
 
@@ -238,8 +200,8 @@ Recibo aproximadamente _____ pedidos por día.">
       <div class="products-footer">
         <a href="#SolucionAMedida" class="product-custom-link"
           title="Solicitar una solución de automatización a medida">
-          ¿Necesitás algo distinto?
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ¿Tu caso requiere algo más específico?
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </a>
@@ -249,67 +211,52 @@ Recibo aproximadamente _____ pedidos por día.">
 
 
   <section class="feature-split">
-    <div class="split-block with-stack">
+    <div class="split-block">
 
-      <!-- Imagen fija a la izquierda -->
       <div class="split-image sticky-image">
         <img src="src/render.png" alt="Interfaz de asistente inteligente y automatización de procesos para negocios"
           title="Asistentes Digitales y Automatización de Negocios" loading="lazy" decoding="async">
       </div>
 
-      <!-- Textos apilables -->
       <div class="split-text">
         <div class="stack-container">
 
-          <!-- Bloque 1 -->
           <div class="stack-card">
             <div class="card-inner">
-              <p class="label">IMPLEMENTACIÓN RÁPIDA</p>
-              <h3 class="stack-title">Listo en 24–72 horas</h3>
+              <p class="label">IMPLEMENTACIÓN</p>
+              <h3>24–72 horas desde la reunión inicial</h3>
               <p>
-                Configuramos el asistente con tu información (Preguntas y respuestas frecuentes, horarios, precios,
-                servicios) y lo dejamos
-                funcionando
-                para responder consultas sin que tengas que estar pendiente.
+                Configuramos el asistente con tu información (FAQs, horarios, precios, políticas). Una vez aprobado, lo activamos en tus canales. No necesitás conocimientos técnicos.
               </p>
             </div>
           </div>
 
-          <!-- Bloque 2 -->
           <div class="stack-card">
             <div class="card-inner">
-              <p class="label">EN TUS CANALES</p>
-              <h3 class="stack-title">WhatsApp, Instagram y Messenger</h3>
+              <p class="label">CANALES</p>
+              <h3>WhatsApp, Instagram y Messenger</h3>
               <p>
-                El asistente responde automáticamente, mantiene el contexto y deriva a una persona cuando haga falta,
-                para que no pierdas mensajes ni oportunidades.
+                El asistente responde en tiempo real, mantiene contexto conversacional y deriva a humanos cuando detecta necesidad. Cero mensajes perdidos.
               </p>
             </div>
           </div>
 
-          <!-- Bloque 3 -->
           <div class="stack-card">
             <div class="card-inner">
-              <p class="label">SOPORTE Y MEJORAS</p>
-              <h3 class="stack-title">Mantenimiento mensual simple</h3>
+              <p class="label">MANTENIMIENTO</p>
+              <h3>Ajustes mensuales incluidos</h3>
               <p>
-                Incluye monitoreo, ajustes menores y mejoras continuas para que el asistente responda cada vez mejor con
-                el tiempo.
+                Monitoreo continuo, mejoras en respuestas y adaptación a nuevos casos. El asistente aprende de interacciones reales y mejora con el tiempo.
               </p>
 
-              <!-- CTA dentro de la sección -->
-              <div class="hero-actions" style="margin-top:16px;">
+              <div class="hero-actions" style="margin-top:32px;">
                 <a href="#contact" class="btn btn-primary js-prefill-btn"
                   data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué asistente me conviene.">
-                  Agendar reunión (15 min)
+                  Agendar llamada
                 </a>
                 <a href="#Asistentes" class="btn btn-secondary">
                   Ver asistentes
                 </a>
-              </div>
-
-              <div class="hero-badges" style="margin-top:12px;">
-                <span class="badge">Funciona 24/7</span>
               </div>
 
             </div>
@@ -321,41 +268,28 @@ Recibo aproximadamente _____ pedidos por día.">
     </div>
   </section>
 
-  <section id="SolucionAMedida" class="custom-solution-section" data-aos="fade-in">
+  <section id="SolucionAMedida" class="custom-solution-section">
     <div class="container">
 
-      <div class="custom-solution-content" data-aos="fade-up">
+      <div class="custom-solution-content">
 
-        <h2 class="section-title">¿Tu caso requiere algo más específico?</h2>
+        <h2 class="section-title">Automatización a medida</h2>
 
         <p class="section-subtitle">
-          Si nuestros asistentes listos no cubren exactamente tu flujo de trabajo,
-          podemos diseñar una automatización a medida enfocada en integraciones y procesos más complejos.
+          Si los asistentes estándar no cubren tu operación, diseñamos flujos personalizados con integraciones a tus sistemas internos.
         </p>
 
-        <div class="custom-solution-text">
-          <p>
-            Diseñamos automatizaciones personalizadas cuando necesitás integrar
-            <strong>WhatsApp, Instagram o tu web con Google Sheets, CRM u otros sistemas internos</strong>.
-          </p>
-
-          <p>
-            Analizamos tu proceso actual y definimos una solución concreta para optimizarlo,
-            manteniendo el control humano cuando sea necesario.
-          </p>
-        </div>
-
         <ul class="custom-solution-features">
-          <li>Integraciones con Google Sheets y CRMs</li>
-          <li>Automatización de flujos internos y seguimiento</li>
-          <li>Procesos personalizados según tu operación</li>
-          <li>Proyecto definido y estimado en una reunión inicial</li>
+          <li>Integraciones con Google Sheets, CRMs y APIs</li>
+          <li>Flujos personalizados según tu operación</li>
+          <li>Automatización de procesos internos complejos</li>
+          <li>Alcance y presupuesto definidos en reunión inicial</li>
         </ul>
 
         <div class="custom-solution-cta">
           <a href="#contact" class="btn btn-primary js-prefill-btn"
-            data-prefill="Hola, quiero hablar sobre una automatización personalizada para mi negocio.">
-            Ver cómo automatizar mi negocio
+            data-prefill="Hola, necesito una automatización personalizada para mi negocio. Quiero integrar: _____.">
+            Consultar automatización personalizada
           </a>
         </div>
 
@@ -369,48 +303,41 @@ Recibo aproximadamente _____ pedidos por día.">
     <div class="contact-container">
       <div class="contact-grid-layout">
 
-        <!-- Columna Izquierda: Copy + Formulario -->
         <div class="contact-left">
-          <p class="contact-kicker">REUNIÓN POR GOOGLE MEET · 15 MIN</p>
-          <h2 class="contact-title">Agendemos una llamada</h2>
+          <p class="contact-kicker">GOOGLE MEET · 15 MIN · GRATIS</p>
+          <h2 class="contact-title">Agendá una llamada</h2>
           <p class="contact-subtitle">
-            Analizamos tu negocio y te recomendamos el asistente ideal para automatizar consultas o ventas.
+            Analizamos tu operación y te recomendamos el asistente que mejor se adapta a tu caso.
           </p>
 
           <ul class="contact-benefits">
-            <li>Recomendación personalizada según tu rubro</li>
-            <li>Estimación de implementación (24–72h)</li>
-            <li>Próximos pasos claros y simples</li>
+            <li>Diagnóstico y recomendación personalizada</li>
+            <li>Tiempo de implementación y alcance</li>
+            <li>Próximos pasos concretos</li>
           </ul>
 
           <p class="contact-micro">
-            Horario adaptado automáticamente a tu zona (Argentina / LATAM).
+            Horario ajustado automáticamente a tu zona (Argentina / LATAM).
           </p>
 
-          <!-- Formulario alternativo visualmente separado -->
           <div class="contact-alt-wrapper">
-            <div class="contact-alt-divider"></div>
-            <p class="contact-alt-title">¿Preferís que te contactemos primero?</p>
+            <p class="contact-alt-title">¿Preferís que te contactemos?</p>
             <form action="https://formspree.io/f/xrbgpegn" method="POST" class="contact-form-compact" id="contactForm">
-              <div class="form-row">
-                <input type="text" name="nombre" placeholder="Tu nombre" required />
-                <input type="text" name="contacto" placeholder="Email o WhatsApp" required />
-              </div>
-              <textarea name="mensaje" rows="2" placeholder="¿Qué querés automatizar?" required></textarea>
-              <button type="submit" class="btn-submit-compact" id="contactSubmitBtn">Enviar mensaje</button>
+              <input type="text" name="nombre" placeholder="Nombre" required />
+              <input type="text" name="contacto" placeholder="Email o WhatsApp" required />
+              <textarea name="mensaje" rows="3" placeholder="Contanos qué querés automatizar" required></textarea>
+              <button type="submit" class="btn-submit-compact" id="contactSubmitBtn">Enviar</button>
 
-              <!-- Mensajes de estado -->
-              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite" hidden>
-                Gracias, pronto te contactaremos 🙌
+              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite">
+                Mensaje enviado. Te contactamos pronto.
               </div>
-              <div class="contact-message contact-message--error" id="contactError" aria-live="polite" hidden>
-                Hubo un error. Por favor intentá de nuevo.
+              <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
+                Error al enviar. Intentá de nuevo.
               </div>
             </form>
           </div>
         </div>
 
-        <!-- Columna Derecha: Calendly -->
         <div class="contact-right">
           <div class="calendly-card-premium">
             <div class="calendly-inline-widget"
@@ -424,26 +351,16 @@ Recibo aproximadamente _____ pedidos por día.">
   </section>
 
 
-  <footer class="footer" data-aos="fade-up">
-    <div class="footer-icons">
-      <!-- <span>📘</span>
-      <span>📷</span>
-      <span>𝕏</span>
-      <span>💼</span>
-      <span>▶️</span> -->
-    </div>
-    <p>© 2026 iAgency. Todos los derechos reservados.- NL Developments </p>
+  <footer class="footer">
+    <p>© 2026 iAgency — NL Developments</p>
     <div class="footer-links">
       <a href="privacy-policy.html">Privacidad</a>
       <a href="terms-of-service.html">Términos</a>
-      <!-- <a href="#">Cookies</a> -->
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
   <script src="js/stacking.js" defer></script>
   <script src="js/script.js"></script>
-  <!-- Calendly -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body>
