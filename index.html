@@ -1,199 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PRECONNECT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- TITLE -->
+    <title>
+      Agencia de Desarrollo de Software y Sistemas Inteligentes | iAgency
+    </title>
 
+    <!-- FONTS: Syne (Headings) and DM Sans (Body) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- PRECONNECT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/styles.css?v=4" />
+    <link rel="stylesheet" href="/css/styles.css?v=4" />
 
-  <!-- TITLE -->
-  <title>Agencia de Desarrollo de Software y Sistemas Inteligentes | iAgency</title>
+    <!-- Calendly -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
 
-  <!-- STYLES -->
-  <link rel="stylesheet" href="css/styles.css?v=3">
-  <link rel="stylesheet" href="/css/styles.css?v=3">
-  <!-- Calendly -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <!-- Favicon (Google-first) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- Favicon (Google-first) -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="apple-touch-icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- SEO & OPEN GRAPH -->
+    <meta
+      name="description"
+      content="Desarrollamos software, sistemas web y soluciones digitales personalizadas que integran automatización e inteligencia artificial para optimizar procesos, ventas y operaciones."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="iAgency" />
+    <meta name="publisher" content="iAgency" />
+    <link rel="canonical" href="https://helloiagency.com/" />
 
-  <link rel="manifest" href="/site.webmanifest">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <meta
+      property="og:title"
+      content="Desarrollo de Software y Sistemas Inteligentes | iAgency"
+    />
+    <meta
+      property="og:description"
+      content="Creamos plataformas, sistemas web y soluciones digitales que integran automatización e IA para hacer crecer tu negocio."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://helloiagency.com/" />
+    <meta property="og:site_name" content="iAgency" />
+    <meta property="og:locale" content="es_AR" />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Agencia de Automatización e IA | iAgency"
+    />
+    <meta
+      name="twitter:description"
+      content="Asistentes con IA y automatizaciones a medida para negocios en Argentina y LATAM."
+    />
 
-  <!-- SEO -->
-  <meta name="description"
-    content="Desarrollamos software, sistemas web y soluciones digitales personalizadas que integran automatización e inteligencia artificial para optimizar procesos, ventas y operaciones.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="iAgency">
-  <meta name="publisher" content="iAgency">
-  <link rel="canonical" href="https://helloiagency.com/">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-W33VWQRXSN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-W33VWQRXSN");
+    </script>
 
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Desarrollo de Software y Sistemas Inteligentes | iAgency">
-  <meta property="og:description"
-    content="Creamos plataformas, sistemas web y soluciones digitales que integran automatización e IA para hacer crecer tu negocio.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://helloiagency.com/">
-  <meta property="og:site_name" content="iAgency">
-  <meta property="og:locale" content="es_AR">
+    <script src="js/schema.js" defer></script>
+  </head>
 
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Agencia de Automatización e IA | iAgency">
-  <meta name="twitter:description"
-    content="Asistentes con IA y automatizaciones a medida para negocios en Argentina y LATAM.">
+  <body>
+    <!-- Ambient Orbs -->
+    <div class="glow-orb fixed-orb-1"></div>
+    <div class="glow-orb fixed-orb-2"></div>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W33VWQRXSN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+    <!-- HEADER -->
+    <header class="navbar glass">
+      <div class="nav-container">
+        <div class="logo font-syne text-white">iAgency</div>
+        <button
+          class="menu-toggle"
+          aria-label="Alternar navegación"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <nav
+          id="primary-navigation"
+          class="main-nav"
+          aria-label="Navegación principal"
+        >
+          <ul>
+            <li><a class="nav-link" href="#" title="Inicio">Inicio</a></li>
+            <li>
+              <a
+                class="nav-link"
+                href="#Asistentes"
+                title="Ver nuestros Sistemas"
+                >Sistemas</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="#about" title="Cómo trabajamos"
+                >Cómo trabajamos</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="#contact" title="Contactar a iAgency"
+                >Contacto</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-cta btn-primary js-prefill-btn"
+                href="#contact"
+                data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué sistema me conviene."
+              >
+                Agendar reunión
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    gtag('config', 'G-W33VWQRXSN');
-  </script>
+    <!-- HERO -->
+    <section class="hero container">
+      <canvas id="circuit-bg" aria-hidden="true"></canvas>
 
-  <script src="js/schema.js" defer></script>
-
-
-</head>
-
-
-
-<body>
-  <header class="navbar">
-    <div class="logo"> iAgency</div>
-    <button class="menu-toggle" aria-label="Alternar navegación" aria-controls="primary-navigation"
-      aria-expanded="false">☰</button>
-    <nav id="primary-navigation" class="main-nav" aria-label="Navegación principal">
-      <ul>
-        <li><a class="nav-link" href="#" title="Inicio">Inicio</a></li>
-        <!-- Trabajo ahora es un enlace directo sin submenu -->
-        <li><a class="nav-link" href="#Asistentes" title="Ver nuestros Sistemas">Sistemas</a></li>
-
-        <!-- Resto de links -->
-        <li><a class="nav-link" href="#about" title="Cómo trabajamos">Cómo trabajamos</a></li>
-        <!-- Responsive audit -->
-        <li><a class="nav-link" href="#contact" title="Contactar a iAgency">Contacto</a></li>
-        <li>
-          <a class="nav-link nav-cta js-prefill-btn" href="#contact"
-            data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué sistema me conviene.">
-            Agendar reunión
-
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="badges-row">
+          <span class="badge glass">Software a medida</span>
+          <span class="badge glass">Integraciones & APIs</span>
+          <span class="badge glass">Automatización & IA</span>
+        </div>
+        <h1 class="hero-title">
+          Desarrollamos sistemas digitales inteligentes que hacen
+          <span class="text-accent">crecer tu negocio.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Creamos software, plataformas web y soluciones personalizadas que
+          integran automatización e inteligencia artificial para optimizar
+          procesos, ventas y operaciones.
+        </p>
+        <div class="hero-actions w-full">
+          <a
+            href="#contact"
+            class="btn btn-primary js-prefill-btn"
+            data-prefill="Hola, quiero desarrollar un sistema o solución digital para mi negocio."
+          >
+            Agendar diagnóstico estratégico
           </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero hero-circuits">
-    <canvas id="circuit-bg" aria-hidden="true"></canvas>
-
-    <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
-      <h1 class="hero-title">Desarrollamos sistemas digitales inteligentes que hacen crecer tu negocio.</h1>
-      <p class="hero-subtitle">
-        Creamos software, plataformas web y soluciones personalizadas que integran automatización e inteligencia
-        artificial para optimizar procesos, ventas y operaciones.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary js-prefill-btn"
-          data-prefill="Hola, quiero desarrollar un sistema o solución digital para mi negocio.">
-          Agendar diagnóstico estratégico
-        </a>
-        <a href="#Asistentes" class="btn btn-secondary">
-          Ver soluciones
-        </a>
+          <a href="#Asistentes" class="btn btn-secondary glass">
+            Ver soluciones
+          </a>
+        </div>
       </div>
-      <div class="hero-badges" aria-label="Beneficios clave">
-        <span class="badge">Software a medida</span>
-        <span class="badge">Integraciones & APIs</span>
-        <span class="badge">Automatización & IA</span>
+    </section>
+
+    <!-- ABOUT IA (Nació como...) -->
+    <section
+      class="about section container"
+      style="padding-top: 40px; padding-bottom: 40px"
+    >
+      <div
+        class="glass-card mx-auto max-w-md"
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="200"
+        style="text-align: center"
+      >
+        <p class="light-gray mb-sm" style="font-size: 1.1rem; line-height: 1.7">
+          iAgency es una agencia independiente que nació como un proyecto
+          personal y fue creciendo con el tiempo. Es la marca bajo la cual
+          diseñamos y construimos sistemas, plataformas web y soluciones
+          digitales pensadas para acompañar el crecimiento de cada negocio.
+        </p>
+        <p class="light-gray" style="font-size: 1.1rem; line-height: 1.7">
+          Combinamos enfoque técnico, criterio de producto y atención al detalle
+          para crear estructuras sólidas y escalables. Somos una agencia ágil,
+          cercana y moderna, enfocada en construir soluciones claras, bien
+          hechas y preparadas para evolucionar.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="about-ia">
-    <div class="about-ia__inner" data-aos="fade-up" data-aos-offset="50" data-aos-delay="200">
-      <p>
-        iAgency es una agencia independiente que nació como un proyecto personal y fue creciendo con el tiempo.
-        Es la marca bajo la cual diseñamos y construimos sistemas, plataformas web y soluciones digitales pensadas para
-        acompañar el crecimiento de cada negocio.
-      </p>
-
-      <p>
-        Combinamos enfoque técnico, criterio de producto y atención al detalle para crear estructuras sólidas y
-        escalables.
-        Somos una agencia ágil, cercana y moderna, enfocada en construir soluciones claras, bien hechas y preparadas
-        para evolucionar.
-      </p>
-    </div>
-  </section>
-
-
-  <section id="about" class="products-section" id="que-hacemos">
-    <div class="container">
-      <div class="products-header" data-aos="fade-up" style="margin-bottom: 2rem;">
+    <!-- QUÉ HACEMOS & PROCESO -->
+    <section id="about" class="section container">
+      <div class="section-header" data-aos="fade-up">
         <h2 class="section-title">Qué hacemos en iAgency</h2>
         <p class="section-subtitle">
-          Webs, sistemas y soluciones digitales a medida, potenciadas con automatización e inteligencia artificial.
+          Webs, sistemas y soluciones digitales a medida, potenciadas con
+          automatización e inteligencia artificial.
         </p>
       </div>
 
-      <!-- TABS CONTAINER -->
-      <div class="tabs-container" data-aos="fade-up" data-aos-delay="100">
-        <div class="tabs-nav" role="tablist">
-          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-organizacion"
-            id="tab-organizacion">Webs & Landing</button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-automatizacion"
-            id="tab-automatizacion">Sistemas a medida</button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-inteligencia"
-            id="tab-inteligencia">Automatizaciones & IA</button>
-        </div>
-
-        <!-- Panel 1: Organización -->
-        <div id="panel-organizacion" class="tab-panel" role="tabpanel" aria-labelledby="tab-organizacion"
-          aria-hidden="false">
-          <h3>Webs y landing pages que convierten</h3>
-          <p>Diseñamos y desarrollamos sitios rápidos, claros y listos para vender: desde páginas de servicio hasta webs
-            completas.</p>
-          <ul>
+      <!-- Las Cards (Reemplazando las tabs del diseño anterior) -->
+      <div class="grid-3 mb-lg">
+        <div
+          class="glass-card hover-glow flex-col"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="icon-wrap mb-sm" style="font-size: 2rem">🌐</div>
+          <h3 class="font-syne mb-sm text-white" style="font-size: 1.4rem">
+            Webs y landing pages que convierten
+          </h3>
+          <p class="light-gray mb-sm">
+            Diseñamos y desarrollamos sitios rápidos, claros y listos para
+            vender: desde páginas de servicio hasta webs completas.
+          </p>
+          <ul
+            class="text-sm light-gray"
+            style="list-style-type: &quot;→ &quot;; padding-left: 1rem"
+          >
             <li>Diseño moderno y profesional</li>
-            <li>Mensajes claros que ayudan a convertir visitantes en clientes </li>
+            <li>
+              Mensajes claros que ayudan a convertir visitantes en clientes
+            </li>
             <li>Diseñada para que te encuentren en Google y navegue rápido</li>
           </ul>
         </div>
 
-        <!-- Panel 2: Automatización -->
-        <div id="panel-automatizacion" class="tab-panel" role="tabpanel" aria-labelledby="tab-automatizacion"
-          aria-hidden="true">
-          <h3>Sistemas a medida para ordenar tu negocio</h3>
-          <p>Creamos plataformas y herramientas internas para gestionar clientes, pedidos, turnos, pagos o lo que tu
-            operación necesite.</p>
-          <ul>
+        <div
+          class="glass-card hover-glow flex-col"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="icon-wrap mb-sm" style="font-size: 2rem">⚙️</div>
+          <h3 class="font-syne mb-sm text-white" style="font-size: 1.4rem">
+            Sistemas a medida para ordenar tu negocio
+          </h3>
+          <p class="light-gray mb-sm">
+            Creamos plataformas y herramientas internas para gestionar clientes,
+            pedidos, turnos, pagos o lo que tu operación necesite.
+          </p>
+          <ul
+            class="text-sm light-gray"
+            style="list-style-type: &quot;→ &quot;; padding-left: 1rem"
+          >
             <li>Información centralizada en un solo lugar</li>
             <li>Menos caos, menos errores, más control</li>
             <li>Escalable: crece con tu negocio</li>
           </ul>
         </div>
 
-        <!-- Panel 3: Inteligencia -->
-        <div id="panel-inteligencia" class="tab-panel" role="tabpanel" aria-labelledby="tab-inteligencia"
-          aria-hidden="true">
-          <h3>Automatizaciones e IA</h3>
-          <p>Integramos automatización e IA para reducir tareas repetitivas y mejorar atención al cliente sin perder
-            calidad.</p>
-          <ul>
+        <div
+          class="glass-card hover-glow flex-col"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div class="icon-wrap mb-sm" style="font-size: 2rem">🤖</div>
+          <h3 class="font-syne mb-sm text-white" style="font-size: 1.4rem">
+            Automatizaciones e IA
+          </h3>
+          <p class="light-gray mb-sm">
+            Integramos automatización e IA para reducir tareas repetitivas y
+            mejorar atención al cliente sin perder calidad.
+          </p>
+          <ul
+            class="text-sm light-gray"
+            style="list-style-type: &quot;→ &quot;; padding-left: 1rem"
+          >
             <li>Respuestas automáticas y atención 24/7</li>
             <li>Registro automático de consultas o pedidos</li>
             <li>Alertas, reportes y seguimiento sin esfuerzo</li>
@@ -202,366 +302,469 @@
       </div>
 
       <!-- CÓMO TRABAJAMOS TIMELINE -->
-      <div class="products-header" data-aos="fade-up" style="margin-top: 3rem; margin-bottom: 0;">
-        <h2 class="section-title" style="font-size: 1.5rem;">Cómo trabajamos</h2>
+      <div class="section-header mt-lg pt-4" data-aos="fade-up">
+        <h2 class="section-title text-center">Cómo trabajamos</h2>
       </div>
 
-      <div class="timeline-wrapper" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="timeline-item">
-          <span class="timeline-step">PASO 1</span>
-          <h4 class="timeline-title">Entendemos tu negocio</h4>
-          <p class="timeline-desc">Analizamos tu operación actual, tus objetivos y los puntos que hoy generan fricción.
-          </p>
+      <div class="timeline" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-item glass-card hover-glow">
+          <span class="step-num text-accent">Paso 1</span>
+          <div class="step-content">
+            <h4 class="text-white">Entendemos tu negocio</h4>
+            <p class="light-gray">
+              Analizamos tu operación actual, tus objetivos y los puntos que hoy
+              generan fricción.
+            </p>
+          </div>
         </div>
-
-        <div class="timeline-item">
-          <span class="timeline-step">PASO 2</span>
-          <h4 class="timeline-title">Diseñamos la solución ideal</h4>
-          <p class="timeline-desc">Te presentamos una propuesta clara: qué se construye, en cuánto tiempo y próximos
-            pasos.</p>
+        <div class="timeline-item glass-card hover-glow">
+          <span class="step-num text-accent">Paso 2</span>
+          <div class="step-content">
+            <h4 class="text-white">Diseñamos la solución ideal</h4>
+            <p class="light-gray">
+              Te presentamos una propuesta clara: qué se construye, en cuánto
+              tiempo y próximos pasos.
+            </p>
+          </div>
         </div>
-
-        <div class="timeline-item">
-          <span class="timeline-step">PASO 3</span>
-          <h4 class="timeline-title">Lo construimos y lo dejamos funcionando</h4>
-          <p class="timeline-desc">Desarrollamos, probamos y lo dejamos funcionando. Te acompañamos en el lanzamiento y
-            ajustes.</p>
+        <div class="timeline-item glass-card hover-glow">
+          <span class="step-num text-accent">Paso 3</span>
+          <div class="step-content">
+            <h4 class="text-white">Lo construimos y lo dejamos funcionando</h4>
+            <p class="light-gray">
+              Desarrollamos, probamos y lo dejamos funcionando. Te acompañamos
+              en el lanzamiento y ajustes.
+            </p>
+          </div>
         </div>
-
       </div>
 
-      <div class="products-footer" data-aos="fade-up" style="margin-top: 3rem; text-align: center;">
-        <p class="section-subtitle" style="margin-bottom: 1rem; font-size: 0.95rem;">¿Querés que construyamos tu web o
-          sistema a medida?</p>
-        <div class="hero-actions" style="justify-content: center; gap: 0.75rem;">
-          <a href="#contact" class="btn btn-primary js-prefill-btn"
-            data-prefill="Hola, quiero desarrollar un sistema o solución digital para mi negocio.">
+      <div class="text-center mt-lg" data-aos="fade-up">
+        <p class="mb-md light-gray">
+          ¿Querés que construyamos tu web o sistema a medida?
+        </p>
+        <div class="hero-actions">
+          <a
+            href="#contact"
+            class="btn btn-primary js-prefill-btn"
+            data-prefill="Hola, quiero desarrollar un sistema o solución digital para mi negocio."
+          >
             Agendar diagnóstico estratégico
           </a>
-          <a href="#Asistentes" class="btn btn-secondary">
+          <a href="#Asistentes" class="btn btn-secondary glass">
             Ver soluciones listas
           </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <script>
-      // Lógica de Tabs ligera, scopeeada a esta sección
-      document.addEventListener('DOMContentLoaded', () => {
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabPanels = document.querySelectorAll('.tab-panel');
-
-        tabBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            // Remover active states
-            tabBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
-            tabPanels.forEach(p => p.setAttribute('aria-hidden', 'true'));
-
-            // Añadir active state al clickeado
-            btn.setAttribute('aria-selected', 'true');
-            const panelId = btn.getAttribute('aria-controls');
-            document.getElementById(panelId).setAttribute('aria-hidden', 'false');
-          });
-        });
-      });
-    </script>
-  </section>
-
-  <section class="products-section">
-    <div class="container">
-      <div class="products-header" data-aos="fade-up">
+    <!-- SISTEMAS LISTOS PARA IMPLEMENTAR -->
+    <section id="products" class="products section container">
+      <div class="section-header" data-aos="fade-up" id="Asistentes">
         <h2 class="section-title">Sistemas listos para implementar</h2>
-        <p id="Asistentes" class="section-subtitle">
-          Módulos listos para integrar en tu negocio (atención, pedidos y reservas). Además, también diseñamos productos
-          a medida cuando el proyecto lo requiere.
+        <p class="section-subtitle">
+          Módulos listos para integrar en tu negocio (atención, pedidos y
+          reservas). Además, también diseñamos productos a medida cuando el
+          proyecto lo requiere.
         </p>
       </div>
 
-      <div class="products-grid">
-
+      <div class="grid-3">
         <!-- Card 1 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="product-card__header">
-            <h3 class="card-title">Asistente Automático de Atención al Cliente</h3>
-            <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE ATENCIÓN</span>
+        <div
+          class="glass-card hover-glow product-card flex-col"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="product-header">
+            <span class="meta text-accent"
+              >iAGENCY · AUTOMATIZACIÓN DE ATENCIÓN</span
+            >
+            <h3
+              class="text-white font-syne"
+              style="font-size: 1.5rem; margin-bottom: 0.5rem"
+            >
+              Asistente Automático de Atención al Cliente
+            </h3>
           </div>
-
-          <div class="product-card__body">
-            <p class="card-impact">
-              Automatiza la atención de consultas aplicando las reglas reales de tu negocio.
-            </p>
-
-
-            <p class="card-desc">
-              Lo configuramos con la información, condiciones y lógica de tu negocio para responder de forma coherente,
-              natural y consistente. Interpreta la intención del cliente, aplica precios, envíos y condiciones,
-              y mantiene el contexto durante toda la conversación.
-            </p>
-            <ul class="product-features">
-              <li>Responde consultas aplicando precios, envíos y reglas reales de tu negocio</li>
-              <li>Interpreta intención y mantiene el contexto de la conversación</li>
-              <li>Puede escalar a una persona cuando sea necesario</li>
-              <li>
-                <strong>Ideal para:</strong> negocios que reciben muchas consultas diarias y quieren automatizar la
-                atención sin perder control
-              </li>
-            </ul>
-          </div>
-
-          <div class="product-card__footer">
-            <a href="https://asistente-faq.helloiagency.com/" class="btn btn-primary js-prefill-btn" target="_blank"
-              rel="noopener noreferrer" title="Ver Demo de Asistente de IA para Consultas"
-              data-ga-assistant="asistente_consultas">
+          <p class="impact text-white mb-sm">
+            Automatiza la atención de consultas aplicando las reglas reales de
+            tu negocio.
+          </p>
+          <p class="desc text-sm light-gray mb-sm">
+            Lo configuramos con la información, condiciones y lógica de tu
+            negocio para responder de forma coherente, natural y consistente.
+            Interpreta la intención del cliente, aplica precios, envíos y
+            condiciones, y mantiene el contexto durante toda la conversación.
+          </p>
+          <ul
+            class="text-sm light-gray mb-md"
+            style="list-style-type: &quot;✦ &quot;; padding-left: 1rem"
+          >
+            <li class="mb-sm">
+              Responde consultas aplicando precios, envíos y reglas reales de tu
+              negocio
+            </li>
+            <li class="mb-sm">
+              Interpreta intención y mantiene el contexto de la conversación
+            </li>
+            <li class="mb-sm">
+              Puede escalar a una persona cuando sea necesario
+            </li>
+            <li>
+              <strong>Ideal para:</strong> negocios que reciben muchas consultas
+              diarias y quieren automatizar la atención sin perder control
+            </li>
+          </ul>
+          <div class="mt-auto flex-col gap-sm">
+            <a
+              href="https://asistente-faq.helloiagency.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary glass w-full text-center js-prefill-btn"
+              data-ga-assistant="asistente_consultas"
+            >
               Ver demo en vivo
             </a>
-            <a href="#contact" class="btn btn-secondary js-prefill-btn"
-              data-prefill="Hola, quiero empezar con el Asistente de Conversación Automatizada.">
+            <a
+              href="#contact"
+              class="btn btn-primary w-full text-center js-prefill-btn"
+              data-prefill="Hola, quiero empezar con el Asistente de Conversación Automatizada."
+            >
               Agendar implementación
             </a>
-
-            <!-- Microcopy removed -->
           </div>
         </div>
 
         <!-- Card 2 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="product-card__header">
-            <h3 class="card-title">Asistente Inteligente de Pedidos</h3>
-            <span class="card-brand">iAGENCY · AUTOMATIZACIÓN DE VENTAS</span>
+        <div
+          class="glass-card hover-glow product-card flex-col"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="product-header">
+            <span class="meta text-accent"
+              >iAGENCY · AUTOMATIZACIÓN DE VENTAS</span
+            >
+            <h3
+              class="text-white font-syne"
+              style="font-size: 1.5rem; margin-bottom: 0.5rem"
+            >
+              Asistente Inteligente de Pedidos
+            </h3>
           </div>
-
-          <div class="product-card__body">
-            <p class="card-impact">
-              Automatiza el proceso de pedido por chat, desde la solicitud hasta el envío del comprobante.
-            </p>
-
-
-            <p class="card-desc">
-              Un asistente que guía al cliente paso a paso durante el pedido, solicita todos los datos necesarios,
-              envía la información de pago y organiza automáticamente cada pedido para que tu equipo solo intervenga
-              al momento de validar el comprobante.
-            </p>
-            <ul class="product-features">
-              <li>Solicita y valida los datos necesarios según el tipo de pedido</li>
-              <li>Envía automáticamente los datos de pago (CBU / alias) y solicita comprobante</li>
-              <li>Organiza cada pedido de forma estructurada y lista para revisar</li>
-              <li>
-                <strong>Ideal para:</strong> negocios que toman pedidos por chat y quieren automatizar el proceso sin
-                perder control del pago
-              </li>
-            </ul>
-          </div>
-
-          <div class="product-card__footer">
-            <a href="https://asistente-ventas.helloiagency.com/" class="btn btn-primary js-prefill-btn" target="_blank"
-              rel="noopener noreferrer" title="Ver Demo de Gestor de Pedidos con IA" data-ga-assistant="gestor_pedidos">
+          <p class="impact text-white mb-sm">
+            Automatiza el proceso de pedido por chat, desde la solicitud hasta
+            el envío del comprobante.
+          </p>
+          <p class="desc text-sm light-gray mb-sm">
+            Un asistente que guía al cliente paso a paso durante el pedido,
+            solicita todos los datos necesarios, envía la información de pago y
+            organiza automáticamente cada pedido para que tu equipo solo
+            intervenga al momento de validar el comprobante.
+          </p>
+          <ul
+            class="text-sm light-gray mb-md"
+            style="list-style-type: &quot;✦ &quot;; padding-left: 1rem"
+          >
+            <li class="mb-sm">
+              Solicita y valida los datos necesarios según el tipo de pedido
+            </li>
+            <li class="mb-sm">
+              Envía automáticamente los datos de pago (CBU / alias) y solicita
+              comprobante
+            </li>
+            <li class="mb-sm">
+              Organiza cada pedido de forma estructurada y lista para revisar
+            </li>
+            <li>
+              <strong>Ideal para:</strong> negocios que toman pedidos por chat y
+              quieren automatizar el proceso sin perder control del pago
+            </li>
+          </ul>
+          <div class="mt-auto flex-col gap-sm">
+            <a
+              href="https://asistente-ventas.helloiagency.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary glass w-full text-center js-prefill-btn"
+              data-ga-assistant="gestor_pedidos"
+            >
               Ver demo en vivo
             </a>
-            <a href="#contact" class="btn btn-secondary js-prefill-btn"
-              data-prefill="Hola, quiero empezar con el Asistente de Pedidos Automatizados.">
+            <a
+              href="#contact"
+              class="btn btn-primary w-full text-center js-prefill-btn"
+              data-prefill="Hola, quiero empezar con el Asistente de Pedidos Automatizados."
+            >
               Agendar implementación
             </a>
-
-            <!-- Microcopy removed -->
           </div>
         </div>
 
         <!-- Card 3 -->
-        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="product-card__header">
-            <h3 class="card-title">Rebels Kite School Surf</h3>
-            <span class="card-brand">iAGENCY · PRODUCTO A MEDIDA</span>
+        <div
+          class="glass-card hover-glow product-card flex-col"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div class="product-header">
+            <span class="meta text-accent">iAGENCY · PRODUCTO A MEDIDA</span>
+            <h3
+              class="text-white font-syne"
+              style="font-size: 1.5rem; margin-bottom: 0.5rem"
+            >
+              Rebels Kite School Surf
+            </h3>
           </div>
-
-          <div class="product-card__body">
-            <p class="card-impact">
-              Una plataforma hecha a medida para ordenar reservas, profesores, pagos y facturación.
-            </p>
-
-            <p class="card-desc">
-              Nació como un producto diseñado para simplificar la operación diaria de una escuela: agenda de clases,
-              asignación de instructores, control de pagos y facturación mensual, todo en un calendario responsive con
-              actualizaciones en tiempo real.
-            </p>
-            <ul class="product-features">
-              <li>Calendario responsive para programar y visualizar clases (día/semana/mes)</li>
-              <li>Accesos por roles: administrador e instructores</li>
-              <li>Seguimiento de pagos y facturación mensual</li>
-              <li>
-                <strong>Ideal para:</strong> escuelas, clínicas, servicios con turnos y negocios con reservas
-              </li>
-            </ul>
-          </div>
-
-          <div class="product-card__footer">
-            <a href="#contact" class="btn btn-primary js-prefill-btn"
-              data-prefill="Hola, quiero ver un ejemplo del producto Rebels Kite School Surf (reservas/gestión). ">
+          <p class="impact text-white mb-sm">
+            Una plataforma hecha a medida para ordenar reservas, profesores,
+            pagos y facturación.
+          </p>
+          <p class="desc text-sm light-gray mb-sm">
+            Nació como un producto diseñado para simplificar la operación diaria
+            de una escuela: agenda de clases, asignación de instructores,
+            control de pagos y facturación mensual, todo en un calendario
+            responsive con actualizaciones en tiempo real.
+          </p>
+          <ul
+            class="text-sm light-gray mb-md"
+            style="list-style-type: &quot;✦ &quot;; padding-left: 1rem"
+          >
+            <li class="mb-sm">
+              Calendario responsive para programar y visualizar clases
+              (día/semana/mes)
+            </li>
+            <li class="mb-sm">
+              Accesos por roles: administrador e instructores
+            </li>
+            <li class="mb-sm">Seguimiento de pagos y facturación mensual</li>
+            <li>
+              <strong>Ideal para:</strong> escuelas, clínicas, servicios con
+              turnos y negocios con reservas
+            </li>
+          </ul>
+          <div class="mt-auto flex-col gap-sm">
+            <a
+              href="#contact"
+              class="btn btn-secondary glass w-full text-center js-prefill-btn"
+              data-prefill="Hola, quiero ver un ejemplo del producto Rebels Kite School Surf (reservas/gestión)."
+            >
               Ver ejemplo / Solicitar demo
             </a>
-            <a href="#contact" class="btn btn-secondary js-prefill-btn"
-              data-prefill="Hola, quiero desarrollar un sistema similar al de Rebels (reservas/gestión) pero adaptado a mi negocio.">
+            <a
+              href="#contact"
+              class="btn btn-primary w-full text-center js-prefill-btn"
+              data-prefill="Hola, quiero desarrollar un sistema similar al de Rebels (reservas/gestión) pero adaptado a mi negocio."
+            >
               Quiero algo similar
             </a>
           </div>
         </div>
-
       </div>
+    </section>
 
-      <div class="products-footer">
-        <a href="#SolucionAMedida" class="product-custom-link"
-          title="Solicitar una solución de automatización a medida">
-          ¿Necesitás algo distinto?
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
+    <!-- CTA MEDIDA -->
+    <section id="SolucionAMedida" class="cta section container">
+      <div class="glass-card cta-banner text-center" data-aos="zoom-in">
+        <h2 class="section-title text-white">
+          ¿Necesitás una solución hecha a tu medida?
+        </h2>
+        <p class="section-subtitle max-w-md mx-auto mb-md">
+          Si ninguna solución lista encaja exactamente con tu forma de trabajar,
+          diseñamos y desarrollamos un sistema adaptado a tu operación.
+        </p>
+        <p class="light-gray max-w-md mx-auto mb-md" style="font-size: 1.1rem">
+          Trabajamos sobre tu realidad: cómo vendés, cómo atendés, cómo
+          organizás tu equipo y cómo gestionás tu información. A partir de eso,
+          definimos una solución clara, funcional y alineada a tus objetivos.
+        </p>
+
+        <p class="text-white font-syne mb-sm" style="font-size: 1.1rem">
+          Podemos ayudarte con:
+        </p>
+        <ul
+          class="text-sm light-gray mb-lg mx-auto"
+          style="
+            list-style-type: &quot;✓ &quot;;
+            max-width: 500px;
+            text-align: left;
+            padding-left: 10%;
+          "
+        >
+          <li class="mb-sm">
+            Sistemas internos, portales y paneles de gestión
+          </li>
+          <li class="mb-sm">
+            Integraciones entre tu web, herramientas y bases de datos
+          </li>
+          <li class="mb-sm">Reservas, turnos, pedidos, pagos y seguimiento</li>
+          <li class="mb-sm">
+            Procesos personalizados según tu modelo de negocio
+          </li>
+          <li>Alcance y propuesta definidos en una reunión inicial</li>
+        </ul>
+
+        <a
+          href="#contact"
+          class="btn btn-primary lg js-prefill-btn"
+          data-prefill="Hola, quiero hablar sobre una solución a medida para mi negocio."
+          >Pedir propuesta a medida</a
+        >
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <section class="feature-split">
-    <div class="split-block with-stack">
-
-      <!-- Imagen fija a la izquierda -->
-      <div class="split-image sticky-image">
-        <img src="src/render.png" alt="Interfaz de un sistema digital para gestión y operaciones de negocio"
-          title="Sistemas y soluciones digitales a medida – iAgency" loading="lazy" decoding="async">
-      </div>
-
-      <!-- Contenido reemplazado por Solución a medida -->
-      <div class="split-text">
-        <div class="stack-container">
-
-          <div class="stack-card">
-            <div class="card-inner">
-
-              <div id="SolucionAMedida" class="custom-solution-content" data-aos="fade-up">
-                <h2 class="section-title">¿Necesitás una solución hecha a tu medida?</h2>
-
-                <p class="section-subtitle">
-                  Si ninguna solución lista encaja exactamente con tu forma de trabajar, diseñamos y desarrollamos un
-                  sistema adaptado a tu operación.
-                </p>
-
-                <div class="custom-solution-text">
-                  <p>
-                    Trabajamos sobre tu realidad: cómo vendés, cómo atendés, cómo organizás tu equipo y cómo gestionás
-                    tu información. A partir de eso, definimos una solución clara, funcional y alineada a tus objetivos.
-                  </p>
-                </div>
-
-                <p style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 500; color: #ededed;">Podemos ayudarte
-                  con:</p>
-                <ul class="custom-solution-features">
-                  <li>Sistemas internos, portales y paneles de gestión</li>
-                  <li>Integraciones entre tu web, herramientas y bases de datos</li>
-                  <li>Reservas, turnos, pedidos, pagos y seguimiento</li>
-                  <li>Procesos personalizados según tu modelo de negocio</li>
-                  <li>Alcance y propuesta definidos en una reunión inicial</li>
-                </ul>
-
-                <div class="custom-solution-cta">
-                  <a href="#contact" class="btn btn-primary js-prefill-btn"
-                    data-prefill="Hola, quiero hablar sobre una solución a medida para mi negocio.">
-                    Pedir propuesta a medida
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <section id="contact" class="contact-section-premium">
-    <div class="contact-container">
-      <div class="contact-grid-layout">
-
-        <!-- Columna Izquierda: Copy + Formulario -->
-        <div class="contact-left">
-          <p class="contact-kicker">REUNIÓN POR GOOGLE MEET · 15 MIN</p>
-          <h2 class="contact-title">Agendemos una llamada</h2>
-          <p class="contact-subtitle">
-            Analizamos tu operación actual y te proponemos la solución digital más adecuada para tu negocio.
+    <!-- CONTACT -->
+    <section id="contact" class="contact section container">
+      <div class="grid-2 gap-lg" data-aos="fade-up">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <span class="meta text-accent">REUNIÓN POR GOOGLE MEET · 15 MIN</span>
+          <h2 class="section-title text-white">Agendemos una llamada</h2>
+          <p class="desc text-white mb-md" style="font-size: 1.1rem">
+            Analizamos tu operación actual y te proponemos la solución digital
+            más adecuada para tu negocio.
           </p>
 
-          <ul class="contact-benefits">
-            <li>Diagnóstico según tu modelo de negocio</li>
-            <li>Definición clara de alcance y tiempos</li>
+          <ul
+            class="text-sm light-gray mb-lg"
+            style="list-style-type: &quot;✓ &quot;; padding-left: 1rem"
+          >
+            <li class="mb-sm">Diagnóstico según tu modelo de negocio</li>
+            <li class="mb-sm">Definición clara de alcance y tiempos</li>
             <li>Próximos pasos concretos y sin complejidad técnica</li>
           </ul>
-
-          <p class="contact-micro">
+          <p class="text-xs light-gray mb-lg">
             Horario adaptado automáticamente a tu zona (Argentina / LATAM).
           </p>
 
-          <!-- Formulario alternativo visualmente separado -->
-          <div class="contact-alt-wrapper">
-            <div class="contact-alt-divider"></div>
-            <p class="contact-alt-title">¿Preferís que te contactemos primero?</p>
-            <form action="https://formspree.io/f/xrbgpegn" method="POST" class="contact-form-compact" id="contactForm">
-              <div class="form-row">
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
-                <input type="text" id="contacto" name="contacto" placeholder="Email o WhatsApp" required />
+          <div class="contact-form-wrapper glass mt-lg p-md rounded">
+            <h4 class="mb-sm text-white font-syne" style="font-size: 1.2rem">
+              ¿Preferís que te contactemos primero?
+            </h4>
+            <form
+              action="https://formspree.io/f/xrbgpegn"
+              method="POST"
+              class="flex-col gap-sm"
+              id="contactForm"
+            >
+              <div class="flex-col gap-sm">
+                <input
+                  type="text"
+                  name="nombre"
+                  class="input-glass"
+                  placeholder="Tu nombre"
+                  required
+                />
+                <input
+                  type="text"
+                  name="contacto"
+                  class="input-glass"
+                  placeholder="Email o WhatsApp"
+                  required
+                />
               </div>
-              <textarea id="mensaje" name="mensaje" rows="2" placeholder="Contanos sobre tu negocio o consulta"
-                required></textarea>
-              <button type="submit" class="btn-submit-compact" id="contactSubmitBtn">Enviar mensaje</button>
-
-              <!-- Mensajes de estado -->
-              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite" hidden>
+              <textarea
+                name="mensaje"
+                rows="2"
+                class="input-glass"
+                placeholder="Contanos sobre tu negocio o consulta"
+                required
+              ></textarea>
+              <button
+                type="submit"
+                class="btn btn-primary w-full mt-sm"
+                id="contactSubmitBtn"
+              >
+                Enviar mensaje
+              </button>
+              <div
+                class="contact-message contact-message--success"
+                id="contactSuccess"
+                aria-live="polite"
+                hidden
+              >
                 Gracias, pronto te contactaremos 🙌
               </div>
-              <div class="contact-message contact-message--error" id="contactError" aria-live="polite" hidden>
+              <div
+                class="contact-message contact-message--error"
+                id="contactError"
+                aria-live="polite"
+                hidden
+              >
                 Hubo un error. Por favor intentá de nuevo.
               </div>
             </form>
           </div>
         </div>
 
-        <!-- Columna Derecha: Calendly -->
-        <div class="contact-right">
-          <div class="calendly-card-premium">
-            <div class="calendly-inline-widget"
-              data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1">
-            </div>
-          </div>
+        <!-- Calendly -->
+        <div
+          class="calendly-wrapper glass rounded"
+          style="overflow: hidden; padding: 10px"
+        >
+          <div
+            class="calendly-inline-widget"
+            data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1"
+            style="min-width: 320px; height: 700px"
+          ></div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- FOOTER -->
+    <footer class="footer border-top-glass">
+      <div
+        class="container text-center py-md"
+        style="padding-top: 40px; padding-bottom: 40px"
+      >
+        <p class="text-sm light-gray mb-sm">
+          © 2026 iAgency. Todos los derechos reservados. - NL Developments
+        </p>
+        <div class="footer-links mt-sm flex justify-center gap-md">
+          <a href="privacy-policy.html" class="text-sm nav-link">Privacidad</a>
+          <a href="terms-of-service.html" class="text-sm nav-link">Términos</a>
+        </div>
+      </div>
+    </footer>
 
-  <footer class="footer" data-aos="fade-up">
-    <div class="footer-icons">
-      <!-- <span>📘</span>
-      <span>📷</span>
-      <span>𝕏</span>
-      <span>💼</span>
-      <span>▶️</span> -->
-    </div>
-    <p>© 2026 iAgency. Todos los derechos reservados.- NL Developments </p>
-    <div class="footer-links">
-      <a href="privacy-policy.html">Privacidad</a>
-      <a href="terms-of-service.html">Términos</a>
-      <!-- <a href="#">Cookies</a> -->
-    </div>
-  </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Toggle Mobile Menu
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.getElementById("primary-navigation");
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-  <script src="js/stacking.js" defer></script>
-  <script src="js/script.js"></script>
-  <!-- Calendly -->
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        toggle.addEventListener("click", () => {
+          nav.classList.toggle("open");
+          document.body.classList.toggle("no-scroll");
+        });
 
-</body>
+        // Init AOS Animations
+        setTimeout(() => {
+          AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: "ease-out-cubic",
+          });
+        }, 100);
 
+        // JS Prefill functionality
+        document.querySelectorAll(".js-prefill-btn").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const prefill = this.getAttribute("data-prefill");
+            const textarea = document.querySelector('textarea[name="mensaje"]');
+            if (textarea && prefill) {
+              textarea.value = prefill;
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
