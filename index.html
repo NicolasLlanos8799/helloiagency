@@ -529,12 +529,29 @@
       easing: 'ease-out-cubic',
     });
 
-    // SPA Router
-    function initializeRouter() {
-      const homeView = document.getElementById('home-view');
-      const portfolioView = document.getElementById('portfolio-view');
+    // SPA Router (History API)
+    const routeMap = {
+      home: 'home-view',
+      portfolio: 'portfolio-view'
+    };
 
-      function getBasePath() {
+    const routeScrollState = new Map();
+
+    class HistoryRouter {
+      constructor() {
+        this.homeView = document.getElementById(routeMap.home);
+        this.portfolioView = document.getElementById(routeMap.portfolio);
+        this.homeLinks = document.getElementById('home-nav-links');
+        this.portfolioLinks = document.getElementById('portfolio-nav-links');
+        this.basePath = this.getBasePath();
+        this.homePath = this.basePath ? `${this.basePath}/` : '/';
+        this.portfolioPath = this.basePath ? `${this.basePath}/portfolio` : '/portfolio';
+        this.currentRoute = this.resolveRoute(window.location.pathname);
+        this.isTransitioning = false;
+        this.init();
+      }
+
+      getBasePath() {
         const parts = window.location.pathname.split('/').filter(Boolean);
         const lastPart = parts[parts.length - 1];
 
@@ -544,110 +561,123 @@
         return '/' + parts.join('/');
       }
 
-      const basePath = getBasePath();
-      const homePath = basePath ? `${basePath}/` : '/';
-      const portfolioPath = basePath ? `${basePath}/portfolio` : '/portfolio';
-
-      function isPortfolioRoute(pathname) {
+      resolveRoute(pathname) {
         const parts = pathname.split('/').filter(Boolean);
-        return parts[parts.length - 1] === 'portfolio';
+        return parts[parts.length - 1] === 'portfolio' ? 'portfolio' : 'home';
       }
 
-      function handleRoute(e = null) {
-        const url = new URL(window.location.href);
-        const path = url.pathname;
-        const hash = url.hash;
+      getRoutePath(route) {
+        return route === 'portfolio' ? this.portfolioPath : this.homePath;
+      }
 
-        const homeLinks = document.getElementById('home-nav-links');
-        const portLinks = document.getElementById('portfolio-nav-links');
+      init() {
+        document.body.addEventListener('click', (e) => {
+          const link = e.target.closest('a');
+          if (!link || !link.getAttribute('href')) return;
 
-        // Simple routing logic based on pathname
-        if (isPortfolioRoute(path)) {
-          homeView.style.display = 'none';
-          portfolioView.style.display = 'block';
-          if (homeLinks) homeLinks.style.display = 'none';
-          if (portLinks) portLinks.style.display = 'flex';
-          document.title = "iAgency | Portfolio";
-          if (!hash) window.scrollTo(0, 0);
-        } else {
-          homeView.style.display = 'block';
-          portfolioView.style.display = 'none';
-          if (homeLinks) homeLinks.style.display = 'flex';
-          if (portLinks) portLinks.style.display = 'none';
-          document.title = "iAgency | Diseño de Sistemas Digitales";
+          const href = link.getAttribute('href');
+          const route = link.dataset.route;
 
-          if (!hash && !e) {
-            window.scrollTo(0, 0);
+          if (route && routeMap[route]) {
+            e.preventDefault();
+            this.navigate(route, { hash: '', sourceEvent: e });
+            return;
           }
+
+          if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetRoute = this.currentRoute === 'portfolio' ? 'home' : this.currentRoute;
+            this.navigate(targetRoute, { hash: href, sourceEvent: e });
+            return;
+          }
+
+          if (href.startsWith('/') || href.includes('portfolio')) {
+            e.preventDefault();
+            const targetRoute = href.includes('portfolio') ? 'portfolio' : 'home';
+            this.navigate(targetRoute, { hash: '', sourceEvent: e });
+          }
+        });
+
+        window.addEventListener('popstate', () => {
+          this.handleRoute(window.location.pathname, window.location.hash, true);
+        });
+
+        this.handleRoute(window.location.pathname, window.location.hash, true);
+      }
+
+      navigate(route, { hash = '', sourceEvent = null } = {}) {
+        const nextPath = this.getRoutePath(route);
+        const nextUrl = `${nextPath}${hash}`;
+
+        routeScrollState.set(`${this.currentRoute}${window.location.hash || ''}`, window.scrollY);
+        history.pushState(null, '', nextUrl);
+        this.handleRoute(nextPath, hash, false, sourceEvent);
+      }
+
+      async handleRoute(pathname, hash = '', isInitial = false, sourceEvent = null) {
+        if (this.isTransitioning) return;
+
+        const nextRoute = this.resolveRoute(pathname);
+        const sameRoute = nextRoute === this.currentRoute;
+
+        if (sameRoute && hash && !isInitial) {
+          this.scrollToSection(hash);
+          return;
         }
+
+        this.isTransitioning = true;
+
+        if (nextRoute === 'portfolio') {
+          this.homeView.style.display = 'none';
+          this.portfolioView.style.display = 'block';
+          if (this.homeLinks) this.homeLinks.style.display = 'none';
+          if (this.portfolioLinks) this.portfolioLinks.style.display = 'flex';
+          document.title = 'iAgency | Portfolio';
+        } else {
+          this.homeView.style.display = 'block';
+          this.portfolioView.style.display = 'none';
+          if (this.homeLinks) this.homeLinks.style.display = 'flex';
+          if (this.portfolioLinks) this.portfolioLinks.style.display = 'none';
+          document.title = 'iAgency | Diseño de Sistemas Digitales';
+        }
+
+        this.currentRoute = nextRoute;
         setTimeout(() => AOS.refresh(), 100);
 
         if (hash) {
-          setTimeout(() => {
-            const target = document.querySelector(hash);
-            if (target) {
-              // Ajuste para el sticky navbar guiando el scroll
-              const headerOffset = 80;
-              const elementPosition = target.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-              });
-            }
-          }, 50);
+          setTimeout(() => this.scrollToSection(hash), 50);
+        } else if (!isInitial) {
+          const scrollKey = `${nextRoute}${hash}`;
+          if (routeScrollState.has(scrollKey) && sourceEvent === null) {
+            window.scrollTo({ top: routeScrollState.get(scrollKey), behavior: 'auto' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        } else {
+          window.scrollTo(0, 0);
         }
+
+        this.isTransitioning = false;
       }
 
-      function navigateToRoute(route, eventContext = null) {
-        const finalPath = route === 'portfolio' ? portfolioPath : homePath;
-        history.pushState(null, '', finalPath);
-        handleRoute(eventContext);
-      }
-
-      // Intercept link clicks
-      document.body.addEventListener('click', e => {
-        const link = e.target.closest('a');
-        if (link && link.getAttribute('href')) {
-          const targetHref = link.getAttribute('href');
-          const route = link.dataset.route;
-          const isRouteLink = route === 'portfolio' || route === 'home';
-
-          if (isRouteLink) {
-            e.preventDefault();
-            navigateToRoute(route, e);
-            return;
-          }
-
-          if (targetHref.startsWith('#')) {
-            e.preventDefault();
-            const isPortfolio = isPortfolioRoute(window.location.pathname);
-
-            if (isPortfolio) {
-              // Si estamos en portfolio, volvemos al root y agregamos el hash
-              history.pushState(null, '', homePath + targetHref);
-            } else {
-              // Si ya estamos en home, actualizamos el hash nativamente
-              const url = new URL(window.location.href);
-              url.hash = targetHref;
-              history.pushState(null, '', url.toString());
-            }
-            handleRoute(e);
-            return;
-          }
-          if (targetHref.startsWith('/') || targetHref.includes('portfolio')) {
-            e.preventDefault();
-            const nextRoute = targetHref.includes('portfolio') ? 'portfolio' : 'home';
-            navigateToRoute(nextRoute, e);
-          }
+      scrollToSection(hash) {
+        const target = document.querySelector(hash);
+        if (!target) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
         }
-      });
 
-      window.addEventListener('popstate', () => handleRoute());
-      handleRoute(); // initial render
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
     }
-    document.addEventListener('DOMContentLoaded', initializeRouter);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.historyRouter = new HistoryRouter();
+    });
   </script>
 
 
