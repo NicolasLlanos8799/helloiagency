@@ -100,14 +100,14 @@
         <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
       </button>
       <ul class="nav-links" id="home-nav-links">
-        <li><a href="/portfolio" data-route="portfolio">Portfolio</a></li>
+        <li><a href="#" data-route="portfolio">Portfolio</a></li>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#proceso">Proceso</a></li>
         <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
       </ul>
       <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
-        <li><a href="/" data-route="home">Volver al Inicio</a></li>
-        <li><a href="/portfolio" data-route="portfolio" class="active">Portfolio</a></li>
+        <li><a href="#" data-route="home">Volver al Inicio</a></li>
+        <li><a href="#" data-route="portfolio" class="active">Portfolio</a></li>
         <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
       </ul>
     </div>
@@ -600,11 +600,8 @@
         }
       }
 
-      function navigateTo(targetHref, eventContext = null) {
-        let finalPath = targetHref;
-        if (targetHref.includes('portfolio')) finalPath = portfolioPath;
-        if (['/', '/index.html', 'index.html'].includes(targetHref)) finalPath = homePath;
-
+      function navigateToRoute(route, eventContext = null) {
+        const finalPath = route === 'portfolio' ? portfolioPath : homePath;
         history.pushState(null, '', finalPath);
         handleRoute(eventContext);
       }
@@ -614,7 +611,14 @@
         const link = e.target.closest('a');
         if (link && link.getAttribute('href')) {
           const targetHref = link.getAttribute('href');
-          const isRouteLink = link.dataset.route === 'portfolio' || link.dataset.route === 'home';
+          const route = link.dataset.route;
+          const isRouteLink = route === 'portfolio' || route === 'home';
+
+          if (isRouteLink) {
+            e.preventDefault();
+            navigateToRoute(route, e);
+            return;
+          }
 
           if (targetHref.startsWith('#')) {
             e.preventDefault();
@@ -632,9 +636,10 @@
             handleRoute(e);
             return;
           }
-          if (isRouteLink || targetHref.startsWith('/') || targetHref.includes('portfolio')) {
+          if (targetHref.startsWith('/') || targetHref.includes('portfolio')) {
             e.preventDefault();
-            navigateTo(targetHref, e);
+            const nextRoute = targetHref.includes('portfolio') ? 'portfolio' : 'home';
+            navigateToRoute(nextRoute, e);
           }
         }
       });
