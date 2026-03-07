@@ -4,54 +4,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- PRECONNECT -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- TITLE -->
-  <title>Desarrollo de Software a Medida y Automatización | iAgency</title>
-
-  <!-- FONTS: Montserrat -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-    rel="stylesheet" />
-
-  <!-- STYLES -->
-  <link rel="stylesheet" href="css/styles.css?v=4" />
-  <link rel="stylesheet" href="/css/styles.css?v=4" />
-
-  <!-- Calendly -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-
-  <!-- Favicon (Google-first) -->
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <!-- SEO & OPEN GRAPH -->
+  <title>iAgency | Diseño de Sistemas Digitales</title>
   <meta name="description"
-    content="Desarrollamos software a medida, sistemas web y soluciones digitales que integran automatización e inteligencia artificial para escalar tu negocio." />
+    content="Diseñamos software a medida, automatización y sistemas web para empresas de alto rendimiento." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="iAgency" />
   <meta name="publisher" content="iAgency" />
   <link rel="canonical" href="https://helloiagency.com/" />
 
-  <meta property="og:title" content="Desarrollo de Software a Medida y Automatización | iAgency" />
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="iAgency | Diseño de Sistemas Digitales" />
   <meta property="og:description"
-    content="Creamos software a medida, sistemas web y soluciones digitales que integran automatización e IA para hacer escalar tu negocio." />
+    content="Diseñamos sistemas digitales para negocios: software a medida, automatización y plataformas web pensadas para optimizar operaciones y crecer con tecnología." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://helloiagency.com/" />
   <meta property="og:site_name" content="iAgency" />
   <meta property="og:locale" content="es_AR" />
+  <meta property="og:image" content="https://helloiagency.com/src/render.png" />
+  <meta property="og:image:alt" content="Muestra del Diseño de Sistemas Digitales de iAgency" />
 
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Agencia de Automatización e IA | iAgency" />
+  <meta name="twitter:title" content="iAgency | Diseño de Sistemas Digitales" />
   <meta name="twitter:description"
-    content="Asistentes con IA y automatizaciones a medida para negocios en Argentina y LATAM." />
+    content="Diseñamos sistemas digitales para negocios con software a medida, automatización y plataformas web." />
+  <meta name="twitter:image" content="https://helloiagency.com/src/render.png" />
+  <meta name="twitter:image:alt" content="iAgency - Digital Systems Studio" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W33VWQRXSN"></script>
@@ -60,468 +44,667 @@
     function gtag() {
       dataLayer.push(arguments);
     }
-    gtag("js", new Date());
-    gtag("config", "G-W33VWQRXSN");
+    gtag('js', new Date());
+    gtag('config', 'G-W33VWQRXSN');
   </script>
 
-  <script src="js/schema.js" defer></script>
+  <!-- Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Linear Style Design System -->
+  <link rel="stylesheet" href="css/linear.css" />
+
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+
+  <style>
+    .page-view {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Ambient Orbs -->
-  <div class="glow-orb fixed-orb-1"></div>
-  <div class="glow-orb fixed-orb-2"></div>
+  <!-- Ambient Mesh Gradient -->
+  <div class="mesh-bg"></div>
 
-  <!-- HEADER -->
-  <header class="navbar glass">
-    <div class="nav-container">
-      <div class="logo font-syne text-white">iAgency</div>
-      <button class="menu-toggle" aria-label="Alternar navegación" aria-controls="primary-navigation"
-        aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+  <!-- NAVBAR GENERAL -->
+  <nav class="navbar" id="main-navbar">
+    <div class="container nav-content">
+      <div class="logo">
+        <a href="#">iAgency</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Abrir menú">
+        <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
       </button>
-      <nav id="primary-navigation" class="main-nav" aria-label="Navegación principal">
-        <ul>
-          <li><a class="nav-link" href="#" title="Inicio">Inicio</a></li>
-          <li>
-            <a class="nav-link" href="#Asistentes" title="Ver nuestros Sistemas">Sistemas</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#about" title="Cómo trabajamos">Cómo trabajamos</a>
-          </li>
-          <li>
-            <a class="nav-link" href="#contact" title="Contactar a iAgency">Contacto</a>
-          </li>
-          <li>
-            <a class="nav-cta btn-primary js-prefill-btn" href="#contact"
-              data-prefill="Hola, quiero agendar una reunión de 15 minutos para ver qué sistema me conviene.">
-              Agendar reunión
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <ul class="nav-links" id="home-nav-links">
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="#soluciones">Soluciones</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
+      </ul>
+      <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
+        <li><a href="/">Volver al Inicio</a></li>
+        <li><a href="/portfolio" class="active">Portfolio</a></li>
+        <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <!-- HERO -->
-  <section class="hero container">
-    <canvas id="circuit-bg" aria-hidden="true"></canvas>
+  <!-- VIEW: HOME -->
+  <div id="home-view" class="page-view">
 
-    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-      <div class="badges-row">
-        <span class="badge glass">Software a Medida</span>
-        <span class="badge glass">Desarrollo Web & SEO</span>
-        <span class="badge glass">Asistentes IA & Marketing</span>
+    <!-- HERO -->
+    <header class="section hero container">
+      <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
+        Digital Systems Studio
       </div>
-      <h1 class="hero-title">
-        Sistemas digitales que
-        <span class="text-accent">escalan tu negocio.</span>
+
+      <h1 data-aos="fade-up" data-aos-duration="1000">
+        Tecnología que<br>impulsa negocios
       </h1>
-      <p class="hero-subtitle">
-        Software a medida, desarrollo web, automatización e Inteligencia Artificial para
-        optimizar procesos y multiplicar tus ventas.
+
+      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        Ayudamos a negocios y organizaciones a incorporar tecnología en su operación mediante asesoría, desarrollo de
+        sistemas y automatización.
       </p>
-      <div class="hero-actions w-full">
-        <a href="#contact" class="btn btn-primary js-prefill-btn"
-          data-prefill="Hola, quiero desarrollar un sistema o solución digital para mi negocio.">
-          Agendar llamada o contactarnos
-        </a>
-        <a href="#Asistentes" class="btn btn-secondary glass">
-          Ver soluciones
-        </a>
+
+      <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <a href="#soluciones" class="btn btn-outline">Ver soluciones</a>
+        <a href="#contacto" class="btn btn-primary">Agendar llamada</a>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ABOUT IA (Nació como...) -->
-  <section class="about section container" style="padding-top: 40px; padding-bottom: 40px">
-    <div class="glass-card mx-auto max-w-md" data-aos="fade-up" data-aos-offset="50" data-aos-delay="200"
-      style="text-align: center">
-      <p class="light-gray mb-sm" style="font-size: 1.1rem; line-height: 1.7">
-        Somos una agencia técnica especializada en desarrollo ágil y
-        soluciones sólidas. Combinamos criterio de producto y atención al
-        detalle para construir sistemas preparados para evolucionar junto a tu
-        empresa.
-      </p>
-    </div>
-  </section>
 
-  <!-- QUÉ HACEMOS & PROCESO -->
-  <section id="about" class="section container">
-    <div class="section-header" data-aos="fade-up">
-      <h2 class="section-title">Qué hacemos en iAgency</h2>
-      <p class="section-subtitle">
-        Webs, sistemas y soluciones digitales a medida, potenciadas con
-        automatización e inteligencia artificial.
-      </p>
-    </div>
 
-    <!-- Las Cards (Reemplazando las tabs del diseño anterior) -->
-    <div class="grid-3 mb-lg">
-      <div class="glass-card hover-glow flex-col" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon-wrap mb-sm" style="font-size: 2rem">🌐</div>
-        <h3 class="font-syne mb-sm text-white" style="font-size: 1.4rem">
-          Webs de Alta Conversión
-        </h3>
-        <p class="light-gray mb-sm">
-          Sitios rápidos, modernos y optimizados para vender tu servicio.
-        </p>
-        <ul class="text-sm light-gray" style="list-style-type: &quot;→ &quot;; padding-left: 1rem">
-          <li>Diseño premium y moderno</li>
-          <li>Estructura clara orientada a resultados</li>
-          <li>Optimización SEO y velocidad</li>
-        </ul>
-      </div>
-
-      <div class="glass-card hover-glow flex-col" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon-wrap mb-sm" style="font-size: 2rem">⚙️</div>
-        <h3 class="font-syne mb-sm text-white" style="font-size: 1.4rem">
-          Software a Medida
-        </h3>
-        <p class="light-gray mb-sm">
-          Plataformas internas para centralizar clientes, operaciones y pagos.
-        </p>
-        <ul class="text-sm light-gray" style="list-style-type: &quot;→ &quot;; padding-left: 1rem">
-          <li>Panel de control en un solo lugar</li>
-          <li>Menos fricción, más control</li>
-          <li>Escalabilidad garantizada</li>
-        </ul>
-      </div>
-
-      <div class="glass-card hover-glow flex-col" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon-wrap mb-sm" style="font-size: 2rem">🤖</div>
-        <h3 class="font-syne mb-sm text-white" style="font-size: 1.4rem">
-          Automatización & IA
-        </h3>
-        <p class="light-gray mb-sm">
-          Agentes inteligentes que reducen tareas repetitivas y atienden 24/7.
-        </p>
-        <ul class="text-sm light-gray" style="list-style-type: &quot;→ &quot;; padding-left: 1rem">
-          <li>Atención inmediata 24/7</li>
-          <li>Gestión automática de pedidos</li>
-          <li>Notificaciones y reportes sin esfuerzo</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- CÓMO TRABAJAMOS TIMELINE -->
-    <!-- <div class="section-header mt-lg pt-4" data-aos="fade-up">
-      <h2 class="section-title text-center">Cómo trabajamos</h2>
-    </div>
-
-    <div class="timeline" data-aos="fade-up" data-aos-delay="100">
-      <div class="timeline-item glass-card hover-glow">
-        <span class="step-num">01</span>
-        <div class="step-content">
-          <h4 class="text-white">Diagnóstico</h4>
-          <p class="light-gray">
-            Analizamos tu operación y detectamos cuellos de botella y
-            oportunidades de mejora.
-          </p>
-        </div>
-      </div>
-      <div class="timeline-item glass-card hover-glow">
-        <span class="step-num">02</span>
-        <div class="step-content">
-          <h4 class="text-white">Estrategia & Diseño</h4>
-          <p class="light-gray">
-            Definimos la arquitectura, el alcance técnico y los tiempos
-            exactos del proyecto.
-          </p>
-        </div>
-      </div>
-      <div class="timeline-item glass-card hover-glow">
-        <span class="step-num">03</span>
-        <div class="step-content">
-          <h4 class="text-white">Desarrollo & Lanzamiento</h4>
-          <p class="light-gray">
-            Construimos, probamos rigurosamente y desplegamos tu solución
-            llave en mano.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-lg" data-aos="fade-up">
-      <p class="mb-md light-gray">
-        ¿Querés que construyamos tu web o sistema a medida?
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary js-prefill-btn"
-          data-prefill="Hola, quiero desarrollar un sistema o solución digital para mi negocio.">
-          Agendar llamada o contactarnos
-        </a>
-        <a href="#Asistentes" class="btn btn-secondary glass">
-          Ver soluciones listas
-        </a>
-      </div>
-    </div>
-  </section> -->
-
-    <!-- SISTEMAS LISTOS PARA IMPLEMENTAR -->
-    <section id="products" class="products section container">
-      <div class="section-header" data-aos="fade-up" id="Asistentes">
-        <h2 class="section-title">Software a Medida y Sistemas Listos</h2>
-
+    <!-- SOLUTIONS (CARDS) -->
+    <section id="soluciones" class="section container">
+      <div class="features-header text-center" data-aos="fade-up">
+        <span class="label">Capacidades del estudio</span>
+        <h2>Sistemas a la medida de tu operación</h2>
       </div>
 
       <div class="grid-3">
         <!-- Card 1 -->
-        <div class="glass-card hover-glow product-card flex-col" data-aos="fade-up" data-aos-delay="100">
-          <div class="product-header">
-            <span class="meta text-accent">iAGENCY · AUTOMATIZACIÓN DE ATENCIÓN</span>
-            <h3 class="text-white font-syne" style="font-size: 1.5rem; margin-bottom: 0.5rem">
-              Asistente Automático de Atención al Cliente
-            </h3>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon">
+            <i class="ph ph-globe-hemisphere-east" style="font-size: 24px"></i>
           </div>
-          <p class="impact text-white mb-sm">
-            Automatiza la atención con las reglas reales de tu negocio.
-          </p>
-          <p class="desc text-sm light-gray mb-sm">
-            Un agente inteligente que responde consultas, aplica precios y
-            condiciones, y mantiene el contexto de forma natural 24/7.
-          </p>
-          <ul class="text-sm light-gray mb-md" style="list-style-type: &quot;✦ &quot;; padding-left: 1rem">
-            <li class="mb-sm">
-              Aplica reglas de negocio y precios reales directamente del
-              catálogo.
-            </li>
-            <li class="mb-sm">
-              Interpreta intención y deriva a humanos si es necesario.
-            </li>
-            <li>
-              <strong>Ideal para:</strong> negocios con alto volumen de
-              consultas que buscan atención inmediata y precisa.
-            </li>
-          </ul>
-          <div class="mt-auto flex-col gap-sm">
-            <a href="https://asistente-faq.helloiagency.com/" target="_blank" rel="noopener noreferrer"
-              class="btn btn-secondary glass w-full text-center js-prefill-btn" data-ga-assistant="asistente_consultas">
-              Ver demo en vivo
-            </a>
-            <a href="#contact" class="btn btn-primary w-full text-center js-prefill-btn"
-              data-prefill="Hola, quiero empezar con el Asistente de Conversación Automatizada.">
-              Agendar implementación
-            </a>
-          </div>
+          <h3>Plataformas Web</h3>
+          <p>Diseñamos entornos digitales estructurados para escalar tu presencia y centralizar tu negocio.</p>
         </div>
+
         <!-- Card 2 -->
-        <div class="glass-card hover-glow product-card flex-col" data-aos="fade-up" data-aos-delay="200">
-          <div class="product-header">
-            <span class="meta text-accent">iAGENCY · AUTOMATIZACIÓN DE VENTAS</span>
-            <h3 class="text-white font-syne" style="font-size: 1.5rem; margin-bottom: 0.5rem">
-              Asistente Inteligente de Pedidos
-            </h3>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon">
+            <i class="ph ph-code-block" style="font-size: 24px"></i>
           </div>
-          <p class="impact text-white mb-sm">
-            Toma pedidos, solicita datos y recibe transferencias en piloto
-            automático.
-          </p>
-          <p class="desc text-sm light-gray mb-sm">
-            Guía al cliente paso a paso, solicita datos, envía alias/CBU y
-            organiza cada pedido listo para ser despachado.
-          </p>
-          <ul class="text-sm light-gray mb-md" style="list-style-type: &quot;✦ &quot;; padding-left: 1rem">
-            <li class="mb-sm">
-              Solicita y valida datos del usuario según el pedido.
-            </li>
-            <li class="mb-sm">
-              Envía alias/CBU y recibe comprobantes de pago.
-            </li>
-            <li>
-              <strong>Ideal para:</strong> negocios que venden por chat y
-              quieren automatizar el flujo sin perder control.
-            </li>
-          </ul>
-          <div class="mt-auto flex-col gap-sm">
-            <a href="https://asistente-ventas.helloiagency.com/" target="_blank" rel="noopener noreferrer"
-              class="btn btn-secondary glass w-full text-center js-prefill-btn" data-ga-assistant="gestor_pedidos">
-              Ver demo en vivo
-            </a>
-            <a href="#contact" class="btn btn-primary w-full text-center js-prefill-btn"
-              data-prefill="Hola, quiero empezar con el Asistente de Pedidos Automatizados.">
-              Agendar implementación
-            </a>
-          </div>
+          <h3>Software a Medida</h3>
+          <p>Construimos herramientas exclusivas para organizar procesos y optimizar tu operación diaria.</p>
         </div>
 
         <!-- Card 3 -->
-        <div class="glass-card hover-glow product-card flex-col" data-aos="fade-up" data-aos-delay="300">
-          <div class="product-header">
-            <span class="meta text-accent">iAGENCY · PRODUCTO A MEDIDA</span>
-            <h3 class="text-white font-syne" style="font-size: 1.5rem; margin-bottom: 0.5rem">
-              Rebels Kite School Surf
-            </h3>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon">
+            <i class="ph ph-robot" style="font-size: 24px"></i>
           </div>
-          <p class="impact text-white mb-sm">
-            Plataforma modular para gestionar reservas, profesores y
-            facturación.
-          </p>
-          <p class="desc text-sm light-gray mb-sm">
-            Sistema integral hecho a medida para operar una escuela o clínica:
-            agenda en tiempo real, control de pagos y calendario inteligente.
-          </p>
-          <ul class="text-sm light-gray mb-md" style="list-style-type: &quot;✦ &quot;; padding-left: 1rem">
-            <li class="mb-sm">
-              Calendario inteligente para gestión interactiva de clases.
-            </li>
-            <li class="mb-sm">
-              Roles de acceso para administradores e instructores.
-            </li>
-            <li>
-              <strong>Ideal para:</strong> escuelas, clínicas y servicios que
-              dependen de turnos y agendas complejas.
-            </li>
-          </ul>
-          <div class="mt-auto flex-col gap-sm">
-            <a href="#contact" class="btn btn-secondary glass w-full text-center js-prefill-btn"
-              data-prefill="Hola, quiero ver un ejemplo del producto Rebels Kite School Surf (reservas/gestión).">
-              Ver ejemplo / Solicitar demo
-            </a>
-            <a href="#contact" class="btn btn-primary w-full text-center js-prefill-btn"
-              data-prefill="Hola, quiero desarrollar un sistema similar al de Rebels (reservas/gestión) pero adaptado a mi negocio.">
-              Quiero algo similar
-            </a>
-          </div>
+          <h3>Automatización e IA</h3>
+          <p>Conectamos sistemas asíncronos y asistentes inteligentes para eliminar trabajo manual repetitivo.</p>
         </div>
       </div>
     </section>
 
-    <!-- CTA MEDIDA -->
-    <section id="SolucionAMedida" class="cta section container">
-      <div class="glass-card cta-banner text-center" data-aos="zoom-in">
-        <h2 class="section-title text-white">
-          ¿Necesitás una solución hecha a tu medida?
-        </h2>
-        <p class="section-subtitle max-w-md mx-auto mb-md">
-          Si ninguna solución lista encaja exactamente con tu forma de trabajar,
-          diseñamos y desarrollamos un sistema adaptado a tu operación.
-        </p>
-        <p class="light-gray max-w-md mx-auto mb-md" style="font-size: 1.1rem">
-          Trabajamos sobre tu realidad: cómo vendés, cómo atendés, cómo
-          organizás tu equipo y cómo gestionás tu información. A partir de eso,
-          definimos una solución clara, funcional y alineada a tus objetivos.
-        </p>
+    <!-- PROCESS -->
+    <section id="proceso" class="section container">
+      <div class="features-header" data-aos="fade-up">
+        <span class="label">Nuestro Proceso</span>
+        <h2>Cómo abordamos y ejecutamos cada proyecto</h2>
+      </div>
 
-        <a href="#contact" class="btn btn-primary lg js-prefill-btn"
-          data-prefill="Hola, quiero hablar sobre una solución a medida para mi negocio.">Hablemos de tu proyecto</a>
+      <div class="process-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="step">
+          <span class="num">01.</span>
+          <h4>Entender</h4>
+          <p>Diagnosticamos la operación actual del negocio.</p>
+        </div>
+        <div class="step">
+          <span class="num">02.</span>
+          <h4>Proponer</h4>
+          <p>Diseñamos una arquitectura digital robusta.</p>
+        </div>
+        <div class="step">
+          <span class="num">03.</span>
+          <h4>Construir</h4>
+          <p>Desarrollamos iterativamente la plataforma o sistema.</p>
+        </div>
+        <div class="step">
+          <span class="num">04.</span>
+          <h4>Escalar</h4>
+          <p>Integramos y refinamos dinámicamente en producción.</p>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact section container">
-      <div class="grid-2 gap-lg" data-aos="fade-up">
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <span class="meta text-accent">REUNIÓN POR GOOGLE MEET · 15 MIN</span>
-          <h2 class="section-title text-white">Agendemos una llamada</h2>
-          <p class="desc text-white mb-md" style="font-size: 1.1rem">
-            Analizamos tu operación y definimos próximos pasos sin tecnicismos
-            innecesarios.
-          </p>
+    <!-- TEAM SECTION -->
+    <section id="equipo" class="section container">
+      <div class="features-header text-center" data-aos="fade-up">
+        <span class="label">Quiénes te ayudan</span>
+        <h2 style="font-size: 2.25rem; margin-bottom: 16px;">Expertos técnicos al servicio de tu visión.</h2>
+      </div>
 
-          <ul class="text-sm light-gray mb-lg" style="list-style-type: &quot;✓ &quot;; padding-left: 1rem">
-            <li class="mb-sm">Diagnóstico rápido de procesos</li>
-            <li class="mb-sm">Definición de alcance y arquitectura</li>
+      <div class="grid-3" style="margin-top: 48px;">
+        <!-- Team Member 1 -->
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
+          <div
+            style="width: 100%; height: 320px; border-radius: 16px; background: rgba(255,255,255,0.05); margin: 0 auto 32px; border: 1px solid var(--border-light); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="src/equipo/nicolas-llanos.jpg" alt="Nicolás Llanos"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+          </div>
+          <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Nicolás Llanos</h3>
+          <p style="color: var(--text-tertiary); font-size: 1rem;">Cofundador · Desarrollo y Tecnología</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
+          <div
+            style="width: 100%; height: 320px; border-radius: 16px; background: rgba(255,255,255,0.05); margin: 0 auto 32px; border: 1px solid var(--border-light); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="src/equipo/marlene-morrone.png" alt="Marli"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+          </div>
+          <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Marlene Morrone</h3>
+          <p style="color: var(--text-tertiary); font-size: 1rem;">Copropietaria · Comercial y Operaciones</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
+          <div
+            style="width: 100%; height: 320px; border-radius: 16px; background: rgba(255,255,255,0.05); margin: 0 auto 32px; border: 1px solid var(--border-light); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="src/equipo/mariano-oggier.png" alt="Mariano"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+          </div>
+          <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Mariano Oggier</h3>
+          <p style="color: var(--text-tertiary); font-size: 1rem;">Desarrollo Estratégico y Crecimiento</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contacto" class="section container" style="padding-bottom: 80px;">
+      <div class="cta-box" data-aos="zoom-in" data-aos-duration="800">
+        <h2>Si tu negocio necesita una<br>mejor base digital, hablemos.</h2>
+        <p>Podemos ayudarte a diseñar una presencia, un sistema o una operación digital más clara, conectada y
+          escalable.</p>
+        <a href="#contacto-form" class="btn btn-primary" style="margin-top: 16px;">
+          Agendar llamada <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="contacto-form" class="container" style="padding-bottom: 80px;" data-aos="fade-up">
+      <div class="contact-layout">
+
+        <!-- Columna Izquierda: Info & Formulario -->
+        <div>
+          <span
+            style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Reunión
+            por Google Meet · 15 Min</span>
+          <h3 style="font-size: 2rem; margin-bottom: 16px;">Agendemos una llamada</h3>
+          <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">Analizamos tu
+            operación, detectamos oportunidades de mejora y definimos próximos pasos con claridad.</p>
+
+          <ul style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
+            <li style="margin-bottom: 12px;">Diagnóstico rápido de procesos</li>
+            <li style="margin-bottom: 12px;">Definición de alcance y arquitectura</li>
             <li>Plan de acción concreto y claro</li>
           </ul>
-          <p class="text-xs light-gray mb-lg">
-            Horario adaptado automáticamente a tu zona (Argentina / LATAM).
-          </p>
 
-          <div class="contact-form-wrapper glass mt-lg p-md rounded">
-            <h4 class="mb-sm text-white font-syne" style="font-size: 1.2rem">
-              ¿Preferís que te contactemos primero?
-            </h4>
-            <form action="https://formspree.io/f/xrbgpegn" method="POST" class="flex-col gap-sm" id="contactForm">
-              <div class="flex-col gap-sm">
-                <input type="text" name="nombre" class="input-glass" placeholder="Tu nombre" required />
-                <input type="text" name="contacto" class="input-glass" placeholder="Email o WhatsApp" required />
+          <div
+            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
+
+            <h4 style="margin-bottom: 24px; font-size: 1.125rem;">¿Preferís que te contactemos primero?</h4>
+            <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
+              style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="contact-inputs-row">
+                <input type="text" name="nombre" placeholder="Tu nombre" required class="contact-form-input">
+                <input type="text" name="contacto" placeholder="Email o WhatsApp" required class="contact-form-input">
               </div>
-              <textarea name="mensaje" rows="2" class="input-glass" placeholder="Contanos sobre tu negocio o consulta"
-                required></textarea>
-              <button type="submit" class="btn btn-primary w-full mt-sm" id="contactSubmitBtn">
-                Enviar mensaje
-              </button>
-              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite" hidden>
+              <textarea name="mensaje" rows="3" placeholder="Contanos sobre tu negocio o consulta" required
+                class="contact-form-input"></textarea>
+              <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
+                style="width: 100%; justify-content: center; margin-top: 8px;">Enviar mensaje</button>
+              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite">
                 Gracias, pronto te contactaremos 🙌
               </div>
-              <div class="contact-message contact-message--error" id="contactError" aria-live="polite" hidden>
+              <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
                 Hubo un error. Por favor intentá de nuevo.
               </div>
             </form>
           </div>
         </div>
 
-        <!-- Calendly -->
-        <div class="calendly-wrapper w-full">
-          <div class="calendly-inline-widget w-full"
-            data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1"
-            style="min-width: 320px; height: 700px"></div>
+        <!-- Columna Derecha: Calendly -->
+        <div>
+          <!-- Calendly INLINE WIDGET -->
+          <div class="calendly-inline-widget calendly-wrapper"
+            data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1">
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer border-top-glass">
-      <div class="container text-center py-md" style="padding-top: 40px; padding-bottom: 40px">
-        <p class="text-sm light-gray mb-sm">
-          © 2026 iAgency. Todos los derechos reservados. - NL Developments
-        </p>
-        <div class="footer-links mt-sm flex justify-center gap-md">
-          <a href="privacy-policy.html" class="text-sm nav-link">Privacidad</a>
-          <a href="terms-of-service.html" class="text-sm nav-link">Términos</a>
+    <footer class="container">
+      <div class="footer">
+        <div>© 2026 iAgency</div>
+        <div class="footer-links">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
         </div>
       </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Toggle Mobile Menu
-        const toggle = document.querySelector(".menu-toggle");
-        const nav = document.getElementById("primary-navigation");
+    <!-- Scripts -->
+  </div>
 
-        const navLinks = document.querySelectorAll(".main-nav a");
+  <!-- VIEW: PORTFOLIO -->
+  <div id="portfolio-view" class="page-view" style="display: none;">
 
-        toggle.addEventListener("click", () => {
-          nav.classList.toggle("open");
-          document.body.classList.toggle("no-scroll");
-        });
+    <!-- HEADER / HERO PORTFOLIO -->
+    <header class="section hero container">
+      <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
+        <i class="ph-fill ph-briefcase" style="margin-right: 6px; color: var(--text-primary)"></i> Nuestro
+        Trabajo
+      </div>
+      <h1 data-aos="fade-up" data-aos-duration="1000">
+        Proyectos que transforman<br>la operación digital
+      </h1>
+      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+        Explora una selección de herramientas internas, automatizaciones integradas y plataformas web diseñadas
+        a
+        medida.
+      </p>
+    </header>
 
-        // Close menu when clicking a link
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            nav.classList.remove("open");
-            document.body.classList.remove("no-scroll");
-          });
-        });
+    <!-- PROJECTS SECTION -->
+    <section class="section container" style="padding-top: 0; padding-bottom: 80px;">
 
-        // Init AOS Animations
-        setTimeout(() => {
-          AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-            easing: "ease-out-cubic",
-          });
-        }, 100);
+      <!-- ================= AGENTES DIGITALES ================= -->
+      <h2
+        style="font-size: 2rem; margin-top: 64px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        Agentes Digitales</h2>
+      <div class="projects-container" style="margin-top: 0;">
 
-        // JS Prefill functionality
-        document.querySelectorAll(".js-prefill-btn").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            const prefill = this.getAttribute("data-prefill");
-            const textarea = document.querySelector('textarea[name="mensaje"]');
-            if (textarea && prefill) {
-              textarea.value = prefill;
+        <!-- 1) Sofi -->
+        <div class="project-row" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Sofi</h3>
+            <p class="desc">Sofi es un sistema de automatización conversacional multicanal que centraliza y
+              optimiza la atención digital 24/7 en WhatsApp, Instagram, Facebook y Web, integrando APIs
+              oficiales de Meta, flujos en n8n e inteligencia artificial para reducir carga operativa y
+              mejorar la experiencia del cliente.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/sofi/1.png", "src/sofi/2.png", "src/sofi/3.png", "src/sofi/4.png", "src/sofi/5.png", "src/sofi/6.png", "src/sofi/7.png", "src/sofi/8.png", "src/sofi/9.png"]'>
+          </div>
+        </div>
+
+        <!-- 2) Leo -->
+        <div class="project-row reverse" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Leo</h3>
+            <p class="desc">Leo es un sistema de automatización conversacional orientado a ventas que
+              organiza y
+              confirma pedidos en WhatsApp e Instagram, integrando APIs oficiales de Meta, flujos en n8n y
+              lógica inteligente para estructurar órdenes automáticamente y optimizar procesos
+              comerciales.
+            </p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/leo/1.png", "src/leo/2.png", "src/leo/3.png", "src/leo/4.png", "src/leo/5.png", "src/leo/6.png", "src/leo/7.png"]'>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= SISTEMAS DE GESTIÓN ================= -->
+      <h2
+        style="font-size: 2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        Sistemas de Gestión</h2>
+      <div class="projects-container" style="margin-top: 0;">
+
+        <!-- 3) Order & Production Management System -->
+        <div class="project-row" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Order & Production Management System</h3>
+            <p class="desc">Plataforma web premium orientada a negocios gastronómicos para la gestión
+              integral
+              de pedidos, control de stock por fecha y organización eficiente de los flujos de producción
+              y
+              despacho.</p>
+            <p class="desc">El sistema resuelve el clásico caos operativo mediante un catálogo dinámico y un
+              carrito de compras conectado a un panel de control central. Incluye interfaces dedicadas
+              basadas
+              en roles: un Dashboard administrativo para gestión y métricas, un Panel de Cocina enfocado
+              en
+              flujo de preparación, y una Vista de Despacho para envíos en tiempo real.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/oms/oms_hero_dashboard_1772873994754.png", "src/oms/oms_interfaces_1772874038822.png", "src/oms/oms_solution_ui_1772874022952.png", "src/oms/oms_features_1772874053155.png"]'>
+          </div>
+        </div>
+
+        <!-- 4) Rebels Kite School Surf -->
+        <div class="project-row reverse" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Rebels Kite School</h3>
+            <p class="desc">Sistema web de gestión desarrollado para escuelas de surf y kite, diseñado para
+              organizar clases, profesores, alumnos, pagos y facturación mediante un calendario
+              interactivo,
+              control de estados y paneles diferenciados por rol.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/rebels/calendar.png", "src/rebels/login.png", "src/rebels/instructorManagement.png", "src/rebels/paymentsManagement.png", "src/rebels/biling.png"]'>
+          </div>
+        </div>
+
+        <!-- 5) Vehicle Listing & Inventory Management System -->
+        <div class="project-row" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Vehicle Listing & Inventory System</h3>
+            <p class="desc">Plataforma escalable diseñada para concesionarios web, permitiendo la
+              publicación y
+              gestión centralizada de vehículos. Transforma la gestión caótica en un flujo de trabajo
+              optimizado que expone los autos directamente en la vitrina digital.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/vms/vms_hero_dashboard_1772874931302.png", "src/vms/vms_solution_mockups_1772874957815.png", "src/vms/vms_public_website_1772874970178.png", "src/vms/vms_admin_panel_1772874997883.png"]'>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= WEBS ================= -->
+      <h2
+        style="font-size: 2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        Webs Estratégicas</h2>
+      <div class="projects-container" style="margin-top: 0;">
+
+        <!-- 6) Hello iAgency -->
+        <div class="project-row" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Hello iAgency</h3>
+            <p class="desc">Plataforma web estratégica diseñada para comunicar el desarrollo de sistemas
+              digitales inteligentes, con un home de propuesta de valor clara, explicación de problemas y
+              soluciones, casos reales, enfoque de trabajo por procesos y contacto directo para validar
+              proyectos y agendar reuniones.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/iagency/1.png", "src/iagency/2.png", "src/iagency/3.png", "src/iagency/4.png", "src/iagency/5.png", "src/iagency/6.png"]'>
+          </div>
+        </div>
+
+        <!-- 7) Inferno Growshop -->
+        <div class="project-row reverse" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Inferno Growshop</h3>
+            <p class="desc">Sitio web de catálogo online diseñado para exhibir productos y permitir pedidos
+              mediante un carrito integrado con WhatsApp, ofreciendo una solución liviana y directa para
+              comercios que no requieren un e-commerce tradicional.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/inferno/inferno1.png", "src/inferno/inferno2.png", "src/inferno/inferno3.png", "src/inferno/inferno4.png", "src/inferno/inferno5.png"]'>
+          </div>
+        </div>
+
+        <!-- 8) Eva Portfolio -->
+        <div class="project-row" data-aos="fade-up">
+          <div class="project-info">
+            <h3>Eva (Portfolio Artístico)</h3>
+            <p class="desc">Portfolio web minimalista y responsive desarrollado para una artista visual, con
+              enfoque en storytelling, protagonismo de imagen y navegación simple para destacar su obra de
+              forma clara y estética.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/eva/eva.png", "src/eva/eva1.png", "src/eva/eva2.png"]'></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container" style="margin-top: 80px;">
+      <div class="footer">
+        <div>© 2026 iAgency</div>
+        <div class="footer-links">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+
+    // SPA Router
+    function initializeRouter() {
+      const homeView = document.getElementById('home-view');
+      const portfolioView = document.getElementById('portfolio-view');
+
+      function handleRoute(e = null) {
+        const url = new URL(window.location.href);
+        const path = url.pathname;
+        const hash = url.hash;
+
+        const homeLinks = document.getElementById('home-nav-links');
+        const portLinks = document.getElementById('portfolio-nav-links');
+
+        // Simple routing logic based on pathname
+        if (path.includes('portfolio')) {
+          homeView.style.display = 'none';
+          portfolioView.style.display = 'block';
+          if (homeLinks) homeLinks.style.display = 'none';
+          if (portLinks) portLinks.style.display = 'flex';
+          document.title = "iAgency | Portfolio";
+          if (!hash) window.scrollTo(0, 0);
+        } else {
+          homeView.style.display = 'block';
+          portfolioView.style.display = 'none';
+          if (homeLinks) homeLinks.style.display = 'flex';
+          if (portLinks) portLinks.style.display = 'none';
+          document.title = "iAgency | Diseño de Sistemas Digitales";
+
+          if (!hash && !e) {
+            window.scrollTo(0, 0);
+          }
+        }
+        setTimeout(() => AOS.refresh(), 100);
+
+        if (hash) {
+          setTimeout(() => {
+            const target = document.querySelector(hash);
+            if (target) {
+              // Ajuste para el sticky navbar guiando el scroll
+              const headerOffset = 80;
+              const elementPosition = target.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
             }
-          });
-        });
+          }, 50);
+        }
+      }
+
+      // Intercept link clicks
+      document.body.addEventListener('click', e => {
+        const link = e.target.closest('a');
+        if (link && link.getAttribute('href')) {
+          const targetHref = link.getAttribute('href');
+
+          if (targetHref.startsWith('#')) {
+            e.preventDefault();
+            const isPortfolio = window.location.pathname.includes('portfolio');
+
+            if (isPortfolio) {
+              // Si estamos en portfolio, volvemos al root y agregamos el hash
+              history.pushState(null, '', '/' + targetHref);
+            } else {
+              // Si ya estamos en home, actualizamos el hash nativamente
+              const url = new URL(window.location.href);
+              url.hash = targetHref;
+              history.pushState(null, '', url.toString());
+            }
+            handleRoute(e);
+            return;
+          }
+
+          if (targetHref.startsWith('/')) {
+            e.preventDefault();
+            history.pushState(null, '', targetHref);
+            handleRoute(e);
+          }
+        }
       });
-    </script>
+
+      window.addEventListener('popstate', () => handleRoute());
+      handleRoute(); // initial render
+    }
+    document.addEventListener('DOMContentLoaded', initializeRouter);
+  </script>
+
+
+  <script> // Carousel Script
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+
+    // Initialize Carousels
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.project-carousel-wrapper').forEach((wrapper) => {
+        try {
+          const images = JSON.parse(wrapper.dataset.images || '[]');
+          if (!images || images.length === 0) return;
+
+          let currentSlide = 0;
+
+          // Create track
+          const track = document.createElement('div');
+          track.className = 'carousel-track';
+          wrapper.appendChild(track);
+
+          // Add Slides
+          const slideEls = [];
+          images.forEach((src, idx) => {
+            const slide = document.createElement('div');
+            slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
+            slide.style.backgroundImage = `url('${src}')`;
+            track.appendChild(slide);
+            slideEls.push(slide);
+          });
+
+          // Add Controls & Dots
+          if (images.length > 1) {
+            const controls = document.createElement('div');
+            controls.className = 'carousel-controls';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'carousel-btn prev';
+            prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
+            controls.appendChild(prevBtn);
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'carousel-btn next';
+            nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
+            controls.appendChild(nextBtn);
+
+            wrapper.appendChild(controls);
+
+            const dotsContainer = document.createElement('div');
+            dotsContainer.className = 'carousel-dots';
+
+            const dotEls = [];
+            images.forEach((_, idx) => {
+              const dot = document.createElement('div');
+              dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+              dot.addEventListener('click', () => goToSlide(idx));
+              dotsContainer.appendChild(dot);
+              dotEls.push(dot);
+            });
+            wrapper.appendChild(dotsContainer);
+
+            // Logic
+            const goToSlide = (index) => {
+              slideEls[currentSlide].classList.remove('active');
+              dotEls[currentSlide].classList.remove('active');
+
+              currentSlide = index;
+              if (currentSlide < 0) currentSlide = images.length - 1;
+              if (currentSlide >= images.length) currentSlide = 0;
+
+              slideEls[currentSlide].classList.add('active');
+              dotEls[currentSlide].classList.add('active');
+            };
+
+            prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+          }
+
+        } catch (e) {
+          console.error("Error setting up carousel", e);
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>
