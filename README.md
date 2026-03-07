@@ -1,5 +1,7 @@
 # helloiagency
 
+Sitio estático en **HTML + CSS + JavaScript Vanilla** (sin React).
+
 ## Cómo hacer que funcione `/portfolio` sin `portfolio.html`
 
 Tu sitio ya tiene ruteo SPA en `index.html`, así que el problema normal es el **servidor**:
