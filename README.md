@@ -16,6 +16,9 @@ Este repo incluye `netlify.toml` con redirect 200 (SPA fallback) a `index.html`.
 ### Si usás otro servidor (Nginx/Apache)
 Tenés que configurar lo mismo: cualquier ruta desconocida debe devolver `index.html`.
 
+### Apache / cPanel
+Este repo también incluye `.htaccess` con fallback SPA listo para usar (sin tocar configuración manual del panel).
+
 Ejemplo Nginx:
 
 ```nginx
