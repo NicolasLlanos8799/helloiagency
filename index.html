@@ -100,14 +100,14 @@
         <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
       </button>
       <ul class="nav-links" id="home-nav-links">
-        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="portfolio">Portfolio</a></li>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#proceso">Proceso</a></li>
         <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
       </ul>
       <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
         <li><a href="/">Volver al Inicio</a></li>
-        <li><a href="/portfolio" class="active">Portfolio</a></li>
+        <li><a href="portfolio" class="active">Portfolio</a></li>
         <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
       </ul>
     </div>
@@ -534,6 +534,25 @@
       const homeView = document.getElementById('home-view');
       const portfolioView = document.getElementById('portfolio-view');
 
+      function getBasePath() {
+        const parts = window.location.pathname.split('/').filter(Boolean);
+        const lastPart = parts[parts.length - 1];
+
+        if (lastPart === 'portfolio' || lastPart === 'index.html') parts.pop();
+        if (parts.length === 0) return '';
+
+        return '/' + parts.join('/');
+      }
+
+      const basePath = getBasePath();
+      const homePath = basePath ? `${basePath}/` : '/';
+      const portfolioPath = basePath ? `${basePath}/portfolio` : '/portfolio';
+
+      function isPortfolioRoute(pathname) {
+        const parts = pathname.split('/').filter(Boolean);
+        return parts[parts.length - 1] === 'portfolio';
+      }
+
       function handleRoute(e = null) {
         const url = new URL(window.location.href);
         const path = url.pathname;
@@ -543,7 +562,7 @@
         const portLinks = document.getElementById('portfolio-nav-links');
 
         // Simple routing logic based on pathname
-        if (path.includes('portfolio')) {
+        if (isPortfolioRoute(path)) {
           homeView.style.display = 'none';
           portfolioView.style.display = 'block';
           if (homeLinks) homeLinks.style.display = 'none';
@@ -589,11 +608,11 @@
 
           if (targetHref.startsWith('#')) {
             e.preventDefault();
-            const isPortfolio = window.location.pathname.includes('portfolio');
+            const isPortfolio = isPortfolioRoute(window.location.pathname);
 
             if (isPortfolio) {
               // Si estamos en portfolio, volvemos al root y agregamos el hash
-              history.pushState(null, '', '/' + targetHref);
+              history.pushState(null, '', homePath + targetHref);
             } else {
               // Si ya estamos en home, actualizamos el hash nativamente
               const url = new URL(window.location.href);
@@ -608,8 +627,8 @@
 
             // Normalize path for local testing
             let finalPath = targetHref;
-            if (targetHref.includes('portfolio')) finalPath = '/portfolio';
-            if (targetHref === '/' || targetHref === '/index.html') finalPath = '/';
+            if (targetHref.includes('portfolio')) finalPath = portfolioPath;
+            if (['/', '/index.html', 'index.html'].includes(targetHref)) finalPath = homePath;
 
             history.pushState(null, '', finalPath);
             handleRoute(e);
