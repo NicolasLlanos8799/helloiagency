@@ -94,7 +94,7 @@
   <nav class="navbar" id="main-navbar">
     <div class="container nav-content">
       <div class="logo">
-        <a href="#">iAgency</a>
+        <a href="/">iAgency</a>
       </div>
       <button class="mobile-toggle" aria-label="Abrir menú">
         <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
@@ -603,10 +603,15 @@
             handleRoute(e);
             return;
           }
-
-          if (targetHref.startsWith('/')) {
+          if (targetHref.startsWith('/') || targetHref.includes('portfolio')) {
             e.preventDefault();
-            history.pushState(null, '', targetHref);
+
+            // Normalize path for local testing
+            let finalPath = targetHref;
+            if (targetHref.includes('portfolio')) finalPath = '/portfolio';
+            if (targetHref === '/' || targetHref === '/index.html') finalPath = '/';
+
+            history.pushState(null, '', finalPath);
             handleRoute(e);
           }
         }
