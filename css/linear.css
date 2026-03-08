@@ -1012,13 +1012,15 @@ textarea.contact-form-input {
   }
 
   #equipo .card > div {
-    height: auto !important;
-    aspect-ratio: 3 / 4;
+    height: 320px !important;
+    aspect-ratio: auto;
   }
 
   #equipo .card img {
-    object-fit: contain !important;
-    background: rgba(255, 255, 255, 0.02);
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    background: transparent;
   }
 
   .project-info {
