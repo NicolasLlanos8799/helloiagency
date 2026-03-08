@@ -905,6 +905,12 @@ textarea.contact-form-input {
     padding: 80px 0;
   }
 
+  h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .mobile-toggle {
     width: 44px;
     height: 44px;
