@@ -179,12 +179,14 @@ a {
    Hero
 ========================================= */
 .hero {
-  padding-top: calc(var(--nav-h) + 60px);
-  padding-bottom: 200px;
+  padding-top: calc(var(--nav-h) + 40px);
+  padding-bottom: 48px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100svh;
 }
 
 .hero-pill {
@@ -878,6 +880,7 @@ textarea.contact-form-input {
     grid-template-columns: 1fr;
   }
 }
+
 /* =========================================
    Mobile-Only UX Adjustments
 ========================================= */
@@ -1017,7 +1020,7 @@ textarea.contact-form-input {
     height: 620px;
   }
 
-  #equipo .card > div {
+  #equipo .card>div {
     height: 320px !important;
     aspect-ratio: auto;
   }
