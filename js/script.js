@@ -10,6 +10,11 @@ function trackEvent(eventName, params = {}) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const getActiveNavLinks = (nav) => {
+    const candidates = Array.from(nav.querySelectorAll('.nav-links'));
+    return candidates.find((links) => window.getComputedStyle(links).display !== 'none') || candidates[0] || null;
+  };
+
   /* =========================================
      Enterprise Tracking: Scroll 75%
      ========================================= */
@@ -60,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.addEventListener('click', (e) => {
       const nav = e.target.closest('.navbar');
       if (!nav) return;
-      const navLinks = nav.querySelector('.nav-links');
+      const navLinks = getActiveNavLinks(nav);
       const icon = toggle.querySelector('i');
 
       if (navLinks) {
@@ -79,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener('click', (e) => {
       const nav = e.target.closest('.navbar');
       if (!nav) return;
-      const navLinks = nav.querySelector('.nav-links');
+      const navLinks = getActiveNavLinks(nav);
       const toggle = nav.querySelector('.mobile-toggle i');
 
       if (navLinks && navLinks.classList.contains('active')) {
