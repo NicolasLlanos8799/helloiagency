@@ -925,7 +925,7 @@ p {
   height: 44px;
   border: 1px solid var(--border-light);
   border-radius: 10px;
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -1038,15 +1038,6 @@ p {
   margin-top: 32px !important;
 }
 
-#equipo .card {
-  padding: 24px 20px !important;
-}
-
-#equipo .card > div {
-  height: 260px !important;
-  margin-bottom: 20px !important;
-}
-
 #equipo h2 {
   font-size: clamp(1.6rem, 7vw, 2rem) !important;
   margin-bottom: 0 !important;
@@ -1131,6 +1122,20 @@ p {
 }
 
 @media (max-width: 900px) {
+  .mobile-toggle {
+    display: inline-flex;
+  }
+
+  #equipo .card > div {
+    height: auto !important;
+    aspect-ratio: 3 / 4;
+  }
+
+  #equipo .card img {
+    object-fit: contain !important;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
   .nav-links {
     top: var(--nav-h);
     height: calc(100dvh - var(--nav-h));
