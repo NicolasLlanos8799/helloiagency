@@ -878,3 +878,168 @@ textarea.contact-form-input {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   Mobile-Only UX Adjustments
+========================================= */
+@media (max-width: 900px) {
+  :root {
+    --nav-h: 72px;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mobile-toggle {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-links {
+    top: var(--nav-h);
+    height: calc(100dvh - var(--nav-h));
+    padding: 28px 20px;
+    gap: 16px;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+
+  .hero {
+    padding-top: calc(var(--nav-h) + 36px);
+    padding-bottom: 96px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.95rem, 9.8vw, 2.25rem);
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 34ch;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn,
+  .btn-sm,
+  .contact-form-input {
+    min-height: 44px;
+    border-radius: 10px;
+  }
+
+  .btn,
+  .btn-sm {
+    padding: 12px 20px;
+  }
+
+  .grid-3,
+  .process-grid,
+  .projects-grid,
+  .contact-layout,
+  .contact-inputs-row,
+  .project-row,
+  .project-row.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    gap: 16px;
+  }
+
+  .card {
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  .process-grid {
+    gap: 24px;
+  }
+
+  .step {
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  .cta-box {
+    padding: 40px 20px;
+  }
+
+  .cta-box h2 {
+    font-size: clamp(1.8rem, 8vw, 2.1rem);
+  }
+
+  .contact-layout {
+    padding-top: 56px;
+    gap: 32px;
+  }
+
+  .calendly-wrapper {
+    height: 620px;
+  }
+
+  #equipo .card > div {
+    height: 320px !important;
+    aspect-ratio: auto;
+  }
+
+  #equipo .card img {
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    background: transparent;
+  }
+
+  .project-info {
+    position: static;
+  }
+
+  .project-carousel-wrapper {
+    aspect-ratio: 4/3;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
