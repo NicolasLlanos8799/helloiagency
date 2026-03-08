@@ -10,6 +10,11 @@ function trackEvent(eventName, params = {}) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const getActiveNavLinks = (nav) => {
+    const candidates = Array.from(nav.querySelectorAll('.nav-links'));
+    return candidates.find((links) => window.getComputedStyle(links).display !== 'none') || candidates[0] || null;
+  };
+
   /* =========================================
      Enterprise Tracking: Scroll 75%
      ========================================= */
@@ -52,6 +57,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================================
+     Mobile Menu Toggle
+     ========================================= */
+  const mobileToggles = document.querySelectorAll('.mobile-toggle');
+
+  mobileToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      const nav = e.target.closest('.navbar');
+      if (!nav) return;
+      const navLinks = getActiveNavLinks(nav);
+      const icon = toggle.querySelector('i');
+
+      if (navLinks) {
+        navLinks.classList.toggle('active');
+        if (navLinks.classList.contains('active')) {
+          icon.classList.replace('ph-list', 'ph-x');
+        } else {
+          icon.classList.replace('ph-x', 'ph-list');
+        }
+      }
+    });
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const nav = e.target.closest('.navbar');
+      if (!nav) return;
+      const navLinks = getActiveNavLinks(nav);
+      const toggle = nav.querySelector('.mobile-toggle i');
+
+      if (navLinks && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        if (toggle) toggle.classList.replace('ph-x', 'ph-list');
+      }
+    });
+  });
+
+  /* =========================================
      Prefill Contact Form
      ========================================= */
   const prefillBtns = document.querySelectorAll(".js-prefill-btn");
@@ -64,9 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const text = btn.getAttribute("data-prefill");
         if (text) {
           messageInput.value = text;
-          setTimeout(() => {
-            if (nameInput) nameInput.focus();
-          }, 100);
         }
       });
     });
