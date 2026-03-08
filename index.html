@@ -94,21 +94,24 @@
   <nav class="navbar" id="main-navbar">
     <div class="container nav-content">
       <div class="logo">
-        <a href="/">iAgency</a>
+        <a href="#" id="logo-home-link">iAgency</a>
       </div>
+
       <button class="mobile-toggle" aria-label="Abrir menú">
         <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
       </button>
+
       <ul class="nav-links" id="home-nav-links">
-        <li><a href="/portfolio" data-route="portfolio">Portfolio</a></li>
+        <li><a href="#" id="open-portfolio-link">Portfolio</a></li>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#proceso">Proceso</a></li>
         <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
       </ul>
+
       <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
-        <li><a href="/" data-route="home">Volver al Inicio</a></li>
-        <li><a href="/portfolio" data-route="portfolio" class="active">Portfolio</a></li>
-        <li><a href="#contacto" class="btn btn-sm">Agendar llamada</a></li>
+        <li><a href="#" id="back-home-link">Volver al Inicio</a></li>
+        <li><a href="#" class="active">Portfolio</a></li>
+        <li><a href="#" class="btn btn-sm" id="portfolio-contact-link">Agendar llamada</a></li>
       </ul>
     </div>
   </nav>
@@ -529,56 +532,19 @@
       easing: 'ease-out-cubic',
     });
 
-    function initializeRouter() {
+    document.addEventListener('DOMContentLoaded', () => {
       const homeView = document.getElementById('home-view');
       const portfolioView = document.getElementById('portfolio-view');
-      const homeLinks = document.getElementById('home-nav-links');
-      const portfolioLinks = document.getElementById('portfolio-nav-links');
 
-      const ROUTES = {
-        home: '/',
-        portfolio: '/portfolio'
-      };
+      const homeNav = document.getElementById('home-nav-links');
+      const portfolioNav = document.getElementById('portfolio-nav-links');
 
-      function normalizePath(pathname) {
-        if (!pathname || pathname === '/index.html') return '/';
-        if (pathname.endsWith('/index.html')) {
-          return pathname.replace('/index.html', '/') || '/';
-        }
-        return pathname;
-      }
+      const openPortfolioLink = document.getElementById('open-portfolio-link');
+      const backHomeLink = document.getElementById('back-home-link');
+      const portfolioContactLink = document.getElementById('portfolio-contact-link');
 
-      function isPortfolioRoute(pathname) {
-        const cleanPath = normalizePath(pathname);
-        return cleanPath === '/portfolio' || cleanPath.endsWith('/portfolio');
-      }
-
-      function showView(viewName) {
-        const isPortfolio = viewName === 'portfolio';
-
-        homeView.style.display = isPortfolio ? 'none' : 'block';
-        portfolioView.style.display = isPortfolio ? 'block' : 'none';
-
-        if (homeLinks) homeLinks.style.display = isPortfolio ? 'none' : 'flex';
-        if (portfolioLinks) portfolioLinks.style.display = isPortfolio ? 'flex' : 'none';
-
-        document.title = isPortfolio
-          ? 'iAgency | Portfolio'
-          : 'iAgency | Diseño de Sistemas Digitales';
-
-        window.scrollTo({ top: 0, behavior: 'auto' });
-
-        setTimeout(() => {
-          if (typeof AOS !== 'undefined') {
-            AOS.refreshHard();
-          }
-        }, 100);
-      }
-
-      function scrollToHash(hash, smooth = true) {
-        if (!hash) return;
-
-        const target = document.querySelector(hash);
+      function scrollToTarget(selector, smooth = true) {
+        const target = document.querySelector(selector);
         if (!target) return;
 
         const headerOffset = 80;
@@ -591,67 +557,77 @@
         });
       }
 
-      function handleRoute() {
-        const path = normalizePath(window.location.pathname);
-        const hash = window.location.hash;
+      function showHome(scrollToSelector = null) {
+        homeView.style.display = 'block';
+        portfolioView.style.display = 'none';
 
-        if (isPortfolioRoute(path)) {
-          showView('portfolio');
-        } else {
-          showView('home');
-          if (hash) {
-            setTimeout(() => scrollToHash(hash, false), 50);
+        homeNav.style.display = 'flex';
+        portfolioNav.style.display = 'none';
+
+        document.title = 'iAgency | Diseño de Sistemas Digitales';
+
+        setTimeout(() => {
+          if (typeof AOS !== 'undefined') {
+            AOS.refreshHard();
           }
-        }
+
+          if (scrollToSelector) {
+            scrollToTarget(scrollToSelector, true);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 50);
       }
 
-      document.body.addEventListener('click', (e) => {
-        const link = e.target.closest('a');
-        if (!link) return;
+      function showPortfolio() {
+        homeView.style.display = 'none';
+        portfolioView.style.display = 'block';
 
-        const href = link.getAttribute('href');
-        if (!href) return;
+        homeNav.style.display = 'none';
+        portfolioNav.style.display = 'flex';
 
-        const routeType = link.dataset.route;
+        document.title = 'iAgency | Portfolio';
 
-        if (routeType === 'home') {
-          e.preventDefault();
-          history.pushState(null, '', ROUTES.home);
-          handleRoute();
-          return;
-        }
-
-        if (routeType === 'portfolio') {
-          e.preventDefault();
-          history.pushState(null, '', ROUTES.portfolio);
-          handleRoute();
-          return;
-        }
-
-        if (href.startsWith('#')) {
-          e.preventDefault();
-
-          const currentlyInPortfolio = isPortfolioRoute(window.location.pathname);
-
-          if (currentlyInPortfolio) {
-            history.pushState(null, '', ROUTES.home + href);
-            handleRoute();
-            setTimeout(() => scrollToHash(href, true), 80);
-          } else {
-            history.pushState(null, '', ROUTES.home + href);
-            scrollToHash(href, true);
+        setTimeout(() => {
+          if (typeof AOS !== 'undefined') {
+            AOS.refreshHard();
           }
-        }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 50);
+      }
+
+      if (openPortfolioLink) {
+        openPortfolioLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showPortfolio();
+        });
+      }
+
+      if (backHomeLink) {
+        backHomeLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showHome();
+        });
+      }
+
+      if (portfolioContactLink) {
+        portfolioContactLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          showHome('#contacto');
+        });
+      }
+
+      document.querySelectorAll('#home-nav-links a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (!href) return;
+
+          e.preventDefault();
+          scrollToTarget(href, true);
+        });
       });
-
-      window.addEventListener('popstate', handleRoute);
-
-      handleRoute();
-    }
-
-    document.addEventListener('DOMContentLoaded', initializeRouter);
+    });
   </script>
-
 
   <script> // Carousel Script
     // Initialize Carousels
