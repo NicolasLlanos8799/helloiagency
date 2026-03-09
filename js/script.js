@@ -47,6 +47,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Preload project images early so portfolio carousels render faster on first open
+    const preloadFromCarouselData = function () {
+        const wrappers = document.querySelectorAll('.project-carousel-wrapper[data-images]');
+
+        wrappers.forEach(function (wrapper) {
+            let images = [];
+
+            try {
+                images = JSON.parse(wrapper.dataset.images || '[]');
+            } catch (error) {
+                console.warn('Invalid carousel data-images JSON', error);
+            }
+
+            images.forEach(function (src) {
+                if (!src) return;
+
+                const img = new Image();
+                img.decoding = 'async';
+                img.loading = 'eager';
+                img.src = src;
+            });
+        });
+    };
+
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(preloadFromCarouselData, { timeout: 1000 });
+    } else {
+        setTimeout(preloadFromCarouselData, 0);
+    }
+
     // Mobile menu toggle (works for both home and portfolio nav variants)
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLists = Array.from(document.querySelectorAll('.nav-links'));
