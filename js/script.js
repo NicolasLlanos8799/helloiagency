@@ -80,18 +80,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mobile menu toggle (works for both home and portfolio nav variants)
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLists = Array.from(document.querySelectorAll('.nav-links'));
+    const homeNav = document.getElementById('home-nav-links');
+    const portfolioNav = document.getElementById('portfolio-nav-links');
+    const homeView = document.getElementById('home-view');
+    const portfolioView = document.getElementById('portfolio-view');
 
     function getVisibleNav() {
+        const isPortfolioViewVisible = portfolioView && window.getComputedStyle(portfolioView).display !== 'none';
+
+        if (isPortfolioViewVisible && portfolioNav) {
+            return portfolioNav;
+        }
+
+        if (homeView && window.getComputedStyle(homeView).display !== 'none' && homeNav) {
+            return homeNav;
+        }
+
         return navLists.find(function (list) {
             return window.getComputedStyle(list).display !== 'none';
         }) || navLists[0];
     }
 
     function closeMobileMenu() {
-        const visibleNav = getVisibleNav();
-        if (!visibleNav) return;
-
-        visibleNav.classList.remove('active');
+        navLists.forEach(function (nav) {
+            nav.classList.remove('active');
+        });
         mobileToggle?.setAttribute('aria-expanded', 'false');
     }
 
@@ -101,6 +114,10 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileToggle.addEventListener('click', function () {
             const visibleNav = getVisibleNav();
             if (!visibleNav) return;
+
+            navLists.forEach(function (nav) {
+                if (nav !== visibleNav) nav.classList.remove('active');
+            });
 
             const isOpen = visibleNav.classList.toggle('active');
             mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
@@ -112,12 +129,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.navbar')) {
+                closeMobileMenu();
+            }
+        });
+
         window.addEventListener('resize', function () {
             if (window.innerWidth > 900) {
-                navLists.forEach(function (nav) {
-                    nav.classList.remove('active');
-                });
-                mobileToggle.setAttribute('aria-expanded', 'false');
+                closeMobileMenu();
             }
         });
     }
