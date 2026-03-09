@@ -2,6 +2,17 @@
 <html lang="es">
 
 <head>
+  <!-- Language Detection: redirect non-Spanish browsers to English version -->
+  <script>
+    (function () {
+      // Don't redirect if the user explicitly chose Spanish (e.g. navigated back)
+      if (sessionStorage.getItem('lang-pref') === 'es') return;
+      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (!lang.startsWith('es')) {
+        window.location.replace('index-en.html');
+      }
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iAgency | Diseño de Sistemas Digitales</title>

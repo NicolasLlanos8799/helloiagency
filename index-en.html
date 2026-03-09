@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iAgency | Digital Systems Studio</title>
+    <meta name="description"
+        content="We design custom software, automation and web systems for high-performance businesses." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="iAgency" />
+    <meta name="publisher" content="iAgency" />
+    <link rel="canonical" href="https://helloiagency.com/en/" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="iAgency | Digital Systems Studio" />
+    <meta property="og:description"
+        content="We design digital systems for businesses: custom software, automation and web platforms built to optimize operations and grow with technology." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://helloiagency.com/en/" />
+    <meta property="og:site_name" content="iAgency" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://helloiagency.com/src/render.png" />
+    <meta property="og:image:alt" content="iAgency Digital Systems Studio showcase" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="iAgency | Digital Systems Studio" />
+    <meta name="twitter:description"
+        content="We design digital systems for businesses: custom software, automation and web platforms." />
+    <meta name="twitter:image" content="https://helloiagency.com/src/render.png" />
+    <meta name="twitter:image:alt" content="iAgency - Digital Systems Studio" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W33VWQRXSN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-W33VWQRXSN');
+    </script>
+
+    <!-- Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Linear Style Design System -->
+    <link rel="stylesheet" href="css/linear.css" />
+
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+
+    <style>
+        .page-view {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ambient Mesh Gradient -->
+    <div class="mesh-bg"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="#" id="logo-home-link" title="iAgency - Home">iAgency</a>
+            </div>
+
+            <button class="mobile-toggle" aria-label="Open menu">
+                <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
+            </button>
+
+            <ul class="nav-links" id="home-nav-links">
+                <li><a href="#" id="open-portfolio-link" title="View project portfolio">Portfolio</a></li>
+                <li><a href="#solutions" title="View our solutions">Solutions</a></li>
+                <li><a href="#process" title="View our work process">Process</a></li>
+                <li><a href="#contact" class="btn btn-sm" title="Schedule a call with iAgency">Schedule a call</a></li>
+            </ul>
+
+            <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
+                <li><a href="#" id="back-home-link" title="Go back to home">Home</a></li>
+                <li><a href="#" class="active" title="Project portfolio">Portfolio</a></li>
+                <li><a href="#" class="btn btn-sm" id="portfolio-contact-link"
+                        title="Schedule a call with iAgency">Schedule a call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- VIEW: HOME -->
+    <div id="home-view" class="page-view">
+
+        <!-- HERO -->
+        <header class="section hero container">
+            <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
+                Digital Systems Studio
+            </div>
+
+            <h1 data-aos="fade-up" data-aos-duration="1000">
+                Technology that<br>drives business
+            </h1>
+
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                We help businesses and organizations integrate technology into their operations through consulting,
+                systems development and automation.
+            </p>
+
+            <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <a href="#solutions" class="btn btn-outline" title="View iAgency solutions">View solutions</a>
+                <a href="#contact" class="btn btn-primary" title="Schedule a call with iAgency">Schedule a call</a>
+            </div>
+        </header>
+
+        <!-- SOLUTIONS (CARDS) -->
+        <section id="solutions" class="section container">
+            <div class="features-header text-center" data-aos="fade-up">
+                <span class="label">Studio Capabilities</span>
+                <h2>Systems tailored to your operation</h2>
+            </div>
+
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                        <i class="ph ph-globe-hemisphere-east" style="font-size: 24px"></i>
+                    </div>
+                    <h3>Web Platforms</h3>
+                    <p>We design structured digital environments to scale your presence and centralize your business.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">
+                        <i class="ph ph-code-block" style="font-size: 24px"></i>
+                    </div>
+                    <h3>Custom Software</h3>
+                    <p>We build exclusive tools to organize processes and optimize your daily operations.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon">
+                        <i class="ph ph-robot" style="font-size: 24px"></i>
+                    </div>
+                    <h3>Automation & AI</h3>
+                    <p>We connect asynchronous systems and intelligent assistants to eliminate repetitive manual work.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section id="process" class="section container">
+            <div class="features-header" data-aos="fade-up">
+                <span class="label">Our Process</span>
+                <h2>How we approach and execute every project</h2>
+            </div>
+
+            <div class="process-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="step">
+                    <span class="num">01.</span>
+                    <h4>Understand</h4>
+                    <p>We diagnose the current business operation.</p>
+                </div>
+                <div class="step">
+                    <span class="num">02.</span>
+                    <h4>Propose</h4>
+                    <p>We design a robust digital architecture.</p>
+                </div>
+                <div class="step">
+                    <span class="num">03.</span>
+                    <h4>Build</h4>
+                    <p>We iteratively develop the platform or system.</p>
+                </div>
+                <div class="step">
+                    <span class="num">04.</span>
+                    <h4>Scale</h4>
+                    <p>We integrate and dynamically refine in production.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM SECTION -->
+        <section id="team" class="section container">
+            <div class="features-header text-center" data-aos="fade-up">
+                <span class="label">Who helps you</span>
+                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">Technical experts at the service of your vision.
+                </h2>
+            </div>
+
+            <div class="grid-3" style="margin-top: 48px;">
+                <!-- Team Member 1 -->
+                <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
+                    <div
+                        style="width: 100%; height: 320px; border-radius: 16px; background: rgba(255,255,255,0.05); margin: 0 auto 32px; border: 1px solid var(--border-light); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="src/equipo/nicolas-llanos.jpg" alt="Nicolás Llanos" title="Nicolás Llanos"
+                            style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+                    </div>
+                    <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Nicolás Llanos</h3>
+                    <p style="color: var(--text-tertiary); font-size: 1rem;">Co-founder · Development & Technology</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
+                    <div
+                        style="width: 100%; height: 320px; border-radius: 16px; background: rgba(255,255,255,0.05); margin: 0 auto 32px; border: 1px solid var(--border-light); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="src/equipo/marlene-morrone.png" alt="Marlene Morrone" title="Marlene Morrone"
+                            style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+                    </div>
+                    <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Marlene Morrone</h3>
+                    <p style="color: var(--text-tertiary); font-size: 1rem;">Co-owner · Commercial & Operations</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
+                    <div
+                        style="width: 100%; height: 320px; border-radius: 16px; background: rgba(255,255,255,0.05); margin: 0 auto 32px; border: 1px solid var(--border-light); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="src/equipo/mariano-oggier.png" alt="Mariano Oggier" title="Mariano Oggier"
+                            style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+                    </div>
+                    <h3 style="margin-bottom: 8px; font-size: 1.5rem;">Mariano Oggier</h3>
+                    <p style="color: var(--text-tertiary); font-size: 1rem;">Strategic Development & Growth</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contact" class="section container" style="padding-bottom: 80px;">
+            <div class="cta-box" data-aos="zoom-in" data-aos-duration="800">
+                <h2>If your business needs a<br>stronger digital foundation, let's talk.</h2>
+                <p>We can help you design a clearer, more connected and scalable digital presence, system or operation.
+                </p>
+                <a href="#contact-form" class="btn btn-primary" style="margin-top: 16px;"
+                    title="Schedule a call with iAgency">
+                    Schedule a call <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact-form" class="container" style="padding-bottom: 80px;" data-aos="fade-up">
+            <div class="contact-layout">
+
+                <!-- Left Column: Info & Form -->
+                <div>
+                    <span
+                        style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Google
+                        Meet · 15 Min</span>
+                    <h3 style="font-size: 2rem; margin-bottom: 16px;">Let's schedule a call</h3>
+                    <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">We analyze your
+                        operation, identify improvement opportunities and define next steps with clarity.</p>
+
+                    <ul
+                        style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
+                        <li style="margin-bottom: 12px;">Quick process diagnosis</li>
+                        <li style="margin-bottom: 12px;">Scope and architecture definition</li>
+                        <li>Concrete and clear action plan</li>
+                    </ul>
+
+                    <div
+                        style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
+
+                        <h4 style="margin-bottom: 24px; font-size: 1.125rem;">Would you prefer we contact you first?
+                        </h4>
+                        <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
+                            style="display: flex; flex-direction: column; gap: 16px;">
+                            <div class="contact-inputs-row">
+                                <input type="text" name="nombre" placeholder="Your name" required
+                                    class="contact-form-input">
+                                <input type="text" name="contacto" placeholder="Email or WhatsApp" required
+                                    class="contact-form-input">
+                            </div>
+                            <textarea name="mensaje" rows="3" placeholder="Tell us about your business or inquiry"
+                                required class="contact-form-input"></textarea>
+                            <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
+                                style="width: 100%; justify-content: center; margin-top: 8px;">Send message</button>
+                            <div class="contact-message contact-message--success" id="contactSuccess"
+                                aria-live="polite">
+                                Thank you, we'll be in touch soon 🙌
+                            </div>
+                            <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
+                                An error occurred. Please try again.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column: Calendly -->
+                <div>
+                    <!-- Calendly INLINE WIDGET -->
+                    <div class="calendly-inline-widget calendly-wrapper"
+                        data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <div class="footer">
+                <div>© 2026 iAgency</div>
+                <div class="footer-links">
+                    <a href="#" title="Privacy policy">Privacy</a>
+                    <a href="#" title="Terms and conditions">Terms</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- VIEW: PORTFOLIO -->
+    <div id="portfolio-view" class="page-view" style="display: none;">
+
+        <!-- HEADER / HERO PORTFOLIO -->
+        <header class="section hero container">
+            <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
+                <i class="ph-fill ph-briefcase" style="margin-right: 6px; color: var(--text-primary)"></i> Our
+                Work
+            </div>
+            <h1 data-aos="fade-up" data-aos-duration="1000">
+                Projects that transform<br>digital operations
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                Explore a selection of internal tools, integrated automations and custom-built web platforms.
+            </p>
+        </header>
+
+        <!-- PROJECTS SECTION -->
+        <section class="section container" style="padding-top: 0; padding-bottom: 80px;">
+
+            <!-- ================= DIGITAL AGENTS ================= -->
+            <h2
+                style="font-size: 2rem; margin-top: 64px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+                Digital Agents</h2>
+            <div class="projects-container" style="margin-top: 0;">
+
+                <!-- 1) Sofi -->
+                <div class="project-row" data-aos="fade-up">
+                    <div class="project-info">
+                        <h3>Sofi</h3>
+                        <p class="desc">Sofi is a multichannel conversational automation system that centralizes and
+                            optimizes 24/7 digital customer service on WhatsApp, Instagram, Facebook and Web,
+                            integrating
+                            official Meta APIs, n8n flows and artificial intelligence to reduce operational load and
+                            improve customer experience.</p>
+                    </div>
+
+                    <div class="project-carousel-wrapper"
+                        data-images='["src/sofi/1.png", "src/sofi/2.png", "src/sofi/3.png", "src/sofi/4.png", "src/sofi/5.png", "src/sofi/6.png", "src/sofi/7.png", "src/sofi/8.png", "src/sofi/9.png"]'>
+                    </div>
+                </div>
+
+                <!-- 2) Leo -->
+                <div class="project-row reverse" data-aos="fade-up">
+                    <div class="project-info">
+                        <h3>Leo</h3>
+                        <p class="desc">Leo is a sales-oriented conversational automation system that organizes and
+                            confirms orders on WhatsApp and Instagram, integrating official Meta APIs, n8n flows and
+                            intelligent logic to automatically structure orders and optimize commercial processes.
+                        </p>
+                    </div>
+
+                    <div class="project-carousel-wrapper"
+                        data-images='["src/leo/1.png", "src/leo/2.png", "src/leo/3.png", "src/leo/4.png", "src/leo/5.png", "src/leo/6.png", "src/leo/7.png"]'>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= MANAGEMENT SYSTEMS ================= -->
+            <h2
+                style="font-size: 2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+                Management Systems</h2>
+            <div class="projects-container" style="margin-top: 0;">
+
+                <!-- 3) Order & Production Management System -->
+                <div class="project-row" data-aos="fade-up">
+                    <div class="project-info">
+                        <h3>Order & Production Management System</h3>
+                        <p class="desc">Premium platform for food businesses that centralizes order, stock and
+                            production
+                            management through a dynamic catalog connected to a central control panel with
+                            differentiated
+                            roles: Admin Dashboard, Kitchen Panel and real-time Dispatch View.</p>
+                    </div>
+
+                    <div class="project-carousel-wrapper" data-images='["src/dashboar.png"]'>
+                    </div>
+                </div>
+
+                <!-- 4) Rebels Kite School -->
+                <div class="project-row reverse" data-aos="fade-up">
+                    <div class="project-info">
+                        <h3>Rebels Kite School</h3>
+                        <p class="desc">Web management system developed for surf and kite schools, designed to organize
+                            classes, instructors, students, payments and billing through an interactive calendar,
+                            status control and role-differentiated panels.</p>
+                    </div>
+
+                    <div class="project-carousel-wrapper"
+                        data-images='["src/rebels/calendar.png", "src/rebels/login.png", "src/rebels/instructorManagement.png", "src/rebels/paymentsManagement.png", "src/rebels/biling.png"]'>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= STRATEGIC WEBSITES ================= -->
+            <h2
+                style="font-size: 2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+                Strategic Websites</h2>
+            <div class="projects-container" style="margin-top: 0;">
+
+                <!-- Inferno Growshop -->
+                <div class="project-row reverse" data-aos="fade-up">
+                    <div class="project-info">
+                        <h3>Inferno Growshop</h3>
+                        <p class="desc">Online catalog website designed to showcase products and accept orders via a
+                            WhatsApp-integrated cart, offering a lightweight and direct solution for businesses that
+                            don't need a traditional e-commerce platform.</p>
+                    </div>
+
+                    <div class="project-carousel-wrapper"
+                        data-images='["src/inferno/inferno1.png", "src/inferno/inferno2.png", "src/inferno/inferno3.png", "src/inferno/inferno4.png", "src/inferno/inferno5.png"]'>
+                    </div>
+                </div>
+
+                <!-- Eva Portfolio -->
+                <div class="project-row" data-aos="fade-up">
+                    <div class="project-info">
+                        <h3>Eva (Artistic Portfolio)</h3>
+                        <p class="desc">Minimalist, responsive web portfolio developed for a visual artist, focused on
+                            storytelling, image prominence and simple navigation to showcase her work clearly and
+                            aesthetically.</p>
+                    </div>
+
+                    <div class="project-carousel-wrapper"
+                        data-images='["src/eva/eva.png", "src/eva/eva1.png", "src/eva/eva2.png"]'></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="container" style="margin-top: 80px;">
+            <div class="footer">
+                <div>© 2026 iAgency</div>
+                <div class="footer-links">
+                    <a href="#" title="Privacy policy">Privacy</a>
+                    <a href="#" title="Terms and conditions">Terms</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeView = document.getElementById('home-view');
+            const portfolioView = document.getElementById('portfolio-view');
+
+            const homeNav = document.getElementById('home-nav-links');
+            const portfolioNav = document.getElementById('portfolio-nav-links');
+
+            const openPortfolioLink = document.getElementById('open-portfolio-link');
+            const backHomeLink = document.getElementById('back-home-link');
+            const portfolioContactLink = document.getElementById('portfolio-contact-link');
+
+            function scrollToTarget(selector, smooth = true) {
+                const target = document.querySelector(selector);
+                if (!target) return;
+
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: smooth ? 'smooth' : 'auto'
+                });
+            }
+
+            function showHome(scrollToSelector = null) {
+                homeView.style.display = 'block';
+                portfolioView.style.display = 'none';
+
+                homeNav.style.display = 'flex';
+                portfolioNav.style.display = 'none';
+
+                document.title = 'iAgency | Digital Systems Studio';
+
+                setTimeout(() => {
+                    if (typeof AOS !== 'undefined') {
+                        AOS.refreshHard();
+                    }
+
+                    if (scrollToSelector) {
+                        scrollToTarget(scrollToSelector, true);
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, 50);
+            }
+
+            function showPortfolio() {
+                homeView.style.display = 'none';
+                portfolioView.style.display = 'block';
+
+                homeNav.style.display = 'none';
+                portfolioNav.style.display = 'flex';
+
+                document.title = 'iAgency | Portfolio';
+
+                setTimeout(() => {
+                    if (typeof AOS !== 'undefined') {
+                        AOS.refreshHard();
+                    }
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 50);
+            }
+
+            if (openPortfolioLink) {
+                openPortfolioLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPortfolio();
+                });
+            }
+
+            if (backHomeLink) {
+                backHomeLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showHome();
+                });
+            }
+
+            if (portfolioContactLink) {
+                portfolioContactLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showHome('#contact');
+                });
+            }
+
+            document.querySelectorAll('#home-nav-links a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (!href) return;
+
+                    e.preventDefault();
+                    scrollToTarget(href, true);
+                });
+            });
+        });
+    </script>
+
+    <script> // Carousel Script
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.project-carousel-wrapper').forEach((wrapper) => {
+                try {
+                    const images = JSON.parse(wrapper.dataset.images || '[]');
+                    if (!images || images.length === 0) return;
+
+                    let currentSlide = 0;
+
+                    const track = document.createElement('div');
+                    track.className = 'carousel-track';
+                    wrapper.appendChild(track);
+
+                    const slideEls = [];
+                    images.forEach((src, idx) => {
+                        const slide = document.createElement('div');
+                        slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
+                        slide.style.backgroundImage = `url('${src}')`;
+                        track.appendChild(slide);
+                        slideEls.push(slide);
+                    });
+
+                    if (images.length > 1) {
+                        const controls = document.createElement('div');
+                        controls.className = 'carousel-controls';
+
+                        const prevBtn = document.createElement('button');
+                        prevBtn.className = 'carousel-btn prev';
+                        prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
+                        controls.appendChild(prevBtn);
+
+                        const nextBtn = document.createElement('button');
+                        nextBtn.className = 'carousel-btn next';
+                        nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
+                        controls.appendChild(nextBtn);
+
+                        wrapper.appendChild(controls);
+
+                        const dotsContainer = document.createElement('div');
+                        dotsContainer.className = 'carousel-dots';
+
+                        const dotEls = [];
+                        images.forEach((_, idx) => {
+                            const dot = document.createElement('div');
+                            dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+                            dot.addEventListener('click', () => goToSlide(idx));
+                            dotsContainer.appendChild(dot);
+                            dotEls.push(dot);
+                        });
+                        wrapper.appendChild(dotsContainer);
+
+                        const goToSlide = (index) => {
+                            slideEls[currentSlide].classList.remove('active');
+                            dotEls[currentSlide].classList.remove('active');
+
+                            currentSlide = index;
+                            if (currentSlide < 0) currentSlide = images.length - 1;
+                            if (currentSlide >= images.length) currentSlide = 0;
+
+                            slideEls[currentSlide].classList.add('active');
+                            dotEls[currentSlide].classList.add('active');
+                        };
+
+                        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+                        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+                    }
+
+                } catch (e) {
+                    console.error("Error setting up carousel", e);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
