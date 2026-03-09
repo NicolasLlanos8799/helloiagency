@@ -900,8 +900,8 @@ textarea.contact-form-input {
   }
 
   .container {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .section {
@@ -1034,6 +1034,8 @@ textarea.contact-form-input {
 
   .project-info {
     position: static;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .project-carousel-wrapper {
@@ -1044,5 +1046,12 @@ textarea.contact-form-input {
     flex-direction: column;
     text-align: center;
     gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 26px;
+    padding-right: 26px;
   }
 }
