@@ -522,12 +522,22 @@
                 });
             }
 
+            function resetMobileNavState() {
+                homeNav.classList.remove('active');
+                portfolioNav.classList.remove('active');
+                const mobileToggle = document.querySelector('.mobile-toggle');
+                if (mobileToggle) {
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+
             function showHome(scrollToSelector = null) {
                 homeView.style.display = 'block';
                 portfolioView.style.display = 'none';
 
                 homeNav.style.display = 'flex';
                 portfolioNav.style.display = 'none';
+                resetMobileNavState();
 
                 document.title = 'iAgency | Digital Systems Studio';
 
@@ -550,6 +560,7 @@
 
                 homeNav.style.display = 'none';
                 portfolioNav.style.display = 'flex';
+                resetMobileNavState();
 
                 document.title = 'iAgency | Portfolio';
 
