@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Leba Agency - Linear / Stripe Dark Theme (V4)
+   Leba - Linear / Stripe Dark Theme (V4)
    ========================================================================== */
 
 :root {
@@ -184,51 +184,62 @@ a {
 /* =========================================
    Hero
 ========================================= */
+.hero-kicker {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+  font-weight: 600;
+  display: block;
+  animation: fadeInDown 0.8s ease-out;
+}
+
 .hero {
-  padding-top: calc(var(--nav-h) + 40px);
-  padding-bottom: 48px;
+  padding-top: calc(var(--nav-h) + 80px);
+  padding-bottom: 80px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100svh;
+  min-height: 90vh;
 }
 
 .hero-pill {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
+  padding: 6px 16px;
   border-radius: 999px;
   border: 1px solid var(--border-light);
-  background: rgba(255, 255, 255, 0.02);
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  opacity: 0.7;
-  letter-spacing: 0.04em;
-  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  max-width: 100%;
-  margin-top: 16px;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  max-width: 900px;
+  margin-top: 0;
   margin-bottom: 24px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #E2E2E2 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #B4B4B4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  opacity: 0.85;
-  max-width: 640px;
-  margin: 20px auto 32px;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 12px auto 40px;
   line-height: 1.6;
 }
 
@@ -236,7 +247,17 @@ a {
   display: flex;
   gap: 16px;
   justify-content: center;
-  margin-top: 32px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn {
