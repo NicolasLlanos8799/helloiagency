@@ -59,6 +59,15 @@
     gtag('config', 'G-P0YEG9KJT5');
   </script>
 
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "w3yyyartvr");
+  </script>
+
   <!-- Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -649,7 +658,7 @@
               const prevBtn = document.createElement('button');
               prevBtn.className = 'carousel-btn prev';
               prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
-              prevBtn.setAttribute('data-track-cta', 'carousel_prev');
+              prevBtn.setAttribute('data-track-cta', `carousel_prev_${projectLabel}`);
               prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
               prevBtn.setAttribute('data-track-type', 'engagement');
               prevBtn.setAttribute('data-track-label', projectLabel);
@@ -658,7 +667,7 @@
               const nextBtn = document.createElement('button');
               nextBtn.className = 'carousel-btn next';
               nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
-              nextBtn.setAttribute('data-track-cta', 'carousel_next');
+              nextBtn.setAttribute('data-track-cta', `carousel_next_${projectLabel}`);
               nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
               nextBtn.setAttribute('data-track-type', 'engagement');
               nextBtn.setAttribute('data-track-label', projectLabel);
@@ -673,7 +682,7 @@
               images.forEach((_, idx) => {
                 const dot = document.createElement('div');
                 dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-                dot.setAttribute('data-track-cta', 'carousel_dot');
+                dot.setAttribute('data-track-cta', `carousel_dot_${projectLabel}`);
                 dot.setAttribute('data-track-section', 'portfolio_carousel');
                 dot.setAttribute('data-track-type', 'engagement');
                 dot.setAttribute('data-track-label', `${projectLabel}_dot_${idx}`);

@@ -157,7 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 event_label: eventLabel,
                 section: eventSection
             });
-            // console.log('Tracking Event:', eventName, { eventCategory, eventLabel, eventSection });
         }
     });
 
