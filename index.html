@@ -113,17 +113,17 @@
       </button>
 
       <ul class="nav-links" id="home-nav-links">
-        <li><a href="#" id="open-portfolio-link" title="Ver portfolio de proyectos">Portfolio</a></li>
-        <li><a href="#soluciones" title="Ver nuestras soluciones">Soluciones</a></li>
-        <li><a href="#proceso" title="Ver nuestro proceso de trabajo">Proceso</a></li>
-        <li><a href="#contacto" class="btn btn-sm" title="Agendar una llamada con Leba">Agendar llamada</a></li>
+        <li><a href="#" id="open-portfolio-link" title="Ver portfolio de proyectos" data-track-cta="click_nav_portfolio" data-track-section="navbar" data-track-type="navigation">Portfolio</a></li>
+        <li><a href="#soluciones" title="Ver nuestras soluciones" data-track-cta="click_nav_soluciones" data-track-section="navbar" data-track-type="navigation">Soluciones</a></li>
+        <li><a href="#proceso" title="Ver nuestro proceso de trabajo" data-track-cta="click_nav_proceso" data-track-section="navbar" data-track-type="navigation">Proceso</a></li>
+        <li><a href="#contacto" class="btn btn-sm" title="Agendar una llamada con Leba" data-track-cta="click_nav_agendar_llamada" data-track-section="navbar" data-track-type="cta">Agendar llamada</a></li>
       </ul>
 
       <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
-        <li><a href="#" id="back-home-link" title="Volver al inicio">Inicio</a></li>
-        <li><a href="#" class="active" title="Portfolio de proyectos">Portfolio</a></li>
+        <li><a href="#" id="back-home-link" title="Volver al inicio" data-track-cta="click_nav_inicio" data-track-section="portfolio_nav" data-track-type="navigation">Inicio</a></li>
+        <li><a href="#" class="active" title="Portfolio de proyectos" data-track-cta="view_portfolio" data-track-section="portfolio_nav" data-track-type="navigation">Portfolio</a></li>
         <li><a href="#" class="btn btn-sm" id="portfolio-contact-link"
-            title="Agendar una llamada con Leba">Agendar
+            title="Agendar una llamada con Leba" data-track-cta="click_nav_portfolio_contact" data-track-section="portfolio_nav" data-track-type="cta">Agendar
             llamada</a></li>
       </ul>
     </div>
@@ -151,8 +151,8 @@
       </p>
 
       <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-        <a href="#contacto" class="btn btn-primary" title="Agendar una llamada con Leba">Agendar llamada</a>
-        <a href="#soluciones" class="btn btn-outline" title="Ver las soluciones de Leba">Ver soluciones</a>
+        <a href="#contacto" class="btn btn-primary" title="Agendar una llamada con Leba" data-track-cta="click_agendar_llamada" data-track-section="hero" data-track-type="cta" data-track-label="hero_primary">Agendar llamada</a>
+        <a href="#soluciones" class="btn btn-outline" title="Ver las soluciones de Leba" data-track-cta="click_ver_soluciones" data-track-section="hero" data-track-type="cta" data-track-label="hero_secondary">Ver soluciones</a>
       </div>
     </header>
 
@@ -271,7 +271,7 @@
         <p>Podemos ayudarte a diseñar una presencia, un sistema o una operación digital más clara, conectada y
           escalable.</p>
         <a href="#contacto-form" class="btn btn-primary" style="margin-top: 16px;"
-          title="Agendar una llamada con Leba">
+          title="Agendar una llamada con Leba" data-track-cta="click_agendar_llamada" data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
           Agendar llamada <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
         </a>
       </div>
@@ -302,13 +302,13 @@
             <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
               style="display: flex; flex-direction: column; gap: 16px;">
               <div class="contact-inputs-row">
-                <input type="text" name="nombre" placeholder="Tu nombre" required class="contact-form-input">
-                <input type="text" name="contacto" placeholder="Email o WhatsApp" required class="contact-form-input">
+                <input type="text" name="nombre" placeholder="Tu nombre" required class="contact-form-input" data-track-cta="focus_contact_nombre">
+                <input type="text" name="contacto" placeholder="Email o WhatsApp" required class="contact-form-input" data-track-cta="focus_contact_contacto">
               </div>
               <textarea name="mensaje" rows="3" placeholder="Contanos sobre tu negocio o consulta" required
-                class="contact-form-input"></textarea>
+                class="contact-form-input" data-track-cta="focus_contact_mensaje"></textarea>
               <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
-                style="width: 100%; justify-content: center; margin-top: 8px;">Enviar mensaje</button>
+                style="width: 100%; justify-content: center; margin-top: 8px;" data-track-cta="submit_click" data-track-section="contact_form" data-track-type="form">Enviar mensaje</button>
               <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite">
                 Gracias, pronto te contactaremos 🙌
               </div>
@@ -335,8 +335,8 @@
       <div class="footer">
         <div>© 2026 Leba</div>
         <div class="footer-links">
-          <a href="#" title="Política de privacidad">Privacidad</a>
-          <a href="#" title="Términos y condiciones">Términos</a>
+          <a href="#" title="Política de privacidad" data-track-cta="click_footer_privacidad" data-track-section="footer" data-track-type="navigation">Privacidad</a>
+          <a href="#" title="Términos y condiciones" data-track-cta="click_footer_terminos" data-track-section="footer" data-track-type="navigation">Términos</a>
         </div>
       </div>
     </footer>
@@ -617,55 +617,71 @@
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.project-carousel-wrapper').forEach((wrapper) => {
         try {
-          const images = JSON.parse(wrapper.dataset.images || '[]');
-          if (!images || images.length === 0) return;
+            const images = JSON.parse(wrapper.dataset.images || '[]');
+            if (!images || images.length === 0) return;
 
-          let currentSlide = 0;
+            // Get project title from parent info if possible
+            const projectInfo = wrapper.closest('.project-row')?.querySelector('h3');
+            const projectLabel = projectInfo ? projectInfo.innerText.toLowerCase().replace(/\s+/g, '_') : 'unknown';
 
-          // Create track
-          const track = document.createElement('div');
-          track.className = 'carousel-track';
-          wrapper.appendChild(track);
+            let currentSlide = 0;
 
-          // Add Slides
-          const slideEls = [];
-          images.forEach((src, idx) => {
-            const slide = document.createElement('div');
-            slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
-            slide.style.backgroundImage = `url('${src}')`;
-            track.appendChild(slide);
-            slideEls.push(slide);
-          });
+            // Create track
+            const track = document.createElement('div');
+            track.className = 'carousel-track';
+            wrapper.appendChild(track);
 
-          // Add Controls & Dots
-          if (images.length > 1) {
-            const controls = document.createElement('div');
-            controls.className = 'carousel-controls';
-
-            const prevBtn = document.createElement('button');
-            prevBtn.className = 'carousel-btn prev';
-            prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
-            controls.appendChild(prevBtn);
-
-            const nextBtn = document.createElement('button');
-            nextBtn.className = 'carousel-btn next';
-            nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
-            controls.appendChild(nextBtn);
-
-            wrapper.appendChild(controls);
-
-            const dotsContainer = document.createElement('div');
-            dotsContainer.className = 'carousel-dots';
-
-            const dotEls = [];
-            images.forEach((_, idx) => {
-              const dot = document.createElement('div');
-              dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-              dot.addEventListener('click', () => goToSlide(idx));
-              dotsContainer.appendChild(dot);
-              dotEls.push(dot);
+            // Add Slides
+            const slideEls = [];
+            images.forEach((src, idx) => {
+              const slide = document.createElement('div');
+              slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
+              slide.style.backgroundImage = `url('${src}')`;
+              track.appendChild(slide);
+              slideEls.push(slide);
             });
-            wrapper.appendChild(dotsContainer);
+
+            // Add Controls & Dots
+            if (images.length > 1) {
+              const controls = document.createElement('div');
+              controls.className = 'carousel-controls';
+
+              const prevBtn = document.createElement('button');
+              prevBtn.className = 'carousel-btn prev';
+              prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
+              prevBtn.setAttribute('data-track-cta', 'carousel_prev');
+              prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
+              prevBtn.setAttribute('data-track-type', 'engagement');
+              prevBtn.setAttribute('data-track-label', projectLabel);
+              controls.appendChild(prevBtn);
+
+              const nextBtn = document.createElement('button');
+              nextBtn.className = 'carousel-btn next';
+              nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
+              nextBtn.setAttribute('data-track-cta', 'carousel_next');
+              nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
+              nextBtn.setAttribute('data-track-type', 'engagement');
+              nextBtn.setAttribute('data-track-label', projectLabel);
+              controls.appendChild(nextBtn);
+
+              wrapper.appendChild(controls);
+
+              const dotsContainer = document.createElement('div');
+              dotsContainer.className = 'carousel-dots';
+
+              const dotEls = [];
+              images.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+                dot.setAttribute('data-track-cta', 'carousel_dot');
+                dot.setAttribute('data-track-section', 'portfolio_carousel');
+                dot.setAttribute('data-track-type', 'engagement');
+                dot.setAttribute('data-track-label', `${projectLabel}_dot_${idx}`);
+                dot.addEventListener('click', () => goToSlide(idx));
+                dotsContainer.appendChild(dot);
+                dotEls.push(dot);
+              });
+              wrapper.appendChild(dotsContainer);
 
             // Logic
             const goToSlide = (index) => {

@@ -103,17 +103,17 @@
             </button>
 
             <ul class="nav-links" id="home-nav-links">
-                <li><a href="#" id="open-portfolio-link" title="View project portfolio">Portfolio</a></li>
-                <li><a href="#solutions" title="View our solutions">Solutions</a></li>
-                <li><a href="#process" title="View our work process">Process</a></li>
-                <li><a href="#contact" class="btn btn-sm" title="Schedule a call with Leba">Schedule a call</a></li>
+                <li><a href="#" id="open-portfolio-link" title="View project portfolio" data-track-cta="click_nav_portfolio" data-track-section="navbar" data-track-type="navigation">Portfolio</a></li>
+                <li><a href="#solutions" title="View our solutions" data-track-cta="click_nav_soluciones" data-track-section="navbar" data-track-type="navigation">Solutions</a></li>
+                <li><a href="#process" title="View our work process" data-track-cta="click_nav_proceso" data-track-section="navbar" data-track-type="navigation">Process</a></li>
+                <li><a href="#contact" class="btn btn-sm" title="Schedule a call with Leba" data-track-cta="click_nav_agendar_llamada" data-track-section="navbar" data-track-type="cta">Schedule a call</a></li>
             </ul>
 
             <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
-                <li><a href="#" id="back-home-link" title="Go back to home">Home</a></li>
-                <li><a href="#" class="active" title="Project portfolio">Portfolio</a></li>
+                <li><a href="#" id="back-home-link" title="Go back to home" data-track-cta="click_nav_inicio" data-track-section="portfolio_nav" data-track-type="navigation">Home</a></li>
+                <li><a href="#" class="active" title="Project portfolio" data-track-cta="view_portfolio" data-track-section="portfolio_nav" data-track-type="navigation">Portfolio</a></li>
                 <li><a href="#" class="btn btn-sm" id="portfolio-contact-link"
-                        title="Schedule a call with Leba">Schedule a call</a></li>
+                        title="Schedule a call with Leba" data-track-cta="click_nav_portfolio_contact" data-track-section="portfolio_nav" data-track-type="cta">Schedule a call</a></li>
             </ul>
         </div>
     </nav>
@@ -141,8 +141,8 @@
             </p>
 
             <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <a href="#contact" class="btn btn-primary" title="Schedule a call with Leba">Schedule a call</a>
-                <a href="#solutions" class="btn btn-outline" title="View Leba solutions">View solutions</a>
+                <a href="#contact" class="btn btn-primary" title="Schedule a call with Leba" data-track-cta="click_agendar_llamada" data-track-section="hero" data-track-type="cta" data-track-label="hero_primary">Schedule a call</a>
+                <a href="#solutions" class="btn btn-outline" title="View Leba solutions" data-track-cta="click_ver_soluciones" data-track-section="hero" data-track-type="cta" data-track-label="hero_secondary">View solutions</a>
             </div>
         </header>
 
@@ -152,7 +152,8 @@
                 <span class="label">Studio Capabilities</span>
                 <h2>Systems tailored to your operation</h2>
             </div>
-            <!-- Card 1 -->
+            <div class="grid-3">
+                <!-- Card 1 -->
                 <div class="card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-icon">
                         <i class="ph ph-globe-hemisphere-east" style="font-size: 24px"></i>
@@ -259,7 +260,7 @@
                 <p>We can help you design a clearer, more connected and scalable digital presence, system or operation.
                 </p>
                 <a href="#contact-form" class="btn btn-primary" style="margin-top: 16px;"
-                    title="Schedule a call with Leba">
+                    title="Schedule a call with Leba" data-track-cta="click_agendar_llamada" data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
                     Schedule a call <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
                 </a>
             </div>
@@ -287,20 +288,19 @@
                     <div
                         style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
 
-                        <h4 style="margin-bottom: 24px; font-size: 1.125rem;">Would you prefer we contact you first?
-                        </h4>
+                        <h4 style="margin-bottom: 24px; font-size: 1.125rem;">Would you prefer we contact you first?</h4>
                         <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
                             style="display: flex; flex-direction: column; gap: 16px;">
                             <div class="contact-inputs-row">
                                 <input type="text" name="nombre" placeholder="Your name" required
-                                    class="contact-form-input">
+                                    class="contact-form-input" data-track-cta="focus_contact_nombre">
                                 <input type="text" name="contacto" placeholder="Email or WhatsApp" required
-                                    class="contact-form-input">
+                                    class="contact-form-input" data-track-cta="focus_contact_contacto">
                             </div>
                             <textarea name="mensaje" rows="3" placeholder="Tell us about your business or inquiry"
-                                required class="contact-form-input"></textarea>
+                                required class="contact-form-input" data-track-cta="focus_contact_mensaje"></textarea>
                             <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
-                                style="width: 100%; justify-content: center; margin-top: 8px;">Send message</button>
+                                style="width: 100%; justify-content: center; margin-top: 8px;" data-track-cta="submit_click" data-track-section="contact_form" data-track-type="form">Send message</button>
                             <div class="contact-message contact-message--success" id="contactSuccess"
                                 aria-live="polite">
                                 Thank you, we'll be in touch soon 🙌
@@ -609,6 +609,10 @@
                     const images = JSON.parse(wrapper.dataset.images || '[]');
                     if (!images || images.length === 0) return;
 
+                    // Get project title from parent info if possible
+                    const projectInfo = wrapper.closest('.project-row')?.querySelector('h3');
+                    const projectLabel = projectInfo ? projectInfo.innerText.toLowerCase().replace(/\s+/g, '_') : 'unknown';
+
                     let currentSlide = 0;
 
                     const track = document.createElement('div');
@@ -631,11 +635,19 @@
                         const prevBtn = document.createElement('button');
                         prevBtn.className = 'carousel-btn prev';
                         prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
+                        prevBtn.setAttribute('data-track-cta', 'carousel_prev');
+                        prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
+                        prevBtn.setAttribute('data-track-type', 'engagement');
+                        prevBtn.setAttribute('data-track-label', projectLabel);
                         controls.appendChild(prevBtn);
 
                         const nextBtn = document.createElement('button');
                         nextBtn.className = 'carousel-btn next';
                         nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
+                        nextBtn.setAttribute('data-track-cta', 'carousel_next');
+                        nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
+                        nextBtn.setAttribute('data-track-type', 'engagement');
+                        nextBtn.setAttribute('data-track-label', projectLabel);
                         controls.appendChild(nextBtn);
 
                         wrapper.appendChild(controls);
@@ -647,6 +659,10 @@
                         images.forEach((_, idx) => {
                             const dot = document.createElement('div');
                             dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+                            dot.setAttribute('data-track-cta', 'carousel_dot');
+                            dot.setAttribute('data-track-section', 'portfolio_carousel');
+                            dot.setAttribute('data-track-type', 'engagement');
+                            dot.setAttribute('data-track-label', `${projectLabel}_dot_${idx}`);
                             dot.addEventListener('click', () => goToSlide(idx));
                             dotsContainer.appendChild(dot);
                             dotEls.push(dot);

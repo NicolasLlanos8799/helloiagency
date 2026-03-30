@@ -141,4 +141,38 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+    // Centralized Tracking Architecture
+    document.addEventListener('click', function (e) {
+        const trackEl = e.target.closest('[data-track-cta]');
+        if (!trackEl) return;
+
+        const eventName = trackEl.getAttribute('data-track-cta');
+        const eventCategory = trackEl.getAttribute('data-track-type') || 'engagement';
+        const eventLabel = trackEl.getAttribute('data-track-label') || '';
+        const eventSection = trackEl.getAttribute('data-track-section') || '';
+
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, {
+                event_category: eventCategory,
+                event_label: eventLabel,
+                section: eventSection
+            });
+            // console.log('Tracking Event:', eventName, { eventCategory, eventLabel, eventSection });
+        }
+    });
+
+    // Form Field Focus Tracking
+    const trackableFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    trackableFields.forEach(field => {
+        field.addEventListener('focus', function () {
+            const eventName = this.getAttribute('data-track-cta');
+            if (eventName && typeof gtag === 'function') {
+                gtag('event', eventName, {
+                    event_category: 'form',
+                    event_label: this.name,
+                    section: 'contact_form'
+                });
+            }
+        });
+    });
 });
