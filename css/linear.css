@@ -1140,3 +1140,72 @@ textarea.contact-form-input {
     padding-right: 28px;
   }
 }
+
+/* =========================================
+   Cookie Consent Banner
+========================================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  max-width: 500px;
+  width: calc(100% - 48px);
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+  z-index: 10000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-banner.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.cookie-content {
+  margin-bottom: 20px;
+}
+
+.cookie-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cookie-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cookie-actions .btn {
+  flex: 1;
+  padding: 10px 16px;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 600px) {
+  .cookie-banner {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}

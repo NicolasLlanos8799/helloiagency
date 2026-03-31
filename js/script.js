@@ -174,4 +174,60 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    // Cookie Consent Banner Logic
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+    const declineCookiesBtn = document.getElementById('decline-cookies');
+    const openCookiesBtns = document.querySelectorAll('.open-cookies');
+
+    if (cookieBanner && acceptCookiesBtn && declineCookiesBtn) {
+        // Open cookies banner manually from footers
+        openCookiesBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                cookieBanner.classList.add('show');
+            });
+        });
+
+        const isConsentSet = localStorage.getItem('cookieConsent');
+        
+        if (!isConsentSet) {
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('show');
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'analytics_storage': 'granted',
+                    'ad_storage': 'granted'
+                });
+                // Explicit event to track acceptance
+                gtag('event', 'cookie_consent_accepted', {
+                    event_category: 'cookie_banner',
+                    event_label: 'accepted'
+                });
+            }
+        });
+
+        declineCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieBanner.classList.remove('show');
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'analytics_storage': 'denied',
+                    'ad_storage': 'denied'
+                });
+                // Explicit event to track rejection
+                gtag('event', 'cookie_consent_declined', {
+                    event_category: 'cookie_banner',
+                    event_label: 'declined'
+                });
+            }
+        });
+    }
 });
