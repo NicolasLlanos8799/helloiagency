@@ -85,12 +85,10 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
     </style>
@@ -116,13 +114,6 @@
                 <li><a href="#solutions" title="View our solutions" data-track-cta="click_nav_soluciones" data-track-section="navbar" data-track-type="navigation">Solutions</a></li>
                 <li><a href="#process" title="View our work process" data-track-cta="click_nav_proceso" data-track-section="navbar" data-track-type="navigation">Process</a></li>
                 <li><a href="#contact" class="btn btn-sm" title="Schedule a call with Leba" data-track-cta="click_nav_agendar_llamada" data-track-section="navbar" data-track-type="cta">Schedule a call</a></li>
-            </ul>
-
-            <ul class="nav-links" id="portfolio-nav-links" style="display: none;">
-                <li><a href="#" id="back-home-link" title="Go back to home" data-track-cta="click_nav_inicio" data-track-section="portfolio_nav" data-track-type="navigation">Home</a></li>
-                <li><a href="#" class="active" title="Project portfolio" data-track-cta="view_portfolio" data-track-section="portfolio_nav" data-track-type="navigation">Portfolio</a></li>
-                <li><a href="#" class="btn btn-sm" id="portfolio-contact-link"
-                        title="Schedule a call with Leba" data-track-cta="click_nav_portfolio_contact" data-track-section="portfolio_nav" data-track-type="cta">Schedule a call</a></li>
             </ul>
         </div>
     </nav>
@@ -337,9 +328,8 @@
             <div class="footer">
                 <div>© 2026 Łeba</div>
                 <div class="footer-links">
-                    <a href="#" title="Privacy policy">Privacy</a>
-                    <a href="#" title="Terms and conditions">Terms</a>
-                    <a href="#" class="open-cookies" title="Cookies settings">Cookies</a>
+                    <a href="privacy-policy.html" title="Privacy policy">Privacy</a>
+                    <a href="terms-of-service.html" title="Terms and conditions">Terms</a>
                 </div>
             </div>
         </footer>
@@ -483,9 +473,8 @@
             <div class="footer">
                 <div>© 2026 Łeba</div>
                 <div class="footer-links">
-                    <a href="#" title="Privacy policy">Privacy</a>
-                    <a href="#" title="Terms and conditions">Terms</a>
-                    <a href="#" class="open-cookies" title="Cookies settings">Cookies</a>
+                    <a href="privacy-policy.html" title="Privacy policy">Privacy</a>
+                    <a href="terms-of-service.html" title="Terms and conditions">Terms</a>
                 </div>
             </div>
         </footer>
@@ -532,6 +521,7 @@
             const openPortfolioLink = document.getElementById('open-portfolio-link');
             const backHomeLink = document.getElementById('back-home-link');
             const portfolioContactLink = document.getElementById('portfolio-contact-link');
+            const logoHomeLink = document.getElementById('logo-home-link');
 
             function scrollToTarget(selector, smooth = true) {
                 const target = document.querySelector(selector);
@@ -548,8 +538,8 @@
             }
 
             function resetMobileNavState() {
-                homeNav.classList.remove('active');
-                portfolioNav.classList.remove('active');
+                if (homeNav) homeNav.classList.remove('active');
+                if (portfolioNav) portfolioNav.classList.remove('active');
                 const mobileToggle = document.querySelector('.mobile-toggle');
                 if (mobileToggle) {
                     mobileToggle.setAttribute('aria-expanded', 'false');
@@ -557,11 +547,13 @@
             }
 
             function showHome(scrollToSelector = null) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+                
                 homeView.style.display = 'block';
                 portfolioView.style.display = 'none';
 
-                homeNav.style.display = 'flex';
-                portfolioNav.style.display = 'none';
+                if (homeNav) homeNav.style.display = 'flex';
+                // if (portfolioNav) portfolioNav.style.display = 'none';
                 resetMobileNavState();
 
                 document.title = 'Leba | Digital Systems Studio';
@@ -572,19 +564,19 @@
                     }
 
                     if (scrollToSelector) {
-                        scrollToTarget(scrollToSelector, true);
-                    } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        scrollToTarget(scrollToSelector, false);
                     }
                 }, 50);
             }
 
             function showPortfolio() {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+                
                 homeView.style.display = 'none';
                 portfolioView.style.display = 'block';
 
-                homeNav.style.display = 'none';
-                portfolioNav.style.display = 'flex';
+                if (homeNav) homeNav.style.display = 'flex'; // Keep the same nav visible
+                // if (portfolioNav) portfolioNav.style.display = 'flex';
                 resetMobileNavState();
 
                 document.title = 'Leba | Portfolio';
@@ -593,7 +585,6 @@
                     if (typeof AOS !== 'undefined') {
                         AOS.refreshHard();
                     }
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 }, 50);
             }
 
@@ -611,6 +602,13 @@
                 });
             }
 
+            if (logoHomeLink) {
+                logoHomeLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showHome();
+                });
+            }
+
             if (portfolioContactLink) {
                 portfolioContactLink.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -618,13 +616,18 @@
                 });
             }
 
-            document.querySelectorAll('#home-nav-links a[href^="#"]').forEach(link => {
+            document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
-                    if (!href) return;
+                    if (!href || href === '#') return;
 
                     e.preventDefault();
-                    scrollToTarget(href, true);
+                    
+                    if (portfolioView.style.display === 'block') {
+                        showHome(href);
+                    } else {
+                        scrollToTarget(href, true);
+                    }
                 });
             });
         });
@@ -649,9 +652,11 @@
 
                     const slideEls = [];
                     images.forEach((src, idx) => {
-                        const slide = document.createElement('div');
+                        const slide = document.createElement('img');
                         slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
-                        slide.style.backgroundImage = `url('${src}')`;
+                        slide.src = src;
+                        slide.loading = 'lazy';
+                        slide.alt = 'Project slide';
                         track.appendChild(slide);
                         slideEls.push(slide);
                     });

@@ -564,6 +564,70 @@ a {
 }
 
 /* =========================================
+   Legal Pages (Privacy & Terms)
+========================================= */
+.legal-section {
+  padding: 120px 0 80px;
+}
+
+.legal-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-container h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.legal-container .last-updated {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin-bottom: 48px;
+}
+
+.legal-container section {
+  margin-bottom: 40px;
+}
+
+.legal-container h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.legal-container h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.legal-container p,
+.legal-container ul,
+.legal-container ol {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+.legal-container ul, .legal-container ol {
+  padding-left: 24px;
+}
+
+.legal-container li {
+  margin-bottom: 8px;
+}
+
+.legal-container a {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+/* =========================================
    Responsive
 ========================================= */
 @media (max-width: 900px) {
@@ -759,22 +823,26 @@ a {
   background: rgba(255, 255, 255, 0.02);
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  aspect-ratio: 16/10;
   width: 100%;
 }
 
+.carousel-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+}
+
 .carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   width: 100%;
-  height: 100%;
+  height: auto;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 0.5s ease;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: 1;
+  display: block;
 }
 
 .carousel-slide.active {
@@ -852,6 +920,12 @@ a {
 
   .project-row.reverse .project-carousel-wrapper {
     order: unset;
+  }
+
+  .project-carousel-wrapper {
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   .project-info {
@@ -993,6 +1067,10 @@ textarea.contact-form-input {
     padding: 80px 0;
   }
 
+  .features-header {
+    text-align: center;
+  }
+
   h2 {
     text-align: center;
     margin-left: auto;
@@ -1124,7 +1202,13 @@ textarea.contact-form-input {
   }
 
   .project-carousel-wrapper {
-    aspect-ratio: 4/3;
+    aspect-ratio: 1 / 1;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-slide {
+    background-size: cover;
+    background-position: top center;
   }
 
   .footer {
@@ -1170,6 +1254,12 @@ textarea.contact-form-input {
   visibility: visible;
 }
 
+@media (max-width: 600px) {
+  .cookie-banner.show {
+    transform: translateY(0);
+  }
+}
+
 .cookie-content {
   margin-bottom: 20px;
 }
@@ -1206,6 +1296,27 @@ textarea.contact-form-input {
     left: 16px;
     right: 16px;
     bottom: 16px;
+    width: auto;
     max-width: none;
+    transform: translateY(150%);
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cookie-actions .btn {
+    width: 100%;
+  }
+
+  .cookie-title {
+    font-size: 1rem;
+  }
+
+  .cookie-text {
+    font-size: 0.8125rem;
   }
 }
