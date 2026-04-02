@@ -320,7 +320,7 @@ a {
    Features Grid (Solutions)
 ========================================= */
 .features-header {
-  margin-bottom: 64px;
+  margin-bottom: 80px;
 }
 
 .features-header .label,
@@ -342,6 +342,16 @@ a {
   font-size: 2.5rem;
 }
 
+.section-subtle {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -349,41 +359,156 @@ a {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
   border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 32px;
-  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  border-radius: 16px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--border-glow);
-  transform: translateY(-2px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.03);
 }
 
 .card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-light);
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
   color: var(--text-primary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon i,
+.card-icon svg {
+  font-size: 28px !important;
 }
 
 .card h3 {
   font-size: 1.25rem;
   margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .card p {
   font-size: 0.9375rem;
   color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* =========================================
+   Solutions Section (Editorial UX)
+========================================= */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.solution-block {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  height: 100%;
+}
+
+.solution-block:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-6px);
+}
+
+.solution-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.solution-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-primary);
+}
+
+.solution-icon i,
+.solution-icon svg {
+  font-size: 26px;
+}
+
+.solution-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.solution-body {
+  flex-grow: 1;
+}
+
+.solution-body p {
+  font-size: 1rem;
+  color: var(--text-secondary);
   line-height: 1.6;
+  max-width: 420px;
+  margin-bottom: 20px;
+}
+
+.solution-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  opacity: 0.85;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.solution-footer p.context-line {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.solutions-cta {
+  text-align: center;
+  margin-top: 72px;
+}
+
+.solutions-cta-text {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
 }
 
 /* =========================================
@@ -672,6 +797,11 @@ a {
 
   .grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .process-grid {
