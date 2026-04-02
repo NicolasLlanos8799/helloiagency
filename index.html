@@ -418,7 +418,7 @@
 
       <!-- ================= AGENTES DIGITALES ================= -->
       <h2
-        style="font-size: 2rem; margin-top: 64px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        style="font-size: 3.2rem; margin-top: 64px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
         Agentes Digitales</h2>
       <div class="projects-container" style="margin-top: 0;">
 
@@ -458,12 +458,28 @@
 
       <!-- ================= SISTEMAS DE GESTIÓN ================= -->
       <h2
-        style="font-size: 2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
         Sistemas de Gestión</h2>
       <div class="projects-container" style="margin-top: 0;">
 
+        <!-- 5) Sistema de pedidos automatizado -->
+        <div id="sistema-pedidos-automatizado" class="project-row" data-aos="fade-up" 
+             data-track-cta="click_portfolio_sistema_pedidos"
+             data-track-section="portfolio"
+             data-track-type="project"
+             data-track-label="sistema_pedidos_automatizado">
+          <div class="project-info">
+            <h3>Sistema de pedidos automatizado</h3>
+            <p class="desc">Sistema web diseñado para estructurar y automatizar pedidos provenientes de WhatsApp e Instagram, eliminando la gestión manual y organizando la operación en un flujo claro y centralizado.</p>
+            <p class="desc">Incluye catálogo digital, captura automática de pedidos, panel administrativo en tiempo real y control de productos, ventas y clientes, permitiendo reducir errores y mejorar la eficiencia operativa.</p>
+          </div>
+
+          <div class="project-carousel-wrapper" data-images='["src/gestion-whatsapp/1.png", "src/gestion-whatsapp/2.png", "src/gestion-whatsapp/3.png", "src/gestion-whatsapp/4.png", "src/gestion-whatsapp/5.png"]'>
+          </div>
+        </div>
+
         <!-- 3) Sistema de Gestión de Pedidos y Producción -->
-        <div class="project-row" data-aos="fade-up">
+        <div class="project-row reverse" data-aos="fade-up">
           <div class="project-info">
             <h3>Sistema de Gestión de Pedidos y Producción</h3>
             <p class="desc">Plataforma web premium orientada a negocios gastronómicos para la gestión
@@ -483,9 +499,8 @@
           </div>
         </div>
 
-
         <!-- 4) Rebels Kite School Surf -->
-        <div class="project-row reverse" data-aos="fade-up">
+        <div class="project-row" data-aos="fade-up">
           <div class="project-info">
             <h3>Rebels Kite School</h3>
             <p class="desc">Sistema web de gestión desarrollado para escuelas de surf y kite, diseñado para
@@ -503,7 +518,7 @@
 
       <!-- ================= WEBS ================= -->
       <h2
-        style="font-size: 2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+        style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
         Webs Estratégicas</h2>
       <div class="projects-container" style="margin-top: 0;">
 
@@ -596,6 +611,16 @@
       const backHomeLink = document.getElementById('back-home-link');
       const portfolioContactLink = document.getElementById('portfolio-contact-link');
       const logoHomeLink = document.getElementById('logo-home-link');
+
+      // Support deep-linking to portfolio or other sections
+      function handleInitialHash() {
+        if (window.location.hash === '#portfolio') {
+          showPortfolio();
+        } else if (window.location.hash && window.location.hash !== '#') {
+          // If it's another hash (like #soluciones), ensure home is visible and scroll
+          showHome(window.location.hash);
+        }
+      }
 
       function scrollToTarget(selector, smooth = true) {
         const target = document.querySelector(selector);
@@ -693,6 +718,9 @@
           }
         });
       });
+
+      // Handle initial hash on load
+      handleInitialHash();
     });
   </script>
 
