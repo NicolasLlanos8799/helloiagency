@@ -1,0 +1,132 @@
+.assistant-visuals-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Carousel Compatibility */
+.assistant-carousel .carousel-track {
+  min-height: 580px;
+}
+
+.assistant-carousel .carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  height: 100%;
+  /* Ensure slides fill the track height */
+}
+
+@media (max-width: 576px) {
+  .assistant-carousel {
+    aspect-ratio: auto !important;
+    /* Override global 1:1 ratio in linear.css */
+  }
+
+  .assistant-carousel .carousel-track {
+    min-height: 750px;
+  }
+}
+
+.system-dashboard {
+  width: min(100%, 340px);
+  background: #0b0b0d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.action-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.action-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.action-status {
+  font-size: 0.72rem;
+  color: #14a077;
+  background: rgba(20, 160, 119, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+  .assistant-visuals-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .system-dashboard {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .action-item {
+    font-size: 0.8rem;
+  }
+}

@@ -83,6 +83,10 @@
 
   <!-- Linear Style Design System -->
   <link rel="stylesheet" href="css/linear.css" />
+  <link rel="stylesheet" href="css/assistant-mockup.css" />
+  <link rel="stylesheet" href="css/system-dashboard.css" />
+  <link rel="stylesheet" href="css/assistant-channels.css" />
+  <link rel="stylesheet" href="css/assistant-settings.css" />
 
   <!-- Calendly -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
@@ -231,9 +235,8 @@
       </div>
 
       <div class="solutions-cta">
-        <a href="#contacto-form" class="btn btn-primary"
-          data-track-cta="click_soluciones_analisis" data-track-section="soluciones"
-          data-track-type="cta" data-track-label="solutions_analysis_cta">
+        <a href="#contacto-form" class="btn btn-primary" data-track-cta="click_soluciones_analisis"
+          data-track-section="soluciones" data-track-type="cta" data-track-label="solutions_analysis_cta">
           Analizamos tu forma de trabajar
         </a>
         <p class="solutions-cta-text">Te ayudamos a identificar qué tipo de solución encaja mejor con tu operación.</p>
@@ -315,9 +318,9 @@
         <h2>Si tu negocio necesita una<br>mejor base digital, hablemos.</h2>
         <p>Podemos ayudarte a diseñar una presencia, un sistema o una operación digital más clara, conectada y
           escalable.</p>
-        <a href="#contacto-form" class="btn btn-primary" style="margin-top: 16px;" title="Analizamos tu forma de trabajar"
-          data-track-cta="click_analizar_negocio" data-track-section="cta_section" data-track-type="cta"
-          data-track-label="cta_section_primary">
+        <a href="#contacto-form" class="btn btn-primary" style="margin-top: 16px;"
+          title="Analizamos tu forma de trabajar" data-track-cta="click_analizar_negocio"
+          data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
           Analizamos tu forma de trabajar <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
         </a>
       </div>
@@ -332,7 +335,8 @@
             style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Reunión
             por Google Meet · 15 Min</span>
           <h3 style="font-size: 2rem; margin-bottom: 16px;">Analizamos tu forma de trabajar</h3>
-          <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">Revisamos tu operación, detectamos oportunidades de mejora y te proponemos cómo optimizarla.</p>
+          <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">Revisamos tu operación,
+            detectamos oportunidades de mejora y te proponemos cómo optimizarla.</p>
 
           <ul style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
             <li style="margin-bottom: 12px;">Diagnóstico rápido de procesos</li>
@@ -388,7 +392,8 @@
           <a href="terms-of-service.html" title="Términos y condiciones" data-track-cta="click_footer_terminos"
             data-track-section="footer" data-track-type="navigation">Términos</a>
           <a href="articles/automatizar-pedidos-whatsapp.html" title="Automatizar pedidos por WhatsApp"
-            data-track-section="footer" data-track-type="navigation" style="font-size: 0.75rem; opacity: 0.5;">Automatización WhatsApp</a>
+            data-track-section="footer" data-track-type="navigation"
+            style="font-size: 0.75rem; opacity: 0.5;">Automatización WhatsApp</a>
         </div>
       </div>
     </footer>
@@ -424,35 +429,164 @@
         Agentes Digitales</h2>
       <div class="projects-container" style="margin-top: 0;">
 
-        <!-- 1) Sofi -->
+        <!-- 1) Sistema de Asistencia Inteligente -->
         <div class="project-row" data-aos="fade-up">
           <div class="project-info">
-            <h3>Sofi</h3>
-            <p class="desc">Sofi es un sistema de automatización conversacional multicanal que centraliza y
-              optimiza la atención digital 24/7 en WhatsApp, Instagram, Facebook y Web, integrando APIs
-              oficiales de Meta, flujos en n8n e inteligencia artificial para reducir carga operativa y
-              mejorar la experiencia del cliente.</p>
-          </div>
-
-          <div class="project-carousel-wrapper"
-            data-images='["src/sofi/1.png", "src/sofi/2.png", "src/sofi/3.png", "src/sofi/4.png", "src/sofi/5.png", "src/sofi/6.png", "src/sofi/7.png", "src/sofi/8.png", "src/sofi/9.png"]'>
-          </div>
-        </div>
-
-        <!-- 2) Leo -->
-        <div class="project-row reverse" data-aos="fade-up">
-          <div class="project-info">
-            <h3>Leo</h3>
-            <p class="desc">Leo es un sistema de automatización conversacional orientado a ventas que
-              organiza y
-              confirma pedidos en WhatsApp e Instagram, integrando APIs oficiales de Meta, flujos en n8n y
-              lógica inteligente para estructurar órdenes automáticamente y optimizar procesos
-              comerciales.
+            <h3>Sistema de Asistencia Inteligente</h3>
+            <p class="desc">Sistema que automatiza la atención y los pedidos de un negocio, respondiendo
+              mensajes y organizando la información sin necesidad de hacerlo manualmente.</p>
+            <p class="desc">Funciona en canales como WhatsApp, Instagram y Web, permitiendo atender
+              clientes, tomar pedidos y dar información de forma automática, rápida y ordenada.</p>
+            <p class="desc">Ayuda a reducir errores, ahorrar tiempo y mejorar la experiencia del cliente.
             </p>
           </div>
 
-          <div class="project-carousel-wrapper"
-            data-images='["src/leo/1.png", "src/leo/2.png", "src/leo/3.png", "src/leo/4.png", "src/leo/5.png", "src/leo/6.png", "src/leo/7.png"]'>
+          <div class="project-carousel-wrapper assistant-carousel" id="assistant-carousel">
+            <div class="carousel-track">
+              <!-- Slide 1: Phone -->
+              <div class="carousel-slide active">
+                <div class="assistant-visual-wrap">
+                  <div class="assistant-phone">
+                    <div class="assistant-phone-notch"></div>
+
+                    <div class="assistant-screen">
+                      <div class="assistant-chat-header">
+                        <div class="assistant-chat-avatar">AI</div>
+                        <div class="assistant-chat-meta">
+                          <span class="assistant-chat-name">Asistente Inteligente</span>
+                          <span class="assistant-chat-status">Automatizado</span>
+                        </div>
+                      </div>
+
+                      <div class="assistant-chat-body">
+                        <div class="assistant-msg assistant-msg-user">
+                          ¡Hola! ¿En qué horarios están abiertos?
+                        </div>
+
+                        <div class="assistant-msg assistant-msg-bot">
+                          Abrimos en diferentes horarios según el día:<br>
+                          • Lunes a Viernes: 08:00 a 16:00<br>
+                          • Sábados: 10:00 a 14:00
+                        </div>
+
+                        <div class="assistant-msg assistant-msg-user">
+                          ¿Dónde están ubicados?
+                        </div>
+
+                        <div class="assistant-msg assistant-msg-bot">
+                          Estamos en Av. Principal 1421, Buenos Aires.
+                        </div>
+
+                        <div class="assistant-msg assistant-msg-user">
+                          ¿Hacen envíos?
+                        </div>
+
+                        <div class="assistant-msg assistant-msg-bot">
+                          Sí, hacemos envíos a domicilio.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: Dashboard -->
+              <div class="carousel-slide">
+                <div class="system-dashboard">
+                  <div class="dashboard-stats">
+                    <div class="stat-card">
+                      <span class="stat-label">Mensajes recibidos</span>
+                      <span class="stat-value">24</span>
+                    </div>
+                    <div class="stat-card">
+                      <span class="stat-label">Respuestas automáticas</span>
+                      <span class="stat-value">22</span>
+                    </div>
+                    <div class="stat-card">
+                      <span class="stat-label">Consultas resueltas</span>
+                      <span class="stat-value">18</span>
+                    </div>
+                    <div class="stat-card">
+                      <span class="stat-label">Tiempo ahorrado</span>
+                      <span class="stat-value">3h</span>
+                    </div>
+                  </div>
+                  <div class="dashboard-actions">
+                    <div class="action-item">
+                      <span>Consulta de horarios</span>
+                      <span class="action-status">Respondido</span>
+                    </div>
+                    <div class="action-item">
+                      <span>Consulta de ubicación</span>
+                      <span class="action-status">Respondido</span>
+                    </div>
+                    <div class="action-item">
+                      <span>Consulta de envíos</span>
+                      <span class="action-status">Respondido</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Multi-Channel -->
+              <div class="carousel-slide">
+                <div class="assistant-channels">
+                  <div class="channels-container">
+                    <div class="channel-main">
+                      <span class="channel-name">Asistente Inteligente</span>
+                    </div>
+                    <div class="channel-satellites">
+                      <div class="channel-item">WhatsApp</div>
+                      <div class="channel-item">Instagram</div>
+                      <div class="channel-item">Web</div>
+                    </div>
+                  </div>
+                  <p class="channels-footer">Todo conectado en un solo sistema</p>
+                </div>
+              </div>
+
+              <!-- Slide 4: Settings -->
+              <div class="carousel-slide">
+                <div class="assistant-settings">
+                  <div class="settings-header">
+                    <span class="settings-title">Configuración del asistente</span>
+                  </div>
+                  <div class="settings-list">
+                    <div class="settings-row">
+                      <span class="settings-label">Horarios de atención</span>
+                      <div class="settings-toggle active"></div>
+                    </div>
+                    <div class="settings-row">
+                      <span class="settings-label">Respuestas automáticas</span>
+                      <div class="settings-toggle active"></div>
+                    </div>
+                    <div class="settings-row">
+                      <span class="settings-label">Envíos habilitados</span>
+                      <div class="settings-toggle active"></div>
+                    </div>
+                    <div class="settings-row">
+                      <span class="settings-label">Toma de pedidos</span>
+                      <div class="settings-toggle active"></div>
+                    </div>
+                  </div>
+                  <p class="settings-footer">Adaptado a cada negocio</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="carousel-controls">
+              <button class="carousel-btn prev" data-track-cta="carousel_prev_asistencia_inteligente" data-track-section="portfolio_carousel" data-track-type="engagement" data-track-label="asistencia_inteligente"><i class="ph ph-caret-left"></i></button>
+              <button class="carousel-btn next" data-track-cta="carousel_next_asistencia_inteligente" data-track-section="portfolio_carousel" data-track-type="engagement" data-track-label="asistencia_inteligente"><i class="ph ph-caret-right"></i></button>
+            </div>
+
+            <!-- Dots -->
+            <div class="carousel-dots">
+              <div class="carousel-dot active" data-track-cta="carousel_dot_asistencia_inteligente" data-track-section="portfolio_carousel" data-track-type="engagement" data-track-label="asistencia_inteligente_dot_0"></div>
+              <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente" data-track-section="portfolio_carousel" data-track-type="engagement" data-track-label="asistencia_inteligente_dot_1"></div>
+              <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente" data-track-section="portfolio_carousel" data-track-type="engagement" data-track-label="asistencia_inteligente_dot_2"></div>
+              <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente" data-track-section="portfolio_carousel" data-track-type="engagement" data-track-label="asistencia_inteligente_dot_3"></div>
+            </div>
           </div>
         </div>
 
@@ -465,18 +599,20 @@
       <div class="projects-container" style="margin-top: 0;">
 
         <!-- 5) Sistema de pedidos automatizado -->
-        <div id="sistema-pedidos-automatizado" class="project-row" data-aos="fade-up" 
-             data-track-cta="click_portfolio_sistema_pedidos"
-             data-track-section="portfolio"
-             data-track-type="project"
-             data-track-label="sistema_pedidos_automatizado">
+        <div id="sistema-pedidos-automatizado" class="project-row" data-aos="fade-up"
+          data-track-cta="click_portfolio_sistema_pedidos" data-track-section="portfolio" data-track-type="project"
+          data-track-label="sistema_pedidos_automatizado">
           <div class="project-info">
             <h3>Sistema de pedidos automatizado</h3>
-            <p class="desc">Sistema web diseñado para estructurar y automatizar pedidos provenientes de WhatsApp e Instagram, eliminando la gestión manual y organizando la operación en un flujo claro y centralizado.</p>
-            <p class="desc">Incluye catálogo digital, captura automática de pedidos, panel administrativo en tiempo real y control de productos, ventas y clientes, permitiendo reducir errores y mejorar la eficiencia operativa.</p>
+            <p class="desc">Sistema web diseñado para estructurar y automatizar pedidos provenientes de WhatsApp e
+              Instagram, eliminando la gestión manual y organizando la operación en un flujo claro y centralizado.</p>
+            <p class="desc">Incluye catálogo digital, captura automática de pedidos, panel administrativo en tiempo real
+              y control de productos, ventas y clientes, permitiendo reducir errores y mejorar la eficiencia operativa.
+            </p>
           </div>
 
-          <div class="project-carousel-wrapper" data-images='["src/gestion-whatsapp/1.png", "src/gestion-whatsapp/2.png", "src/gestion-whatsapp/3.png", "src/gestion-whatsapp/4.png", "src/gestion-whatsapp/5.png"]'>
+          <div class="project-carousel-wrapper"
+            data-images='["src/gestion-whatsapp/1.png", "src/gestion-whatsapp/2.png", "src/gestion-whatsapp/3.png", "src/gestion-whatsapp/4.png", "src/gestion-whatsapp/5.png"]'>
           </div>
         </div>
 
@@ -484,17 +620,9 @@
         <div class="project-row reverse" data-aos="fade-up">
           <div class="project-info">
             <h3>Sistema de Gestión de Pedidos y Producción</h3>
-            <p class="desc">Plataforma web premium orientada a negocios gastronómicos para la gestión
-              integral
-              de pedidos, control de stock por fecha y organización eficiente de los flujos de producción
-              y
-              despacho.</p>
-            <p class="desc">El sistema resuelve el clásico caos operativo mediante un catálogo dinámico y un
-              carrito de compras conectado a un panel de control central. Incluye interfaces dedicadas
-              basadas
-              en roles: un Dashboard administrativo para gestión y métricas, un Panel de Cocina enfocado
-              en
-              flujo de preparación, y una Vista de Despacho para envíos en tiempo real.</p>
+            <p class="desc">Plataforma web para negocios gastronómicos que centraliza pedidos, stock y producción en un solo sistema.</p>
+            <p class="desc">Organiza la operación con catálogo dinámico, carrito integrado y panel de control en tiempo real. Incluye Dashboard administrativo, Panel de Cocina y Vista de Despacho para gestionar todo el flujo de forma clara y eficiente.</p>
+
           </div>
 
           <div class="project-carousel-wrapper" data-images='["src/dashboar.png"]'>
@@ -523,6 +651,18 @@
         style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
         Webs Estratégicas</h2>
       <div class="projects-container" style="margin-top: 0;">
+
+        <!-- 6) SeaducedExperience -->
+        <div class="project-row" data-aos="fade-up">
+          <div class="project-info">
+            <h3>SeaducedExperience</h3>
+            <p class="desc">Sitio web turístico diseñado para presentar y vender experiencias privadas en barco, con enfoque en claridad, estética premium y conversión, optimizado para una navegación simple y responsive en todos los dispositivos.</p>
+          </div>
+
+          <div class="project-carousel-wrapper"
+            data-images='["src/copenhagen/boat5.png", "src/copenhagen/boat4.png", "src/copenhagen/boat3.png", "src/copenhagen/boat2.png", "src/copenhagen/boat1.png"]'>
+          </div>
+        </div>
 
 
         <!-- 7) Inferno Growshop -->
@@ -820,6 +960,26 @@
           console.error("Error setting up carousel", e);
         }
       });
+
+      // HTML Carousel Navigation logic for Assistant
+      const assistantCarousel = document.getElementById('assistant-carousel');
+      if (assistantCarousel) {
+        const slides = assistantCarousel.querySelectorAll('.carousel-slide');
+        const prevBtn = assistantCarousel.querySelector('.prev');
+        const nextBtn = assistantCarousel.querySelector('.next');
+        const dots = assistantCarousel.querySelectorAll('.carousel-dot');
+        let current = 0;
+
+        const update = (idx) => {
+          slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+          current = idx;
+        };
+
+        prevBtn?.addEventListener('click', () => update((current - 1 + slides.length) % slides.length));
+        nextBtn?.addEventListener('click', () => update((current + 1) % slides.length));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => update(i)));
+      }
     });
   </script>
 
