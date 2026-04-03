@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automate WhatsApp Orders | Automated Order Management System</title>
+  <meta name="description"
+    content="Automated order system for WhatsApp and Instagram: digital catalog, automatic order capture, admin panel and real-time sync. Sales automation built to scale." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Leba" />
+  <meta name="publisher" content="Leba" />
+  <link rel="canonical" href="https://weareleba.com/articles/automate-whatsapp-orders" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Automate WhatsApp Orders | Automated Order Management System" />
+  <meta property="og:description"
+    content="Online order system for WhatsApp and Instagram: digital catalog, auto checkout, and control panel. Sales automation without operational chaos." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://weareleba.com/articles/automate-whatsapp-orders" />
+  <meta property="og:site_name" content="Leba" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://weareleba.com/src/render.png" />
+  <meta property="og:image:alt" content="Automate WhatsApp Orders with Leba" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Automate WhatsApp Orders | Automated Order Management System" />
+  <meta name="twitter:description"
+    content="How to move from scattered chat orders to an organized system with catalog, checkout and control panel." />
+  <meta name="twitter:image" content="https://weareleba.com/src/render.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Automated Order Management System for WhatsApp and Instagram",
+    "description": "A guide to structuring WhatsApp orders with a system that centralizes catalog, checkout, admin panel and analytics.",
+    "author": {
+      "@type": "Organization",
+      "name": "Leba"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Leba",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://weareleba.com/favicon.ico"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://weareleba.com/articles/automate-whatsapp-orders"
+    },
+    "inLanguage": "en"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you automate WhatsApp orders without losing the human touch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The system structures products, customer data, payment and delivery, while the business retains control of the process and can intervene whenever needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a WhatsApp order system replace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It replaces manual order-taking via chat, the use of Excel or paper for tracking, and the lack of visibility over sales, stock and active orders."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What type of business benefits from this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is useful for retail, catalog-based businesses, brands with many repeated inquiries, and companies that sell through WhatsApp and Instagram and need to organize their orders and operations."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0YEG9KJT5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P0YEG9KJT5');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "w3yyyartvr");
+  </script>
+
+  <!-- Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Linear Style Design System -->
+  <link rel="stylesheet" href="../css/linear.css" />
+
+  <style>
+    .article-body {
+      padding-top: 40px;
+    }
+
+    .article-body h2 {
+      margin-top: 60px;
+      margin-bottom: 24px;
+    }
+
+    .article-body p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 40px 0;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .steps-list {
+      display: grid;
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .step-item {
+      padding: 32px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+    }
+
+    .step-num {
+      font-family: monospace;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .faq-card {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 60px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .meta-card {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      text-align: left;
+    }
+
+    .meta-card strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .meta-card span {
+      color: var(--text-tertiary);
+      font-size: 0.9375rem;
+    }
+
+    @media (max-width: 600px) {
+      .meta-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Ambient Mesh Gradient -->
+  <div class="mesh-bg"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="main-navbar">
+    <div class="container nav-content">
+      <div class="logo">
+        <a href="../index-en.html" title="Leba - Home">Leba</a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Open menu">
+        <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="../index-en.html#portfolio" title="View project portfolio" data-track-cta="click_nav_portfolio"
+            data-track-section="navbar" data-track-type="navigation">Portfolio</a></li>
+        <li><a href="../index-en.html#solutions" title="View our solutions" data-track-cta="click_nav_solutions"
+            data-track-section="navbar" data-track-type="navigation">Solutions</a></li>
+        <li><a href="../index-en.html#process" title="View our work process" data-track-cta="click_nav_process"
+            data-track-section="navbar" data-track-type="navigation">Process</a></li>
+        <li><a href="../index-en.html#contact" class="btn btn-sm" title="Schedule a call with Leba"
+            data-track-cta="click_nav_schedule" data-track-section="navbar" data-track-type="cta">Schedule a
+            call</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-view">
+    <!-- HERO ARTICLE -->
+    <header class="section hero container" style="min-height: auto; padding-top: 160px; padding-bottom: 100px;">
+
+      <div class="hero-pill" data-aos="fade-down" data-aos-delay="100">
+        Practical Guide · Order Management System
+      </div>
+
+      <h1 data-aos="fade-up" data-aos-delay="200" style="font-size: clamp(2rem, 5vw, 3.5rem); max-width: 950px;">
+        Automated Order Management System for WhatsApp and Instagram
+      </h1>
+
+      <p data-aos="fade-up" data-aos-delay="300" style="max-width: 750px;">
+        If you currently take orders through WhatsApp or Instagram, copy data by hand, and rely on chat to organize
+        everything, this guide shows you how to move to an automated order system that is clearer, faster, and built to scale.
+      </p>
+
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
+        <a href="../index-en.html#contact-form" class="btn btn-primary" title="We analyze how you work"
+          data-track-cta="click_article_hero_analysis" data-track-section="hero_article" data-track-type="cta"
+          data-track-label="automate_whatsapp_orders">
+          We analyze how you work
+        </a>
+      </div>
+
+      <div class="meta-strip" data-aos="fade-up" data-aos-delay="500">
+        <div class="meta-card">
+          <strong>Problem</strong>
+          <span>Disorganized orders, manual workload and poor visibility.</span>
+        </div>
+        <div class="meta-card">
+          <strong>Solution</strong>
+          <span>Catalog, checkout, admin panel and real-time sync.</span>
+        </div>
+        <div class="meta-card">
+          <strong>Result</strong>
+          <span>Fewer errors, more control and a cleaner operation.</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ARTICLE CONTENT -->
+    <section class="section container article-body" style="padding-top: 0;">
+      <div data-aos="fade-up">
+        <span class="label">The real problem</span>
+        <h2>Selling through chat works at first, but becomes chaotic as your business grows</h2>
+        <p style="margin-bottom: 20px;">
+          If you feel like everything depends on messages, you're not alone.
+        </p>
+        <p>
+          Many businesses start taking orders through WhatsApp or Instagram. The problem appears when every sale
+          depends on messages, manual notes and informal follow-ups.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="margin-bottom: 20px;">What usually happens today</h3>
+            <ul style="color: var(--text-secondary); padding-left: 20px; list-style-type: '→ ';">
+              <li style="margin-bottom: 12px;">The customer writes in and the order is assembled manually.</li>
+              <li style="margin-bottom: 12px;">Data ends up scattered across chats, notes, Excel or paper.</li>
+              <li style="margin-bottom: 12px;">Payment details, addresses, pickup or product info get lost.</li>
+              <li>The business has no clear view of orders, sales and stock.</li>
+            </ul>
+          </div>
+          <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
+            <h3 style="margin-bottom: 20px;">The most common mistake</h3>
+            <p>
+              Trying to solve the problem by <strong>responding faster</strong>. The real change happens when the
+              order stops depending on chat and moves into a structured flow.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" style="margin-top: 100px;">
+        <span class="label">The solution</span>
+        <h2>A WhatsApp order system doesn't replace your sales — it organizes how they work</h2>
+        <p>
+          The most effective way to automate WhatsApp orders is to support them with a system that captures
+          information in a structured way and displays it in a centralized panel.
+        </p>
+        <p style="margin-top: 16px; font-weight: 500;">
+          This isn't an improvement. It's a change in how your business operates.
+        </p>
+
+        <div class="steps-list">
+          <div class="step-item">
+            <span class="step-num">01</span>
+            <h3>Catalog</h3>
+            <p>The customer selects products without depending on messages.</p>
+          </div>
+
+          <div class="step-item">
+            <span class="step-num">02</span>
+            <h3>Automatic order</h3>
+            <p>The system captures data, payment and delivery in a structured format.</p>
+          </div>
+
+          <div class="step-item">
+            <span class="step-num">03</span>
+            <h3>Control panel</h3>
+            <p>The business receives each order organized and ready to process.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" style="margin-top: 80px; text-align: center;">
+        <p style="max-width: 600px; margin: 0 auto 24px auto; font-size: 1.05rem;">
+          This is the type of system we design at Leba for businesses that need to streamline their orders and
+          operations.
+        </p>
+        <a href="../index-en.html#portfolio" class="btn btn-outline" data-track-cta="click_article_portfolio"
+          data-track-section="article" data-track-type="navigation" data-track-label="portfolio_from_article">
+          See a real example
+        </a>
+      </div>
+
+      <div data-aos="fade-up" style="margin-top: 100px;">
+        <span class="label">What it replaces</span>
+        <p style="margin-bottom: 16px;">
+          This is probably what you're doing today, even if you don't see it that way:
+        </p>
+        <h2>Leave behind scattered chats, spreadsheets and gut-feel decisions</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="margin-bottom: 20px;">What an order system replaces</h3>
+            <ul style="color: var(--text-secondary); padding-left: 20px; list-style-type: '✕ ';">
+              <li style="margin-bottom: 12px;">Manual order-taking via WhatsApp or Instagram.</li>
+              <li style="margin-bottom: 12px;">Stock and sales tracking in spreadsheets or on paper.</li>
+              <li style="margin-bottom: 12px;">Informal processes where everyone figures it out on their own.</li>
+              <li>Manually reading chats to understand what's happening.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom: 20px;">What you get in return</h3>
+            <ul style="color: var(--text-secondary); padding-left: 20px; list-style-type: '✓ ';">
+              <li style="margin-bottom: 12px;">Complete orders ready to process.</li>
+              <li style="margin-bottom: 12px;">Real visibility over products, sales and customer behaviour.</li>
+              <li style="margin-bottom: 12px;">Availability and pricing control from any browser.</li>
+              <li>A stronger foundation to sell better and scale.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" style="margin-top: 100px;">
+        <span class="label">Before vs After</span>
+        <h2>The change isn't just technical — it's operational</h2>
+
+        <p style="max-width: 700px;">
+          The difference is not about having more tools, but about changing how the entire process works.
+        </p>
+
+        <div class="grid-2" style="margin-top: 40px;">
+          <div class="card">
+            <h3 style="margin-bottom: 20px;">Before</h3>
+            <ul style="color: var(--text-secondary); padding-left: 20px; list-style-type: '✕ ';">
+              <li style="margin-bottom: 12px;">Orders via chat</li>
+              <li style="margin-bottom: 12px;">Incomplete data</li>
+              <li>Errors and disorder</li>
+            </ul>
+          </div>
+          <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.15);">
+            <h3 style="margin-bottom: 20px;">After</h3>
+            <ul style="color: var(--text-secondary); padding-left: 20px; list-style-type: '✓ ';">
+              <li style="margin-bottom: 12px;">Structured orders</li>
+              <li style="margin-bottom: 12px;">Complete data</li>
+              <li>Full control</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" style="margin-top: 100px;">
+        <span class="label">Advanced layer</span>
+        <h2>AI to better understand what's happening in your chats</h2>
+        <div class="card" style="margin-top: 32px;">
+          <ul style="color: var(--text-secondary); padding-left: 20px; list-style: none; margin-bottom: 0;">
+            <li style="margin-bottom: 12px;"><i class="ph ph-check-circle"
+                style="color: var(--text-primary); margin-right: 8px;"></i> Detects purchase intent.</li>
+            <li style="margin-bottom: 12px;"><i class="ph ph-check-circle"
+                style="color: var(--text-primary); margin-right: 8px;"></i> Identifies customer frustration.</li>
+            <li style="margin-bottom: 12px;"><i class="ph ph-check-circle"
+                style="color: var(--text-primary); margin-right: 8px;"></i> Summarizes trends without reading every chat.</li>
+            <li><i class="ph ph-check-circle" style="color: var(--text-primary); margin-right: 8px;"></i> Measures
+              conversion between chats and orders.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-aos="fade-up" style="margin-top: 100px;">
+        <span class="label">Frequently asked questions</span>
+        <h2>FAQ on automating WhatsApp orders</h2>
+        <div class="faq-grid">
+          <div class="faq-card">
+            <h3 style="font-size: 1.125rem; margin-bottom: 12px;">Can you automate WhatsApp orders without losing
+              the human touch?</h3>
+            <p style="font-size: 1rem; margin-bottom: 0;">Yes. The system organizes products, customer data, payment
+              and delivery, while your team retains control and can step in whenever needed.</p>
+          </div>
+          <div class="faq-card">
+            <h3 style="font-size: 1.125rem; margin-bottom: 12px;">Is this only for large businesses?</h3>
+            <p style="font-size: 1rem; margin-bottom: 0;">No. It also makes sense for businesses that already feel
+              operational chaos even if they're not large yet. Often the best moment is before the chaos grows further.</p>
+          </div>
+          <div class="faq-card">
+            <h3 style="font-size: 1.125rem; margin-bottom: 12px;">Do I need to stop using WhatsApp?</h3>
+            <p style="font-size: 1rem; margin-bottom: 0;">Not necessarily. WhatsApp can remain an important channel,
+              but it stops being the place where everything gets resolved manually.</p>
+          </div>
+          <div class="faq-card">
+            <h3 style="font-size: 1.125rem; margin-bottom: 12px;">How long does it take to implement something like
+              this?</h3>
+            <p style="font-size: 1rem; margin-bottom: 0;">
+              It depends on the business, but in many cases you can start working on a functional system within a few
+              days, prioritizing the parts that generate the most impact.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section id="cta-final" class="section container" style="padding-bottom: 120px;">
+      <div class="cta-box" data-aos="zoom-in">
+        <span class="label">Next step</span>
+        <h2>We analyze how you work</h2>
+        <p style="margin-bottom: 24px;">
+          If you're currently managing orders manually, we can help you identify what to structure, automate or
+          centralize first.
+        </p>
+        <a href="index-en.html#contact-form" class="btn btn-primary" title="We analyze how you work"
+          data-track-cta="click_article_analysis" data-track-section="article" data-track-type="cta"
+          data-track-label="automate_whatsapp_orders">
+          We analyze how you work <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
+        </a>
+        <p style="margin-top: 16px; font-size: 0.9rem; opacity: 0.6;">
+          You can also view real examples of systems we've already implemented.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <div class="footer">
+      <div>© 2026 Leba</div>
+      <div class="footer-links">
+        <a href="../privacy-policy.html" title="Privacy policy">Privacy</a>
+        <a href="../terms-of-service.html" title="Terms and conditions">Terms</a>
+        <a href="automatizar-pedidos-whatsapp.html" title="Automatizar pedidos por WhatsApp"
+          style="font-size: 0.75rem; opacity: 0.5;">Versión en español</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="../js/script.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+  </script>
+</body>
+
+</html>
