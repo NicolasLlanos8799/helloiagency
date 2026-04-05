@@ -81,17 +81,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLists = Array.from(document.querySelectorAll('.nav-links'));
     const homeNav = document.getElementById('home-nav-links');
-    const portfolioNav = document.getElementById('portfolio-nav-links');
     const homeView = document.getElementById('home-view');
     const portfolioView = document.getElementById('portfolio-view');
+    const logoHomeLink = document.getElementById('logo-home-link');
+    const backHomeLink = document.getElementById('back-home-link');
+    const portfolioContactLink = document.getElementById('portfolio-contact-link');
+    const defaultTitle = 'Leba | Diseño de Sistemas Digitales';
+    const portfolioTitle = 'Leba | Portfolio';
+    const navHashTargets = new Set(['#soluciones', '#proceso', '#contacto', '#contacto-form']);
 
     function getVisibleNav() {
-        const isPortfolioViewVisible = portfolioView && window.getComputedStyle(portfolioView).display !== 'none';
-
-        if (isPortfolioViewVisible && portfolioNav) {
-            return portfolioNav;
-        }
-
         if (homeView && window.getComputedStyle(homeView).display !== 'none' && homeNav) {
             return homeNav;
         }
@@ -141,6 +140,148 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    function refreshAnimations() {
+        if (typeof AOS !== 'undefined' && typeof AOS.refreshHard === 'function') {
+            AOS.refreshHard();
+        }
+    }
+
+    function scrollToTarget(selector, smooth = true) {
+        if (!selector || selector === '#') return;
+        const target = document.querySelector(selector);
+        if (!target) return;
+
+        const headerOffset = 80;
+        const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: smooth ? 'smooth' : 'auto'
+        });
+    }
+
+    function showHome(options = {}) {
+        const target = options.target || null;
+        const smooth = options.smooth !== false;
+        const updateHash = options.updateHash !== false;
+
+        if (homeView) homeView.style.display = 'block';
+        if (portfolioView) portfolioView.style.display = 'none';
+        if (homeNav) homeNav.style.display = 'flex';
+
+        document.title = defaultTitle;
+        closeMobileMenu();
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+        if (updateHash) {
+            const nextHash = target && navHashTargets.has(target) ? target : '';
+            history.replaceState(null, '', nextHash || (window.location.pathname + window.location.search));
+        }
+
+        setTimeout(function () {
+            refreshAnimations();
+            if (target) {
+                scrollToTarget(target, smooth);
+            }
+        }, 50);
+    }
+
+    function showPortfolio(options = {}) {
+        const updateHash = options.updateHash !== false;
+
+        if (homeView) homeView.style.display = 'none';
+        if (portfolioView) portfolioView.style.display = 'block';
+        if (homeNav) homeNav.style.display = 'flex';
+
+        document.title = portfolioTitle;
+        closeMobileMenu();
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+        if (updateHash) {
+            history.replaceState(null, '', '#portfolio');
+        }
+
+        setTimeout(refreshAnimations, 50);
+    }
+
+    window.showHome = showHome;
+    window.showPortfolio = showPortfolio;
+    window.scrollToTarget = scrollToTarget;
+    window.closeMobileMenu = closeMobileMenu;
+
+    function handleInitialRouteFromHash() {
+        const hash = window.location.hash;
+        if (hash === '#portfolio') {
+            showPortfolio({ updateHash: false });
+            return;
+        }
+
+        if (hash && navHashTargets.has(hash)) {
+            showHome({ target: hash, smooth: false, updateHash: false });
+            return;
+        }
+
+        showHome({ updateHash: false });
+    }
+
+    document.querySelectorAll('[data-portfolio-trigger], #open-portfolio-link').forEach(function (trigger) {
+        trigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            showPortfolio();
+        });
+    });
+
+    if (logoHomeLink) {
+        logoHomeLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            showHome();
+        });
+    }
+
+    if (backHomeLink) {
+        backHomeLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            showHome();
+        });
+    }
+
+    if (portfolioContactLink) {
+        portfolioContactLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            showHome({ target: '#contacto' });
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"], [data-scroll-target]').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            const target = link.getAttribute('data-scroll-target') || link.getAttribute('href');
+            if (!target || target === '#' || target === '#portfolio') return;
+            if (!target.startsWith('#')) return;
+
+            event.preventDefault();
+
+            if (portfolioView && window.getComputedStyle(portfolioView).display !== 'none') {
+                showHome({ target: target });
+            } else {
+                scrollToTarget(target, true);
+                if (navHashTargets.has(target)) {
+                    history.replaceState(null, '', target);
+                }
+                closeMobileMenu();
+            }
+        });
+    });
+
+    window.addEventListener('hashchange', function () {
+        if (window.location.hash === '#portfolio') {
+            showPortfolio({ updateHash: false });
+        } else if (navHashTargets.has(window.location.hash)) {
+            showHome({ target: window.location.hash, smooth: false, updateHash: false });
+        }
+    });
+
+    handleInitialRouteFromHash();
+
     // Centralized Tracking Architecture
     document.addEventListener('click', function (e) {
         const trackEl = e.target.closest('[data-track-cta]');

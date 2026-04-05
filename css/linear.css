@@ -150,7 +150,7 @@ a {
   font-size: 0.875rem;
   color: var(--text-primary);
   font-weight: 500;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .mobile-toggle {
@@ -165,6 +165,28 @@ a {
 .nav-links a:hover,
 .nav-links a.active {
   opacity: 0.7;
+}
+
+.nav-links a[href="#portfolio"] {
+  position: relative;
+}
+
+.nav-links a[href="#portfolio"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a[href="#portfolio"]:hover::after,
+.nav-links a[href="#portfolio"]:focus-visible::after,
+.nav-links a[href="#portfolio"].is-active::after {
+  opacity: 1;
 }
 
 .btn-sm {
@@ -221,6 +243,14 @@ a {
   font-weight: 500;
 }
 
+.hero-intro-line {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
 .hero h1 {
   font-size: clamp(2.25rem, 6vw, 4.5rem);
   max-width: 900px;
@@ -247,6 +277,90 @@ a {
   display: flex;
   gap: 16px;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.btn-portfolio {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.btn-portfolio:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.hero-scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.hero-scroll-cue i {
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.hero-scroll-cue:hover i,
+.hero-scroll-cue:focus-visible i {
+  transform: translateY(2px);
+}
+
+.hero-proof-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.hero-proof-strip span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.portfolio-quick-access {
+  padding-top: 0;
+  padding-bottom: 12px;
+}
+
+.portfolio-quick-access__box {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.portfolio-quick-access__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+
+.portfolio-quick-access__box h2 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.portfolio-quick-access__box p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.btn-portfolio-inline {
+  white-space: nowrap;
 }
 
 @keyframes fadeInDown {
@@ -291,6 +405,12 @@ a {
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--border-glow);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 3px;
 }
 
 /* =========================================
@@ -819,9 +939,72 @@ a {
 }
 
 @media (max-width: 600px) {
+  .hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-h) + 20px);
+    padding-bottom: 56px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 8px;
+  }
+
+  .hero-pill {
+    margin-bottom: 18px;
+  }
+
+  .hero-intro-line {
+    margin-bottom: 10px;
+    font-size: 0.82rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 14px;
+  }
+
+  .hero p {
+    margin-top: 4px;
+    margin-bottom: 20px;
+  }
+
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .hero-actions .btn-portfolio {
+    border-color: rgba(255, 255, 255, 0.42);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .hero-scroll-cue {
+    margin-bottom: 12px;
+  }
+
+  .hero-proof-strip {
+    justify-content: flex-start;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .hero-proof-strip span {
+    font-size: 0.74rem;
+    padding: 5px 9px;
+  }
+
+  .portfolio-quick-access__box {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .portfolio-quick-access__box h2 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .btn {

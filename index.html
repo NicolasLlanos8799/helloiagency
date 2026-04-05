@@ -116,7 +116,7 @@
   <nav class="navbar" id="main-navbar">
     <div class="container nav-content">
       <div class="logo">
-        <a href="#" id="logo-home-link" title="Leba - Inicio">Leba</a>
+        <a href="#home" id="logo-home-link" title="Leba - Inicio" aria-label="Volver al inicio">Leba</a>
       </div>
 
       <button class="mobile-toggle" aria-label="Abrir menú">
@@ -124,7 +124,7 @@
       </button>
 
       <ul class="nav-links" id="home-nav-links">
-        <li><a href="#" id="open-portfolio-link" title="Ver portfolio de proyectos" data-track-cta="click_nav_portfolio"
+        <li><a href="#portfolio" id="open-portfolio-link" title="Ver portfolio de proyectos" aria-label="Abrir portfolio de proyectos" data-track-cta="click_nav_portfolio"
             data-track-section="navbar" data-track-type="navigation">Portfolio</a></li>
         <li><a href="#soluciones" title="Ver nuestras soluciones" data-track-cta="click_nav_soluciones"
             data-track-section="navbar" data-track-type="navigation">Soluciones</a></li>
@@ -150,13 +150,16 @@
         Digital Systems Studio
       </div>
 
+      <p class="hero-intro-line" data-aos="fade-up" data-aos-duration="900" data-aos-delay="150">
+        We build digital systems for real operations.
+      </p>
+
       <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        Diseñamos sistemas digitales que organizan y potencian negocios
+        Tecnología que impulsa negocios
       </h1>
 
       <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        Ayudamos a negocios y emprendedores a estructurar su operación mediante software a medida, automatización e
-        integración de herramientas.
+        Diseñamos software a medida, automatizaciones e integraciones para ordenar tu operación y escalar con claridad.
       </p>
 
       <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
@@ -166,9 +169,35 @@
         <a href="#soluciones" class="btn btn-outline" title="Ver las soluciones de Leba"
           data-track-cta="click_explorar_soluciones" data-track-section="hero" data-track-type="cta"
           data-track-label="hero_secondary_soluciones">Explorar soluciones</a>
+        <a href="#portfolio" class="btn btn-outline btn-portfolio" title="Ver portfolio de proyectos" aria-label="Ver portfolio de proyectos"
+          data-portfolio-trigger="true" data-track-cta="click_hero_portfolio" data-track-section="hero"
+          data-track-type="cta" data-track-label="hero_portfolio_cta">Ver portfolio</a>
+      </div>
+
+      <a href="#soluciones" class="hero-scroll-cue" data-scroll-target="#soluciones" aria-label="Explorar más abajo">
+        <span>Explorar más abajo</span>
+        <i class="ph ph-arrow-down"></i>
+      </a>
+
+      <div class="hero-proof-strip" aria-label="Razones para elegir Leba">
+        <span>Sistemas a medida</span>
+        <span>Automatización e IA</span>
+        <span>Plataformas operativas</span>
       </div>
     </header>
 
+    <section class="portfolio-quick-access section container" aria-label="Acceso rápido al portfolio">
+      <div class="portfolio-quick-access__box" data-aos="fade-up" data-aos-duration="800">
+        <p class="portfolio-quick-access__label">Recorré casos reales</p>
+        <div>
+          <h2>¿Querés ver cómo se aplican estas soluciones?</h2>
+          <p>Entrá al portfolio y explorá proyectos diseñados para operaciones reales.</p>
+        </div>
+        <a href="#portfolio" class="btn btn-outline btn-portfolio-inline" aria-label="Abrir portfolio desde acceso rápido"
+          data-portfolio-trigger="true" data-track-cta="click_inline_portfolio" data-track-section="home_inline"
+          data-track-type="cta" data-track-label="inline_portfolio_access">Ver portfolio</a>
+      </div>
+    </section>
 
 
     <!-- SOLUTIONS (CARDS) -->
@@ -740,129 +769,6 @@
       offset: 50,
       duration: 800,
       easing: 'ease-out-cubic',
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const homeView = document.getElementById('home-view');
-      const portfolioView = document.getElementById('portfolio-view');
-
-      const homeNav = document.getElementById('home-nav-links');
-      const portfolioNav = document.getElementById('portfolio-nav-links');
-
-      const openPortfolioLink = document.getElementById('open-portfolio-link');
-      const backHomeLink = document.getElementById('back-home-link');
-      const portfolioContactLink = document.getElementById('portfolio-contact-link');
-      const logoHomeLink = document.getElementById('logo-home-link');
-
-      // Support deep-linking to portfolio or other sections
-      function handleInitialHash() {
-        if (window.location.hash === '#portfolio') {
-          showPortfolio();
-        } else if (window.location.hash && window.location.hash !== '#') {
-          // If it's another hash (like #soluciones), ensure home is visible and scroll
-          showHome(window.location.hash);
-        }
-      }
-
-      function scrollToTarget(selector, smooth = true) {
-        const target = document.querySelector(selector);
-        if (!target) return;
-
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: smooth ? 'smooth' : 'auto'
-        });
-      }
-
-      function showHome(scrollToSelector = null) {
-        window.scrollTo({ top: 0, behavior: 'instant' });
-
-        homeView.style.display = 'block';
-        portfolioView.style.display = 'none';
-
-        if (homeNav) homeNav.style.display = 'flex';
-        // if (portfolioNav) portfolioNav.style.display = 'none';
-
-        document.title = 'Leba | Diseño de Sistemas Digitales';
-
-        setTimeout(() => {
-          if (typeof AOS !== 'undefined') {
-            AOS.refreshHard();
-          }
-
-          if (scrollToSelector) {
-            scrollToTarget(scrollToSelector, false);
-          }
-        }, 50);
-      }
-
-      function showPortfolio() {
-        window.scrollTo({ top: 0, behavior: 'instant' });
-
-        homeView.style.display = 'none';
-        portfolioView.style.display = 'block';
-
-        if (homeNav) homeNav.style.display = 'flex'; // Keep the same nav visible
-        // if (portfolioNav) portfolioNav.style.display = 'flex';
-
-        document.title = 'Leba | Portfolio';
-
-        setTimeout(() => {
-          if (typeof AOS !== 'undefined') {
-            AOS.refreshHard();
-          }
-        }, 50);
-      }
-
-      if (openPortfolioLink) {
-        openPortfolioLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          showPortfolio();
-        });
-      }
-
-      if (backHomeLink) {
-        backHomeLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          showHome();
-        });
-      }
-
-      if (logoHomeLink) {
-        logoHomeLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          showHome();
-        });
-      }
-
-      if (portfolioContactLink) {
-        portfolioContactLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          showHome('#contacto');
-        });
-      }
-
-      document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const href = link.getAttribute('href');
-          if (!href || href === '#') return;
-
-          e.preventDefault();
-
-          if (portfolioView.style.display === 'block') {
-            showHome(href);
-          } else {
-            scrollToTarget(href, true);
-          }
-        });
-      });
-
-      // Handle initial hash on load
-      handleInitialHash();
     });
   </script>
 
