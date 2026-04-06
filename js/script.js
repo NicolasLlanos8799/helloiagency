@@ -175,6 +175,69 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Contact form submit without redirect (Formspree AJAX)
+    const contactForm = document.getElementById('contactForm');
+    const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+    const contactSuccess = document.getElementById('contactSuccess');
+    const contactError = document.getElementById('contactError');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            contactSuccess?.classList.remove('is-visible');
+            contactError?.classList.remove('is-visible');
+            contactSubmitBtn?.classList.add('is-loading');
+            if (contactSubmitBtn) {
+                contactSubmitBtn.disabled = true;
+            }
+
+            const formData = new FormData(contactForm);
+            const endpoint = contactForm.getAttribute('action');
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+
+                contactForm.reset();
+                contactSuccess?.classList.add('is-visible');
+
+                if (typeof gtag === 'function') {
+                    gtag('event', 'form_submit_success', {
+                        event_category: 'form',
+                        event_label: 'contact_form',
+                        section: 'contact_form'
+                    });
+                }
+            } catch (error) {
+                console.error('Contact form submit error:', error);
+                contactError?.classList.add('is-visible');
+
+                if (typeof gtag === 'function') {
+                    gtag('event', 'form_submit_error', {
+                        event_category: 'form',
+                        event_label: 'contact_form',
+                        section: 'contact_form'
+                    });
+                }
+            } finally {
+                contactSubmitBtn?.classList.remove('is-loading');
+                if (contactSubmitBtn) {
+                    contactSubmitBtn.disabled = false;
+                }
+            }
+        });
+    }
+
     // Cookie Consent Banner Logic
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptCookiesBtn = document.getElementById('accept-cookies');
