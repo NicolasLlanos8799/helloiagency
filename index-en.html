@@ -863,6 +863,7 @@
                         slide.src = src;
                         slide.loading = 'lazy';
                         slide.alt = `${projectInfo ? projectInfo.innerText : 'Project'} - Slide ${idx + 1}`;
+                        slide.title = slide.alt;
                         track.appendChild(slide);
                         slideEls.push(slide);
                     });
