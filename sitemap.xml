@@ -1,39 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Home - ES -->
   <url>
     <loc>https://weareleba.com/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://weareleba.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/index-en" />
-    <lastmod>2026-04-03T18:55:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weareleba.com/" />
   </url>
-  <!-- Home - EN -->
   <url>
-    <loc>https://weareleba.com/index-en</loc>
+    <loc>https://weareleba.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://weareleba.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/index-en" />
-    <lastmod>2026-04-03T18:55:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <!-- Article - ES -->
-  <url>
-    <loc>https://weareleba.com/articles/automatizar-pedidos-whatsapp</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://weareleba.com/articles/automatizar-pedidos-whatsapp" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/articles/automate-whatsapp-orders" />
-    <lastmod>2026-04-03T18:55:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- Article - EN -->
-  <url>
-    <loc>https://weareleba.com/articles/automate-whatsapp-orders</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://weareleba.com/articles/automatizar-pedidos-whatsapp" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/articles/automate-whatsapp-orders" />
-    <lastmod>2026-04-03T18:55:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weareleba.com/" />
   </url>
 </urlset>

@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Force non-www
+RewriteCond %{HTTP_HOST} ^www\.weareleba\.com$ [NC]
+RewriteRule ^(.*)$ https://weareleba.com/$1 [R=301,L]
+
+# Canonical index routes
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^index-en\.html$ /en/ [R=301,L]
+
+# Serve English home at /en/
+RewriteRule ^en/?$ /en/index.html [L]
