@@ -2,6 +2,12 @@
    Leba - Linear / Stripe Dark Theme (V4)
    ========================================================================== */
 
+@font-face {
+  font-family: "CEDRA";
+  src: local("CEDRA"), local("Cedra");
+  font-display: swap;
+}
+
 :root {
   /* Colors - Linear Space */
   --bg-main: #000000;
@@ -21,6 +27,7 @@
 
   /* Typography */
   --font-base: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-logo: "CEDRA", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Layout */
   --nav-h: 64px;
@@ -133,10 +140,20 @@ a {
 }
 
 .logo {
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
+  font-family: var(--font-logo);
+  font-size: 1.7rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  line-height: 1;
   text-transform: uppercase;
+}
+
+.logo a {
+  font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  display: inline-block;
 }
 
 .nav-links {

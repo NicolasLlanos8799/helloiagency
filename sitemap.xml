@@ -12,4 +12,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://weareleba.com/" />
   </url>
+  <url>
+    <loc>https://weareleba.com/automatizar-pedidos-whatsapp.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weareleba.com/automatizar-pedidos-whatsapp.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/automate-whatsapp-orders.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weareleba.com/automatizar-pedidos-whatsapp.html" />
+  </url>
+  <url>
+    <loc>https://weareleba.com/automate-whatsapp-orders.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://weareleba.com/automatizar-pedidos-whatsapp.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://weareleba.com/automate-whatsapp-orders.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://weareleba.com/automate-whatsapp-orders.html" />
+  </url>
 </urlset>
