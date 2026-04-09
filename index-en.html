@@ -877,7 +877,7 @@
                         slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
                         slide.src = src;
                         slide.loading = 'lazy';
-                        slide.alt = 'Project slide';
+                        slide.alt = `${projectInfo ? projectInfo.innerText : 'Project'} - Slide ${idx + 1}`;
                         track.appendChild(slide);
                         slideEls.push(slide);
                     });

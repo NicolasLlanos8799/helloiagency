@@ -885,17 +885,17 @@
           track.className = 'carousel-track';
           wrapper.appendChild(track);
 
-          // Add Slides
-          const slideEls = [];
-          images.forEach((src, idx) => {
-            const slide = document.createElement('img');
-            slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
-            slide.src = src;
-            slide.loading = 'lazy';
-            slide.alt = 'Project slide';
-            track.appendChild(slide);
-            slideEls.push(slide);
-          });
+            // Add Slides
+            const slideEls = [];
+            images.forEach((src, idx) => {
+              const slide = document.createElement('img');
+              slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
+              slide.src = src;
+              slide.loading = 'lazy';
+              slide.alt = `${projectInfo ? projectInfo.innerText : 'Project'} - Demo Slide ${idx + 1}`;
+              track.appendChild(slide);
+              slideEls.push(slide);
+            });
 
           // Add Controls & Dots
           if (images.length > 1) {

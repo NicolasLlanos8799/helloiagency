@@ -1061,6 +1061,13 @@ a {
   .project-info {
     position: static;
   }
+
+  .project-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    word-break: break-word;
+    text-align: left;
+  }
 }
 
 /* =========================================
@@ -1331,14 +1338,22 @@ textarea.contact-form-input {
     padding-right: 8px;
   }
 
-  .project-carousel-wrapper {
-    aspect-ratio: 1 / 1;
-    background: rgba(0, 0, 0, 0.2);
+  .project-carousel-wrapper:not(.assistant-carousel) {
+    aspect-ratio: 16 / 10;
+    max-height: 400px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
   }
 
-  .carousel-slide {
-    background-size: cover;
-    background-position: top center;
+  img.carousel-slide {
+    object-fit: cover !important;
+    background-color: #111;
+  }
+
+  .carousel-slide:not(.active) {
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .footer {
