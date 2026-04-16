@@ -27,6 +27,24 @@ function handleExternalError(error) {
 
 // Initialize page interactions safely once DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
+    // Elegant Preloader Handling
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', function() {
+            // Give it a small extra buffer for a smoother entrance
+            setTimeout(() => {
+                document.body.classList.remove('is-loading');
+            }, 600);
+        });
+
+        // Safety timeout (if window load takes too long)
+        setTimeout(() => {
+            if (document.body.classList.contains('is-loading')) {
+                document.body.classList.remove('is-loading');
+            }
+        }, 3000);
+    }
+
     // Example usage of validation functions (only when fields exist)
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
