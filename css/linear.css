@@ -694,6 +694,48 @@ a {
   align-items: center;
   font-size: 0.875rem;
   color: var(--text-tertiary);
+  gap: 32px;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-email {
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.footer-email:hover {
+  color: var(--text-primary);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.footer-socials a {
+  font-size: 1.25rem;
+  color: var(--text-tertiary);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.footer-socials a:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 .footer-links {
@@ -704,6 +746,32 @@ a {
 .footer-links a:hover {
   color: var(--text-primary);
 }
+
+@media (max-width: 900px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 60px 0;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-socials {
+    margin-top: 4px;
+    margin-left: 0;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+  }
+}
+
 
 /* =========================================
    Legal Pages (Privacy & Terms)
