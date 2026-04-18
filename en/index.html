@@ -204,9 +204,10 @@
                 <a href="#contact-form" class="btn btn-primary" title="We analyze how you work"
                     data-track-cta="click_analyze_business" data-track-section="hero" data-track-type="cta"
                     data-track-label="hero_primary_analisis">We analyze how you work</a>
-                <a href="#solutions" class="btn btn-outline" title="View Leba solutions"
-                    data-track-cta="click_explore_solutions" data-track-section="hero" data-track-type="cta"
-                    data-track-label="hero_secondary_solutions">Explore solutions</a>
+                <a href="#" id="hero-open-portfolio" class="btn btn-outline" title="View project portfolio"
+                    data-track-cta="click_hero_portfolio" data-track-section="hero" data-track-type="navigation">
+                    View Portfolio <i class="ph ph-briefcase" style="margin-left: 8px;"></i>
+                </a>
             </div>
         </header>
 
@@ -817,6 +818,7 @@
             const portfolioNav = document.getElementById('portfolio-nav-links');
 
             const openPortfolioLink = document.getElementById('open-portfolio-link');
+            const heroOpenPortfolio = document.getElementById('hero-open-portfolio');
             const backHomeLink = document.getElementById('back-home-link');
             const portfolioContactLink = document.getElementById('portfolio-contact-link');
             const logoHomeLink = document.getElementById('logo-home-link');
@@ -888,6 +890,13 @@
 
             if (openPortfolioLink) {
                 openPortfolioLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPortfolio();
+                });
+            }
+
+            if (heroOpenPortfolio) {
+                heroOpenPortfolio.addEventListener('click', (e) => {
                     e.preventDefault();
                     showPortfolio();
                 });
