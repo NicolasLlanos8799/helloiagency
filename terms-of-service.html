@@ -19,6 +19,18 @@
     <link rel="apple-touch-icon" href="favicon.ico">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const forcedLang = params.get('lang');
+            try {
+                if (forcedLang === 'es' || forcedLang === 'en') {
+                    localStorage.setItem('preferredLang', forcedLang);
+                }
+            } catch (e) { }
+        })();
+    </script>
+
     <meta name="robots" content="noindex, follow">
 
     <!-- Open Graph -->

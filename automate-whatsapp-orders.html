@@ -15,6 +15,41 @@
   <link rel="alternate" hreflang="en" href="https://weareleba.com/automate-whatsapp-orders.html" />
   <link rel="alternate" hreflang="x-default" href="https://weareleba.com/automate-whatsapp-orders.html" />
 
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const forcedLang = params.get('lang');
+      const targetEs = 'automatizar-pedidos-whatsapp.html';
+      const suffix = `${window.location.search}${window.location.hash}`;
+
+      try {
+        if (forcedLang === 'es') {
+          localStorage.setItem('preferredLang', 'es');
+          window.location.replace(`${targetEs}${suffix}`);
+          return;
+        }
+        if (forcedLang === 'en') {
+          localStorage.setItem('preferredLang', 'en');
+          return;
+        }
+        const savedLang = localStorage.getItem('preferredLang');
+        if (savedLang === 'es') {
+          window.location.replace(`${targetEs}${suffix}`);
+          return;
+        }
+        if (savedLang === 'en') return;
+      } catch (e) { }
+
+      const primaryLang = (navigator.languages && navigator.languages.length > 0)
+        ? navigator.languages[0]
+        : (navigator.language || navigator.userLanguage || '');
+
+      if (/^es([_-]|$)/i.test(primaryLang)) {
+        window.location.replace(`${targetEs}${suffix}`);
+      }
+    })();
+  </script>
+
   <!-- Open Graph -->
   <meta property="og:title" content="Automate WhatsApp Orders | Leba" />
   <meta property="og:description"

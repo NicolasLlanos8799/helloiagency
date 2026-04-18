@@ -20,18 +20,38 @@
         (function () {
             const params = new URLSearchParams(window.location.search);
             const forcedLang = params.get('lang');
-            if (forcedLang === 'es' || forcedLang === 'en') return;
-
-            const browserLanguages = Array.isArray(navigator.languages) && navigator.languages.length
-                ? navigator.languages
-                : [navigator.language || navigator.userLanguage || ''];
-
-            const isSpanish = browserLanguages.some((lang) => /^es([_-]|$)/i.test(lang || ''));
-            if (!isSpanish) return;
-
-            const target = window.location.protocol === 'file:' ? '../index.html' : '/';
+            const targetEs = window.location.protocol === 'file:' ? '../index.html' : '/';
             const suffix = `${window.location.search}${window.location.hash}`;
-            window.location.replace(`${target}${suffix}`);
+
+            try {
+                // 1. Handle explicit manual override via URL parameter
+                if (forcedLang === 'es') {
+                    localStorage.setItem('preferredLang', 'es');
+                    window.location.replace(`${targetEs}${suffix}`);
+                    return;
+                }
+                if (forcedLang === 'en') {
+                    localStorage.setItem('preferredLang', 'en');
+                    return;
+                }
+
+                // 2. Handle previously saved preference
+                const savedLang = localStorage.getItem('preferredLang');
+                if (savedLang === 'es') {
+                    window.location.replace(`${targetEs}${suffix}`);
+                    return;
+                }
+                if (savedLang === 'en') return;
+            } catch (e) { console.warn('localStorage not available'); }
+
+            // 3. Handle browser detection (primary language only)
+            const primaryLang = (navigator.languages && navigator.languages.length > 0)
+                ? navigator.languages[0]
+                : (navigator.language || navigator.userLanguage || '');
+
+            if (/^es([_-]|$)/i.test(primaryLang)) {
+                window.location.replace(`${targetEs}${suffix}`);
+            }
         })();
     </script>
 
