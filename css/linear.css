@@ -369,10 +369,18 @@ a {
   margin-right: auto;
 }
 
-.grid-3 {
+.grid-3,
+.grid-4 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .card {
@@ -880,7 +888,8 @@ a {
     margin-top: 8px;
   }
 
-  .grid-3 {
+  .grid-3,
+  .grid-4 {
     grid-template-columns: 1fr;
   }
 
@@ -1359,6 +1368,7 @@ textarea.contact-form-input {
   }
 
   .grid-3,
+  .grid-4,
   .process-grid,
   .projects-grid,
   .contact-layout,
@@ -1368,7 +1378,8 @@ textarea.contact-form-input {
     grid-template-columns: 1fr;
   }
 
-  .grid-3 {
+  .grid-3,
+  .grid-4 {
     gap: 16px;
   }
 
