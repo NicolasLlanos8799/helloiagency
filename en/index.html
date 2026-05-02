@@ -824,7 +824,6 @@
             const portfolioView = document.getElementById('portfolio-view');
 
             const homeNav = document.getElementById('home-nav-links');
-            const portfolioNav = document.getElementById('portfolio-nav-links');
 
             const openPortfolioLink = document.getElementById('open-portfolio-link');
             const heroOpenPortfolio = document.getElementById('hero-open-portfolio');
@@ -862,7 +861,6 @@
                 portfolioView.style.display = 'none';
 
                 if (homeNav) homeNav.style.display = 'flex';
-                // if (portfolioNav) portfolioNav.style.display = 'none';
                 resetMobileNavState();
 
                 document.title = 'Leba | Digital Systems Studio';
@@ -885,7 +883,6 @@
                 portfolioView.style.display = 'block';
 
                 if (homeNav) homeNav.style.display = 'flex'; // Keep the same nav visible
-                // if (portfolioNav) portfolioNav.style.display = 'flex';
                 resetMobileNavState();
 
                 document.title = 'Leba | Portfolio';
