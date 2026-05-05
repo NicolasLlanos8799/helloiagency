@@ -51,7 +51,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Leba | Diseño de Sistemas Digitales" />
+  <meta property="og:title" content="Leba | Diseñamos cómo funciona tu negocio" />
   <meta property="og:description"
     content="Diseño e implementación de sistemas digitales y automatizaciones con IA para negocios reales." />
   <meta property="og:type" content="website" />
@@ -61,15 +61,15 @@
   <meta property="og:image" content="https://weareleba.com/leba-preview-og.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Leba | Diseño de Sistemas Digitales" />
+  <meta property="og:image:alt" content="Leba | Diseñamos cómo funciona tu negocio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Leba | Diseño de Sistemas Digitales" />
+  <meta name="twitter:title" content="Leba | Diseñamos cómo funciona tu negocio" />
   <meta name="twitter:description"
     content="Diseño e implementación de sistemas digitales y automatizaciones con IA para negocios reales." />
   <meta name="twitter:image" content="https://weareleba.com/leba-preview-og.webp" />
-  <meta name="twitter:image:alt" content="Leba | Diseño de Sistemas Digitales" />
+  <meta name="twitter:image:alt" content="Leba | Diseñamos cómo funciona tu negocio" />
 
   <!-- Resource hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -978,7 +978,7 @@
 
         if (homeNav) homeNav.style.display = 'flex';
 
-        document.title = 'Leba | Diseño de Sistemas Digitales';
+        document.title = 'Leba | Diseñamos cómo funciona tu negocio';
 
         setTimeout(() => {
           if (typeof AOS !== 'undefined') {
@@ -1051,7 +1051,9 @@
 
           e.preventDefault();
 
-          if (portfolioView.style.display === 'block') {
+          if (href === '#portfolio') {
+            showPortfolio();
+          } else if (portfolioView.style.display === 'block') {
             showHome(href);
           } else {
             scrollToTarget(href, true);

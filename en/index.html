@@ -1032,8 +1032,10 @@
 
                     e.preventDefault();
 
-                    if (portfolioView.style.display === 'block') {
-                        showHome();
+                    if (href === '#portfolio') {
+                        showPortfolio();
+                    } else if (portfolioView.style.display === 'block') {
+                        showHome(href);
                     } else {
                         scrollToTarget(href, true);
                     }

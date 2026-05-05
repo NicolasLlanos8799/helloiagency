@@ -61,14 +61,15 @@
   <meta property="og:image" content="https://weareleba.com/src/lebaRender.png?v=1" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Automate WhatsApp Orders | Leba" />
+  <meta property="og:image:alt" content="Leba | Diseñamos cómo funciona tu negocio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Automate WhatsApp Orders | Leba" />
+  <meta name="twitter:title" content="Leba | Diseñamos cómo funciona tu negocio" />
   <meta name="twitter:description"
     content="Automated order system for WhatsApp and Instagram: digital catalog, automatic order capture, admin panel and real-time sync. Sales automation built to scale." />
   <meta name="twitter:image" content="https://weareleba.com/src/lebaRender.png?v=1" />
+  <meta name="twitter:image:alt" content="Leba | Diseñamos cómo funciona tu negocio" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -170,7 +171,7 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <!-- Linear Style Design System -->
-  <link rel="stylesheet" href="css/linear.css" />
+  <link rel="stylesheet" href="css/linear.min.css" />
 
   <style>
     .article-body {
@@ -286,17 +287,9 @@
   </style>
 </head>
 
-<body class="is-loading">
-  <!-- Preloader -->
-  <div id="preloader" class="preloader">
-    <div class="preloader-content">
-      <div class="preloader-logo">Leba</div>
-      <div class="preloader-bar"></div>
-    </div>
-  </div>
-
+<body>
   <!-- Ambient Mesh Gradient -->
-  <div class="mesh-bg"></div>
+  <div class="mesh-bg" aria-hidden="true"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="main-navbar">
@@ -306,7 +299,9 @@
       </div>
 
       <button class="mobile-toggle" aria-label="Open menu">
-        <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
+        <svg viewBox="0 0 256 256" width="24" height="24" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" style="color: var(--text-primary);" aria-hidden="true">
+          <path d="M40,128H216M40,64H216M40,192H216" />
+        </svg>
       </button>
 
       <ul class="nav-links">
@@ -596,7 +591,7 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="/js/script.js"></script>
+  <script src="js/script.js"></script>
   <script>
     AOS.init({
       once: true,
