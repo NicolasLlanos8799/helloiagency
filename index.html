@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="XKr6W4_DUD9X5T-qsD9nX35EyK3zJitF6OTHzaiZxCM" />
-  <title>Leba | Diseño de Sistemas Digitales</title>
+  <title>Leba | Diseñamos cómo funciona tu negocio</title>
   <meta name="description"
-    content="Diseñamos software a medida, automatización y sistemas web para empresas de alto rendimiento." />
+    content="Transformamos la forma en que trabaja tu empresa. Creamos sistemas a medida, automatizaciones inteligentes y plataformas web que se adaptan a tu operación real, con un enfoque práctico y resultados medibles desde el primer día." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Leba" />
   <meta name="publisher" content="Leba" />
@@ -74,14 +74,16 @@
   <!-- Resource hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.clarity.ms" />
   <link rel="dns-prefetch" href="https://assets.calendly.com" />
   <link rel="dns-prefetch" href="https://formspree.io" />
 
   <!-- Fonts: Montserrat (Optimized Weights) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <!-- =============================================================
        Critical CSS (above-the-fold). Inlined so the hero paints
@@ -89,80 +91,331 @@
        is then upgraded asynchronously below.
   ============================================================== -->
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --bg-main:#000;--bg-surface:#111;--border-light:rgba(255,255,255,.1);
-      --text-primary:#F7F8F8;--text-secondary:#A8ACB3;--text-tertiary:#8B9099;
-      --accent-button:#EFEFEF;--accent-button-text:#0E0E0E;
-      --nav-h:64px;--max-width:1100px;
-      --font-base:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
     }
-    html{font-family:var(--font-base);background:#000;color:var(--text-primary);
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}
-    body{line-height:1.5;font-size:16px;min-height:100vh;position:relative}
-    a{color:inherit;text-decoration:none}
-    h1,h2,h3,h4{color:var(--text-primary);line-height:1.1;font-weight:600;letter-spacing:-.02em}
-    .container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}
-    @media(max-width:600px){.container{padding:0 16px}}
-    .section{padding:120px 0;position:relative}
-    .mesh-bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;
-      background-color:#000;
-      background-image:radial-gradient(circle at 50% 0%,rgba(30,30,40,.3) 0%,transparent 60%),
-        radial-gradient(circle at 10% 20%,rgba(20,20,30,.2) 0%,transparent 40%)}
-    .navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:9999;
-      background:rgba(8,8,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--border-light)}
-    .nav-content{display:flex;align-items:center;justify-content:space-between;height:100%}
-    .logo{font-size:1.7rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase;line-height:1}
-    .nav-links{display:flex;gap:32px;align-items:center;list-style:none}
-    .nav-links a{font-size:.875rem;font-weight:500;color:var(--text-primary)}
-    .mobile-toggle{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:#fff}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;
-      border-radius:8px;font-size:.9375rem;font-weight:500;cursor:pointer;transition:all .2s ease}
-    .btn-primary{background:var(--accent-button);color:var(--accent-button-text)}
-    .btn-outline{background:rgba(255,255,255,.03);border:1px solid var(--border-light);color:var(--text-primary)}
-    .btn-sm{background:var(--accent-button);color:var(--accent-button-text)!important;
-      font-weight:500!important;padding:6px 14px;border-radius:6px;font-size:.8125rem!important}
-    .hero{padding:calc(var(--nav-h) + 80px) 0 80px;text-align:center;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;min-height:90vh}
-    .hero-kicker{font-size:.875rem;text-transform:uppercase;letter-spacing:.25em;
-      color:var(--text-tertiary);margin-bottom:12px;font-weight:600;display:block}
-    .hero-pill{display:inline-flex;align-items:center;padding:6px 16px;border-radius:999px;
-      border:1px solid var(--border-light);background:rgba(255,255,255,.03);
-      font-size:.8125rem;color:var(--text-secondary);letter-spacing:.05em;
-      margin-bottom:32px;text-transform:uppercase;font-weight:500}
-    .hero h1{font-size:clamp(2.25rem,6vw,4.5rem);max-width:900px;margin:0 0 24px;font-weight:700;
-      letter-spacing:-.03em;line-height:1.1;
-      background:linear-gradient(180deg,#FFFFFF 0%,#B4B4B4 100%);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero p{font-size:1.125rem;color:var(--text-secondary);max-width:580px;margin:12px auto 40px;line-height:1.6}
-    .hero-actions{display:flex;gap:16px;justify-content:center}
-    @media(max-width:900px){
-      .mobile-toggle{display:block}
-      .nav-links{position:fixed;top:var(--nav-h);left:0;width:100%;background:rgba(17,17,17,.95);
-        backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-        border-bottom:1px solid var(--border-light);flex-direction:column;padding:32px 24px;
-        gap:24px;align-items:flex-start;transform:translateY(-150%);opacity:0;visibility:hidden;
-        transition:transform .3s ease-out,opacity .3s ease-out,visibility .3s}
-      .nav-links.active{transform:translateY(0);opacity:1;visibility:visible}
-      .nav-links a{font-size:1.125rem}
-      .nav-links .btn{width:100%}
-      .hero h1{font-size:clamp(2.25rem,10vw,3.5rem)}
+
+    :root {
+      --bg-main: #000;
+      --bg-surface: #111;
+      --border-light: rgba(255, 255, 255, .1);
+      --text-primary: #F7F8F8;
+      --text-secondary: #A8ACB3;
+      --text-tertiary: #8B9099;
+      --accent-button: #EFEFEF;
+      --accent-button-text: #0E0E0E;
+      --nav-h: 64px;
+      --max-width: 1100px;
+      --font-base: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
-    @media(max-width:600px){
-      .hero-actions{flex-direction:column;width:100%}
-      .btn{width:100%}
+
+    html {
+      font-family: var(--font-base);
+      background: #000;
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth
     }
+
+    body {
+      line-height: 1.5;
+      font-size: 16px;
+      min-height: 100vh;
+      position: relative
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--text-primary);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -.02em
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    @media(max-width:600px) {
+      .container {
+        padding: 0 16px
+      }
+    }
+
+    .section {
+      padding: 120px 0;
+      position: relative
+    }
+
+    .mesh-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background-color: #000;
+      background-image: radial-gradient(circle at 50% 0%, rgba(30, 30, 40, .3) 0%, transparent 60%),
+        radial-gradient(circle at 10% 20%, rgba(20, 20, 30, .2) 0%, transparent 40%)
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-h);
+      z-index: 9999;
+      background: rgba(8, 8, 8, .85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light)
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 300;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      line-height: 1
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none
+    }
+
+    .nav-links a {
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--text-primary)
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 8px;
+      color: #fff
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: .9375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s ease
+    }
+
+    .btn-primary {
+      background: var(--accent-button);
+      color: var(--accent-button-text)
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary)
+    }
+
+    .btn-sm {
+      background: var(--accent-button);
+      color: var(--accent-button-text) !important;
+      font-weight: 500 !important;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: .8125rem !important
+    }
+
+    .hero {
+      padding: calc(var(--nav-h) + 80px) 0 80px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 90vh
+    }
+
+    .hero-kicker {
+      font-size: .875rem;
+      text-transform: uppercase;
+      letter-spacing: .25em;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      font-weight: 600;
+      display: block
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: rgba(255, 255, 255, .03);
+      font-size: .8125rem;
+      color: var(--text-secondary);
+      letter-spacing: .05em;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      font-weight: 500
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 6vw, 4.5rem);
+      max-width: 900px;
+      margin: 0 0 24px;
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      background: linear-gradient(180deg, #FFFFFF 0%, #B4B4B4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 12px auto 40px;
+      line-height: 1.6
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center
+    }
+
+    @media(max-width:900px) {
+      .mobile-toggle {
+        display: block
+      }
+
+      .nav-links {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        width: 100%;
+        background: rgba(17, 17, 17, .95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-light);
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 24px;
+        align-items: flex-start;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .3s ease-out, opacity .3s ease-out, visibility .3s
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible
+      }
+
+      .nav-links a {
+        font-size: 1.125rem
+      }
+
+      .nav-links .btn {
+        width: 100%
+      }
+
+      .hero h1 {
+        font-size: clamp(2.25rem, 10vw, 3.5rem)
+      }
+    }
+
+    @media(max-width:600px) {
+      .hero-actions {
+        flex-direction: column;
+        width: 100%
+      }
+
+      .btn {
+        width: 100%
+      }
+    }
+
     /* Anti-FOUC veil while preloader is active */
     /* body.is-loading .page-view{opacity:0} */
-    .page-view{animation:fadeIn .4s ease-out forwards}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .page-view {
+      animation: fadeIn .4s ease-out forwards
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
     /* Calendly-on-click placeholder (keeps layout reserved) */
-    .calendly-placeholder{min-height:600px;width:100%;border:1px solid var(--border-light);
-      border-radius:12px;background:rgba(255,255,255,.01);display:flex;align-items:center;
-      justify-content:center;flex-direction:column;gap:16px;padding:32px;text-align:center}
-    .calendly-placeholder p{color:var(--text-secondary);font-size:.95rem;max-width:320px;line-height:1.5}
-    @media(max-width:600px){.calendly-placeholder{min-height:500px}}
+    .calendly-placeholder {
+      min-height: 600px;
+      width: 100%;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .01);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      padding: 32px;
+      text-align: center
+    }
+
+    .calendly-placeholder p {
+      color: var(--text-secondary);
+      font-size: .95rem;
+      max-width: 320px;
+      line-height: 1.5
+    }
+
+    @media(max-width:600px) {
+      .calendly-placeholder {
+        min-height: 500px
+      }
+    }
   </style>
 
   <!-- Styles -->
@@ -193,7 +446,7 @@
   ============================================================== -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag() { dataLayer.push(arguments); }
     // Consent Mode v2 default — denied until the user accepts.
     gtag('consent', 'default', {
       ad_storage: 'denied', analytics_storage: 'denied',
@@ -203,7 +456,7 @@
     gtag('js', new Date());
     gtag('config', 'G-P0YEG9KJT5', { transport_type: 'beacon' });
 
-    function lebaLoadAnalytics(){
+    function lebaLoadAnalytics() {
       if (window.__lebaAnalyticsLoaded) return;
       window.__lebaAnalyticsLoaded = true;
       var s = document.createElement('script');
@@ -223,7 +476,7 @@
         setTimeout(lebaLoadAnalytics, 3000);
       }
     } else {
-      window.addEventListener('load', function(){
+      window.addEventListener('load', function () {
         if ('requestIdleCallback' in window) {
           requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
         } else {
@@ -232,7 +485,7 @@
       });
     }
     // Also load on first user interaction (whichever is sooner).
-    ['scroll','keydown','mousemove','touchstart'].forEach(function(ev){
+    ['scroll', 'keydown', 'mousemove', 'touchstart'].forEach(function (ev) {
       window.addEventListener(ev, lebaLoadAnalytics, { once: true, passive: true });
     });
   </script>
@@ -278,626 +531,635 @@
   <!-- MAIN landmark wraps the two alternating views -->
   <main id="content">
 
-  <!-- VIEW: HOME -->
-  <div id="home-view" class="page-view">
+    <!-- VIEW: HOME -->
+    <div id="home-view" class="page-view">
 
-    <!-- HERO -->
-    <header class="section hero container">
-      <div class="hero-kicker" data-aos="fade-down" data-aos-duration="800">
-        We are Leba
-      </div>
-
-      <div class="hero-pill" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
-        Digital Systems Studio
-      </div>
-
-      <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-        Diseñamos sistemas digitales que organizan y potencian negocios
-      </h1>
-
-      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        Ayudamos a negocios y emprendedores a estructurar su operación mediante software a medida, automatización e
-        integración de herramientas.
-      </p>
-
-      <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-        <a href="#contacto-form" class="btn btn-primary" title="Analizamos tu forma de trabajar"
-          data-track-cta="click_analizar_negocio" data-track-section="hero" data-track-type="cta"
-          data-track-label="hero_primary_analisis">Analizamos tu forma de trabajar</a>
-        <a href="#" id="hero-open-portfolio" class="btn btn-outline" title="Ver portfolio de proyectos"
-          data-track-cta="click_hero_portfolio" data-track-section="hero" data-track-type="navigation">
-          Ver Portfolio <i class="ph ph-briefcase" style="margin-left: 8px;"></i>
-        </a>
-      </div>
-    </header>
-
-
-
-    <!-- SOLUTIONS (CARDS) -->
-    <section id="soluciones" class="section container">
-      <div class="features-header text-center" data-aos="fade-up">
-        <span class="label">Capacidades del estudio</span>
-        <h2>Soluciones diseñadas para tu operación</h2>
-      </div>
-
-      <div class="solutions-grid">
-        <!-- Card 1 -->
-        <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
-          <div class="solution-header">
-            <div class="solution-icon">
-              <i class="ph ph-globe-hemisphere-east"></i>
-            </div>
-            <h3>Páginas Web</h3>
-          </div>
-          <div class="solution-body">
-            <p>Diseñamos páginas web claras y profesionales que representan tu negocio y facilitan la captación de
-              clientes.</p>
-          </div>
-          <div class="solution-footer">
-            <p class="context-line">Ideal para negocios que necesitan presencia online o mejorar cómo presentan sus
-              servicios.</p>
-          </div>
+      <!-- HERO -->
+      <header class="section hero container">
+        <div class="hero-kicker" data-aos="fade-down" data-aos-duration="800">
+          We are Leba
         </div>
 
-        <!-- Card 2 -->
-        <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
-          <div class="solution-header">
-            <div class="solution-icon">
-              <i class="ph ph-code-block"></i>
-            </div>
-            <h3>Software a Medida</h3>
-          </div>
-          <div class="solution-body">
-            <p>Creamos sistemas adaptados a cómo funciona tu negocio. Organiza tareas, procesos y operaciones en una
-              herramienta pensada para tu día a día.</p>
-          </div>
-          <div class="solution-footer">
-            <p class="context-line">Pensado para negocios que ya no pueden manejar su operación con herramientas
-              genéricas o procesos manuales.</p>
-          </div>
+        <div class="hero-pill" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+          Digital Systems Studio
         </div>
 
-        <!-- Card 3 -->
-        <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-          <div class="solution-header">
-            <div class="solution-icon">
-              <i class="ph ph-robot"></i>
-            </div>
-            <h3>Automatización e IA</h3>
-          </div>
-          <div class="solution-body">
-            <p>Automatizamos tareas repetitivas y conectamos tus herramientas para reducir trabajo manual. Menos tiempo
-              operando, más tiempo enfocándote en hacer crecer tu negocio.</p>
-          </div>
-          <div class="solution-footer">
-            <p class="context-line">Especialmente útil si pasas gran parte del día respondiendo, gestionando o
-              repitiendo tareas manualmente.</p>
-          </div>
+        <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+          Diseñamos sistemas digitales que organizan y potencian negocios
+        </h1>
+
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          Ayudamos a negocios y emprendedores a estructurar su operación mediante software a medida, automatización e
+          integración de herramientas.
+        </p>
+
+        <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+          <a href="#contacto-form" class="btn btn-primary" title="Analizamos tu forma de trabajar"
+            data-track-cta="click_analizar_negocio" data-track-section="hero" data-track-type="cta"
+            data-track-label="hero_primary_analisis">Analizamos tu forma de trabajar</a>
+          <a href="#" id="hero-open-portfolio" class="btn btn-outline" title="Ver portfolio de proyectos"
+            data-track-cta="click_hero_portfolio" data-track-section="hero" data-track-type="navigation">
+            Ver Portfolio <i class="ph ph-briefcase" style="margin-left: 8px;"></i>
+          </a>
         </div>
-      </div>
-
-      <div class="solutions-cta">
-        <a href="#contacto-form" class="btn btn-primary" data-track-cta="click_soluciones_analisis"
-          data-track-section="soluciones" data-track-type="cta" data-track-label="solutions_analysis_cta">
-          Analizamos tu forma de trabajar
-        </a>
-        <p class="solutions-cta-text">Te ayudamos a identificar qué tipo de solución encaja mejor con tu operación.</p>
-      </div>
-    </section>
+      </header>
 
 
-    <!-- PROCESS -->
-    <section id="proceso" class="section container">
-      <div class="features-header" data-aos="fade-up">
-        <span class="label">Nuestro Proceso</span>
-        <h2>Cómo abordamos y ejecutamos cada proyecto</h2>
-      </div>
 
-      <div class="process-grid" data-aos="fade-up" data-aos-delay="100">
-        <div class="step">
-          <span class="num">01.</span>
-          <h3>Entender</h3>
-          <p>Diagnosticamos la operación actual del negocio.</p>
-        </div>
-        <div class="step">
-          <span class="num">02.</span>
-          <h3>Proponer</h3>
-          <p>Diseñamos una arquitectura digital robusta.</p>
-        </div>
-        <div class="step">
-          <span class="num">03.</span>
-          <h3>Construir</h3>
-          <p>Desarrollamos iterativamente la plataforma o sistema.</p>
-        </div>
-        <div class="step">
-          <span class="num">04.</span>
-          <h3>Escalar</h3>
-          <p>Integramos y refinamos dinámicamente en producción.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM SECTION -->
-    <section id="equipo" class="section container">
-      <div class="features-header text-center" data-aos="fade-up">
-        <span class="label">Quiénes te ayudan</span>
-        <h2 style="font-size: 2.25rem; margin-bottom: 16px;">Expertos técnicos al servicio de tu visión.</h2>
-      </div>
-
-      <div class="grid-3 team-grid">
-        <!-- Team Member 1 -->
-        <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
-          <div class="team-img-wrapper">
-            <picture>
-              <source type="image/webp"
-                srcset="src/equipo/nicolas-llanos-320.webp 320w, src/equipo/nicolas-llanos-640.webp 640w"
-                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-              <img src="src/equipo/nicolas-llanos.jpg" alt="Nicolás Llanos" title="Nicolás Llanos"
-                width="320" height="320" loading="lazy" decoding="async" />
-            </picture>
-          </div>
-          <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Nicolás Llanos</h3>
-          <p style="color: var(--text-tertiary); font-size: 1rem;">Fundador · Desarrollo y Tecnología</p>
+      <!-- SOLUTIONS (CARDS) -->
+      <section id="soluciones" class="section container">
+        <div class="features-header text-center" data-aos="fade-up">
+          <span class="label">Capacidades del estudio</span>
+          <h2>Soluciones diseñadas para tu operación</h2>
         </div>
 
-        <!-- Team Member 2 -->
-        <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
-          <div class="team-img-wrapper">
-            <picture>
-              <source type="image/webp"
-                srcset="src/equipo/marlene-morrone-320.webp 320w, src/equipo/marlene-morrone-640.webp 640w"
-                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-              <img src="src/equipo/marlene-morrone-640.webp" alt="Marlene Morrone" title="Marlene Morrone"
-                width="320" height="391" loading="lazy" decoding="async" />
-            </picture>
-          </div>
-          <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Marlene Morrone</h3>
-          <p style="color: var(--text-tertiary); font-size: 1rem;">Propietaria · Comercial y Operaciones</p>
-        </div>
-
-        <!-- Team Member 3 -->
-        <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
-          <div class="team-img-wrapper">
-            <picture>
-              <source type="image/webp"
-                srcset="src/equipo/mariano-oggier-320.webp 320w, src/equipo/mariano-oggier-640.webp 640w"
-                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-              <img src="src/equipo/mariano-oggier-640.webp" alt="Mariano Oggier" title="Mariano Oggier"
-                width="320" height="320" loading="lazy" decoding="async" />
-            </picture>
-          </div>
-          <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Mariano Oggier</h3>
-          <p style="color: var(--text-tertiary); font-size: 1rem;">Desarrollo Estratégico y Crecimiento</p>
-        </div>
-
-
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="contacto" class="section container" style="padding-bottom: 80px;">
-      <div class="cta-box" data-aos="zoom-in" data-aos-duration="800">
-        <h2>Si tu negocio necesita una<br>mejor base digital, hablemos.</h2>
-        <p>Podemos ayudarte a diseñar una presencia, un sistema o una operación digital más clara, conectada y
-          escalable.</p>
-        <a href="#contacto-form" class="btn btn-primary" style="margin-top: 16px;"
-          title="Analizamos tu forma de trabajar" data-track-cta="click_analizar_negocio"
-          data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
-          Analizamos tu forma de trabajar <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
-        </a>
-      </div>
-    </section>
-
-    <section id="contacto-form" class="container" style="padding-bottom: 80px;" data-aos="fade-up">
-      <div class="contact-layout">
-
-        <!-- Columna Izquierda: Info & Formulario -->
-        <div>
-          <span
-            style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Reunión
-            por Google Meet · 15 Min</span>
-          <h3 style="font-size: 2rem; margin-bottom: 16px;">Analizamos tu forma de trabajar</h3>
-          <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">Revisamos tu operación,
-            detectamos oportunidades de mejora y te proponemos cómo optimizarla.</p>
-
-          <ul style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
-            <li style="margin-bottom: 12px;">Diagnóstico rápido de procesos</li>
-            <li style="margin-bottom: 12px;">Identificación de oportunidades</li>
-            <li>Plan de acción claro</li>
-          </ul>
-
-          <div
-            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
-
-            <h4 style="margin-bottom: 24px; font-size: 1.125rem;">¿Preferís que te contactemos primero?</h4>
-            <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
-              style="display: flex; flex-direction: column; gap: 16px;">
-              <div class="contact-inputs-row">
-                <input type="text" name="nombre" placeholder="Tu nombre" required class="contact-form-input"
-                  data-track-cta="focus_contact_nombre">
-                <input type="text" name="contacto" placeholder="Email o WhatsApp" required class="contact-form-input"
-                  data-track-cta="focus_contact_contacto">
+        <div class="solutions-grid">
+          <!-- Card 1 -->
+          <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
+            <div class="solution-header">
+              <div class="solution-icon">
+                <i class="ph ph-globe-hemisphere-east"></i>
               </div>
-              <textarea name="mensaje" rows="3" placeholder="Contanos sobre tu negocio o consulta" required
-                class="contact-form-input" data-track-cta="focus_contact_mensaje"></textarea>
-              <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
-                style="width: 100%; justify-content: center; margin-top: 8px;" data-track-cta="submit_click"
-                data-track-section="contact_form" data-track-type="form">Enviar mensaje</button>
-              <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite">
-                Gracias, pronto te contactaremos 🙌
+              <h3>Páginas Web</h3>
+            </div>
+            <div class="solution-body">
+              <p>Diseñamos páginas web claras y profesionales que representan tu negocio y facilitan la captación de
+                clientes.</p>
+            </div>
+            <div class="solution-footer">
+              <p class="context-line">Ideal para negocios que necesitan presencia online o mejorar cómo presentan sus
+                servicios.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+            <div class="solution-header">
+              <div class="solution-icon">
+                <i class="ph ph-code-block"></i>
               </div>
-              <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
-                Hubo un error. Por favor intentá de nuevo.
+              <h3>Software a Medida</h3>
+            </div>
+            <div class="solution-body">
+              <p>Creamos sistemas adaptados a cómo funciona tu negocio. Organiza tareas, procesos y operaciones en una
+                herramienta pensada para tu día a día.</p>
+            </div>
+            <div class="solution-footer">
+              <p class="context-line">Pensado para negocios que ya no pueden manejar su operación con herramientas
+                genéricas o procesos manuales.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
+            <div class="solution-header">
+              <div class="solution-icon">
+                <i class="ph ph-robot"></i>
               </div>
-            </form>
+              <h3>Automatización e IA</h3>
+            </div>
+            <div class="solution-body">
+              <p>Automatizamos tareas repetitivas y conectamos tus herramientas para reducir trabajo manual. Menos
+                tiempo
+                operando, más tiempo enfocándote en hacer crecer tu negocio.</p>
+            </div>
+            <div class="solution-footer">
+              <p class="context-line">Especialmente útil si pasas gran parte del día respondiendo, gestionando o
+                repitiendo tareas manualmente.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Columna Derecha: Calendly (lazy: ~1.6 MB only loaded on click) -->
-        <div>
-          <div id="calendly-mount" class="calendly-placeholder"
-            data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1"
-            role="region" aria-label="Reservar reunión por Calendly">
-            <p>Cargá el calendario para elegir un horario disponible.</p>
-            <button type="button" id="calendly-load-btn" class="btn btn-primary"
-              data-track-cta="click_load_calendly" data-track-section="contact_form" data-track-type="cta">
-              Ver horarios disponibles
-            </button>
-          </div>
+        <div class="solutions-cta">
+          <a href="#contacto-form" class="btn btn-primary" data-track-cta="click_soluciones_analisis"
+            data-track-section="soluciones" data-track-type="cta" data-track-label="solutions_analysis_cta">
+            Analizamos tu forma de trabajar
+          </a>
+          <p class="solutions-cta-text">Te ayudamos a identificar qué tipo de solución encaja mejor con tu operación.
+          </p>
+        </div>
+      </section>
+
+
+      <!-- PROCESS -->
+      <section id="proceso" class="section container">
+        <div class="features-header" data-aos="fade-up">
+          <span class="label">Nuestro Proceso</span>
+          <h2>Cómo abordamos y ejecutamos cada proyecto</h2>
         </div>
 
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="container">
-      <div class="footer">
-        <div>© 2026 Leba</div>
-        <div class="footer-contact">
-          <a href="mailto:contact@weareleba.com" class="footer-email" title="Contactar por email">contact@weareleba.com</a>
-          <div class="footer-socials">
-            <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener" title="LinkedIn">
-              <i class="ph ph-linkedin-logo"></i>
-            </a>
-            <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank" rel="noopener"
-              title="Instagram">
-              <i class="ph ph-instagram-logo"></i>
-            </a>
+        <div class="process-grid" data-aos="fade-up" data-aos-delay="100">
+          <div class="step">
+            <span class="num">01.</span>
+            <h3>Entender</h3>
+            <p>Diagnosticamos la operación actual del negocio.</p>
+          </div>
+          <div class="step">
+            <span class="num">02.</span>
+            <h3>Proponer</h3>
+            <p>Diseñamos una arquitectura digital robusta.</p>
+          </div>
+          <div class="step">
+            <span class="num">03.</span>
+            <h3>Construir</h3>
+            <p>Desarrollamos iterativamente la plataforma o sistema.</p>
+          </div>
+          <div class="step">
+            <span class="num">04.</span>
+            <h3>Escalar</h3>
+            <p>Integramos y refinamos dinámicamente en producción.</p>
           </div>
         </div>
-        <div class="footer-links">
-          <a href="privacy-policy.html" title="Política de privacidad" data-track-cta="click_footer_privacidad"
-            data-track-section="footer" data-track-type="navigation">Privacidad</a>
-          <a href="terms-of-service.html" title="Términos y condiciones" data-track-cta="click_footer_terminos"
-            data-track-section="footer" data-track-type="navigation">Términos</a>
-          <a href="automatizar-pedidos-whatsapp.html" title="Automatizar pedidos por WhatsApp"
-            data-track-section="footer" data-track-type="navigation"
-            style="font-size: 0.75rem; color: var(--text-tertiary);">Automatización WhatsApp</a>
+      </section>
+
+      <!-- TEAM SECTION -->
+      <section id="equipo" class="section container">
+        <div class="features-header text-center" data-aos="fade-up">
+          <span class="label">Quiénes te ayudan</span>
+          <h2 style="font-size: 2.25rem; margin-bottom: 16px;">Expertos técnicos al servicio de tu visión.</h2>
         </div>
-      </div>
-    </footer>
 
-  </div>
-
-  <!-- VIEW: PORTFOLIO -->
-  <div id="portfolio-view" class="page-view" style="display: none;">
-
-    <!-- HEADER / HERO PORTFOLIO -->
-    <header class="section hero container">
-      <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
-        <i class="ph ph-briefcase" aria-hidden="true" style="margin-right: 6px; color: var(--text-primary)"></i> Nuestro
-        Trabajo
-      </div>
-      <h1 data-aos="fade-up" data-aos-duration="1000">
-        Proyectos que transforman<br>la operación digital
-      </h1>
-      <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-        Explora una selección de herramientas internas, automatizaciones integradas y plataformas web diseñadas
-        a
-        medida.
-      </p>
-    </header>
-
-    <!-- PROJECTS SECTION -->
-    <section class="section container" style="padding-top: 0; padding-bottom: 80px;">
-
-      <!-- ================= AGENTES DIGITALES ================= -->
-      <h2
-        style="font-size: 3.2rem; margin-top: 64px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
-        Agentes Digitales</h2>
-      <div class="projects-container" style="margin-top: 0;">
-
-        <!-- 1) Sistema de Asistencia Inteligente -->
-        <div class="project-row" data-aos="fade-up">
-          <div class="project-info">
-            <h3>Sistema de Asistencia Inteligente</h3>
-            <p class="desc">Sistema que automatiza la atención y los pedidos de un negocio, respondiendo
-              mensajes y organizando la información sin necesidad de hacerlo manualmente.</p>
-            <p class="desc">Funciona en canales como WhatsApp, Instagram y Web, permitiendo atender
-              clientes, tomar pedidos y dar información de forma automática, rápida y ordenada.</p>
-            <p class="desc">Ayuda a reducir errores, ahorrar tiempo y mejorar la experiencia del cliente.
-            </p>
+        <div class="grid-3 team-grid">
+          <!-- Team Member 1 -->
+          <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
+            <div class="team-img-wrapper">
+              <picture>
+                <source type="image/webp"
+                  srcset="src/equipo/nicolas-llanos-320.webp 320w, src/equipo/nicolas-llanos-640.webp 640w"
+                  sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                <img src="src/equipo/nicolas-llanos.jpg" alt="Nicolás Llanos" title="Nicolás Llanos" width="320"
+                  height="320" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+            <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Nicolás Llanos</h3>
+            <p style="color: var(--text-tertiary); font-size: 1rem;">Fundador · Desarrollo y Tecnología</p>
           </div>
 
-          <div class="project-carousel-wrapper assistant-carousel" id="assistant-carousel">
-            <div class="carousel-track">
-              <!-- Slide 1: Phone -->
-              <div class="carousel-slide active">
-                <div class="assistant-visual-wrap">
-                  <div class="assistant-phone">
-                    <div class="assistant-phone-notch"></div>
+          <!-- Team Member 2 -->
+          <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
+            <div class="team-img-wrapper">
+              <picture>
+                <source type="image/webp"
+                  srcset="src/equipo/marlene-morrone-320.webp 320w, src/equipo/marlene-morrone-640.webp 640w"
+                  sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                <img src="src/equipo/marlene-morrone-640.webp" alt="Marlene Morrone" title="Marlene Morrone" width="320"
+                  height="391" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+            <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Marlene Morrone</h3>
+            <p style="color: var(--text-tertiary); font-size: 1rem;">Propietaria · Comercial y Operaciones</p>
+          </div>
 
-                    <div class="assistant-screen">
-                      <div class="assistant-chat-header">
-                        <div class="assistant-chat-avatar">AI</div>
-                        <div class="assistant-chat-meta">
-                          <span class="assistant-chat-name">Asistente Inteligente</span>
-                          <span class="assistant-chat-status">Automatizado</span>
+          <!-- Team Member 3 -->
+          <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
+            <div class="team-img-wrapper">
+              <picture>
+                <source type="image/webp"
+                  srcset="src/equipo/mariano-oggier-320.webp 320w, src/equipo/mariano-oggier-640.webp 640w"
+                  sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                <img src="src/equipo/mariano-oggier-640.webp" alt="Mariano Oggier" title="Mariano Oggier" width="320"
+                  height="320" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+            <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Mariano Oggier</h3>
+            <p style="color: var(--text-tertiary); font-size: 1rem;">Desarrollo Estratégico y Crecimiento</p>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="contacto" class="section container" style="padding-bottom: 80px;">
+        <div class="cta-box" data-aos="zoom-in" data-aos-duration="800">
+          <h2>Si tu negocio necesita una<br>mejor base digital, hablemos.</h2>
+          <p>Podemos ayudarte a diseñar una presencia, un sistema o una operación digital más clara, conectada y
+            escalable.</p>
+          <a href="#contacto-form" class="btn btn-primary" style="margin-top: 16px;"
+            title="Analizamos tu forma de trabajar" data-track-cta="click_analizar_negocio"
+            data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
+            Analizamos tu forma de trabajar <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
+          </a>
+        </div>
+      </section>
+
+      <section id="contacto-form" class="container" style="padding-bottom: 80px;" data-aos="fade-up">
+        <div class="contact-layout">
+
+          <!-- Columna Izquierda: Info & Formulario -->
+          <div>
+            <span
+              style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Reunión
+              por Google Meet · 15 Min</span>
+            <h3 style="font-size: 2rem; margin-bottom: 16px;">Analizamos tu forma de trabajar</h3>
+            <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">Revisamos tu operación,
+              detectamos oportunidades de mejora y te proponemos cómo optimizarla.</p>
+
+            <ul style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
+              <li style="margin-bottom: 12px;">Diagnóstico rápido de procesos</li>
+              <li style="margin-bottom: 12px;">Identificación de oportunidades</li>
+              <li>Plan de acción claro</li>
+            </ul>
+
+            <div
+              style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
+
+              <h4 style="margin-bottom: 24px; font-size: 1.125rem;">¿Preferís que te contactemos primero?</h4>
+              <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
+                style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="contact-inputs-row">
+                  <input type="text" name="nombre" placeholder="Tu nombre" required class="contact-form-input"
+                    data-track-cta="focus_contact_nombre">
+                  <input type="text" name="contacto" placeholder="Email o WhatsApp" required class="contact-form-input"
+                    data-track-cta="focus_contact_contacto">
+                </div>
+                <textarea name="mensaje" rows="3" placeholder="Contanos sobre tu negocio o consulta" required
+                  class="contact-form-input" data-track-cta="focus_contact_mensaje"></textarea>
+                <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
+                  style="width: 100%; justify-content: center; margin-top: 8px;" data-track-cta="submit_click"
+                  data-track-section="contact_form" data-track-type="form">Enviar mensaje</button>
+                <div class="contact-message contact-message--success" id="contactSuccess" aria-live="polite">
+                  Gracias, pronto te contactaremos 🙌
+                </div>
+                <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
+                  Hubo un error. Por favor intentá de nuevo.
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Calendly (lazy: ~1.6 MB only loaded on click) -->
+          <div>
+            <div id="calendly-mount" class="calendly-placeholder"
+              data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1"
+              role="region" aria-label="Reservar reunión por Calendly">
+              <p>Cargá el calendario para elegir un horario disponible.</p>
+              <button type="button" id="calendly-load-btn" class="btn btn-primary" data-track-cta="click_load_calendly"
+                data-track-section="contact_form" data-track-type="cta">
+                Ver horarios disponibles
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <div class="footer">
+          <div>© 2026 Leba</div>
+          <div class="footer-contact">
+            <a href="mailto:contact@weareleba.com" class="footer-email"
+              title="Contactar por email">contact@weareleba.com</a>
+            <div class="footer-socials">
+              <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener" title="LinkedIn">
+                <i class="ph ph-linkedin-logo"></i>
+              </a>
+              <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank" rel="noopener"
+                title="Instagram">
+                <i class="ph ph-instagram-logo"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <a href="privacy-policy.html" title="Política de privacidad" data-track-cta="click_footer_privacidad"
+              data-track-section="footer" data-track-type="navigation">Privacidad</a>
+            <a href="terms-of-service.html" title="Términos y condiciones" data-track-cta="click_footer_terminos"
+              data-track-section="footer" data-track-type="navigation">Términos</a>
+            <a href="automatizar-pedidos-whatsapp.html" title="Automatizar pedidos por WhatsApp"
+              data-track-section="footer" data-track-type="navigation"
+              style="font-size: 0.75rem; color: var(--text-tertiary);">Automatización WhatsApp</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- VIEW: PORTFOLIO -->
+    <div id="portfolio-view" class="page-view" style="display: none;">
+
+      <!-- HEADER / HERO PORTFOLIO -->
+      <header class="section hero container">
+        <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
+          <i class="ph ph-briefcase" aria-hidden="true" style="margin-right: 6px; color: var(--text-primary)"></i>
+          Nuestro
+          Trabajo
+        </div>
+        <h1 data-aos="fade-up" data-aos-duration="1000">
+          Proyectos que transforman<br>la operación digital
+        </h1>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+          Explora una selección de herramientas internas, automatizaciones integradas y plataformas web diseñadas
+          a
+          medida.
+        </p>
+      </header>
+
+      <!-- PROJECTS SECTION -->
+      <section class="section container" style="padding-top: 0; padding-bottom: 80px;">
+
+        <!-- ================= AGENTES DIGITALES ================= -->
+        <h2
+          style="font-size: 3.2rem; margin-top: 64px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+          Agentes Digitales</h2>
+        <div class="projects-container" style="margin-top: 0;">
+
+          <!-- 1) Sistema de Asistencia Inteligente -->
+          <div class="project-row" data-aos="fade-up">
+            <div class="project-info">
+              <h3>Sistema de Asistencia Inteligente</h3>
+              <p class="desc">Sistema que automatiza la atención y los pedidos de un negocio, respondiendo
+                mensajes y organizando la información sin necesidad de hacerlo manualmente.</p>
+              <p class="desc">Funciona en canales como WhatsApp, Instagram y Web, permitiendo atender
+                clientes, tomar pedidos y dar información de forma automática, rápida y ordenada.</p>
+              <p class="desc">Ayuda a reducir errores, ahorrar tiempo y mejorar la experiencia del cliente.
+              </p>
+            </div>
+
+            <div class="project-carousel-wrapper assistant-carousel" id="assistant-carousel">
+              <div class="carousel-track">
+                <!-- Slide 1: Phone -->
+                <div class="carousel-slide active">
+                  <div class="assistant-visual-wrap">
+                    <div class="assistant-phone">
+                      <div class="assistant-phone-notch"></div>
+
+                      <div class="assistant-screen">
+                        <div class="assistant-chat-header">
+                          <div class="assistant-chat-avatar">AI</div>
+                          <div class="assistant-chat-meta">
+                            <span class="assistant-chat-name">Asistente Inteligente</span>
+                            <span class="assistant-chat-status">Automatizado</span>
+                          </div>
+                        </div>
+
+                        <div class="assistant-chat-body">
+                          <div class="assistant-msg assistant-msg-user">
+                            ¡Hola! ¿En qué horarios están abiertos?
+                          </div>
+
+                          <div class="assistant-msg assistant-msg-bot">
+                            Abrimos en diferentes horarios según el día:<br>
+                            • Lunes a Viernes: 08:00 a 16:00<br>
+                            • Sábados: 10:00 a 14:00
+                          </div>
+
+                          <div class="assistant-msg assistant-msg-user">
+                            ¿Dónde están ubicados?
+                          </div>
+
+                          <div class="assistant-msg assistant-msg-bot">
+                            Estamos en Av. Principal 1421, Buenos Aires.
+                          </div>
+
+                          <div class="assistant-msg assistant-msg-user">
+                            ¿Hacen envíos?
+                          </div>
+
+                          <div class="assistant-msg assistant-msg-bot">
+                            Sí, hacemos envíos a domicilio.
+                          </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
 
-                      <div class="assistant-chat-body">
-                        <div class="assistant-msg assistant-msg-user">
-                          ¡Hola! ¿En qué horarios están abiertos?
-                        </div>
-
-                        <div class="assistant-msg assistant-msg-bot">
-                          Abrimos en diferentes horarios según el día:<br>
-                          • Lunes a Viernes: 08:00 a 16:00<br>
-                          • Sábados: 10:00 a 14:00
-                        </div>
-
-                        <div class="assistant-msg assistant-msg-user">
-                          ¿Dónde están ubicados?
-                        </div>
-
-                        <div class="assistant-msg assistant-msg-bot">
-                          Estamos en Av. Principal 1421, Buenos Aires.
-                        </div>
-
-                        <div class="assistant-msg assistant-msg-user">
-                          ¿Hacen envíos?
-                        </div>
-
-                        <div class="assistant-msg assistant-msg-bot">
-                          Sí, hacemos envíos a domicilio.
-                        </div>
+                <!-- Slide 2: Dashboard -->
+                <div class="carousel-slide">
+                  <div class="system-dashboard">
+                    <div class="dashboard-stats">
+                      <div class="stat-card">
+                        <span class="stat-label">Mensajes recibidos</span>
+                        <span class="stat-value">24</span>
+                      </div>
+                      <div class="stat-card">
+                        <span class="stat-label">Respuestas automáticas</span>
+                        <span class="stat-value">22</span>
+                      </div>
+                      <div class="stat-card">
+                        <span class="stat-label">Consultas resueltas</span>
+                        <span class="stat-value">18</span>
+                      </div>
+                      <div class="stat-card">
+                        <span class="stat-label">Tiempo ahorrado</span>
+                        <span class="stat-value">3h</span>
+                      </div>
+                    </div>
+                    <div class="dashboard-actions">
+                      <div class="action-item">
+                        <span>Consulta de horarios</span>
+                        <span class="action-status">Respondido</span>
+                      </div>
+                      <div class="action-item">
+                        <span>Consulta de ubicación</span>
+                        <span class="action-status">Respondido</span>
+                      </div>
+                      <div class="action-item">
+                        <span>Consulta de envíos</span>
+                        <span class="action-status">Respondido</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- Slide 2: Dashboard -->
-              <div class="carousel-slide">
-                <div class="system-dashboard">
-                  <div class="dashboard-stats">
-                    <div class="stat-card">
-                      <span class="stat-label">Mensajes recibidos</span>
-                      <span class="stat-value">24</span>
+                <!-- Slide 3: Multi-Channel -->
+                <div class="carousel-slide">
+                  <div class="assistant-channels">
+                    <div class="channels-container">
+                      <div class="channel-main">
+                        <span class="channel-name">Asistente Inteligente</span>
+                      </div>
+                      <div class="channel-satellites">
+                        <div class="channel-item">WhatsApp</div>
+                        <div class="channel-item">Instagram</div>
+                        <div class="channel-item">Web</div>
+                      </div>
                     </div>
-                    <div class="stat-card">
-                      <span class="stat-label">Respuestas automáticas</span>
-                      <span class="stat-value">22</span>
-                    </div>
-                    <div class="stat-card">
-                      <span class="stat-label">Consultas resueltas</span>
-                      <span class="stat-value">18</span>
-                    </div>
-                    <div class="stat-card">
-                      <span class="stat-label">Tiempo ahorrado</span>
-                      <span class="stat-value">3h</span>
-                    </div>
+                    <p class="channels-footer">Todo conectado en un solo sistema</p>
                   </div>
-                  <div class="dashboard-actions">
-                    <div class="action-item">
-                      <span>Consulta de horarios</span>
-                      <span class="action-status">Respondido</span>
+                </div>
+
+                <!-- Slide 4: Settings -->
+                <div class="carousel-slide">
+                  <div class="assistant-settings">
+                    <div class="settings-header">
+                      <span class="settings-title">Configuración del asistente</span>
                     </div>
-                    <div class="action-item">
-                      <span>Consulta de ubicación</span>
-                      <span class="action-status">Respondido</span>
+                    <div class="settings-list">
+                      <div class="settings-row">
+                        <span class="settings-label">Horarios de atención</span>
+                        <div class="settings-toggle active"></div>
+                      </div>
+                      <div class="settings-row">
+                        <span class="settings-label">Respuestas automáticas</span>
+                        <div class="settings-toggle active"></div>
+                      </div>
+                      <div class="settings-row">
+                        <span class="settings-label">Envíos habilitados</span>
+                        <div class="settings-toggle active"></div>
+                      </div>
+                      <div class="settings-row">
+                        <span class="settings-label">Toma de pedidos</span>
+                        <div class="settings-toggle active"></div>
+                      </div>
                     </div>
-                    <div class="action-item">
-                      <span>Consulta de envíos</span>
-                      <span class="action-status">Respondido</span>
-                    </div>
+                    <p class="settings-footer">Adaptado a cada negocio</p>
                   </div>
                 </div>
               </div>
 
-              <!-- Slide 3: Multi-Channel -->
-              <div class="carousel-slide">
-                <div class="assistant-channels">
-                  <div class="channels-container">
-                    <div class="channel-main">
-                      <span class="channel-name">Asistente Inteligente</span>
-                    </div>
-                    <div class="channel-satellites">
-                      <div class="channel-item">WhatsApp</div>
-                      <div class="channel-item">Instagram</div>
-                      <div class="channel-item">Web</div>
-                    </div>
-                  </div>
-                  <p class="channels-footer">Todo conectado en un solo sistema</p>
-                </div>
+              <!-- Controls -->
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" data-track-cta="carousel_prev_asistencia_inteligente"
+                  data-track-section="portfolio_carousel" data-track-type="engagement"
+                  data-track-label="asistencia_inteligente"><i class="ph ph-caret-left"></i></button>
+                <button class="carousel-btn next" data-track-cta="carousel_next_asistencia_inteligente"
+                  data-track-section="portfolio_carousel" data-track-type="engagement"
+                  data-track-label="asistencia_inteligente"><i class="ph ph-caret-right"></i></button>
               </div>
 
-              <!-- Slide 4: Settings -->
-              <div class="carousel-slide">
-                <div class="assistant-settings">
-                  <div class="settings-header">
-                    <span class="settings-title">Configuración del asistente</span>
-                  </div>
-                  <div class="settings-list">
-                    <div class="settings-row">
-                      <span class="settings-label">Horarios de atención</span>
-                      <div class="settings-toggle active"></div>
-                    </div>
-                    <div class="settings-row">
-                      <span class="settings-label">Respuestas automáticas</span>
-                      <div class="settings-toggle active"></div>
-                    </div>
-                    <div class="settings-row">
-                      <span class="settings-label">Envíos habilitados</span>
-                      <div class="settings-toggle active"></div>
-                    </div>
-                    <div class="settings-row">
-                      <span class="settings-label">Toma de pedidos</span>
-                      <div class="settings-toggle active"></div>
-                    </div>
-                  </div>
-                  <p class="settings-footer">Adaptado a cada negocio</p>
-                </div>
+              <!-- Dots -->
+              <div class="carousel-dots">
+                <div class="carousel-dot active" data-track-cta="carousel_dot_asistencia_inteligente"
+                  data-track-section="portfolio_carousel" data-track-type="engagement"
+                  data-track-label="asistencia_inteligente_dot_0"></div>
+                <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente"
+                  data-track-section="portfolio_carousel" data-track-type="engagement"
+                  data-track-label="asistencia_inteligente_dot_1"></div>
+                <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente"
+                  data-track-section="portfolio_carousel" data-track-type="engagement"
+                  data-track-label="asistencia_inteligente_dot_2"></div>
+                <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente"
+                  data-track-section="portfolio_carousel" data-track-type="engagement"
+                  data-track-label="asistencia_inteligente_dot_3"></div>
               </div>
             </div>
+          </div>
 
-            <!-- Controls -->
-            <div class="carousel-controls">
-              <button class="carousel-btn prev" data-track-cta="carousel_prev_asistencia_inteligente"
-                data-track-section="portfolio_carousel" data-track-type="engagement"
-                data-track-label="asistencia_inteligente"><i class="ph ph-caret-left"></i></button>
-              <button class="carousel-btn next" data-track-cta="carousel_next_asistencia_inteligente"
-                data-track-section="portfolio_carousel" data-track-type="engagement"
-                data-track-label="asistencia_inteligente"><i class="ph ph-caret-right"></i></button>
+        </div>
+
+        <!-- ================= SISTEMAS DE GESTIÓN ================= -->
+        <h2
+          style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+          Sistemas de Gestión</h2>
+        <div class="projects-container" style="margin-top: 0;">
+
+          <!-- 5) Sistema de pedidos automatizado -->
+          <div id="sistema-pedidos-automatizado" class="project-row" data-aos="fade-up"
+            data-track-cta="click_portfolio_sistema_pedidos" data-track-section="portfolio" data-track-type="project"
+            data-track-label="sistema_pedidos_automatizado">
+            <div class="project-info">
+              <h3>Sistema de pedidos automatizado</h3>
+              <p class="desc">Sistema web diseñado para estructurar y automatizar pedidos provenientes de WhatsApp e
+                Instagram, eliminando la gestión manual y organizando la operación en un flujo claro y centralizado.</p>
+              <p class="desc">Incluye catálogo digital, captura automática de pedidos, panel administrativo en tiempo
+                real
+                y control de productos, ventas y clientes, permitiendo reducir errores y mejorar la eficiencia
+                operativa.
+              </p>
             </div>
 
-            <!-- Dots -->
-            <div class="carousel-dots">
-              <div class="carousel-dot active" data-track-cta="carousel_dot_asistencia_inteligente"
-                data-track-section="portfolio_carousel" data-track-type="engagement"
-                data-track-label="asistencia_inteligente_dot_0"></div>
-              <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente"
-                data-track-section="portfolio_carousel" data-track-type="engagement"
-                data-track-label="asistencia_inteligente_dot_1"></div>
-              <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente"
-                data-track-section="portfolio_carousel" data-track-type="engagement"
-                data-track-label="asistencia_inteligente_dot_2"></div>
-              <div class="carousel-dot" data-track-cta="carousel_dot_asistencia_inteligente"
-                data-track-section="portfolio_carousel" data-track-type="engagement"
-                data-track-label="asistencia_inteligente_dot_3"></div>
+            <div class="project-carousel-wrapper"
+              data-images='["src/gestion-whatsapp/sistema-pedidos-automatizado-1.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-2.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-3.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-4.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-5.png"]'>
             </div>
           </div>
+
+          <!-- 4) Rebels Kite School Surf -->
+          <div class="project-row" data-aos="fade-up">
+            <div class="project-info">
+              <h3>Rebels Kite School</h3>
+              <p class="desc">Sistema web de gestión desarrollado para escuelas de surf y kite, diseñado para
+                organizar clases, profesores, alumnos, pagos y facturación mediante un calendario
+                interactivo,
+                control de estados y paneles diferenciados por rol.</p>
+            </div>
+
+            <div class="project-carousel-wrapper"
+              data-images='["src/rebels/rebels-kite-school-1.png", "src/rebels/rebels-kite-school-2.png", "src/rebels/rebels-kite-school-3.png", "src/rebels/rebels-kite-school-4.png", "src/rebels/rebels-kite-school-5.png"]'>
+            </div>
+          </div>
+
         </div>
 
-      </div>
+        <!-- ================= WEBS ================= -->
+        <h2
+          style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
+          Webs Estratégicas</h2>
+        <div class="projects-container" style="margin-top: 0;">
 
-      <!-- ================= SISTEMAS DE GESTIÓN ================= -->
-      <h2
-        style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
-        Sistemas de Gestión</h2>
-      <div class="projects-container" style="margin-top: 0;">
+          <!-- 6) SeaducedExperience -->
+          <div class="project-row" data-aos="fade-up">
+            <div class="project-info">
+              <h3>SeaducedExperience</h3>
+              <p class="desc">Sitio web turístico diseñado para presentar y vender experiencias privadas en barco, con
+                enfoque en claridad, estética premium y conversión, optimizado para una navegación simple y responsive
+                en
+                todos los dispositivos.</p>
+            </div>
 
-        <!-- 5) Sistema de pedidos automatizado -->
-        <div id="sistema-pedidos-automatizado" class="project-row" data-aos="fade-up"
-          data-track-cta="click_portfolio_sistema_pedidos" data-track-section="portfolio" data-track-type="project"
-          data-track-label="sistema_pedidos_automatizado">
-          <div class="project-info">
-            <h3>Sistema de pedidos automatizado</h3>
-            <p class="desc">Sistema web diseñado para estructurar y automatizar pedidos provenientes de WhatsApp e
-              Instagram, eliminando la gestión manual y organizando la operación en un flujo claro y centralizado.</p>
-            <p class="desc">Incluye catálogo digital, captura automática de pedidos, panel administrativo en tiempo real
-              y control de productos, ventas y clientes, permitiendo reducir errores y mejorar la eficiencia operativa.
-            </p>
+            <div class="project-carousel-wrapper"
+              data-images='["src/copenhagen/seaduced-experience-1.png", "src/copenhagen/seaduced-experience-2.png", "src/copenhagen/seaduced-experience-3.png", "src/copenhagen/seaduced-experience-4.png", "src/copenhagen/seaduced-experience-5.png"]'>
+            </div>
           </div>
 
-          <div class="project-carousel-wrapper"
-            data-images='["src/gestion-whatsapp/sistema-pedidos-automatizado-1.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-2.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-3.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-4.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-5.png"]'>
+
+          <!-- 7) Inferno Growshop -->
+          <div class="project-row reverse" data-aos="fade-up">
+            <div class="project-info">
+              <h3>Inferno Growshop</h3>
+              <p class="desc">Sitio web de catálogo online diseñado para exhibir productos y permitir pedidos
+                mediante un carrito integrado con WhatsApp, ofreciendo una solución liviana y directa para
+                comercios que no requieren un e-commerce tradicional.</p>
+            </div>
+
+            <div class="project-carousel-wrapper"
+              data-images='["src/inferno/inferno-growshop-1.png", "src/inferno/inferno-growshop-2.png", "src/inferno/inferno-growshop-3.png", "src/inferno/inferno-growshop-4.png", "src/inferno/inferno-growshop-5.png"]'>
+            </div>
+          </div>
+
+          <!-- 8) Eva Portfolio -->
+          <div class="project-row" data-aos="fade-up">
+            <div class="project-info">
+              <h3>Eva (Portfolio Artístico)</h3>
+              <p class="desc">Portfolio web minimalista y responsive desarrollado para una artista visual, con
+                enfoque en storytelling, protagonismo de imagen y navegación simple para destacar su obra de
+                forma clara y estética.</p>
+            </div>
+
+            <div class="project-carousel-wrapper"
+              data-images='["src/eva/eva-portfolio-artistico-1.png", "src/eva/eva-portfolio-artistico-2.png", "src/eva/eva-portfolio-artistico-3.png"]'>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="container" style="margin-top: 80px;">
+        <div class="footer">
+          <div>© 2026 Leba</div>
+          <div class="footer-contact">
+            <a href="mailto:contact@weareleba.com" class="footer-email"
+              title="Contactar por email">contact@weareleba.com</a>
+            <div class="footer-socials">
+              <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener" title="LinkedIn">
+                <i class="ph ph-linkedin-logo"></i>
+              </a>
+              <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank" rel="noopener"
+                title="Instagram">
+                <i class="ph ph-instagram-logo"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <a href="privacy-policy.html" title="Política de privacidad">Privacidad</a>
+            <a href="terms-of-service.html" title="Términos y condiciones">Términos</a>
           </div>
         </div>
+      </footer>
 
-        <!-- 4) Rebels Kite School Surf -->
-        <div class="project-row" data-aos="fade-up">
-          <div class="project-info">
-            <h3>Rebels Kite School</h3>
-            <p class="desc">Sistema web de gestión desarrollado para escuelas de surf y kite, diseñado para
-              organizar clases, profesores, alumnos, pagos y facturación mediante un calendario
-              interactivo,
-              control de estados y paneles diferenciados por rol.</p>
-          </div>
-
-          <div class="project-carousel-wrapper"
-            data-images='["src/rebels/rebels-kite-school-1.png", "src/rebels/rebels-kite-school-2.png", "src/rebels/rebels-kite-school-3.png", "src/rebels/rebels-kite-school-4.png", "src/rebels/rebels-kite-school-5.png"]'>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ================= WEBS ================= -->
-      <h2
-        style="font-size: 3.2rem; margin-top: 120px; margin-bottom: 32px; border-bottom: 1px solid var(--border-light); padding-bottom: 16px;">
-        Webs Estratégicas</h2>
-      <div class="projects-container" style="margin-top: 0;">
-
-        <!-- 6) SeaducedExperience -->
-        <div class="project-row" data-aos="fade-up">
-          <div class="project-info">
-            <h3>SeaducedExperience</h3>
-            <p class="desc">Sitio web turístico diseñado para presentar y vender experiencias privadas en barco, con
-              enfoque en claridad, estética premium y conversión, optimizado para una navegación simple y responsive en
-              todos los dispositivos.</p>
-          </div>
-
-          <div class="project-carousel-wrapper"
-            data-images='["src/copenhagen/seaduced-experience-1.png", "src/copenhagen/seaduced-experience-2.png", "src/copenhagen/seaduced-experience-3.png", "src/copenhagen/seaduced-experience-4.png", "src/copenhagen/seaduced-experience-5.png"]'>
-          </div>
-        </div>
-
-
-        <!-- 7) Inferno Growshop -->
-        <div class="project-row reverse" data-aos="fade-up">
-          <div class="project-info">
-            <h3>Inferno Growshop</h3>
-            <p class="desc">Sitio web de catálogo online diseñado para exhibir productos y permitir pedidos
-              mediante un carrito integrado con WhatsApp, ofreciendo una solución liviana y directa para
-              comercios que no requieren un e-commerce tradicional.</p>
-          </div>
-
-          <div class="project-carousel-wrapper"
-            data-images='["src/inferno/inferno-growshop-1.png", "src/inferno/inferno-growshop-2.png", "src/inferno/inferno-growshop-3.png", "src/inferno/inferno-growshop-4.png", "src/inferno/inferno-growshop-5.png"]'>
-          </div>
-        </div>
-
-        <!-- 8) Eva Portfolio -->
-        <div class="project-row" data-aos="fade-up">
-          <div class="project-info">
-            <h3>Eva (Portfolio Artístico)</h3>
-            <p class="desc">Portfolio web minimalista y responsive desarrollado para una artista visual, con
-              enfoque en storytelling, protagonismo de imagen y navegación simple para destacar su obra de
-              forma clara y estética.</p>
-          </div>
-
-          <div class="project-carousel-wrapper"
-            data-images='["src/eva/eva-portfolio-artistico-1.png", "src/eva/eva-portfolio-artistico-2.png", "src/eva/eva-portfolio-artistico-3.png"]'></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="container" style="margin-top: 80px;">
-      <div class="footer">
-        <div>© 2026 Leba</div>
-        <div class="footer-contact">
-          <a href="mailto:contact@weareleba.com" class="footer-email" title="Contactar por email">contact@weareleba.com</a>
-          <div class="footer-socials">
-            <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener" title="LinkedIn">
-              <i class="ph ph-linkedin-logo"></i>
-            </a>
-            <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank" rel="noopener"
-              title="Instagram">
-              <i class="ph ph-instagram-logo"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <a href="privacy-policy.html" title="Política de privacidad">Privacidad</a>
-          <a href="terms-of-service.html" title="Términos y condiciones">Términos</a>
-        </div>
-      </div>
-    </footer>
-
-  </div>
+    </div>
 
   </main>
   <!-- /main -->
