@@ -12,32 +12,6 @@ function validatePhone(phone) {
 
 // Initialize page interactions safely once DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
-    // Elegant Preloader Handling
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        const removePreloader = () => {
-            // Give it a small extra buffer for a smoother entrance
-            setTimeout(() => {
-                document.body.classList.remove('is-loading');
-                console.log('Preloader removed');
-            }, 300);
-        };
-
-        if (document.readyState === 'complete') {
-            removePreloader();
-        } else {
-            window.addEventListener('load', removePreloader);
-        }
-
-        // Safety timeout (if window load takes too long)
-        setTimeout(() => {
-            if (document.body.classList.contains('is-loading')) {
-                document.body.classList.remove('is-loading');
-                console.log('Preloader removed via safety timeout');
-            }
-        }, 3000);
-    }
-
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
 
@@ -279,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isConsentSet) {
             setTimeout(() => {
                 cookieBanner.classList.add('show');
-            }, 1000);
+            }, 4000);
         }
 
         acceptCookiesBtn.addEventListener('click', () => {

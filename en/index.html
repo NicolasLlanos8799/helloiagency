@@ -115,16 +115,16 @@
         // Defer until idle / after load — saves ~500ms of TBT.
         if (document.readyState === 'complete') {
             if ('requestIdleCallback' in window) {
-                requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+                requestIdleCallback(lebaLoadAnalytics, { timeout: 5000 });
             } else {
-                setTimeout(lebaLoadAnalytics, 3000);
+                setTimeout(lebaLoadAnalytics, 5000);
             }
         } else {
             window.addEventListener('load', function () {
                 if ('requestIdleCallback' in window) {
-                    requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+                    requestIdleCallback(lebaLoadAnalytics, { timeout: 5000 });
                 } else {
-                    setTimeout(lebaLoadAnalytics, 3000);
+                    setTimeout(lebaLoadAnalytics, 5000);
                 }
             });
         }
@@ -140,15 +140,15 @@
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" fetchpriority="high" />
 
     <!-- Icons: Phosphor Regular only -->
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" media="print" onload="this.media='all'">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="../css/linear.css" fetchpriority="high" />
-    <link rel="stylesheet" href="../css/assistant-demo.css" />
+    <link rel="stylesheet" href="../css/assistant-demo.css" media="print" onload="this.media='all'" />
 
     <!-- Calendly -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
@@ -175,32 +175,9 @@
       ]
     }
     </script>
-
-    <style>
-        .page-view {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
 </head>
 
-<body class="is-loading">
-    <!-- Preloader -->
-    <div id="preloader" class="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">Leba</div>
-            <div class="preloader-bar"></div>
-        </div>
-    </div>
+<body>
 
     <!-- Ambient Mesh Gradient -->
     <div class="mesh-bg"></div>
@@ -380,7 +357,12 @@
                 <!-- Team Member 1 -->
                 <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
                     <div class="team-img-wrapper">
-                        <img src="../src/equipo/nicolas-llanos.jpg" alt="Nicolás Llanos" title="Nicolás Llanos">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="../src/equipo/nicolas-llanos-320.webp 320w, ../src/equipo/nicolas-llanos-640.webp 640w, ../src/equipo/nicolas-llanos-800.webp 800w"
+                                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                            <img src="../src/equipo/nicolas-llanos-800.webp" alt="Nicolás Llanos" title="Nicolás Llanos" width="320" height="320" loading="lazy" decoding="async" />
+                        </picture>
                     </div>
                     <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Nicolás Llanos</h3>
                     <p style="color: var(--text-tertiary); font-size: 1rem;">Founder · Development & Technology</p>
@@ -389,7 +371,12 @@
                 <!-- Team Member 2 -->
                 <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
                     <div class="team-img-wrapper">
-                        <img src="../src/equipo/marlene-morrone.png" alt="Marlene Morrone" title="Marlene Morrone">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="../src/equipo/marlene-morrone-320.webp 320w, ../src/equipo/marlene-morrone-640.webp 640w, ../src/equipo/marlene-morrone-800.webp 800w"
+                                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                            <img src="../src/equipo/marlene-morrone-800.webp" alt="Marlene Morrone" title="Marlene Morrone" width="320" height="391" loading="lazy" decoding="async" />
+                        </picture>
                     </div>
                     <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Marlene Morrone</h3>
                     <p style="color: var(--text-tertiary); font-size: 1rem;">Owner · Commercial & Operations</p>
@@ -398,7 +385,12 @@
                 <!-- Team Member 3 -->
                 <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
                     <div class="team-img-wrapper">
-                        <img src="../src/equipo/mariano-oggier.png" alt="Mariano Oggier" title="Mariano Oggier">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="../src/equipo/mariano-oggier-320.webp 320w, ../src/equipo/mariano-oggier-640.webp 640w, ../src/equipo/mariano-oggier-800.webp 800w"
+                                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                            <img src="../src/equipo/mariano-oggier-800.webp" alt="Mariano Oggier" title="Mariano Oggier" width="320" height="320" loading="lazy" decoding="async" />
+                        </picture>
                     </div>
                     <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Mariano Oggier</h3>
                     <p style="color: var(--text-tertiary); font-size: 1rem;">Strategic Development & Growth</p>
@@ -738,7 +730,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/gestion-whatsapp/sistema-pedidos-automatizado-1-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-2.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-3.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-4.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-5.png"]'>
+                        data-images='["../src/gestion-whatsapp/sistema-pedidos-automatizado-1-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-2-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-3-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-4-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-5-opt.webp"]'>
                     </div>
                 </div>
 
@@ -774,7 +766,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/copenhagen/seaduced-experience-1-opt.webp", "../src/copenhagen/seaduced-experience-2-opt.webp", "../src/copenhagen/seaduced-experience-3-opt.webp", "../src/copenhagen/seaduced-experience-4.png", "../src/copenhagen/seaduced-experience-5.png"]'>
+                        data-images='["../src/copenhagen/seaduced-experience-1-opt.webp", "../src/copenhagen/seaduced-experience-2-opt.webp", "../src/copenhagen/seaduced-experience-3-opt.webp", "../src/copenhagen/seaduced-experience-4-opt.webp", "../src/copenhagen/seaduced-experience-5-opt.webp"]'>
                     </div>
                 </div>
                 <!-- Inferno Growshop -->
@@ -787,7 +779,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/inferno/inferno-growshop-1-opt.webp", "../src/inferno/inferno-growshop-2-opt.webp", "../src/inferno/inferno-growshop-3-opt.webp", "../src/inferno/inferno-growshop-4.png", "../src/inferno/inferno-growshop-5.png"]'>
+                        data-images='["../src/inferno/inferno-growshop-1-opt.webp", "../src/inferno/inferno-growshop-2-opt.webp", "../src/inferno/inferno-growshop-3-opt.webp", "../src/inferno/inferno-growshop-4-opt.webp", "../src/inferno/inferno-growshop-5-opt.webp"]'>
                     </div>
                 </div>
 

@@ -83,346 +83,15 @@
 
   <!-- Fonts: Montserrat (Optimized Weights) -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" fetchpriority="high" />
 
-  <!-- =============================================================
-       Critical CSS (above-the-fold). Inlined so the hero paints
-       without waiting for any external CSS round-trip. linear.css
-       is then upgraded asynchronously below.
-  ============================================================== -->
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
 
-    :root {
-      --bg-main: #000;
-      --bg-surface: #111;
-      --border-light: rgba(255, 255, 255, .1);
-      --text-primary: #F7F8F8;
-      --text-secondary: #A8ACB3;
-      --text-tertiary: #8B9099;
-      --accent-button: #EFEFEF;
-      --accent-button-text: #0E0E0E;
-      --nav-h: 64px;
-      --max-width: 1100px;
-      --font-base: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    html {
-      font-family: var(--font-base);
-      background: #000;
-      color: var(--text-primary);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth
-    }
-
-    body {
-      line-height: 1.5;
-      font-size: 16px;
-      min-height: 100vh;
-      position: relative
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      color: var(--text-primary);
-      line-height: 1.1;
-      font-weight: 600;
-      letter-spacing: -.02em
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px
-    }
-
-    @media(max-width:600px) {
-      .container {
-        padding: 0 16px
-      }
-    }
-
-    .section {
-      padding: 120px 0;
-      position: relative
-    }
-
-    .mesh-bg {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-      background-color: #000;
-      background-image: radial-gradient(circle at 50% 0%, rgba(30, 30, 40, .3) 0%, transparent 60%),
-        radial-gradient(circle at 10% 20%, rgba(20, 20, 30, .2) 0%, transparent 40%)
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--nav-h);
-      z-index: 9999;
-      background: rgba(8, 8, 8, .85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-light)
-    }
-
-    .nav-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%
-    }
-
-    .logo {
-      font-size: 1.7rem;
-      font-weight: 300;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      line-height: 1
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-size: .875rem;
-      font-weight: 500;
-      color: var(--text-primary)
-    }
-
-    .mobile-toggle {
-      display: none;
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-      padding: 8px;
-      color: #fff
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: .9375rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .2s ease
-    }
-
-    .btn-primary {
-      background: var(--accent-button);
-      color: var(--accent-button-text)
-    }
-
-    .btn-outline {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid var(--border-light);
-      color: var(--text-primary)
-    }
-
-    .btn-sm {
-      background: var(--accent-button);
-      color: var(--accent-button-text) !important;
-      font-weight: 500 !important;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: .8125rem !important
-    }
-
-    .hero {
-      padding: calc(var(--nav-h) + 80px) 0 80px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 90vh
-    }
-
-    .hero-kicker {
-      font-size: .875rem;
-      text-transform: uppercase;
-      letter-spacing: .25em;
-      color: var(--text-tertiary);
-      margin-bottom: 12px;
-      font-weight: 600;
-      display: block
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--border-light);
-      background: rgba(255, 255, 255, .03);
-      font-size: .8125rem;
-      color: var(--text-secondary);
-      letter-spacing: .05em;
-      margin-bottom: 32px;
-      text-transform: uppercase;
-      font-weight: 500
-    }
-
-    .hero h1 {
-      font-size: clamp(2.25rem, 6vw, 4.5rem);
-      max-width: 900px;
-      margin: 0 0 24px;
-      font-weight: 700;
-      letter-spacing: -.03em;
-      line-height: 1.1;
-      background: linear-gradient(180deg, #FFFFFF 0%, #B4B4B4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    .hero p {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      max-width: 580px;
-      margin: 12px auto 40px;
-      line-height: 1.6
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center
-    }
-
-    @media(max-width:900px) {
-      .mobile-toggle {
-        display: block
-      }
-
-      .nav-links {
-        position: fixed;
-        top: var(--nav-h);
-        left: 0;
-        width: 100%;
-        background: rgba(17, 17, 17, .95);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border-light);
-        flex-direction: column;
-        padding: 32px 24px;
-        gap: 24px;
-        align-items: flex-start;
-        transform: translateY(-150%);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform .3s ease-out, opacity .3s ease-out, visibility .3s
-      }
-
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible
-      }
-
-      .nav-links a {
-        font-size: 1.125rem
-      }
-
-      .nav-links .btn {
-        width: 100%
-      }
-
-      .hero h1 {
-        font-size: clamp(2.25rem, 10vw, 3.5rem)
-      }
-    }
-
-    @media(max-width:600px) {
-      .hero-actions {
-        flex-direction: column;
-        width: 100%
-      }
-
-      .btn {
-        width: 100%
-      }
-    }
-
-    /* Anti-FOUC veil while preloader is active */
-    /* body.is-loading .page-view{opacity:0} */
-    .page-view {
-      animation: fadeIn .4s ease-out forwards
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    /* Calendly-on-click placeholder (keeps layout reserved) */
-    .calendly-placeholder {
-      min-height: 600px;
-      width: 100%;
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      background: rgba(255, 255, 255, .01);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 16px;
-      padding: 32px;
-      text-align: center
-    }
-
-    .calendly-placeholder p {
-      color: var(--text-secondary);
-      font-size: .95rem;
-      max-width: 320px;
-      line-height: 1.5
-    }
-
-    @media(max-width:600px) {
-      .calendly-placeholder {
-        min-height: 500px
-      }
-    }
-  </style>
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/linear.css" fetchpriority="high" />
-  <link rel="stylesheet" href="css/assistant-demo.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="css/assistant-demo.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" media="print" onload="this.media='all'" />
 
   <!-- Calendly CSS is loaded only when the user opens the widget (see body) -->
 
@@ -471,16 +140,16 @@
     // Defer until idle / after load — saves ~500ms of TBT.
     if (document.readyState === 'complete') {
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+        requestIdleCallback(lebaLoadAnalytics, { timeout: 5000 });
       } else {
-        setTimeout(lebaLoadAnalytics, 3000);
+        setTimeout(lebaLoadAnalytics, 5000);
       }
     } else {
       window.addEventListener('load', function () {
         if ('requestIdleCallback' in window) {
-          requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+          requestIdleCallback(lebaLoadAnalytics, { timeout: 5000 });
         } else {
-          setTimeout(lebaLoadAnalytics, 3000);
+          setTimeout(lebaLoadAnalytics, 5000);
         }
       });
     }
@@ -491,15 +160,7 @@
   </script>
 </head>
 
-<body class="is-loading">
-  <!-- Preloader -->
-  <div id="preloader" class="preloader">
-    <div class="preloader-content">
-      <div class="preloader-logo">Leba</div>
-      <div class="preloader-bar"></div>
-    </div>
-  </div>
-
+<body>
   <!-- Ambient Mesh Gradient -->
   <div class="mesh-bg"></div>
 
@@ -685,9 +346,9 @@
             <div class="team-img-wrapper">
               <picture>
                 <source type="image/webp"
-                  srcset="src/equipo/nicolas-llanos-320.webp 320w, src/equipo/nicolas-llanos-640.webp 640w"
+                  srcset="src/equipo/nicolas-llanos-320.webp 320w, src/equipo/nicolas-llanos-640.webp 640w, src/equipo/nicolas-llanos-800.webp 800w"
                   sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-                <img src="src/equipo/nicolas-llanos.jpg" alt="Nicolás Llanos" title="Nicolás Llanos" width="320"
+                <img src="src/equipo/nicolas-llanos-800.webp" alt="Nicolás Llanos" title="Nicolás Llanos" width="320"
                   height="320" loading="lazy" decoding="async" />
               </picture>
             </div>
@@ -700,9 +361,9 @@
             <div class="team-img-wrapper">
               <picture>
                 <source type="image/webp"
-                  srcset="src/equipo/marlene-morrone-320.webp 320w, src/equipo/marlene-morrone-640.webp 640w"
+                  srcset="src/equipo/marlene-morrone-320.webp 320w, src/equipo/marlene-morrone-640.webp 640w, src/equipo/marlene-morrone-800.webp 800w"
                   sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-                <img src="src/equipo/marlene-morrone-640.webp" alt="Marlene Morrone" title="Marlene Morrone" width="320"
+                <img src="src/equipo/marlene-morrone-800.webp" alt="Marlene Morrone" title="Marlene Morrone" width="320"
                   height="391" loading="lazy" decoding="async" />
               </picture>
             </div>
@@ -715,9 +376,9 @@
             <div class="team-img-wrapper">
               <picture>
                 <source type="image/webp"
-                  srcset="src/equipo/mariano-oggier-320.webp 320w, src/equipo/mariano-oggier-640.webp 640w"
+                  srcset="src/equipo/mariano-oggier-320.webp 320w, src/equipo/mariano-oggier-640.webp 640w, src/equipo/mariano-oggier-800.webp 800w"
                   sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-                <img src="src/equipo/mariano-oggier-640.webp" alt="Mariano Oggier" title="Mariano Oggier" width="320"
+                <img src="src/equipo/mariano-oggier-800.webp" alt="Mariano Oggier" title="Mariano Oggier" width="320"
                   height="320" loading="lazy" decoding="async" />
               </picture>
             </div>
@@ -1061,7 +722,7 @@
             </div>
 
             <div class="project-carousel-wrapper"
-              data-images='["src/gestion-whatsapp/sistema-pedidos-automatizado-1.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-2.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-3.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-4.png", "src/gestion-whatsapp/sistema-pedidos-automatizado-5.png"]'>
+              data-images='["src/gestion-whatsapp/sistema-pedidos-automatizado-1-opt.webp", "src/gestion-whatsapp/sistema-pedidos-automatizado-2-opt.webp", "src/gestion-whatsapp/sistema-pedidos-automatizado-3-opt.webp", "src/gestion-whatsapp/sistema-pedidos-automatizado-4-opt.webp", "src/gestion-whatsapp/sistema-pedidos-automatizado-5-opt.webp"]'>
             </div>
           </div>
 
@@ -1076,7 +737,7 @@
             </div>
 
             <div class="project-carousel-wrapper"
-              data-images='["src/rebels/rebels-kite-school-1.png", "src/rebels/rebels-kite-school-2.png", "src/rebels/rebels-kite-school-3.png", "src/rebels/rebels-kite-school-4.png", "src/rebels/rebels-kite-school-5.png"]'>
+              data-images='["src/rebels/rebels-kite-school-1-opt.webp", "src/rebels/rebels-kite-school-2-opt.webp", "src/rebels/rebels-kite-school-3-opt.webp", "src/rebels/rebels-kite-school-4-opt.webp", "src/rebels/rebels-kite-school-5-opt.webp"]'>
             </div>
           </div>
 
@@ -1099,7 +760,7 @@
             </div>
 
             <div class="project-carousel-wrapper"
-              data-images='["src/copenhagen/seaduced-experience-1.png", "src/copenhagen/seaduced-experience-2.png", "src/copenhagen/seaduced-experience-3.png", "src/copenhagen/seaduced-experience-4.png", "src/copenhagen/seaduced-experience-5.png"]'>
+              data-images='["src/copenhagen/seaduced-experience-1-opt.webp", "src/copenhagen/seaduced-experience-2-opt.webp", "src/copenhagen/seaduced-experience-3-opt.webp", "src/copenhagen/seaduced-experience-4-opt.webp", "src/copenhagen/seaduced-experience-5-opt.webp"]'>
             </div>
           </div>
 
@@ -1114,7 +775,7 @@
             </div>
 
             <div class="project-carousel-wrapper"
-              data-images='["src/inferno/inferno-growshop-1.png", "src/inferno/inferno-growshop-2.png", "src/inferno/inferno-growshop-3.png", "src/inferno/inferno-growshop-4.png", "src/inferno/inferno-growshop-5.png"]'>
+              data-images='["src/inferno/inferno-growshop-1-opt.webp", "src/inferno/inferno-growshop-2-opt.webp", "src/inferno/inferno-growshop-3-opt.webp", "src/inferno/inferno-growshop-4-opt.webp", "src/inferno/inferno-growshop-5-opt.webp"]'>
             </div>
           </div>
 
@@ -1128,7 +789,7 @@
             </div>
 
             <div class="project-carousel-wrapper"
-              data-images='["src/eva/eva-portfolio-artistico-1.png", "src/eva/eva-portfolio-artistico-2.png", "src/eva/eva-portfolio-artistico-3.png"]'>
+              data-images='["src/eva/eva-portfolio-artistico-1-opt.webp", "src/eva/eva-portfolio-artistico-2-opt.webp", "src/eva/eva-portfolio-artistico-3-opt.webp"]'>
             </div>
           </div>
 
