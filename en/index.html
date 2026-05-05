@@ -146,8 +146,8 @@
     </style>
 
     <!-- Styles (Non-critical / Deferred) -->
-    <link rel="stylesheet" href="../css/linear.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="../css/assistant-demo.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="../css/linear.min.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="../css/assistant-demo.min.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'" />
 
     <!-- Calendly CSS is loaded only when the user opens the widget (see body) -->
@@ -179,38 +179,31 @@
 <body>
 
     <!-- Ambient Mesh Gradient -->
-    <div class="mesh-bg"></div>
+    <div class="mesh-bg" aria-hidden="true"></div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar" id="main-navbar">
+    <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main Navigation">
         <div class="container nav-content">
             <div class="logo">
-                <a href="#" id="logo-home-link" title="Leba - Home">Leba</a>
+                <a href="#hero" id="logo-home-link" title="Leba - Home" data-track-cta="logo_click">LEBA</a>
             </div>
 
-            <button class="mobile-toggle" aria-label="Open menu">
-                <svg viewBox="0 0 256 256" width="24" height="24" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" style="color: var(--text-primary);">
-                <path d="M40,128H216M40,64H216M40,192H216" />
-            </svg>
+            <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+                <svg viewBox="0 0 256 256" width="24" height="24" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" style="color: var(--text-primary);" aria-hidden="true">
+                    <path d="M40,128H216M40,64H216M40,192H216" />
+                </svg>
             </button>
 
             <ul class="nav-links" id="home-nav-links">
-                <li><a href="#" id="open-portfolio-link" title="View project portfolio"
-                        data-track-cta="click_nav_portfolio" data-track-section="navbar"
-                        data-track-type="navigation">Portfolio</a></li>
-                <li><a href="#solutions" title="View our solutions" data-track-cta="click_nav_soluciones"
-                        data-track-section="navbar" data-track-type="navigation">Solutions</a></li>
-                <li><a href="#process" title="View our work process" data-track-cta="click_nav_proceso"
-                        data-track-section="navbar" data-track-type="navigation">Process</a></li>
-                <li><a href="#contact" class="btn btn-sm" title="Schedule a call with Leba"
-                        data-track-cta="click_nav_agendar_llamada" data-track-section="navbar"
-                        data-track-type="cta">Schedule a call</a></li>
+                <li><a href="#portfolio" id="open-portfolio-link" title="View project portfolio" data-track-cta="nav_portfolio">Portfolio</a></li>
+                <li><a href="#soluciones" title="View our solutions" data-track-cta="nav_soluciones">Solutions</a></li>
+                <li><a href="#proceso" title="View our work process" data-track-cta="nav_proceso">Process</a></li>
+                <li><a href="#contacto" class="btn btn-sm" title="Schedule a call with Leba" data-track-cta="nav_schedule_call">Schedule Call</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- VIEW: HOME -->
-    <div id="home-view" class="page-view">
+    <main id="content">
+        <div id="home-view" class="page-view">
 
         <!-- HERO -->
         <header class="section hero container">
@@ -218,12 +211,12 @@
                 We are Leba
             </div>
 
-            <div class="hero-pill" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+            <div class="hero-pill">
                 Digital Systems Studio
             </div>
 
-            <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                We design digital systems that organize and empower businesses
+            <h1>
+                We design digital systems that organize and boost businesses
             </h1>
 
             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
@@ -483,7 +476,7 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="container">
+        <footer class="footer">
             <div class="footer">
                 <div>© 2026 Leba</div>
                 <div class="footer-contact">
@@ -934,13 +927,15 @@
                 const target = document.querySelector(selector);
                 if (!target) return;
 
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                requestAnimationFrame(() => {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: smooth ? 'smooth' : 'auto'
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: smooth ? 'smooth' : 'auto'
+                    });
                 });
             }
 
@@ -954,6 +949,7 @@
             }
 
             function showHome(scrollToSelector = null) {
+                window.__lebaViewState = 'home';
                 window.scrollTo({ top: 0, behavior: 'instant' });
 
                 homeView.style.display = 'block';
@@ -976,6 +972,7 @@
             }
 
             function showPortfolio() {
+                window.__lebaViewState = 'portfolio';
                 window.scrollTo({ top: 0, behavior: 'instant' });
 
                 homeView.style.display = 'none';
@@ -1084,7 +1081,7 @@
 
                         const prevBtn = document.createElement('button');
                         prevBtn.className = 'carousel-btn prev';
-                        prevBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round"><path d="M160,208,80,128l80-80"/></svg>';
+                        prevBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" aria-hidden="true"><path d="M160,208,80,128l80-80"/></svg>';
                         prevBtn.setAttribute('data-track-cta', `carousel_prev_${projectLabel}`);
                         prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
                         prevBtn.setAttribute('data-track-type', 'engagement');
@@ -1093,7 +1090,7 @@
 
                         const nextBtn = document.createElement('button');
                         nextBtn.className = 'carousel-btn next';
-                        nextBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round"><path d="M96,208l80-80L96,48"/></svg>';
+                        nextBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" aria-hidden="true"><path d="M96,208l80-80L96,48"/></svg>';
                         nextBtn.setAttribute('data-track-cta', `carousel_next_${projectLabel}`);
                         nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
                         nextBtn.setAttribute('data-track-type', 'engagement');

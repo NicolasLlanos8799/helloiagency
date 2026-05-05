@@ -10,6 +10,9 @@ function validatePhone(phone) {
     return re.test(String(phone));
 }
 
+// Global state to avoid forced reflows (getComputedStyle)
+window.__lebaViewState = 'home';
+
 // Initialize page interactions safely once DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
     const emailInput = document.getElementById('email');
@@ -17,27 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (emailInput) {
         emailInput.addEventListener('blur', function () {
-            if (!validateEmail(emailInput.value)) {
-                alert('Invalid email format!');
-            }
+            if (!validateEmail(emailInput.value)) alert('Invalid email format!');
         });
     }
 
     if (phoneInput) {
         phoneInput.addEventListener('blur', function () {
-            if (!validatePhone(phoneInput.value)) {
-                alert('Invalid phone number!');
-            }
+            if (!validatePhone(phoneInput.value)) alert('Invalid phone number!');
         });
     }
 
     // Offload non-critical logic to idle time to keep the main thread free for LCP/FCP.
     const idleInit = function() {
-        // ────────────────────────────────────────────────────────────────
-        // Portfolio image preload — TARGETED, not blanket.
-        // ────────────────────────────────────────────────────────────────
-        const toWebpVariant = (src, width) =>
-            src.replace(/\.(png|jpe?g)$/i, `-${width}.webp`);
+        const toWebpVariant = (src, width) => src.replace(/\.(png|jpe?g)$/i, `-${width}.webp`);
 
         const preloadPortfolioFirstSlides = function () {
             document.querySelectorAll('.project-carousel-wrapper[data-images]').forEach(function (wrapper) {
@@ -64,14 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const navLists = Array.from(document.querySelectorAll('.nav-links'));
         const homeNav = document.getElementById('home-nav-links');
         const portfolioNav = document.getElementById('portfolio-nav-links');
-        const homeView = document.getElementById('home-view');
-        const portfolioView = document.getElementById('portfolio-view');
 
+        // ZERO-REFLOW NAV FINDER: uses global state instead of getComputedStyle
         function getVisibleNav() {
-            const isPortfolioViewVisible = portfolioView && window.getComputedStyle(portfolioView).display !== 'none';
-            if (isPortfolioViewVisible && portfolioNav) return portfolioNav;
-            if (homeView && window.getComputedStyle(homeView).display !== 'none' && homeNav) return homeNav;
-            return navLists.find(nav => window.getComputedStyle(nav).display !== 'none') || navLists[0];
+            if (window.__lebaViewState === 'portfolio' && portfolioNav) return portfolioNav;
+            return homeNav || navLists[0];
         }
 
         function closeMobileMenu() {
@@ -93,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.addEventListener('click', (e) => { if (!e.target.closest('.navbar')) closeMobileMenu(); });
         }
 
-        // Centralized Tracking
+        // Tracking
         document.addEventListener('click', function (e) {
             const trackEl = e.target.closest('[data-track-cta]');
             if (!trackEl || typeof gtag !== 'function') return;
@@ -142,7 +134,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (cookieBanner) {
             const isConsentSet = localStorage.getItem('cookieConsent');
             if (!isConsentSet) {
-                setTimeout(() => { cookieBanner.classList.add('show'); }, 4000);
+                setTimeout(() => { 
+                    requestAnimationFrame(() => cookieBanner.classList.add('show'));
+                }, 4000);
             }
             document.getElementById('accept-cookies')?.addEventListener('click', () => {
                 localStorage.setItem('cookieConsent', 'accepted');

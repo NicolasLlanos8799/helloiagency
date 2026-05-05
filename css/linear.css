@@ -17,8 +17,8 @@
   --border-glow: rgba(255, 255, 255, 0.15);
 
   --text-primary: #F7F8F8;
-  --text-secondary: #8A8F98;
-  --text-tertiary: #60646C;
+  --text-secondary: #A8ACB3;
+  --text-tertiary: #8B9099;
 
   --accent-primary: #f2f2f2;
   --accent-glow: rgba(255, 255, 255, 0.05);
@@ -59,6 +59,11 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 4px;
 }
 
 /* Custom Scrollbar */
@@ -532,11 +537,9 @@ a {
 }
 
 .solution-footer p.context-line {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  font-weight: 500;
-  opacity: 0.8;
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin-bottom: 4px;
 }
 
 .solutions-cta {
