@@ -15,25 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Elegant Preloader Handling
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        const removePreloader = () => {
+        window.addEventListener('load', function() {
             // Give it a small extra buffer for a smoother entrance
             setTimeout(() => {
                 document.body.classList.remove('is-loading');
-                console.log('Preloader removed');
-            }, 300);
-        };
-
-        if (document.readyState === 'complete') {
-            removePreloader();
-        } else {
-            window.addEventListener('load', removePreloader);
-        }
+            }, 600);
+        });
 
         // Safety timeout (if window load takes too long)
         setTimeout(() => {
             if (document.body.classList.contains('is-loading')) {
                 document.body.classList.remove('is-loading');
-                console.log('Preloader removed via safety timeout');
             }
         }, 3000);
     }
@@ -57,42 +49,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ────────────────────────────────────────────────────────────────
-    // Portfolio image preload — TARGETED, not blanket.
-    //
-    // Previously this eagerly fetched ALL ~50 PNG carousel images at
-    // page load (multi-megabyte each), which destroyed mobile scores.
-    // Now we only preload the FIRST slide of each project (the one
-    // that's actually shown) and only when the user opens the
-    // portfolio view. Subsequent slides are lazy-loaded by the
-    // browser via loading="lazy" / IntersectionObserver.
-    // ────────────────────────────────────────────────────────────────
-    const toWebpVariant = (src, width) =>
-        src.replace(/\.(png|jpe?g)$/i, `-${width}.webp`);
+    // Preload project images early so portfolio carousels render faster on first open
+    const preloadFromCarouselData = function () {
+        const wrappers = document.querySelectorAll('.project-carousel-wrapper[data-images]');
 
-    const preloadPortfolioFirstSlides = function () {
-        document.querySelectorAll('.project-carousel-wrapper[data-images]').forEach(function (wrapper) {
+        wrappers.forEach(function (wrapper) {
             let images = [];
-            try { images = JSON.parse(wrapper.dataset.images || '[]'); }
-            catch (e) { return; }
-            if (!images.length) return;
-            const first = images[0];
-            if (!first) return;
-            const img = new Image();
-            img.decoding = 'async';
-            // Use the lighter 640 w variant for the warm-up
-            img.src = toWebpVariant(first, 640);
+
+            try {
+                images = JSON.parse(wrapper.dataset.images || '[]');
+            } catch (error) {
+                console.warn('Invalid carousel data-images JSON', error);
+            }
+
+            images.forEach(function (src) {
+                if (!src) return;
+
+                const img = new Image();
+                img.decoding = 'async';
+                img.loading = 'eager';
+                img.src = src;
+            });
         });
     };
 
-    // Only run when the user actually opens the portfolio
-    document.addEventListener('click', function (e) {
-        const opener = e.target.closest('#open-portfolio-link, #hero-open-portfolio');
-        if (!opener) return;
-        ('requestIdleCallback' in window ? window.requestIdleCallback : setTimeout)(
-            preloadPortfolioFirstSlides, 0
-        );
-    }, { once: false });
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(preloadFromCarouselData, { timeout: 1000 });
+    } else {
+        setTimeout(preloadFromCarouselData, 0);
+    }
 
     // Mobile menu toggle (works for both home and portfolio nav variants)
     const mobileToggle = document.querySelector('.mobile-toggle');
@@ -152,15 +137,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Use a debounced resize listener to avoid layout thrashing
-        let resizeTimer;
         window.addEventListener('resize', function () {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (window.innerWidth > 900) {
-                    closeMobileMenu();
-                }
-            }, 200);
+            if (window.innerWidth > 900) {
+                closeMobileMenu();
+            }
         });
     }
     // Centralized Tracking Architecture
@@ -182,22 +162,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Form Field Focus Tracking using delegation
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('focusin', function (e) {
-            const eventName = e.target.getAttribute('data-track-cta');
+    // Form Field Focus Tracking
+    const trackableFields = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    trackableFields.forEach(field => {
+        field.addEventListener('focus', function () {
+            const eventName = this.getAttribute('data-track-cta');
             if (eventName && typeof gtag === 'function') {
                 gtag('event', eventName, {
                     event_category: 'form',
-                    event_label: e.target.name,
+                    event_label: this.name,
                     section: 'contact_form'
                 });
             }
         });
-    }
+    });
 
     // Contact form submit without redirect (Formspree AJAX)
+    const contactForm = document.getElementById('contactForm');
     const contactSubmitBtn = document.getElementById('contactSubmitBtn');
     const contactSuccess = document.getElementById('contactSuccess');
     const contactError = document.getElementById('contactError');

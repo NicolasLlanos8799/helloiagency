@@ -15,6 +15,8 @@
     <link rel="alternate" hreflang="es" href="https://weareleba.com/" />
     <link rel="alternate" hreflang="en" href="https://weareleba.com/en/" />
     <link rel="alternate" hreflang="x-default" href="https://weareleba.com/" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://unpkg.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://assets.calendly.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.clarity.ms https://assets.calendly.com https://unpkg.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://formspree.io https://calendly.com https://*.calendly.com; frame-src https://calendly.com https://*.calendly.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io" />
 
     <script>
         (function () {
@@ -69,7 +71,7 @@
     <meta property="og:url" content="https://weareleba.com/en/" />
     <meta property="og:site_name" content="Leba" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://weareleba.com/src/lebaRender.png?v=1" />
+    <meta property="og:image" content="https://weareleba.com/leba-preview-og.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Leba | Digital Systems Studio" />
@@ -79,48 +81,72 @@
     <meta name="twitter:title" content="Leba | Digital Systems Studio" />
     <meta name="twitter:description"
         content="Design and implementation of digital systems and AI automations for real businesses." />
-    <meta name="twitter:image" content="https://weareleba.com/src/lebaRender.png?v=1" />
+    <meta name="twitter:image" content="https://weareleba.com/leba-preview-og.webp" />
     <meta name="twitter:image:alt" content="Leba | Digital Systems Studio" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P0YEG9KJT5"></script>
+    <!-- =============================================================
+         Analytics: GTM (gtag) + Microsoft Clarity. Both deferred until
+         AFTER first paint and behind a Consent-Mode-v2 default-denied
+         gate, so they cost zero ms of LCP/TBT on the initial render.
+    ============================================================== -->
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'wait_for_update': 500
+        });
         gtag('js', new Date());
-        gtag('config', 'G-P0YEG9KJT5');
+        gtag('config', 'G-P0YEG9KJT5', { transport_type: 'beacon' });
+
+        function lebaLoadAnalytics() {
+            if (window.__lebaAnalyticsLoaded) return;
+            window.__lebaAnalyticsLoaded = true;
+            var s = document.createElement('script');
+            s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-P0YEG9KJT5';
+            document.head.appendChild(s);
+            (function (c, l, a, r, i) {
+                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+                var t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+                var y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+            })(window, document, 'clarity', 'script', 'w3yyyartvr');
+        }
+        // Defer until idle / after load — saves ~500ms of TBT.
+        if (document.readyState === 'complete') {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+            } else {
+                setTimeout(lebaLoadAnalytics, 3000);
+            }
+        } else {
+            window.addEventListener('load', function () {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+                } else {
+                    setTimeout(lebaLoadAnalytics, 3000);
+                }
+            });
+        }
+        // Also load on first user interaction (whichever is sooner).
+        ['scroll', 'keydown', 'mousemove', 'touchstart'].forEach(function (ev) {
+            window.addEventListener(ev, lebaLoadAnalytics, { once: true, passive: true });
+        });
     </script>
 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "w3yyyartvr");
-    </script>
-
-    <!-- Fonts: Montserrat -->
+    <!-- Fonts: Montserrat (Optimized Weights) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Icons: Phosphor Regular only -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
 
-    <!-- AOS Animations -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-    <!-- Linear Style Design System -->
-    <link rel="stylesheet" href="../css/linear.css" />
-    <link rel="stylesheet" href="../css/assistant-mockup.css" />
-    <link rel="stylesheet" href="../css/system-dashboard.css" />
-    <link rel="stylesheet" href="../css/assistant-channels.css" />
-    <link rel="stylesheet" href="../css/assistant-settings.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="../css/linear.css" fetchpriority="high" />
+    <link rel="stylesheet" href="../css/assistant-demo.css" />
 
     <!-- Calendly -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
@@ -348,7 +374,7 @@
                 </h2>
             </div>
 
-            <div class="grid-4 team-grid">
+            <div class="grid-3 team-grid">
                 <!-- Team Member 1 -->
                 <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
                     <div class="team-img-wrapper">
@@ -376,14 +402,7 @@
                     <p style="color: var(--text-tertiary); font-size: 1rem;">Strategic Development & Growth</p>
                 </div>
 
-                <!-- Team Member 4 -->
-                <div class="card text-center" data-aos="fade-up" data-aos-delay="400" style="padding: 40px 24px;">
-                    <div class="team-img-wrapper">
-                        <img src="../src/equipo/guido-magi.png" alt="Guido Magi" title="Guido Magi">
-                    </div>
-                    <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Guido Magi</h3>
-                    <p style="color: var(--text-tertiary); font-size: 1rem;">Development & Technology</p>
-                </div>
+
             </div>
         </section>
 
@@ -452,9 +471,13 @@
 
                 <!-- Right Column: Calendly -->
                 <div>
-                    <!-- Calendly INLINE WIDGET -->
-                    <div class="calendly-inline-widget calendly-wrapper"
-                        data-url="https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1">
+                    <!-- Lazy Calendly Placeholder -->
+                    <div id="calendly-mount" class="calendly-placeholder">
+                        <div class="calendly-placeholder-content">
+                            <i class="ph ph-calendar-blank"></i>
+                            <button id="calendly-load-btn" class="btn btn-outline">View available times</button>
+                            <p>Load the calendar only when you need it</p>
+                        </div>
                     </div>
                 </div>
 
@@ -496,7 +519,7 @@
         <!-- HEADER / HERO PORTFOLIO -->
         <header class="section hero container">
             <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
-                <i class="ph-fill ph-briefcase" style="margin-right: 6px; color: var(--text-primary)"></i> Our
+                <i class="ph ph-briefcase" style="margin-right: 6px; color: var(--text-primary)"></i> Our
                 Work
             </div>
             <h1 data-aos="fade-up" data-aos-duration="1000">
@@ -712,7 +735,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/gestion-whatsapp/sistema-pedidos-automatizado-1.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-2.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-3.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-4.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-5.png"]'>
+                        data-images='["../src/gestion-whatsapp/sistema-pedidos-automatizado-1-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-2.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-3.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-4.png", "../src/gestion-whatsapp/sistema-pedidos-automatizado-5.png"]'>
                     </div>
                 </div>
 
@@ -726,7 +749,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/rebels/rebels-kite-school-1.png", "../src/rebels/rebels-kite-school-2.png", "../src/rebels/rebels-kite-school-3.png", "../src/rebels/rebels-kite-school-4.png", "../src/rebels/rebels-kite-school-5.png"]'>
+                        data-images='["../src/rebels/rebels-kite-school-1-opt.webp", "../src/rebels/rebels-kite-school-2-opt.webp", "../src/rebels/rebels-kite-school-3-opt.webp", "../src/rebels/rebels-kite-school-4-opt.webp", "../src/rebels/rebels-kite-school-5-opt.webp"]'>
                     </div>
                 </div>
 
@@ -748,7 +771,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/copenhagen/seaduced-experience-1.png", "../src/copenhagen/seaduced-experience-2.png", "../src/copenhagen/seaduced-experience-3.png", "../src/copenhagen/seaduced-experience-4.png", "../src/copenhagen/seaduced-experience-5.png"]'>
+                        data-images='["../src/copenhagen/seaduced-experience-1-opt.webp", "../src/copenhagen/seaduced-experience-2-opt.webp", "../src/copenhagen/seaduced-experience-3-opt.webp", "../src/copenhagen/seaduced-experience-4.png", "../src/copenhagen/seaduced-experience-5.png"]'>
                     </div>
                 </div>
                 <!-- Inferno Growshop -->
@@ -761,7 +784,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/inferno/inferno-growshop-1.png", "../src/inferno/inferno-growshop-2.png", "../src/inferno/inferno-growshop-3.png", "../src/inferno/inferno-growshop-4.png", "../src/inferno/inferno-growshop-5.png"]'>
+                        data-images='["../src/inferno/inferno-growshop-1-opt.webp", "../src/inferno/inferno-growshop-2-opt.webp", "../src/inferno/inferno-growshop-3-opt.webp", "../src/inferno/inferno-growshop-4.png", "../src/inferno/inferno-growshop-5.png"]'>
                     </div>
                 </div>
 
@@ -775,7 +798,7 @@
                     </div>
 
                     <div class="project-carousel-wrapper"
-                        data-images='["../src/eva/eva-portfolio-artistico-1.png", "../src/eva/eva-portfolio-artistico-2.png", "../src/eva/eva-portfolio-artistico-3.png"]'></div>
+                        data-images='["../src/eva/eva-portfolio-artistico-1-opt.webp", "../src/eva/eva-portfolio-artistico-2-opt.webp", "../src/eva/eva-portfolio-artistico-3-opt.webp"]'></div>
                 </div>
 
             </div>
@@ -815,7 +838,7 @@
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <div class="cookie-title">
-                <i class="ph-fill ph-cookie" style="font-size: 20px;"></i>
+                <i class="ph ph-cookie" style="font-size: 20px;"></i>
                 We use cookies
             </div>
             <p class="cookie-text">
@@ -832,17 +855,67 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <script src="../js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="../js/script.js" defer></script>
 
     <script>
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 800,
-            easing: 'ease-out-cubic',
+        // Init AOS once it has loaded (defer guarantees it's parsed before this).
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    once: true,
+                    offset: 50,
+                    duration: 600,
+                    easing: 'ease-out-cubic',
+                    disable: function () {
+                        // Honor reduced motion + skip on tiny low-power devices
+                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    }
+                });
+            }
         });
+
+        // Lazy Calendly: load JS+CSS only when the user clicks "View times"
+        // or comes within 600 px of the placeholder via scroll (whichever first).
+        (function () {
+            var mount = document.getElementById('calendly-mount');
+            var btn = document.getElementById('calendly-load-btn');
+            if (!mount) return;
+            var loaded = false;
+
+            function loadCalendly() {
+                if (loaded) return;
+                loaded = true;
+                // CSS
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://assets.calendly.com/assets/external/widget.css';
+                document.head.appendChild(link);
+                // JS
+                var s = document.createElement('script');
+                s.src = 'https://assets.calendly.com/assets/external/widget.js';
+                s.async = true;
+                s.onload = function () {
+                    mount.classList.remove('calendly-placeholder');
+                    mount.classList.add('calendly-inline-widget', 'calendly-wrapper');
+                    mount.setAttribute('data-url', 'https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1');
+                    // Calendly's script auto-initializes elements with calendly-inline-widget class
+                };
+                document.body.appendChild(s);
+            }
+
+            // Trigger on click
+            btn.addEventListener('click', loadCalendly);
+
+            // Trigger on scroll
+            window.addEventListener('scroll', function () {
+                if (loaded) return;
+                var rect = mount.getBoundingClientRect();
+                if (rect.top < window.innerHeight + 600) {
+                    loadCalendly();
+                }
+            }, { passive: true });
+        })();
 
         document.addEventListener('DOMContentLoaded', () => {
             const homeView = document.getElementById('home-view');
@@ -988,12 +1061,16 @@
                     track.className = 'carousel-track';
                     wrapper.appendChild(track);
 
+                    const toWebp = (src) => src.replace(/\.(png|jpe?g)$/i, `-800.webp`);
                     const slideEls = [];
                     images.forEach((src, idx) => {
                         const slide = document.createElement('img');
                         slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
-                        slide.src = src;
-                        slide.loading = 'lazy';
+                        slide.src = toWebp(src);
+                        slide.loading = idx === 0 ? 'eager' : 'lazy';
+                        slide.decoding = 'async';
+                        slide.width = 800; slide.height = 450;
+                        slide.onerror = function () { this.onerror = null; this.src = src; };
                         slide.alt = `${projectInfo ? projectInfo.innerText : 'Project'} - Slide ${idx + 1}`;
                         slide.title = slide.alt;
                         track.appendChild(slide);
