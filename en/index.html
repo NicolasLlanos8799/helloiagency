@@ -112,19 +112,19 @@
                 var y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
             })(window, document, 'clarity', 'script', 'w3yyyartvr');
         }
-        // High-impact delay: Only load analytics 3s after window load.
+        // High-impact delay: Only load analytics 5s after window load.
         window.addEventListener('load', function () {
             setTimeout(function() {
                 if ('requestIdleCallback' in window) {
-                    requestIdleCallback(lebaLoadAnalytics, { timeout: 3000 });
+                    requestIdleCallback(lebaLoadAnalytics, { timeout: 5000 });
                 } else {
                     lebaLoadAnalytics();
                 }
-                // Enable interaction-based load as a fallback after the 3s window.
+                // Enable interaction-based load as a fallback after the 5s window.
                 ['scroll', 'keydown', 'touchstart'].forEach(function (ev) {
                     window.addEventListener(ev, lebaLoadAnalytics, { once: true, passive: true });
                 });
-            }, 3000);
+            }, 5000);
         });
     </script>
 
@@ -137,13 +137,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" fetchpriority="high" />
 
-    <!-- Icons: Phosphor Regular only -->
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" media="print" onload="this.media='all'">
+    <!-- =============================================================
+       Critical CSS (above-the-fold). Inlined to ensure the hero paints
+       instantly. linear.css is deferred via media="print".
+    ============================================================== -->
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg-main:#000;--bg-surface:#111;--border-light:rgba(255,255,255,.08);--text-primary:#F7F8F8;--text-secondary:#A8ACB3;--text-tertiary:#8B9099;--accent-button:#EFEFEF;--accent-button-text:#0E0E0E;--nav-h:64px;--max-width:1100px;--font-base:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}html{scroll-behavior:smooth;font-family:var(--font-base);background:#000;color:var(--text-primary);-webkit-font-smoothing:antialiased}body{line-height:1.5;font-size:16px;min-height:100vh;position:relative;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:9999;background:rgba(8,8,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}.nav-content{display:flex;align-items:center;justify-content:space-between;height:100%}.logo{font-size:1.7rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase}.hero{padding:calc(var(--nav-h) + 80px) 0 80px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh}.hero-kicker{font-size:.875rem;text-transform:uppercase;letter-spacing:.25em;color:var(--text-tertiary);margin-bottom:12px;font-weight:600}.hero h1{font-size:clamp(2.25rem,6vw,4.5rem);max-width:900px;margin:0 0 24px;font-weight:700;letter-spacing:-.03em;line-height:1.1;background:linear-gradient(180deg,#FFF 0%,#B4B4B4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{font-size:1.125rem;color:var(--text-secondary);max-width:580px;margin:12px auto 40px;line-height:1.6}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:8px;font-size:.9375rem;font-weight:500;cursor:pointer}.btn-primary{background:var(--accent-button);color:var(--accent-button-text)}.btn-outline{background:rgba(255,255,255,.03);border:1px solid var(--border-light);color:var(--text-primary)}.mesh-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#000;background-image:radial-gradient(circle at 50% 0%,rgba(30,30,40,.3) 0%,transparent 60%)}
+    </style>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="../css/linear.css" fetchpriority="high" />
+    <!-- Styles (Non-critical / Deferred) -->
+    <link rel="stylesheet" href="../css/linear.css" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="../css/assistant-demo.css" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'" />
 
     <!-- Calendly CSS is loaded only when the user opens the widget (see body) -->
 
@@ -184,7 +189,9 @@
             </div>
 
             <button class="mobile-toggle" aria-label="Open menu">
-                <i class="ph ph-list" style="font-size: 24px; color: var(--text-primary);"></i>
+                <svg viewBox="0 0 256 256" width="24" height="24" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" style="color: var(--text-primary);">
+                <path d="M40,128H216M40,64H216M40,192H216" />
+            </svg>
             </button>
 
             <ul class="nav-links" id="home-nav-links">
@@ -230,7 +237,10 @@
                     data-track-label="hero_primary_analisis">We analyze how you work</a>
                 <a href="#" id="hero-open-portfolio" class="btn btn-outline" title="View project portfolio"
                     data-track-cta="click_hero_portfolio" data-track-section="hero" data-track-type="navigation">
-                    View Portfolio <i class="ph ph-briefcase" style="margin-left: 8px;"></i>
+                    View Portfolio <svg viewBox="0 0 256 256" width="18" height="18" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" style="margin-left: 8px;">
+                    <rect x="32" y="72" width="192" height="144" rx="16" />
+                    <path d="M128,72V48a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8V72" />
+                </svg>
                 </a>
             </div>
         </header>
@@ -247,7 +257,7 @@
                 <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
                     <div class="solution-header">
                         <div class="solution-icon">
-                            <i class="ph ph-globe-hemisphere-east"></i>
+                            <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor" stroke-width="12"><circle cx="128" cy="128" r="96"/><path d="M128,32a96,96,0,0,1,0,192M32,128a96,96,0,0,1,192,0"/></svg>
                         </div>
                         <h3>Web Pages</h3>
                     </div>
@@ -265,7 +275,7 @@
                 <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
                     <div class="solution-header">
                         <div class="solution-icon">
-                            <i class="ph ph-code-block"></i>
+                            <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor" stroke-width="12"><path d="M64,88,24,128l40,40M192,88l40,40-40,40M160,40,96,216"/></svg>
                         </div>
                         <h3>Custom Software</h3>
                     </div>
@@ -283,7 +293,7 @@
                 <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
                     <div class="solution-header">
                         <div class="solution-icon">
-                            <i class="ph ph-robot"></i>
+                            <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor" stroke-width="12"><rect x="40" y="72" width="176" height="144" rx="16"/><path d="M80,40v32M176,40v32M40,136h176"/></svg>
                         </div>
                         <h3>Automation & AI</h3>
                     </div>
@@ -677,10 +687,10 @@
                         <div class="carousel-controls">
                             <button class="carousel-btn prev" data-track-cta="carousel_prev_intelligent_assistant"
                                 data-track-section="portfolio_carousel" data-track-type="engagement"
-                                data-track-label="intelligent_assistant"><i class="ph ph-caret-left"></i></button>
+                                data-track-label="intelligent_assistant"><svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round"><path d="M160,208,80,128l80-80"/></svg></button>
                             <button class="carousel-btn next" data-track-cta="carousel_next_intelligent_assistant"
                                 data-track-section="portfolio_carousel" data-track-type="engagement"
-                                data-track-label="intelligent_assistant"><i class="ph ph-caret-right"></i></button>
+                                data-track-label="intelligent_assistant"><svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round"><path d="M96,208l80-80L96,48"/></svg></button>
                         </div>
 
                         <!-- Dots -->
@@ -1074,7 +1084,7 @@
 
                         const prevBtn = document.createElement('button');
                         prevBtn.className = 'carousel-btn prev';
-                        prevBtn.innerHTML = '<i class="ph ph-caret-left"></i>';
+                        prevBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round"><path d="M160,208,80,128l80-80"/></svg>';
                         prevBtn.setAttribute('data-track-cta', `carousel_prev_${projectLabel}`);
                         prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
                         prevBtn.setAttribute('data-track-type', 'engagement');
@@ -1083,7 +1093,7 @@
 
                         const nextBtn = document.createElement('button');
                         nextBtn.className = 'carousel-btn next';
-                        nextBtn.innerHTML = '<i class="ph ph-caret-right"></i>';
+                        nextBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round"><path d="M96,208l80-80L96,48"/></svg>';
                         nextBtn.setAttribute('data-track-cta', `carousel_next_${projectLabel}`);
                         nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
                         nextBtn.setAttribute('data-track-type', 'engagement');
