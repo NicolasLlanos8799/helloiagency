@@ -129,6 +129,54 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        // Count-up animation for stats section
+        const statItems = document.querySelectorAll('.stat-item[data-count]');
+        if (statItems.length && 'IntersectionObserver' in window) {
+            const countObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) return;
+                    countObserver.unobserve(entry.target);
+                    const target = parseInt(entry.target.dataset.count, 10);
+                    const numberEl = entry.target.querySelector('.stat-number');
+                    if (!numberEl) return;
+                    const duration = 1200;
+                    const start = performance.now();
+                    function tick(now) {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        numberEl.textContent = Math.floor(eased * target);
+                        if (progress < 1) requestAnimationFrame(tick);
+                        else numberEl.textContent = target;
+                    }
+                    requestAnimationFrame(tick);
+                });
+            }, { threshold: 0.4 });
+            statItems.forEach(function(el) { countObserver.observe(el); });
+        }
+
+        // Scrollspy: active nav link based on visible section
+        const homeNavLinks = document.querySelectorAll('#home-nav-links a[href^="#"]');
+        if (homeNavLinks.length && 'IntersectionObserver' in window) {
+            const navMap = {};
+            homeNavLinks.forEach(function(link) {
+                const id = link.getAttribute('href').replace('#', '');
+                navMap[id] = link;
+            });
+            const spyObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        homeNavLinks.forEach(function(l) { l.classList.remove('is-active'); });
+                        const link = navMap[entry.target.id];
+                        if (link) link.classList.add('is-active');
+                    }
+                });
+            }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
+            ['soluciones', 'proceso', 'contacto-form'].forEach(function(id) {
+                const el = document.getElementById(id);
+                if (el) spyObserver.observe(el);
+            });
+        }
+
         // Cookie Consent logic
         const cookieBanner = document.getElementById('cookie-banner');
         if (cookieBanner) {

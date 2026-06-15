@@ -27,6 +27,7 @@
 
   /* Typography */
   --font-base: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Space Grotesk", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-logo: "CEDRA", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Layout */
@@ -90,8 +91,9 @@ body {
   height: 100vh;
   z-index: -1;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(30, 30, 40, 0.3) 0%, transparent 60%),
-    radial-gradient(circle at 10% 20%, rgba(20, 20, 30, 0.2) 0%, transparent 40%);
+    radial-gradient(circle at 50% 0%, rgba(80, 90, 200, 0.10) 0%, transparent 60%),
+    radial-gradient(circle at 10% 20%, rgba(20, 20, 30, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(60, 70, 180, 0.06) 0%, transparent 45%);
   background-color: var(--bg-main);
   pointer-events: none;
 }
@@ -113,6 +115,13 @@ body {
 .section {
   padding: 120px 0;
   position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
 }
 
 h1,
@@ -473,15 +482,24 @@ a {
   padding: 36px;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   height: 100%;
 }
 
 .solution-block:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 30px rgba(80, 90, 200, 0.06);
+}
+
+.solution-block:hover .solution-icon {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .solution-header {
@@ -599,6 +617,59 @@ a {
 }
 
 /* =========================================
+   Stats / Metrics
+========================================= */
+.section-stats {
+  padding: 64px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
    Process Timeline
 ========================================= */
 .process-grid {
@@ -614,14 +685,35 @@ a {
   padding-top: 24px;
 }
 
+.step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.step:hover .step-icon {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: var(--text-primary);
+}
+
 .step .num {
   font-size: 0.875rem;
   color: var(--text-tertiary);
   font-family: monospace;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: block;
 }
 
+.step h3,
 .step h4 {
   font-size: 1.125rem;
   margin-bottom: 8px;
@@ -630,6 +722,26 @@ a {
 .step p {
   font-size: 0.9375rem;
   color: var(--text-secondary);
+}
+
+/* =========================================
+   Nav active state (scrollspy)
+========================================= */
+.nav-links a.is-active {
+  opacity: 1;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.nav-links a.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 1px;
 }
 
 /* =========================================
@@ -695,11 +807,26 @@ a {
    CTA
 ========================================= */
 .cta-box {
+  position: relative;
   background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
-  border: 1px solid var(--border-light);
+  border: 1px solid transparent;
   border-radius: 16px;
   padding: 80px 40px;
   text-align: center;
+  box-shadow: 0 0 60px rgba(80, 90, 200, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(255, 255, 255, 0.16) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .cta-box h2 {
