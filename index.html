@@ -92,11 +92,11 @@
        instantly. linear.css is deferred via media="print".
   ============================================================== -->
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg-main:#000;--bg-surface:#111;--border-light:rgba(255,255,255,.08);--text-primary:#F7F8F8;--text-secondary:#A8ACB3;--text-tertiary:#8B9099;--accent-button:#EFEFEF;--accent-button-text:#0E0E0E;--nav-h:64px;--max-width:1100px;--font-base:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--font-heading:"Space Grotesk","Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}html{scroll-behavior:smooth;font-family:var(--font-base);background:#000;color:var(--text-primary);-webkit-font-smoothing:antialiased}body{line-height:1.5;font-size:16px;min-height:100vh;position:relative;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:9999;background:rgba(8,8,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}.nav-content{display:flex;align-items:center;justify-content:space-between;height:100%}.logo{font-size:1.7rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase}.hero{padding:calc(var(--nav-h) + 80px) 0 80px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh}.hero-kicker{font-size:.875rem;text-transform:uppercase;letter-spacing:.25em;color:var(--text-tertiary);margin-bottom:12px;font-weight:600}.hero h1{font-size:clamp(2.25rem,6vw,4.5rem);max-width:900px;margin:0 0 24px;font-weight:700;letter-spacing:-.03em;line-height:1.1;background:linear-gradient(180deg,#FFF 0%,#B4B4B4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{font-size:1.125rem;color:var(--text-secondary);max-width:580px;margin:12px auto 40px;line-height:1.6}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:8px;font-size:.9375rem;font-weight:500;cursor:pointer}.btn-primary{background:var(--accent-button);color:var(--accent-button-text)}.btn-outline{background:rgba(255,255,255,.03);border:1px solid var(--border-light);color:var(--text-primary)}h1,h2,h3,h4{font-family:var(--font-heading)}.mesh-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#000;background-image:radial-gradient(circle at 50% 0%,rgba(80,90,200,.10) 0%,transparent 60%),radial-gradient(circle at 80% 70%,rgba(60,70,180,.06) 0%,transparent 45%)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg-main:#000;--bg-surface:#111;--border-light:rgba(255,255,255,.08);--text-primary:#F7F8F8;--text-secondary:#A8ACB3;--text-tertiary:#8B9099;--accent-button:#EFEFEF;--accent-button-text:#0E0E0E;--nav-h:64px;--max-width:1100px;--font-base:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--font-heading:"Space Grotesk","Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}html{scroll-behavior:smooth;font-family:var(--font-base);background:#000;color:var(--text-primary);-webkit-font-smoothing:antialiased}body{line-height:1.5;font-size:16px;min-height:100vh;position:relative;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:9999;background:rgba(8,8,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}.nav-content{display:flex;align-items:center;justify-content:space-between;height:100%}.logo{font-size:1.7rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase}.hero{padding:calc(var(--nav-h) + 80px) 0 80px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh}.hero-kicker{font-size:.875rem;text-transform:uppercase;letter-spacing:.25em;color:var(--text-tertiary);margin-bottom:12px;font-weight:600}.hero h1{font-size:clamp(2.25rem,6vw,4.5rem);max-width:900px;margin:0 0 24px;font-weight:700;letter-spacing:-.03em;line-height:1.1;background:linear-gradient(180deg,#FFF 0%,#B4B4B4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{font-size:1.125rem;color:var(--text-secondary);max-width:580px;margin:12px auto 40px;line-height:1.6}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:8px;font-size:.9375rem;font-weight:500;cursor:pointer}.btn-primary{background:var(--accent-button);color:var(--accent-button-text)}.btn-outline{background:rgba(255,255,255,.03);border:1px solid var(--border-light);color:var(--text-primary)}h1,h2,h3,h4{font-family:var(--font-heading)}.mesh-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#000;background-image:radial-gradient(circle at 50% 0%,rgba(80,90,200,.10) 0%,transparent 60%),radial-gradient(circle at 80% 70%,rgba(60,70,180,.06) 0%,transparent 45%)}@media(hover:hover) and (pointer:fine){body{cursor:none}input,textarea,select{cursor:auto}}.hero h1.hero-words-active{background:none}.hero h1.hero-words-active .hero-word{display:inline-block;background:linear-gradient(180deg,#FFF 0%,#B4B4B4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:0;transform:translateY(16px);animation:hero-word-in .7s cubic-bezier(.16,1,.3,1) forwards}@keyframes hero-word-in{to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){.hero h1.hero-words-active .hero-word{opacity:1;transform:none;animation:none}}
   </style>
 
   <!-- Styles (Non-critical / Deferred) -->
-  <link rel="stylesheet" href="css/linear.min.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="css/linear.min.css" />
   <link rel="stylesheet" href="css/assistant-demo.min.css" media="print" onload="this.media='all'" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'" />
 
@@ -163,6 +163,9 @@
 </head>
 
 <body>
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+
   <!-- Ambient Mesh Gradient -->
   <div class="mesh-bg" aria-hidden="true"></div>
 
@@ -211,8 +214,15 @@
           Digital Systems Studio
         </div>
 
-        <h1>
-          Diseñamos sistemas digitales que organizan y potencian negocios
+        <h1 class="hero-words-active">
+          <span class="hero-word" style="animation-delay:.10s">Diseñamos</span>
+          <span class="hero-word" style="animation-delay:.18s">sistemas</span>
+          <span class="hero-word" style="animation-delay:.26s">digitales</span>
+          <span class="hero-word" style="animation-delay:.34s">que</span>
+          <span class="hero-word" style="animation-delay:.42s">organizan</span>
+          <span class="hero-word" style="animation-delay:.50s">y</span>
+          <span class="hero-word" style="animation-delay:.58s">potencian</span>
+          <span class="hero-word" style="animation-delay:.66s">negocios</span>
         </h1>
 
         <p>
@@ -233,8 +243,6 @@
           </a>
         </div>
       </header>
-
-
 
       <!-- STATS / MÉTRICAS — oculto hasta tener números reales verificados -->
       <!-- <section class="section-stats container" data-aos="fade-up">
@@ -340,8 +348,8 @@
           <h2>Cómo abordamos y ejecutamos cada proyecto</h2>
         </div>
 
-        <div class="process-grid" data-aos="fade-up" data-aos-delay="100">
-          <div class="step">
+        <div class="process-grid">
+          <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
             <div class="step-icon" aria-hidden="true">
               <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><circle cx="112" cy="112" r="80"/><line x1="168.57" y1="168.57" x2="224" y2="224"/></svg>
             </div>
@@ -349,7 +357,7 @@
             <h3>Entender</h3>
             <p>Diagnosticamos la operación actual del negocio.</p>
           </div>
-          <div class="step">
+          <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="250">
             <div class="step-icon" aria-hidden="true">
               <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M80,168a72,72,0,1,1,96,0"/><line x1="80" y1="168" x2="176" y2="168"/><line x1="88" y1="200" x2="168" y2="200"/><line x1="128" y1="232" x2="128" y2="200"/></svg>
             </div>
@@ -357,7 +365,7 @@
             <h3>Proponer</h3>
             <p>Diseñamos una arquitectura digital robusta.</p>
           </div>
-          <div class="step">
+          <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
             <div class="step-icon" aria-hidden="true">
               <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="88" width="80" height="80" rx="8"/><path d="M160,168h16a16,16,0,0,0,16-16V104a16,16,0,0,0-16-16H160"/><line x1="192" y1="128" x2="224" y2="128"/></svg>
             </div>
@@ -365,7 +373,7 @@
             <h3>Construir</h3>
             <p>Desarrollamos iterativamente la plataforma o sistema.</p>
           </div>
-          <div class="step">
+          <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="750">
             <div class="step-icon" aria-hidden="true">
               <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 192,96 128,144 176,224 72"/><polyline points="168 72,224 72,224 128"/></svg>
             </div>
@@ -807,7 +815,7 @@
             </div>
 
             <div class="project-carousel-wrapper"
-              data-images='["src/copenhagen/seaduced-experience-1-opt.webp", "src/copenhagen/seaduced-experience-2-opt.webp", "src/copenhagen/seaduced-experience-3-opt.webp", "src/copenhagen/seaduced-experience-4-opt.webp", "src/copenhagen/seaduced-experience-5-opt.webp"]'>
+              data-images='["src/copenhagen/seaduced-experience-1-opt.webp", "src/copenhagen/seaduced-experience-2-opt.webp", "src/copenhagen/seaduced-experience-3-opt.webp", "src/copenhagen/seaduced-experience-4-opt.webp"]'>
             </div>
           </div>
 

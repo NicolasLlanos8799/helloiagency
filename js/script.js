@@ -129,6 +129,29 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        // Custom cursor
+        var cursor = document.querySelector('.cursor');
+        if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            document.addEventListener('mousemove', function(e) {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            }, { passive: true });
+            document.addEventListener('mouseleave', function() { cursor.classList.add('is-hidden'); });
+            document.addEventListener('mouseenter', function() { cursor.classList.remove('is-hidden'); });
+            document.addEventListener('mouseover', function(e) {
+                var interactive = e.target.closest('a, button, [role="button"], label, .btn, .solution-block, .card, .step, .carousel-btn, .carousel-dot, .mobile-toggle');
+                cursor.classList.toggle('is-hovering', !!interactive);
+            }, { passive: true });
+        }
+
+        // Navbar solidify on scroll
+        var mainNavbar = document.getElementById('main-navbar');
+        if (mainNavbar) {
+            window.addEventListener('scroll', function() {
+                mainNavbar.classList.toggle('is-scrolled', window.scrollY > 40);
+            }, { passive: true });
+        }
+
         // Count-up animation for stats section
         const statItems = document.querySelectorAll('.stat-item[data-count]');
         if (statItems.length && 'IntersectionObserver' in window) {

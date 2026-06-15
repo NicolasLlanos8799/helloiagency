@@ -82,6 +82,161 @@ body {
   background: var(--text-tertiary);
 }
 
+/* =========================================
+   Noise / Grain Overlay
+========================================= */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* =========================================
+   Custom Cursor
+========================================= */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100001;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, border 0.25s ease, opacity 0.3s ease;
+}
+
+.cursor.is-hovering {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.cursor.is-hidden {
+  opacity: 0;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor { display: none; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+  input, textarea, select { cursor: auto; }
+}
+
+/* =========================================
+   Marquee Strip
+========================================= */
+.marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 0;
+  background: rgba(255, 255, 255, 0.01);
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0 28px;
+}
+
+.marquee-sep {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee-sep::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* =========================================
+   Navbar solid on scroll
+========================================= */
+.navbar {
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar.is-scrolled {
+  background: rgba(4, 4, 4, 0.97);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   Hero word-by-word reveal
+========================================= */
+.hero h1.hero-words-active {
+  background: none;
+}
+
+.hero h1.hero-words-active .hero-word {
+  display: inline-block;
+  background: linear-gradient(180deg, #FFFFFF 0%, #B4B4B4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: hero-word-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hero-word-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1.hero-words-active .hero-word {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 /* Base Gradient Mesh */
 .mesh-bg {
   position: fixed;
@@ -683,6 +838,48 @@ a {
   position: relative;
   border-top: 1px solid var(--border-light);
   padding-top: 24px;
+  padding-bottom: 16px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
+  border-radius: 0 0 12px 12px;
+}
+
+.step::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.step:hover::before {
+  width: 100%;
+}
+
+.step .num {
+  transition: color 0.25s ease;
+}
+
+.step:hover .num {
+  color: var(--text-secondary);
+}
+
+.step h3,
+.step h4 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
 }
 
 .step-icon {
