@@ -1329,6 +1329,53 @@ a {
   grid-template-columns: 4fr 6fr;
   gap: 64px;
   align-items: start;
+  padding: 36px;
+  margin: -36px;
+  border-radius: 16px;
+  border-left: 2px solid transparent;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.project-row:hover {
+  background: var(--accent-glow);
+  border-left-color: var(--border-glow);
+}
+
+.project-row:hover .project-info h3 {
+  transform: translateX(6px);
+}
+
+.project-info h3 {
+  transition: transform 0.35s ease;
+}
+
+/* Portfolio section header */
+.portfolio-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+}
+
+.portfolio-section-header h2 {
+  font-size: 3.2rem;
+  margin: 0;
+}
+
+.portfolio-section-count {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 6px 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-row.reverse {
