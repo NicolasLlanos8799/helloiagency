@@ -1,0 +1,7 @@
+{
+  "name": "weareleba",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/inject-hashes.js"
+  }
+}
