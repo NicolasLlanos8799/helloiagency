@@ -1783,14 +1783,24 @@ textarea.contact-form-input {
   }
 
   .process-grid {
-    gap: 24px;
+    gap: 16px;
+    margin-top: 40px;
   }
 
   .step {
     border: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
     border-radius: 14px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.015);
+  }
+
+  .step::before {
+    display: none;
+  }
+
+  .step:hover {
+    transform: none;
   }
 
   .cta-box {
