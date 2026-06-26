@@ -114,7 +114,7 @@
         }
         // High-impact delay: Only load analytics 5s after window load.
         window.addEventListener('load', function () {
-            setTimeout(function() {
+            setTimeout(function () {
                 if ('requestIdleCallback' in window) {
                     requestIdleCallback(lebaLoadAnalytics, { timeout: 5000 });
                 } else {
@@ -133,8 +133,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" />
-    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font"
+        type="font/woff2" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" fetchpriority="high" />
 
     <!-- =============================================================
@@ -142,7 +144,202 @@
        instantly. linear.css is deferred via media="print".
     ============================================================== -->
     <style>
-      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg-main:#000;--bg-surface:#111;--border-light:rgba(255,255,255,.08);--text-primary:#F7F8F8;--text-secondary:#A8ACB3;--text-tertiary:#8B9099;--accent-button:#EFEFEF;--accent-button-text:#0E0E0E;--nav-h:64px;--max-width:1100px;--font-base:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;--font-heading:"Space Grotesk","Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}html{scroll-behavior:smooth;font-family:var(--font-base);background:#000;color:var(--text-primary);-webkit-font-smoothing:antialiased}body{line-height:1.5;font-size:16px;min-height:100vh;position:relative;overflow-x:hidden}a{text-decoration:none;color:inherit}.container{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 24px}.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:9999;background:rgba(8,8,8,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}.nav-content{display:flex;align-items:center;justify-content:space-between;height:100%}.logo{font-size:1.7rem;font-weight:300;letter-spacing:.08em;text-transform:uppercase}.hero{padding:calc(var(--nav-h) + 80px) 0 80px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh}.hero-kicker{font-size:.875rem;text-transform:uppercase;letter-spacing:.25em;color:var(--text-tertiary);margin-bottom:12px;font-weight:600}.hero h1{font-size:clamp(2.25rem,6vw,4.5rem);max-width:900px;margin:0 0 24px;font-weight:700;letter-spacing:-.03em;line-height:1.1;background:linear-gradient(180deg,#FFF 0%,#B4B4B4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{font-size:1.125rem;color:var(--text-secondary);max-width:580px;margin:12px auto 40px;line-height:1.6}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:8px;font-size:.9375rem;font-weight:500;cursor:pointer}.btn-primary{background:var(--accent-button);color:var(--accent-button-text)}.btn-outline{background:rgba(255,255,255,.03);border:1px solid var(--border-light);color:var(--text-primary)}h1,h2,h3,h4{font-family:var(--font-heading)}.mesh-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#000;background-image:radial-gradient(circle at 50% 0%,rgba(80,90,200,.10) 0%,transparent 60%),radial-gradient(circle at 80% 70%,rgba(60,70,180,.06) 0%,transparent 45%)}@media(hover:hover) and (pointer:fine){body{cursor:none}input,textarea,select{cursor:auto}}.hero h1.hero-words-active{background:none}.hero h1.hero-words-active .hero-word{display:inline-block;background:linear-gradient(180deg,#FFF 0%,#B4B4B4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:0;transform:translateY(16px);animation:hero-word-in .7s cubic-bezier(.16,1,.3,1) forwards}@keyframes hero-word-in{to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){.hero h1.hero-words-active .hero-word{opacity:1;transform:none;animation:none}}
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg-main: #000;
+            --bg-surface: #111;
+            --border-light: rgba(255, 255, 255, .08);
+            --text-primary: #F7F8F8;
+            --text-secondary: #A8ACB3;
+            --text-tertiary: #8B9099;
+            --accent-button: #EFEFEF;
+            --accent-button-text: #0E0E0E;
+            --nav-h: 64px;
+            --max-width: 1100px;
+            --font-base: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            --font-heading: "Space Grotesk", "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-base);
+            background: #000;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased
+        }
+
+        body {
+            line-height: 1.5;
+            font-size: 16px;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-h);
+            z-index: 9999;
+            background: rgba(8, 8, 8, .85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light)
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 300;
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .hero {
+            padding: calc(var(--nav-h) + 80px) 0 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh
+        }
+
+        .hero-kicker {
+            font-size: .875rem;
+            text-transform: uppercase;
+            letter-spacing: .25em;
+            color: var(--text-tertiary);
+            margin-bottom: 12px;
+            font-weight: 600
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 6vw, 4.5rem);
+            max-width: 900px;
+            margin: 0 0 24px;
+            font-weight: 700;
+            letter-spacing: -.03em;
+            line-height: 1.1;
+            background: linear-gradient(180deg, #FFF 0%, #B4B4B4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 12px auto 40px;
+            line-height: 1.6
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: .9375rem;
+            font-weight: 500;
+            cursor: pointer
+        }
+
+        .btn-primary {
+            background: var(--accent-button);
+            color: var(--accent-button-text)
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary)
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading)
+        }
+
+        .mesh-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: #000;
+            background-image: radial-gradient(circle at 50% 0%, rgba(80, 90, 200, .10) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(60, 70, 180, .06) 0%, transparent 45%)
+        }
+
+        @media(hover:hover) and (pointer:fine) {
+            body {
+                cursor: none
+            }
+
+            input,
+            textarea,
+            select {
+                cursor: auto
+            }
+        }
+
+        .hero h1.hero-words-active {
+            background: none
+        }
+
+        .hero h1.hero-words-active .hero-word {
+            display: inline-block;
+            background: linear-gradient(180deg, #FFF 0%, #B4B4B4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: hero-word-in .7s cubic-bezier(.16, 1, .3, 1) forwards
+        }
+
+        @keyframes hero-word-in {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .hero h1.hero-words-active .hero-word {
+                opacity: 1;
+                transform: none;
+                animation: none
+            }
+        }
     </style>
 
     <!-- Styles (Non-critical / Deferred) -->
@@ -190,16 +387,19 @@
             </div>
 
             <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
-                <svg viewBox="0 0 256 256" width="24" height="24" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" style="color: var(--text-primary);" aria-hidden="true">
+                <svg viewBox="0 0 256 256" width="24" height="24" fill="none" stroke="currentColor" stroke-width="16"
+                    stroke-linecap="round" style="color: var(--text-primary);" aria-hidden="true">
                     <path d="M40,128H216M40,64H216M40,192H216" />
                 </svg>
             </button>
 
             <ul class="nav-links" id="home-nav-links">
-                <li><a href="#portfolio" id="open-portfolio-link" title="View project portfolio" data-track-cta="nav_portfolio">Portfolio</a></li>
+                <li><a href="#portfolio" id="open-portfolio-link" title="View project portfolio"
+                        data-track-cta="nav_portfolio">Portfolio</a></li>
                 <li><a href="#soluciones" title="View our solutions" data-track-cta="nav_soluciones">Solutions</a></li>
                 <li><a href="#proceso" title="View our work process" data-track-cta="nav_proceso">Process</a></li>
-                <li><a href="#contacto" class="btn btn-sm" title="Schedule a call with Leba" data-track-cta="nav_schedule_call">Schedule Call</a></li>
+                <li><a href="#contacto" class="btn btn-sm" title="Schedule a call with Leba"
+                        data-track-cta="nav_schedule_call">Schedule Call</a></li>
             </ul>
         </div>
     </nav>
@@ -207,49 +407,51 @@
     <main id="content">
         <div id="home-view" class="page-view">
 
-        <!-- HERO -->
-        <header class="section hero container">
-            <div class="hero-kicker">
-                We are Leba
-            </div>
+            <!-- HERO -->
+            <header class="section hero container">
+                <div class="hero-kicker">
+                    We are Leba
+                </div>
 
-            <div class="hero-pill">
-                Digital Systems Studio
-            </div>
+                <div class="hero-pill">
+                    Digital Systems Studio
+                </div>
 
-            <h1 class="hero-words-active">
-                <span class="hero-word" style="animation-delay:.10s">We</span>
-                <span class="hero-word" style="animation-delay:.18s">design</span>
-                <span class="hero-word" style="animation-delay:.26s">digital</span>
-                <span class="hero-word" style="animation-delay:.34s">systems</span>
-                <span class="hero-word" style="animation-delay:.42s">that</span>
-                <span class="hero-word" style="animation-delay:.50s">organize</span>
-                <span class="hero-word" style="animation-delay:.58s">and</span>
-                <span class="hero-word" style="animation-delay:.66s">boost</span>
-                <span class="hero-word" style="animation-delay:.74s">businesses</span>
-            </h1>
+                <h1 class="hero-words-active">
+                    <span class="hero-word" style="animation-delay:.10s">We</span>
+                    <span class="hero-word" style="animation-delay:.18s">design</span>
+                    <span class="hero-word" style="animation-delay:.26s">digital</span>
+                    <span class="hero-word" style="animation-delay:.34s">systems</span>
+                    <span class="hero-word" style="animation-delay:.42s">that</span>
+                    <span class="hero-word" style="animation-delay:.50s">organize</span>
+                    <span class="hero-word" style="animation-delay:.58s">and</span>
+                    <span class="hero-word" style="animation-delay:.66s">boost</span>
+                    <span class="hero-word" style="animation-delay:.74s">businesses</span>
+                </h1>
 
-            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                We help businesses and entrepreneurs structure their operations through custom software, automation, and
-                tool integration.
-            </p>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    We help businesses and entrepreneurs structure their operations through custom software, automation,
+                    and
+                    tool integration.
+                </p>
 
-            <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <a href="#contact-form" class="btn btn-primary" title="We analyze how you work"
-                    data-track-cta="click_analyze_business" data-track-section="hero" data-track-type="cta"
-                    data-track-label="hero_primary_analisis">We analyze how you work</a>
-                <a href="#" id="hero-open-portfolio" class="btn btn-outline" title="View project portfolio"
-                    data-track-cta="click_hero_portfolio" data-track-section="hero" data-track-type="navigation">
-                    View Portfolio <svg viewBox="0 0 256 256" width="18" height="18" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" style="margin-left: 8px;">
-                    <rect x="32" y="72" width="192" height="144" rx="16" />
-                    <path d="M128,72V48a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8V72" />
-                </svg>
-                </a>
-            </div>
-        </header>
+                <div class="hero-actions w-full" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <a href="#contact-form" class="btn btn-primary" title="We analyze how you work"
+                        data-track-cta="click_analyze_business" data-track-section="hero" data-track-type="cta"
+                        data-track-label="hero_primary_analisis">We analyze how you work</a>
+                    <a href="#" id="hero-open-portfolio" class="btn btn-outline" title="View project portfolio"
+                        data-track-cta="click_hero_portfolio" data-track-section="hero" data-track-type="navigation">
+                        View Portfolio <svg viewBox="0 0 256 256" width="18" height="18" fill="none"
+                            stroke="currentColor" stroke-width="18" stroke-linecap="round" style="margin-left: 8px;">
+                            <rect x="32" y="72" width="192" height="144" rx="16" />
+                            <path d="M128,72V48a8,8,0,0,1,8-8h56a8,8,0,0,1,8,8V72" />
+                        </svg>
+                    </a>
+                </div>
+            </header>
 
-        <!-- STATS / METRICS — hidden until real verified numbers are ready -->
-        <!-- <section class="section-stats container" data-aos="fade-up">
+            <!-- STATS / METRICS — hidden until real verified numbers are ready -->
+            <!-- <section class="section-stats container" data-aos="fade-up">
           <div class="stats-grid">
             <div class="stat-item" data-count="15" data-suffix="+">
               <span class="stat-value"><span class="stat-number">15</span><span>+</span></span>
@@ -270,742 +472,807 @@
           </div>
         </section> -->
 
-        <!-- SOLUTIONS (CARDS) -->
-        <section id="solutions" class="section container">
-            <div class="features-header text-center" data-aos="fade-up">
-                <span class="label">Studio Capabilities</span>
-                <h2>Solutions designed for your operation</h2>
-            </div>
+            <!-- SOLUTIONS (CARDS) -->
+            <section id="solutions" class="section container">
+                <div class="features-header text-center" data-aos="fade-up">
+                    <span class="label">Studio Capabilities</span>
+                    <h2>Solutions designed for your operation</h2>
+                </div>
 
-            <div class="solutions-grid">
-                <!-- Card 1 -->
-                <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="40" width="208" height="160" rx="12"/><line x1="24" y1="88" x2="232" y2="88"/><circle cx="60" cy="64" r="6" fill="currentColor" stroke="none"/><circle cx="88" cy="64" r="6" fill="currentColor" stroke="none"/><circle cx="116" cy="64" r="6" fill="currentColor" stroke="none"/></svg>
+                <div class="solutions-grid">
+                    <!-- Card 1 -->
+                    <div class="solution-block" data-aos="fade-up" data-aos-delay="100">
+                        <div class="solution-header">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor"
+                                    stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="24" y="40" width="208" height="160" rx="12" />
+                                    <line x1="24" y1="88" x2="232" y2="88" />
+                                    <circle cx="60" cy="64" r="6" fill="currentColor" stroke="none" />
+                                    <circle cx="88" cy="64" r="6" fill="currentColor" stroke="none" />
+                                    <circle cx="116" cy="64" r="6" fill="currentColor" stroke="none" />
+                                </svg>
+                            </div>
+                            <h3>Web Pages</h3>
                         </div>
-                        <h3>Web Pages</h3>
+                        <div class="solution-body">
+                            <p>We design clear and professional web pages that represent your business and facilitate
+                                customer acquisition.</p>
+                        </div>
+                        <div class="solution-footer">
+                            <p class="context-line">Ideal for businesses that need online presence or to improve how
+                                they
+                                present their services.</p>
+                        </div>
                     </div>
-                    <div class="solution-body">
-                        <p>We design clear and professional web pages that represent your business and facilitate
-                            customer acquisition.</p>
+
+                    <!-- Card 2 -->
+                    <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
+                        <div class="solution-header">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor"
+                                    stroke-width="12">
+                                    <path d="M64,88,24,128l40,40M192,88l40,40-40,40M160,40,96,216" />
+                                </svg>
+                            </div>
+                            <h3>Custom Software</h3>
+                        </div>
+                        <div class="solution-body">
+                            <p>We create systems adapted to how your business works. Organize tasks, processes, and
+                                operations in a tool designed for your everyday life.</p>
+                        </div>
+                        <div class="solution-footer">
+                            <p class="context-line">Designed for businesses that can no longer manage their operations
+                                with
+                                generic tools or manual processes.</p>
+                        </div>
                     </div>
-                    <div class="solution-footer">
-                        <p class="context-line">Ideal for businesses that need online presence or to improve how they
-                            present their services.</p>
+
+                    <!-- Card 3 -->
+                    <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
+                        <div class="solution-header">
+                            <div class="solution-icon">
+                                <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor"
+                                    stroke-width="12">
+                                    <rect x="40" y="72" width="176" height="144" rx="16" />
+                                    <path d="M80,40v32M176,40v32M40,136h176" />
+                                </svg>
+                            </div>
+                            <h3>Automation & AI</h3>
+                        </div>
+                        <div class="solution-body">
+                            <p>We automate repetitive tasks and connect your tools to reduce manual work. Less time
+                                operating, more time focusing on growing your business.</p>
+                        </div>
+                        <div class="solution-footer">
+                            <p class="context-line">Especially useful if you spend a large part of your day responding,
+                                managing, or repeating tasks manually.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="solution-block" data-aos="fade-up" data-aos-delay="200">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor" stroke-width="12"><path d="M64,88,24,128l40,40M192,88l40,40-40,40M160,40,96,216"/></svg>
-                        </div>
-                        <h3>Custom Software</h3>
-                    </div>
-                    <div class="solution-body">
-                        <p>We create systems adapted to how your business works. Organize tasks, processes, and
-                            operations in a tool designed for your everyday life.</p>
-                    </div>
-                    <div class="solution-footer">
-                        <p class="context-line">Designed for businesses that can no longer manage their operations with
-                            generic tools or manual processes.</p>
-                    </div>
+                <div class="solutions-cta">
+                    <a href="#contact-form" class="btn btn-primary" data-track-cta="click_soluciones_analisis"
+                        data-track-section="soluciones" data-track-type="cta" data-track-label="solutions_analysis_cta">
+                        We analyze how you work
+                    </a>
+                    <p class="solutions-cta-text">We help you identify which type of solution fits best with your
+                        operation.
+                    </p>
+                </div>
+            </section>
+
+
+            <section id="process" class="section container">
+                <div class="features-header" data-aos="fade-up">
+                    <span class="label">Our Process</span>
+                    <h2>How we approach and execute every project</h2>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="solution-block" data-aos="fade-up" data-aos-delay="300">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <svg viewBox="0 0 256 256" width="32" height="32" fill="none" stroke="currentColor" stroke-width="12"><rect x="40" y="72" width="176" height="144" rx="16"/><path d="M80,40v32M176,40v32M40,136h176"/></svg>
+                <div class="process-grid">
+                    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
+                        <div class="step-icon" aria-hidden="true">
+                            <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor"
+                                stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="112" cy="112" r="80" />
+                                <line x1="168.57" y1="168.57" x2="224" y2="224" />
+                            </svg>
                         </div>
-                        <h3>Automation & AI</h3>
+                        <span class="num">01.</span>
+                        <h4>Understand</h4>
+                        <p>We diagnose the current business operation.</p>
                     </div>
-                    <div class="solution-body">
-                        <p>We automate repetitive tasks and connect your tools to reduce manual work. Less time
-                            operating, more time focusing on growing your business.</p>
+                    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="250">
+                        <div class="step-icon" aria-hidden="true">
+                            <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor"
+                                stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M80,168a72,72,0,1,1,96,0" />
+                                <line x1="80" y1="168" x2="176" y2="168" />
+                                <line x1="88" y1="200" x2="168" y2="200" />
+                                <line x1="128" y1="232" x2="128" y2="200" />
+                            </svg>
+                        </div>
+                        <span class="num">02.</span>
+                        <h4>Propose</h4>
+                        <p>We design a robust digital architecture.</p>
                     </div>
-                    <div class="solution-footer">
-                        <p class="context-line">Especially useful if you spend a large part of your day responding,
-                            managing, or repeating tasks manually.</p>
+                    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
+                        <div class="step-icon" aria-hidden="true">
+                            <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor"
+                                stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="40" y="88" width="80" height="80" rx="8" />
+                                <path d="M160,168h16a16,16,0,0,0,16-16V104a16,16,0,0,0-16-16H160" />
+                                <line x1="192" y1="128" x2="224" y2="128" />
+                            </svg>
+                        </div>
+                        <span class="num">03.</span>
+                        <h4>Build</h4>
+                        <p>We iteratively develop the platform or system.</p>
+                    </div>
+                    <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="750">
+                        <div class="step-icon" aria-hidden="true">
+                            <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor"
+                                stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="32 192,96 128,144 176,224 72" />
+                                <polyline points="168 72,224 72,224 128" />
+                            </svg>
+                        </div>
+                        <span class="num">04.</span>
+                        <h4>Scale</h4>
+                        <p>We integrate and dynamically refine in production.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="solutions-cta">
-                <a href="#contact-form" class="btn btn-primary" data-track-cta="click_soluciones_analisis"
-                    data-track-section="soluciones" data-track-type="cta" data-track-label="solutions_analysis_cta">
-                    We analyze how you work
-                </a>
-                <p class="solutions-cta-text">We help you identify which type of solution fits best with your operation.
+            <!-- TEAM SECTION -->
+            <section id="team" class="section container">
+                <div class="features-header text-center" data-aos="fade-up">
+                    <span class="label">Who helps you</span>
+                    <h2 style="font-size: 2.25rem; margin-bottom: 16px;">Technical experts at the service of your
+                        vision.
+                    </h2>
+                </div>
+
+                <div class="grid-3 team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
+                        <div class="team-img-wrapper">
+                            <picture>
+                                <source type="image/webp"
+                                    srcset="../src/equipo/nicolas-llanos-320.webp 320w, ../src/equipo/nicolas-llanos-640.webp 640w, ../src/equipo/nicolas-llanos-800.webp 800w"
+                                    sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                                <img src="../src/equipo/nicolas-llanos-800.webp" alt="Nicolás Llanos"
+                                    title="Nicolás Llanos" width="320" height="320" loading="lazy" decoding="async" />
+                            </picture>
+                        </div>
+                        <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Nicolás Llanos</h3>
+                        <p style="color: var(--text-tertiary); font-size: 1rem;">Founder · Development & Technology</p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
+                        <div class="team-img-wrapper">
+                            <picture>
+                                <source type="image/webp"
+                                    srcset="../src/equipo/marlene-morrone-320.webp 320w, ../src/equipo/marlene-morrone-640.webp 640w, ../src/equipo/marlene-morrone-800.webp 800w"
+                                    sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                                <img src="../src/equipo/marlene-morrone-800.webp" alt="Marlene Morrone"
+                                    title="Marlene Morrone" width="320" height="391" loading="lazy" decoding="async" />
+                            </picture>
+                        </div>
+                        <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Marlene Morrone</h3>
+                        <p style="color: var(--text-tertiary); font-size: 1rem;">Owner · Commercial & Operations</p>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
+                        <div class="team-img-wrapper">
+                            <picture>
+                                <source type="image/webp"
+                                    srcset="../src/equipo/mariano-oggier-320.webp 320w, ../src/equipo/mariano-oggier-640.webp 640w, ../src/equipo/mariano-oggier-800.webp 800w"
+                                    sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
+                                <img src="../src/equipo/mariano-oggier-800.webp" alt="Mariano Oggier"
+                                    title="Mariano Oggier" width="320" height="320" loading="lazy" decoding="async" />
+                            </picture>
+                        </div>
+                        <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Mariano Oggier</h3>
+                        <p style="color: var(--text-tertiary); font-size: 1rem;">Strategic Development & Growth</p>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section id="contact" class="section container" style="padding-bottom: 80px;">
+                <div class="cta-box" data-aos="zoom-in" data-aos-duration="800">
+                    <h2>If your business needs a<br>stronger digital foundation, let's talk.</h2>
+                    <p>We can help you design a clearer, more connected and scalable digital presence, system or
+                        operation.
+                    </p>
+                    <a href="#contact-form" class="btn btn-primary" style="margin-top: 16px;"
+                        title="We analyze how you work" data-track-cta="click_analyze_business"
+                        data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
+                        We analyze how you work <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section id="contact-form" class="container" style="padding-bottom: 80px;" data-aos="fade-up">
+                <div class="contact-layout">
+
+                    <!-- Left Column: Info & Form -->
+                    <div>
+                        <span
+                            style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Google
+                            Meet · 15 Min</span>
+                        <h3 style="font-size: 2rem; margin-bottom: 16px;">We analyze how you work</h3>
+                        <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">We review your
+                            operation, identify improvement opportunities, and propose how to optimize it.</p>
+
+                        <ul
+                            style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
+                            <li style="margin-bottom: 12px;">Quick process diagnosis</li>
+                            <li style="margin-bottom: 12px;">Identification of opportunities</li>
+                            <li>Clear action plan</li>
+                        </ul>
+
+                        <div
+                            style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
+
+                            <h4 style="margin-bottom: 24px; font-size: 1.125rem;">Would you prefer we contact you first?
+                            </h4>
+                            <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
+                                style="display: flex; flex-direction: column; gap: 16px;">
+                                <div class="contact-inputs-row">
+                                    <input type="text" name="nombre" placeholder="Your name" required
+                                        class="contact-form-input" data-track-cta="focus_contact_nombre">
+                                    <input type="text" name="contacto" placeholder="Email or WhatsApp" required
+                                        class="contact-form-input" data-track-cta="focus_contact_contacto">
+                                </div>
+                                <textarea name="mensaje" rows="3" placeholder="Tell us about your business or inquiry"
+                                    required class="contact-form-input"
+                                    data-track-cta="focus_contact_mensaje"></textarea>
+                                <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
+                                    style="width: 100%; justify-content: center; margin-top: 8px;"
+                                    data-track-cta="submit_click" data-track-section="contact_form"
+                                    data-track-type="form">Send message</button>
+                                <div class="contact-message contact-message--success" id="contactSuccess"
+                                    aria-live="polite">
+                                    Thank you, we'll be in touch soon 🙌
+                                </div>
+                                <div class="contact-message contact-message--error" id="contactError"
+                                    aria-live="polite">
+                                    An error occurred. Please try again.
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Calendly -->
+                    <div>
+                        <!-- Lazy Calendly Placeholder -->
+                        <div id="calendly-mount" class="calendly-placeholder">
+                            <div class="calendly-placeholder-content">
+                                <i class="ph ph-calendar-blank"></i>
+                                <button id="calendly-load-btn" class="btn btn-outline">View available times</button>
+                                <p>Load the calendar only when you need it</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="footer">
+                    <div>© 2026 Leba</div>
+                    <div class="footer-contact">
+                        <a href="mailto:contact@weareleba.com" class="footer-email"
+                            title="Contact us by email">contact@weareleba.com</a>
+                        <div class="footer-socials">
+                            <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener"
+                                title="LinkedIn">
+                                <i class="ph ph-linkedin-logo"></i>
+                            </a>
+                            <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank"
+                                rel="noopener" title="Instagram">
+                                <i class="ph ph-instagram-logo"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../privacy-policy.html" title="Privacy policy">Privacy</a>
+                        <a href="../terms-of-service.html" title="Terms and conditions">Terms</a>
+                        <a href="../automate-whatsapp-orders.html" title="Automate WhatsApp Orders"
+                            data-track-section="footer" data-track-type="navigation"
+                            style="font-size: 0.75rem; opacity: 0.5;">WhatsApp Automation</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- VIEW: PORTFOLIO -->
+        <div id="portfolio-view" class="page-view" style="display: none;">
+
+            <!-- HEADER / HERO PORTFOLIO -->
+            <header class="section hero container">
+                <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
+                    <i class="ph ph-briefcase" style="margin-right: 6px; color: var(--text-primary)"></i> Our
+                    Work
+                </div>
+                <h1 data-aos="fade-up" data-aos-duration="1000">
+                    Every project,<br>a tailored solution
+                </h1>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    Strategic websites and management systems built to fit the way each business actually operates.
+                </p>
+            </header>
+
+            <!-- PROJECTS SECTION -->
+            <section class="section container" style="padding-top: 0; padding-bottom: 80px;">
+
+                <!-- ================= STRATEGIC WEBSITES ================= -->
+                <div class="portfolio-section-header" style="margin-top: 64px;">
+                    <h2>Strategic Websites</h2>
+                </div>
+                <div class="projects-container" style="margin-top: 0;">
+
+                    <!-- SeaducedExperience -->
+                    <div class="project-row" data-aos="fade-up" data-href="https://www.seaduced-experience.com/">
+                        <div class="project-info">
+                            <h3>SeaducedExperience</h3>
+                            <p class="desc">Tourist website designed to present and sell private boat experiences,
+                                focusing
+                                on clarity, premium aesthetics and conversion, optimized for simple and responsive
+                                navigation on all devices.</p>
+                        </div>
+
+                        <div class="project-carousel-wrapper"
+                            data-images='["../src/copenhagen/seaduced-experience-1-opt.webp", "../src/copenhagen/seaduced-experience-2-opt.webp", "../src/copenhagen/seaduced-experience-3-opt.webp", "../src/copenhagen/seaduced-experience-4-opt.webp"]'>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ================= MANAGEMENT SYSTEMS ================= -->
+                <div class="portfolio-section-header" style="margin-top: 120px;">
+                    <h2>Management</h2>
+                </div>
+                <div class="projects-container" style="margin-top: 0;">
+
+                    <!-- Automated Ordering System -->
+                    <div class="project-row" data-aos="fade-up" data-track-cta="click_portfolio_ordering_system"
+                        data-track-section="portfolio" data-track-type="project"
+                        data-track-label="automated_ordering_system">
+                        <div class="project-info">
+                            <h3>Automated Ordering System</h3>
+                            <p class="desc">Web system designed to structure and automate orders from WhatsApp and
+                                Instagram, eliminating manual management and organizing operations into a clear and
+                                centralized flow.</p>
+                            <p class="desc">Includes digital catalog, automatic order capture, real-time administrative
+                                panel and control of products, sales and customers, reducing errors and improving
+                                operational efficiency.</p>
+                        </div>
+
+                        <div class="project-carousel-wrapper"
+                            data-images='["../src/gestion-whatsapp/sistema-pedidos-automatizado-1-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-2-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-3-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-4-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-5-opt.webp"]'>
+                        </div>
+                    </div>
+
+                    <!-- Online Booking System -->
+                    <div class="project-row" data-aos="fade-up">
+                        <div class="project-info">
+                            <h3>Online Booking System for Businesses</h3>
+                            <p class="desc">Complete web platform that allows any appointment-based business to manage
+                                its schedule autonomously. Clients can book online at any time, choosing the service,
+                                date and available time slot, and receive an email confirmation with the option to
+                                cancel up to 24 hours in advance.</p>
+                            <p class="desc">Includes an admin panel to configure services, pricing and hours, block days
+                                or time slots, and view all appointments for the day. Features billing statistics, most
+                                in-demand services, and analysis of peak days and hours. Automatic email reminders and
+                                full configuration from the panel.</p>
+                        </div>
+
+                        <div class="project-carousel-wrapper"
+                            data-images='["../src/reservas/sistema-reservas-1-opt.webp", "../src/reservas/sistema-reservas-2-opt.webp", "../src/reservas/sistema-reservas-3-opt.webp", "../src/reservas/sistema-reservas-6-opt.webp","../src/reservas/sistema-reservas-4-opt.webp", "../src/reservas/sistema-reservas-5-opt.webp"]'>
+                        </div>
+                    </div>
+
+                    <!-- Rebels Kite School -->
+                    <div class="project-row" data-aos="fade-up">
+                        <div class="project-info">
+                            <h3>Rebels Kite School</h3>
+                            <p class="desc">Web management system developed for surf and kite schools, designed to
+                                organize
+                                classes, instructors, students, payments and billing through an interactive calendar,
+                                status control and role-differentiated panels.</p>
+                        </div>
+
+                        <div class="project-carousel-wrapper"
+                            data-images='["../src/rebels/rebels-kite-school-1-opt.webp", "../src/rebels/rebels-kite-school-2-opt.webp", "../src/rebels/rebels-kite-school-3-opt.webp", "../src/rebels/rebels-kite-school-4-opt.webp", "../src/rebels/rebels-kite-school-5-opt.webp"]'>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="container" style="margin-top: 80px;">
+                <div class="footer">
+                    <div>© 2026 Leba</div>
+                    <div class="footer-contact">
+                        <span class="footer-contact-label">Contact</span>
+                        <a href="mailto:contact@weareleba.com" class="footer-email"
+                            title="Contact us by email">contact@weareleba.com</a>
+                        <div class="footer-socials">
+                            <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener"
+                                title="LinkedIn">
+                                <i class="ph ph-linkedin-logo"></i>
+                            </a>
+                            <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank"
+                                rel="noopener" title="Instagram">
+                                <i class="ph ph-instagram-logo"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="../privacy-policy.html" title="Privacy policy">Privacy</a>
+                        <a href="../terms-of-service.html" title="Terms and conditions">Terms</a>
+                        <a href="../automate-whatsapp-orders.html" title="Automate WhatsApp Orders"
+                            data-track-section="footer" data-track-type="navigation"
+                            style="font-size: 0.75rem; opacity: 0.5;">WhatsApp Automation</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner">
+            <div class="cookie-content">
+                <div class="cookie-title">
+                    <i class="ph ph-cookie" style="font-size: 20px;"></i>
+                    We use cookies
+                </div>
+                <p class="cookie-text">
+                    We use cookies (including Google Analytics) to understand how you interact with our website and
+                    improve
+                    your experience. By accepting, you help us optimize the platform.
                 </p>
             </div>
-        </section>
-
-
-        <section id="process" class="section container">
-            <div class="features-header" data-aos="fade-up">
-                <span class="label">Our Process</span>
-                <h2>How we approach and execute every project</h2>
+            <div class="cookie-actions">
+                <button id="decline-cookies" class="btn btn-outline" data-track-cta="decline_cookies"
+                    data-track-section="cookie_banner" data-track-type="interaction">Decline</button>
+                <button id="accept-cookies" class="btn btn-primary" data-track-cta="accept_cookies"
+                    data-track-section="cookie_banner" data-track-type="interaction">Accept All</button>
             </div>
-
-            <div class="process-grid">
-                <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
-                    <div class="step-icon" aria-hidden="true">
-                        <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><circle cx="112" cy="112" r="80"/><line x1="168.57" y1="168.57" x2="224" y2="224"/></svg>
-                    </div>
-                    <span class="num">01.</span>
-                    <h4>Understand</h4>
-                    <p>We diagnose the current business operation.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="250">
-                    <div class="step-icon" aria-hidden="true">
-                        <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M80,168a72,72,0,1,1,96,0"/><line x1="80" y1="168" x2="176" y2="168"/><line x1="88" y1="200" x2="168" y2="200"/><line x1="128" y1="232" x2="128" y2="200"/></svg>
-                    </div>
-                    <span class="num">02.</span>
-                    <h4>Propose</h4>
-                    <p>We design a robust digital architecture.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
-                    <div class="step-icon" aria-hidden="true">
-                        <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="88" width="80" height="80" rx="8"/><path d="M160,168h16a16,16,0,0,0,16-16V104a16,16,0,0,0-16-16H160"/><line x1="192" y1="128" x2="224" y2="128"/></svg>
-                    </div>
-                    <span class="num">03.</span>
-                    <h4>Build</h4>
-                    <p>We iteratively develop the platform or system.</p>
-                </div>
-                <div class="step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="750">
-                    <div class="step-icon" aria-hidden="true">
-                        <svg viewBox="0 0 256 256" width="22" height="22" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><polyline points="32 192,96 128,144 176,224 72"/><polyline points="168 72,224 72,224 128"/></svg>
-                    </div>
-                    <span class="num">04.</span>
-                    <h4>Scale</h4>
-                    <p>We integrate and dynamically refine in production.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- TEAM SECTION -->
-        <section id="team" class="section container">
-            <div class="features-header text-center" data-aos="fade-up">
-                <span class="label">Who helps you</span>
-                <h2 style="font-size: 2.25rem; margin-bottom: 16px;">Technical experts at the service of your vision.
-                </h2>
-            </div>
-
-            <div class="grid-3 team-grid">
-                <!-- Team Member 1 -->
-                <div class="card text-center" data-aos="fade-up" data-aos-delay="100" style="padding: 40px 24px;">
-                    <div class="team-img-wrapper">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="../src/equipo/nicolas-llanos-320.webp 320w, ../src/equipo/nicolas-llanos-640.webp 640w, ../src/equipo/nicolas-llanos-800.webp 800w"
-                                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-                            <img src="../src/equipo/nicolas-llanos-800.webp" alt="Nicolás Llanos" title="Nicolás Llanos" width="320" height="320" loading="lazy" decoding="async" />
-                        </picture>
-                    </div>
-                    <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Nicolás Llanos</h3>
-                    <p style="color: var(--text-tertiary); font-size: 1rem;">Founder · Development & Technology</p>
-                </div>
-
-                <!-- Team Member 2 -->
-                <div class="card text-center" data-aos="fade-up" data-aos-delay="200" style="padding: 40px 24px;">
-                    <div class="team-img-wrapper">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="../src/equipo/marlene-morrone-320.webp 320w, ../src/equipo/marlene-morrone-640.webp 640w, ../src/equipo/marlene-morrone-800.webp 800w"
-                                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-                            <img src="../src/equipo/marlene-morrone-800.webp" alt="Marlene Morrone" title="Marlene Morrone" width="320" height="391" loading="lazy" decoding="async" />
-                        </picture>
-                    </div>
-                    <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Marlene Morrone</h3>
-                    <p style="color: var(--text-tertiary); font-size: 1rem;">Owner · Commercial & Operations</p>
-                </div>
-
-                <!-- Team Member 3 -->
-                <div class="card text-center" data-aos="fade-up" data-aos-delay="300" style="padding: 40px 24px;">
-                    <div class="team-img-wrapper">
-                        <picture>
-                            <source type="image/webp"
-                                srcset="../src/equipo/mariano-oggier-320.webp 320w, ../src/equipo/mariano-oggier-640.webp 640w, ../src/equipo/mariano-oggier-800.webp 800w"
-                                sizes="(max-width:600px) 50vw, (max-width:900px) 33vw, 240px" />
-                            <img src="../src/equipo/mariano-oggier-800.webp" alt="Mariano Oggier" title="Mariano Oggier" width="320" height="320" loading="lazy" decoding="async" />
-                        </picture>
-                    </div>
-                    <h3 style="margin-bottom: 8px; font-size: 1.35rem; white-space: nowrap;">Mariano Oggier</h3>
-                    <p style="color: var(--text-tertiary); font-size: 1rem;">Strategic Development & Growth</p>
-                </div>
-
-
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section id="contact" class="section container" style="padding-bottom: 80px;">
-            <div class="cta-box" data-aos="zoom-in" data-aos-duration="800">
-                <h2>If your business needs a<br>stronger digital foundation, let's talk.</h2>
-                <p>We can help you design a clearer, more connected and scalable digital presence, system or operation.
-                </p>
-                <a href="#contact-form" class="btn btn-primary" style="margin-top: 16px;"
-                    title="We analyze how you work" data-track-cta="click_analyze_business"
-                    data-track-section="cta_section" data-track-type="cta" data-track-label="cta_section_primary">
-                    We analyze how you work <i class="ph ph-arrow-right" style="margin-left: 8px;"></i>
-                </a>
-            </div>
-        </section>
-
-        <section id="contact-form" class="container" style="padding-bottom: 80px;" data-aos="fade-up">
-            <div class="contact-layout">
-
-                <!-- Left Column: Info & Form -->
-                <div>
-                    <span
-                        style="color: var(--text-tertiary); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; display: block;">Google
-                        Meet · 15 Min</span>
-                    <h3 style="font-size: 2rem; margin-bottom: 16px;">We analyze how you work</h3>
-                    <p style="color: var(--text-tertiary); margin-bottom: 32px; font-size: 1.125rem;">We review your
-                        operation, identify improvement opportunities, and propose how to optimize it.</p>
-
-                    <ul
-                        style="color: var(--text-tertiary); margin-bottom: 40px; padding-left: 20px; list-style-type: '✓  ';">
-                        <li style="margin-bottom: 12px;">Quick process diagnosis</li>
-                        <li style="margin-bottom: 12px;">Identification of opportunities</li>
-                        <li>Clear action plan</li>
-                    </ul>
-
-                    <div
-                        style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px;">
-
-                        <h4 style="margin-bottom: 24px; font-size: 1.125rem;">Would you prefer we contact you first?
-                        </h4>
-                        <form action="https://formspree.io/f/xrbgpegn" method="POST" id="contactForm"
-                            style="display: flex; flex-direction: column; gap: 16px;">
-                            <div class="contact-inputs-row">
-                                <input type="text" name="nombre" placeholder="Your name" required
-                                    class="contact-form-input" data-track-cta="focus_contact_nombre">
-                                <input type="text" name="contacto" placeholder="Email or WhatsApp" required
-                                    class="contact-form-input" data-track-cta="focus_contact_contacto">
-                            </div>
-                            <textarea name="mensaje" rows="3" placeholder="Tell us about your business or inquiry"
-                                required class="contact-form-input" data-track-cta="focus_contact_mensaje"></textarea>
-                            <button type="submit" class="btn btn-primary" id="contactSubmitBtn"
-                                style="width: 100%; justify-content: center; margin-top: 8px;"
-                                data-track-cta="submit_click" data-track-section="contact_form"
-                                data-track-type="form">Send message</button>
-                            <div class="contact-message contact-message--success" id="contactSuccess"
-                                aria-live="polite">
-                                Thank you, we'll be in touch soon 🙌
-                            </div>
-                            <div class="contact-message contact-message--error" id="contactError" aria-live="polite">
-                                An error occurred. Please try again.
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Right Column: Calendly -->
-                <div>
-                    <!-- Lazy Calendly Placeholder -->
-                    <div id="calendly-mount" class="calendly-placeholder">
-                        <div class="calendly-placeholder-content">
-                            <i class="ph ph-calendar-blank"></i>
-                            <button id="calendly-load-btn" class="btn btn-outline">View available times</button>
-                            <p>Load the calendar only when you need it</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="footer">
-                <div>© 2026 Leba</div>
-                <div class="footer-contact">
-                    <a href="mailto:contact@weareleba.com" class="footer-email"
-                        title="Contact us by email">contact@weareleba.com</a>
-                    <div class="footer-socials">
-                        <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener"
-                            title="LinkedIn">
-                            <i class="ph ph-linkedin-logo"></i>
-                        </a>
-                        <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank"
-                            rel="noopener" title="Instagram">
-                            <i class="ph ph-instagram-logo"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <a href="../privacy-policy.html" title="Privacy policy">Privacy</a>
-                    <a href="../terms-of-service.html" title="Terms and conditions">Terms</a>
-                    <a href="../automate-whatsapp-orders.html" title="Automate WhatsApp Orders"
-                        data-track-section="footer" data-track-type="navigation"
-                        style="font-size: 0.75rem; opacity: 0.5;">WhatsApp Automation</a>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- VIEW: PORTFOLIO -->
-    <div id="portfolio-view" class="page-view" style="display: none;">
-
-        <!-- HEADER / HERO PORTFOLIO -->
-        <header class="section hero container">
-            <div class="hero-pill" data-aos="fade-down" data-aos-duration="800">
-                <i class="ph ph-briefcase" style="margin-right: 6px; color: var(--text-primary)"></i> Our
-                Work
-            </div>
-            <h1 data-aos="fade-up" data-aos-duration="1000">
-                Every project,<br>a tailored solution
-            </h1>
-            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                Strategic websites and management systems built to fit the way each business actually operates.
-            </p>
-        </header>
-
-        <!-- PROJECTS SECTION -->
-        <section class="section container" style="padding-top: 0; padding-bottom: 80px;">
-
-            <!-- ================= STRATEGIC WEBSITES ================= -->
-            <div class="portfolio-section-header" style="margin-top: 64px;">
-              <h2>Strategic Websites</h2>
-            </div>
-            <div class="projects-container" style="margin-top: 0;">
-
-                <!-- SeaducedExperience -->
-                <div class="project-row" data-aos="fade-up" data-href="https://www.seaduced-experience.com/">
-                    <div class="project-info">
-                        <h3>SeaducedExperience</h3>
-                        <p class="desc">Tourist website designed to present and sell private boat experiences, focusing
-                            on clarity, premium aesthetics and conversion, optimized for simple and responsive
-                            navigation on all devices.</p>
-                    </div>
-
-                    <div class="project-carousel-wrapper"
-                        data-images='["../src/copenhagen/seaduced-experience-1-opt.webp", "../src/copenhagen/seaduced-experience-2-opt.webp", "../src/copenhagen/seaduced-experience-3-opt.webp", "../src/copenhagen/seaduced-experience-4-opt.webp"]'>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- ================= MANAGEMENT SYSTEMS ================= -->
-            <div class="portfolio-section-header" style="margin-top: 120px;">
-              <h2>Management</h2>
-            </div>
-            <div class="projects-container" style="margin-top: 0;">
-
-                <!-- Automated Ordering System -->
-                <div class="project-row" data-aos="fade-up" data-track-cta="click_portfolio_ordering_system"
-                    data-track-section="portfolio" data-track-type="project"
-                    data-track-label="automated_ordering_system">
-                    <div class="project-info">
-                        <h3>Automated Ordering System</h3>
-                        <p class="desc">Web system designed to structure and automate orders from WhatsApp and
-                            Instagram, eliminating manual management and organizing operations into a clear and
-                            centralized flow.</p>
-                        <p class="desc">Includes digital catalog, automatic order capture, real-time administrative
-                            panel and control of products, sales and customers, reducing errors and improving
-                            operational efficiency.</p>
-                    </div>
-
-                    <div class="project-carousel-wrapper"
-                        data-images='["../src/gestion-whatsapp/sistema-pedidos-automatizado-1-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-2-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-3-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-4-opt.webp", "../src/gestion-whatsapp/sistema-pedidos-automatizado-5-opt.webp"]'>
-                    </div>
-                </div>
-
-                <!-- Rebels Kite School -->
-                <div class="project-row" data-aos="fade-up">
-                    <div class="project-info">
-                        <h3>Rebels Kite School</h3>
-                        <p class="desc">Web management system developed for surf and kite schools, designed to organize
-                            classes, instructors, students, payments and billing through an interactive calendar,
-                            status control and role-differentiated panels.</p>
-                    </div>
-
-                    <div class="project-carousel-wrapper"
-                        data-images='["../src/rebels/rebels-kite-school-1-opt.webp", "../src/rebels/rebels-kite-school-2-opt.webp", "../src/rebels/rebels-kite-school-3-opt.webp", "../src/rebels/rebels-kite-school-4-opt.webp", "../src/rebels/rebels-kite-school-5-opt.webp"]'>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="container" style="margin-top: 80px;">
-            <div class="footer">
-                <div>© 2026 Leba</div>
-                <div class="footer-contact">
-                    <span class="footer-contact-label">Contact</span>
-                    <a href="mailto:contact@weareleba.com" class="footer-email"
-                        title="Contact us by email">contact@weareleba.com</a>
-                    <div class="footer-socials">
-                        <a href="https://www.linkedin.com/company/weareleba/" target="_blank" rel="noopener"
-                            title="LinkedIn">
-                            <i class="ph ph-linkedin-logo"></i>
-                        </a>
-                        <a href="https://www.instagram.com/weare.leba?igsh=azZoaHoxOGt2Nmll" target="_blank"
-                            rel="noopener" title="Instagram">
-                            <i class="ph ph-instagram-logo"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <a href="../privacy-policy.html" title="Privacy policy">Privacy</a>
-                    <a href="../terms-of-service.html" title="Terms and conditions">Terms</a>
-                    <a href="../automate-whatsapp-orders.html" title="Automate WhatsApp Orders"
-                        data-track-section="footer" data-track-type="navigation"
-                        style="font-size: 0.75rem; opacity: 0.5;">WhatsApp Automation</a>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner">
-        <div class="cookie-content">
-            <div class="cookie-title">
-                <i class="ph ph-cookie" style="font-size: 20px;"></i>
-                We use cookies
-            </div>
-            <p class="cookie-text">
-                We use cookies (including Google Analytics) to understand how you interact with our website and improve
-                your experience. By accepting, you help us optimize the platform.
-            </p>
         </div>
-        <div class="cookie-actions">
-            <button id="decline-cookies" class="btn btn-outline" data-track-cta="decline_cookies"
-                data-track-section="cookie_banner" data-track-type="interaction">Decline</button>
-            <button id="accept-cookies" class="btn btn-primary" data-track-cta="accept_cookies"
-                data-track-section="cookie_banner" data-track-type="interaction">Accept All</button>
-        </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-    <script src="../js/script.js" defer></script>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+        <script src="../js/script.js" defer></script>
 
-    <script>
-        // Init AOS once the whole page has loaded to avoid blocking the main thread during render.
-        window.addEventListener('load', function () {
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    once: true,
-                    offset: 50,
-                    duration: 600,
-                    easing: 'ease-out-cubic',
-                    disable: function () {
-                        // Honor reduced motion + skip on tiny low-power devices
-                        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    }
-                });
-            }
-        });
-
-        // Lazy Calendly: load JS+CSS only when the user clicks "View times"
-        // or comes within 600 px of the placeholder via scroll (whichever first).
-        (function () {
-            var mount = document.getElementById('calendly-mount');
-            var btn = document.getElementById('calendly-load-btn');
-            if (!mount) return;
-            var loaded = false;
-
-            function loadCalendly() {
-                if (loaded) return;
-                loaded = true;
-                // CSS
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'https://assets.calendly.com/assets/external/widget.css';
-                document.head.appendChild(link);
-                // JS
-                var s = document.createElement('script');
-                s.src = 'https://assets.calendly.com/assets/external/widget.js';
-                s.async = true;
-                s.onload = function () {
-                    mount.classList.remove('calendly-placeholder');
-                    mount.classList.add('calendly-inline-widget', 'calendly-wrapper');
-                    mount.setAttribute('data-url', 'https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1');
-                    // Calendly's script auto-initializes elements with calendly-inline-widget class
-                };
-                document.body.appendChild(s);
-            }
-
-            // Trigger on click
-            btn.addEventListener('click', loadCalendly);
-
-            // Trigger on scroll
-            window.addEventListener('scroll', function () {
-                if (loaded) return;
-                var rect = mount.getBoundingClientRect();
-                if (rect.top < window.innerHeight + 600) {
-                    loadCalendly();
-                }
-            }, { passive: true });
-        })();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const homeView = document.getElementById('home-view');
-            const portfolioView = document.getElementById('portfolio-view');
-
-            const homeNav = document.getElementById('home-nav-links');
-
-            const openPortfolioLink = document.getElementById('open-portfolio-link');
-            const heroOpenPortfolio = document.getElementById('hero-open-portfolio');
-            const backHomeLink = document.getElementById('back-home-link');
-            const portfolioContactLink = document.getElementById('portfolio-contact-link');
-            const logoHomeLink = document.getElementById('logo-home-link');
-
-            function scrollToTarget(selector, smooth = true) {
-                const target = document.querySelector(selector);
-                if (!target) return;
-
-                requestAnimationFrame(() => {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: smooth ? 'smooth' : 'auto'
+        <script>
+            // Init AOS once the whole page has loaded to avoid blocking the main thread during render.
+            window.addEventListener('load', function () {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        once: true,
+                        offset: 50,
+                        duration: 600,
+                        easing: 'ease-out-cubic',
+                        disable: function () {
+                            // Honor reduced motion + skip on tiny low-power devices
+                            return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                        }
                     });
-                });
-            }
-
-            function resetMobileNavState() {
-                if (homeNav) homeNav.classList.remove('active');
-                if (portfolioNav) portfolioNav.classList.remove('active');
-                const mobileToggle = document.querySelector('.mobile-toggle');
-                if (mobileToggle) {
-                    mobileToggle.setAttribute('aria-expanded', 'false');
                 }
-            }
-
-            function showHome(scrollToSelector = null) {
-                window.__lebaViewState = 'home';
-                window.scrollTo({ top: 0, behavior: 'instant' });
-
-                homeView.style.display = 'block';
-                portfolioView.style.display = 'none';
-
-                if (homeNav) homeNav.style.display = 'flex';
-                resetMobileNavState();
-
-                document.title = 'Leba | Digital Systems Studio';
-
-                setTimeout(() => {
-                    if (typeof AOS !== 'undefined') {
-                        AOS.refreshHard();
-                    }
-
-                    if (scrollToSelector) {
-                        scrollToTarget(scrollToSelector, false);
-                    }
-                }, 50);
-            }
-
-            function showPortfolio() {
-                window.__lebaViewState = 'portfolio';
-                window.scrollTo({ top: 0, behavior: 'instant' });
-
-                homeView.style.display = 'none';
-                portfolioView.style.display = 'block';
-
-                if (homeNav) homeNav.style.display = 'flex'; // Keep the same nav visible
-                resetMobileNavState();
-
-                document.title = 'Leba | Portfolio';
-
-                setTimeout(() => {
-                    if (typeof AOS !== 'undefined') {
-                        AOS.refreshHard();
-                    }
-                }, 50);
-            }
-
-            if (openPortfolioLink) {
-                openPortfolioLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showPortfolio();
-                });
-            }
-
-            if (heroOpenPortfolio) {
-                heroOpenPortfolio.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showPortfolio();
-                });
-            }
-
-            if (backHomeLink) {
-                backHomeLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showHome();
-                });
-            }
-
-            if (logoHomeLink) {
-                logoHomeLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showHome();
-                });
-            }
-
-            if (portfolioContactLink) {
-                portfolioContactLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showHome('#contact');
-                });
-            }
-
-            document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = link.getAttribute('href');
-                    if (!href || href === '#') return;
-
-                    e.preventDefault();
-
-                    if (href === '#portfolio') {
-                        showPortfolio();
-                    } else if (portfolioView.style.display === 'block') {
-                        showHome(href);
-                    } else {
-                        scrollToTarget(href, true);
-                    }
-                });
             });
-        });
-    </script>
 
-    <script> // Carousel Script
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.project-carousel-wrapper').forEach((wrapper) => {
-                try {
-                    const images = JSON.parse(wrapper.dataset.images || '[]');
-                    if (!images || images.length === 0) return;
+            // Lazy Calendly: load JS+CSS only when the user clicks "View times"
+            // or comes within 600 px of the placeholder via scroll (whichever first).
+            (function () {
+                var mount = document.getElementById('calendly-mount');
+                var btn = document.getElementById('calendly-load-btn');
+                if (!mount) return;
+                var loaded = false;
 
-                    // Get project title from parent info if possible
-                    const projectInfo = wrapper.closest('.project-row')?.querySelector('h3');
-                    const projectLabel = projectInfo ? projectInfo.innerText.toLowerCase().replace(/\s+/g, '_') : 'unknown';
+                function loadCalendly() {
+                    if (loaded) return;
+                    loaded = true;
+                    // CSS
+                    var link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+                    document.head.appendChild(link);
+                    // JS
+                    var s = document.createElement('script');
+                    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+                    s.async = true;
+                    s.onload = function () {
+                        mount.classList.remove('calendly-placeholder');
+                        mount.classList.add('calendly-inline-widget', 'calendly-wrapper');
+                        mount.setAttribute('data-url', 'https://calendly.com/nicolasllanossw/reunion-15-min-iagency?hide_event_type_details=1&hide_gdpr_banner=1');
+                        // Calendly's script auto-initializes elements with calendly-inline-widget class
+                    };
+                    document.body.appendChild(s);
+                }
 
-                    let currentSlide = 0;
+                // Trigger on click
+                btn.addEventListener('click', loadCalendly);
 
-                    const track = document.createElement('div');
-                    track.className = 'carousel-track';
-                    wrapper.appendChild(track);
+                // Trigger on scroll
+                window.addEventListener('scroll', function () {
+                    if (loaded) return;
+                    var rect = mount.getBoundingClientRect();
+                    if (rect.top < window.innerHeight + 600) {
+                        loadCalendly();
+                    }
+                }, { passive: true });
+            })();
 
-                    const toWebp = (src) => src.replace(/\.(png|jpe?g)$/i, `-800.webp`);
-                    const slideEls = [];
-                    images.forEach((src, idx) => {
-                        const slide = document.createElement('img');
-                        slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
-                        slide.src = toWebp(src);
-                        slide.loading = idx === 0 ? 'eager' : 'lazy';
-                        slide.decoding = 'async';
-                        slide.width = 800; slide.height = 450;
-                        slide.onerror = function () { this.onerror = null; this.src = src; };
-                        slide.alt = `${projectInfo ? projectInfo.innerText : 'Project'} - Slide ${idx + 1}`;
-                        slide.title = slide.alt;
-                        track.appendChild(slide);
-                        slideEls.push(slide);
-                    });
+            document.addEventListener('DOMContentLoaded', () => {
+                const homeView = document.getElementById('home-view');
+                const portfolioView = document.getElementById('portfolio-view');
 
-                    if (images.length > 1) {
-                        const controls = document.createElement('div');
-                        controls.className = 'carousel-controls';
+                const homeNav = document.getElementById('home-nav-links');
 
-                        const prevBtn = document.createElement('button');
-                        prevBtn.className = 'carousel-btn prev';
-                        prevBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" aria-hidden="true"><path d="M160,208,80,128l80-80"/></svg>';
-                        prevBtn.setAttribute('data-track-cta', `carousel_prev_${projectLabel}`);
-                        prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
-                        prevBtn.setAttribute('data-track-type', 'engagement');
-                        prevBtn.setAttribute('data-track-label', projectLabel);
-                        controls.appendChild(prevBtn);
+                const openPortfolioLink = document.getElementById('open-portfolio-link');
+                const heroOpenPortfolio = document.getElementById('hero-open-portfolio');
+                const backHomeLink = document.getElementById('back-home-link');
+                const portfolioContactLink = document.getElementById('portfolio-contact-link');
+                const logoHomeLink = document.getElementById('logo-home-link');
 
-                        const nextBtn = document.createElement('button');
-                        nextBtn.className = 'carousel-btn next';
-                        nextBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" aria-hidden="true"><path d="M96,208l80-80L96,48"/></svg>';
-                        nextBtn.setAttribute('data-track-cta', `carousel_next_${projectLabel}`);
-                        nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
-                        nextBtn.setAttribute('data-track-type', 'engagement');
-                        nextBtn.setAttribute('data-track-label', projectLabel);
-                        controls.appendChild(nextBtn);
+                function scrollToTarget(selector, smooth = true) {
+                    const target = document.querySelector(selector);
+                    if (!target) return;
 
-                        wrapper.appendChild(controls);
+                    requestAnimationFrame(() => {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                        const dotsContainer = document.createElement('div');
-                        dotsContainer.className = 'carousel-dots';
-
-                        const dotEls = [];
-                        images.forEach((_, idx) => {
-                            const dot = document.createElement('div');
-                            dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-                            dot.setAttribute('data-track-cta', `carousel_dot_${projectLabel}`);
-                            dot.setAttribute('data-track-section', 'portfolio_carousel');
-                            dot.setAttribute('data-track-type', 'engagement');
-                            dot.setAttribute('data-track-label', `${projectLabel}_dot_${idx}`);
-                            dot.addEventListener('click', () => goToSlide(idx));
-                            dotsContainer.appendChild(dot);
-                            dotEls.push(dot);
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: smooth ? 'smooth' : 'auto'
                         });
-                        wrapper.appendChild(dotsContainer);
-
-                        const goToSlide = (index) => {
-                            slideEls[currentSlide].classList.remove('active');
-                            dotEls[currentSlide].classList.remove('active');
-
-                            currentSlide = index;
-                            if (currentSlide < 0) currentSlide = images.length - 1;
-                            if (currentSlide >= images.length) currentSlide = 0;
-
-                            slideEls[currentSlide].classList.add('active');
-                            dotEls[currentSlide].classList.add('active');
-                        };
-
-                        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-                        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-                    }
-
-                } catch (e) {
-                    console.error("Error setting up carousel", e);
+                    });
                 }
-            });
 
-            // HTML Carousel Navigation logic for Assistant
-            const assistantCarousel = document.getElementById('assistant-carousel');
-            if (assistantCarousel) {
-                const slides = assistantCarousel.querySelectorAll('.carousel-slide');
-                const prevBtn = assistantCarousel.querySelector('.prev');
-                const nextBtn = assistantCarousel.querySelector('.next');
-                const dots = assistantCarousel.querySelectorAll('.carousel-dot');
-                let current = 0;
+                function resetMobileNavState() {
+                    if (homeNav) homeNav.classList.remove('active');
+                    if (portfolioNav) portfolioNav.classList.remove('active');
+                    const mobileToggle = document.querySelector('.mobile-toggle');
+                    if (mobileToggle) {
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                }
 
-                const update = (idx) => {
-                    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
-                    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-                    current = idx;
-                };
+                function showHome(scrollToSelector = null) {
+                    window.__lebaViewState = 'home';
+                    window.scrollTo({ top: 0, behavior: 'instant' });
 
-                prevBtn?.addEventListener('click', () => update((current - 1 + slides.length) % slides.length));
-                nextBtn?.addEventListener('click', () => update((current + 1) % slides.length));
-                dots.forEach((dot, i) => dot.addEventListener('click', () => update(i)));
-            }
+                    homeView.style.display = 'block';
+                    portfolioView.style.display = 'none';
 
-            // Clickable project rows with data-href
-            document.querySelectorAll('.project-row[data-href]').forEach((row) => {
-                row.style.cursor = 'pointer';
-                row.addEventListener('click', (e) => {
-                    if (e.target.closest('.carousel-btn, .carousel-dot')) return;
-                    window.open(row.dataset.href, '_blank', 'noopener,noreferrer');
+                    if (homeNav) homeNav.style.display = 'flex';
+                    resetMobileNavState();
+
+                    document.title = 'Leba | Digital Systems Studio';
+
+                    setTimeout(() => {
+                        if (typeof AOS !== 'undefined') {
+                            AOS.refreshHard();
+                        }
+
+                        if (scrollToSelector) {
+                            scrollToTarget(scrollToSelector, false);
+                        }
+                    }, 50);
+                }
+
+                function showPortfolio() {
+                    window.__lebaViewState = 'portfolio';
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+
+                    homeView.style.display = 'none';
+                    portfolioView.style.display = 'block';
+
+                    if (homeNav) homeNav.style.display = 'flex'; // Keep the same nav visible
+                    resetMobileNavState();
+
+                    document.title = 'Leba | Portfolio';
+
+                    setTimeout(() => {
+                        if (typeof AOS !== 'undefined') {
+                            AOS.refreshHard();
+                        }
+                    }, 50);
+                }
+
+                if (openPortfolioLink) {
+                    openPortfolioLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showPortfolio();
+                    });
+                }
+
+                if (heroOpenPortfolio) {
+                    heroOpenPortfolio.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showPortfolio();
+                    });
+                }
+
+                if (backHomeLink) {
+                    backHomeLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showHome();
+                    });
+                }
+
+                if (logoHomeLink) {
+                    logoHomeLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showHome();
+                    });
+                }
+
+                if (portfolioContactLink) {
+                    portfolioContactLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showHome('#contact');
+                    });
+                }
+
+                document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        const href = link.getAttribute('href');
+                        if (!href || href === '#') return;
+
+                        e.preventDefault();
+
+                        if (href === '#portfolio') {
+                            showPortfolio();
+                        } else if (portfolioView.style.display === 'block') {
+                            showHome(href);
+                        } else {
+                            scrollToTarget(href, true);
+                        }
+                    });
                 });
             });
-        });
+        </script>
 
-    </script>
+        <script> // Carousel Script
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.project-carousel-wrapper').forEach((wrapper) => {
+                    try {
+                        const images = JSON.parse(wrapper.dataset.images || '[]');
+                        if (!images || images.length === 0) return;
+
+                        // Get project title from parent info if possible
+                        const projectInfo = wrapper.closest('.project-row')?.querySelector('h3');
+                        const projectLabel = projectInfo ? projectInfo.innerText.toLowerCase().replace(/\s+/g, '_') : 'unknown';
+
+                        let currentSlide = 0;
+
+                        const track = document.createElement('div');
+                        track.className = 'carousel-track';
+                        wrapper.appendChild(track);
+
+                        const toWebp = (src) => src.replace(/\.(png|jpe?g)$/i, `-800.webp`);
+                        const slideEls = [];
+                        images.forEach((src, idx) => {
+                            const slide = document.createElement('img');
+                            slide.className = 'carousel-slide' + (idx === 0 ? ' active' : '');
+                            slide.src = toWebp(src);
+                            slide.loading = idx === 0 ? 'eager' : 'lazy';
+                            slide.decoding = 'async';
+                            slide.width = 800; slide.height = 450;
+                            slide.onerror = function () { this.onerror = null; this.src = src; };
+                            slide.alt = `${projectInfo ? projectInfo.innerText : 'Project'} - Slide ${idx + 1}`;
+                            slide.title = slide.alt;
+                            track.appendChild(slide);
+                            slideEls.push(slide);
+                        });
+
+                        if (images.length > 1) {
+                            const controls = document.createElement('div');
+                            controls.className = 'carousel-controls';
+
+                            const prevBtn = document.createElement('button');
+                            prevBtn.className = 'carousel-btn prev';
+                            prevBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" aria-hidden="true"><path d="M160,208,80,128l80-80"/></svg>';
+                            prevBtn.setAttribute('data-track-cta', `carousel_prev_${projectLabel}`);
+                            prevBtn.setAttribute('data-track-section', 'portfolio_carousel');
+                            prevBtn.setAttribute('data-track-type', 'engagement');
+                            prevBtn.setAttribute('data-track-label', projectLabel);
+                            controls.appendChild(prevBtn);
+
+                            const nextBtn = document.createElement('button');
+                            nextBtn.className = 'carousel-btn next';
+                            nextBtn.innerHTML = '<svg viewBox="0 0 256 256" width="20" height="20" fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" aria-hidden="true"><path d="M96,208l80-80L96,48"/></svg>';
+                            nextBtn.setAttribute('data-track-cta', `carousel_next_${projectLabel}`);
+                            nextBtn.setAttribute('data-track-section', 'portfolio_carousel');
+                            nextBtn.setAttribute('data-track-type', 'engagement');
+                            nextBtn.setAttribute('data-track-label', projectLabel);
+                            controls.appendChild(nextBtn);
+
+                            wrapper.appendChild(controls);
+
+                            const dotsContainer = document.createElement('div');
+                            dotsContainer.className = 'carousel-dots';
+
+                            const dotEls = [];
+                            images.forEach((_, idx) => {
+                                const dot = document.createElement('div');
+                                dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+                                dot.setAttribute('data-track-cta', `carousel_dot_${projectLabel}`);
+                                dot.setAttribute('data-track-section', 'portfolio_carousel');
+                                dot.setAttribute('data-track-type', 'engagement');
+                                dot.setAttribute('data-track-label', `${projectLabel}_dot_${idx}`);
+                                dot.addEventListener('click', () => goToSlide(idx));
+                                dotsContainer.appendChild(dot);
+                                dotEls.push(dot);
+                            });
+                            wrapper.appendChild(dotsContainer);
+
+                            const goToSlide = (index) => {
+                                slideEls[currentSlide].classList.remove('active');
+                                dotEls[currentSlide].classList.remove('active');
+
+                                currentSlide = index;
+                                if (currentSlide < 0) currentSlide = images.length - 1;
+                                if (currentSlide >= images.length) currentSlide = 0;
+
+                                slideEls[currentSlide].classList.add('active');
+                                dotEls[currentSlide].classList.add('active');
+                            };
+
+                            prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+                            nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+                        }
+
+                    } catch (e) {
+                        console.error("Error setting up carousel", e);
+                    }
+                });
+
+                // HTML Carousel Navigation logic for Assistant
+                const assistantCarousel = document.getElementById('assistant-carousel');
+                if (assistantCarousel) {
+                    const slides = assistantCarousel.querySelectorAll('.carousel-slide');
+                    const prevBtn = assistantCarousel.querySelector('.prev');
+                    const nextBtn = assistantCarousel.querySelector('.next');
+                    const dots = assistantCarousel.querySelectorAll('.carousel-dot');
+                    let current = 0;
+
+                    const update = (idx) => {
+                        slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+                        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                        current = idx;
+                    };
+
+                    prevBtn?.addEventListener('click', () => update((current - 1 + slides.length) % slides.length));
+                    nextBtn?.addEventListener('click', () => update((current + 1) % slides.length));
+                    dots.forEach((dot, i) => dot.addEventListener('click', () => update(i)));
+                }
+
+                // Clickable project rows with data-href
+                document.querySelectorAll('.project-row[data-href]').forEach((row) => {
+                    row.style.cursor = 'pointer';
+                    row.addEventListener('click', (e) => {
+                        if (e.target.closest('.carousel-btn, .carousel-dot')) return;
+                        window.open(row.dataset.href, '_blank', 'noopener,noreferrer');
+                    });
+                });
+            });
+
+        </script>
 
 </body>
 
