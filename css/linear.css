@@ -953,7 +953,7 @@ a {
   aspect-ratio: 1 / 1;
   height: auto;
   border-radius: 16px;
-  background: #ffffff;
+  background: #000000;
   margin: 0 auto 32px;
   border: 1px solid var(--border-light);
   overflow: hidden;
